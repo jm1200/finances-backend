@@ -20,8 +20,8 @@ export class Transaction extends BaseEntity {
   @Column()
   datePosted: String;
 
-  @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Field()
+  @Column()
   name: String;
 
   @Field()

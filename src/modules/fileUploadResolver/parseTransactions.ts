@@ -60,24 +60,19 @@ function parseTransObj(
     type: transObj.TRNTYPE,
     datePosted: formatDate(transObj.DTPOSTED),
     transId: transObj.FITID,
-    name: transObj.NAME,
+    name: transObj.NAME ? transObj.NAME : "",
     memo: transObj.MEMO,
-    amount: transObj.TRNAMT
+    amount: transObj.TRNAMT,
   }));
 
   return {
     account,
     rangeStart: formatDate(start),
     rangeEnd: formatDate(end),
-    transactions
+    transactions,
   };
 }
 
 const formatDate = (date: String) => {
-  return moment(
-    date
-      .split("")
-      .slice(0, 8)
-      .join("")
-  ).format("MMM Do YYYY");
+  return moment(date.split("").slice(0, 8).join("")).format("MMM Do YYYY");
 };
