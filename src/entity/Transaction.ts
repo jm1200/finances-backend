@@ -1,5 +1,5 @@
 import { Entity, Column, BaseEntity, PrimaryColumn } from "typeorm";
-import { ObjectType, Field } from "type-graphql";
+import { ObjectType, Field, Float } from "type-graphql";
 
 @ObjectType()
 @Entity("transactions")
@@ -28,7 +28,7 @@ export class Transaction extends BaseEntity {
   @Column()
   memo: String;
 
-  @Field()
+  @Field(() => Float)
   @Column()
-  amount: String;
+  amount: number;
 }

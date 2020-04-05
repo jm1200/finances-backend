@@ -1,18 +1,18 @@
 import moment from "moment";
 
 export class Transaction {
-  account: String;
-  type: String;
-  datePosted: String;
-  transId: String;
-  name: String;
-  memo: String;
-  amount: String;
+  account: string;
+  type: string;
+  datePosted: string;
+  transId: string;
+  name: string;
+  memo: string;
+  amount: number;
 }
 export class TransResponse {
-  account: String;
-  rangeStart: String;
-  rangeEnd: String;
+  account: string;
+  rangeStart: string;
+  rangeEnd: string;
   transactions: Transaction[];
 }
 export const parseTransactions = (parsedData: any) => {
@@ -50,9 +50,9 @@ export const parseTransactions = (parsedData: any) => {
 };
 
 function parseTransObj(
-  account: String,
-  start: String,
-  end: String,
+  account: string,
+  start: string,
+  end: string,
   trans: [Transaction]
 ): TransResponse {
   let transactions = trans.map((transObj: any) => ({
@@ -62,7 +62,7 @@ function parseTransObj(
     transId: transObj.FITID,
     name: transObj.NAME ? transObj.NAME : "",
     memo: transObj.MEMO,
-    amount: transObj.TRNAMT,
+    amount: parseFloat(transObj.TRNAMT),
   }));
 
   return {
