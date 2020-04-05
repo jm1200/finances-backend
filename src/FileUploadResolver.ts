@@ -20,6 +20,8 @@ class UploadResponse {
   @Field()
   uploaded: boolean;
   @Field()
+  name: string;
+  @Field()
   account?: string;
   @Field()
   rangeStart?: string;
@@ -35,12 +37,9 @@ export class FileUploadResolver {
   async uploadFile(
     @Arg("file", () => GraphQLUpload!) file: Upload
   ): Promise<UploadResponse> {
-    const filepath: string = path.join(
-      __dirname,
-      "../tempFiles",
-      file.filename
-    );
-    await new Promise(resolve => {
+    const fileName = file.filename;
+    const filepath: string = path.join(__dirname, "../tempFiles", fileName);
+    await new Promise((resolve) => {
       file
         .createReadStream()
         .pipe(createWriteStream(filepath))
@@ -51,25 +50,24 @@ export class FileUploadResolver {
     const data = fs.readFileSync(filepath, { encoding: "utf8" });
     if (!data) {
       throw new Error("Could not read file");
-      return { uploaded: false };
     }
 
     const parsedData = await parse(data);
     if (!parsedData) {
       throw new Error("could not parse file");
-      return { uploaded: false };
     }
 
     let transactions = parseTransactions(parsedData);
 
-    console.log("TRANSACTIONS: ", transactions);
-    Transaction.insert(transactions.transactions);
+    //console.log("TRANSACTIONS: ", transactions);
+    //Transaction.insert(transactions.transactions);
     return {
       uploaded: true,
+      name: fileName,
       account: transactions.account,
       rangeStart: transactions.rangeStart,
       rangeEnd: transactions.rangeEnd,
-      transactions: transactions.transactions
+      transactions: transactions.transactions,
     };
   }
 }
