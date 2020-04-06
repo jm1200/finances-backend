@@ -1,4 +1,12 @@
-import { Resolver, Mutation, Arg, ObjectType, Field } from "type-graphql";
+import {
+  Resolver,
+  Mutation,
+  Arg,
+  ObjectType,
+  Field,
+  InputType,
+  Float,
+} from "type-graphql";
 import { GraphQLUpload } from "apollo-server-express";
 const path = require("path");
 import { Stream } from "stream";
@@ -13,6 +21,29 @@ export interface Upload {
   mimetype: string;
   encoding: string;
   createReadStream: () => Stream;
+}
+@InputType()
+export class TransactionInput {
+  @Field()
+  transId: String;
+
+  @Field()
+  account: String;
+
+  @Field()
+  type: String;
+
+  @Field()
+  datePosted: String;
+
+  @Field()
+  name: String;
+
+  @Field()
+  memo: String;
+
+  @Field(() => Float)
+  amount: number;
 }
 
 @ObjectType()
@@ -59,8 +90,12 @@ export class FileUploadResolver {
 
     let transactions = parseTransactions(parsedData);
 
-    console.log("TRANSACTIONS: ", transactions);
-    Transaction.insert(transactions.transactions);
+    try {
+      fs.unlinkSync(filepath);
+    } catch (err) {
+      console.log("could not delete file", err);
+    }
+
     return {
       uploaded: true,
       name: fileName,
@@ -69,5 +104,14 @@ export class FileUploadResolver {
       rangeEnd: transactions.rangeEnd,
       transactions: transactions.transactions,
     };
+  }
+
+  @Mutation(() => Boolean)
+  async submitTransactions(
+    @Arg("transactions", () => [TransactionInput]) transactions: Transaction[]
+  ): Promise<boolean> {
+    console.log("TRANSACTIONS: ", transactions);
+    Transaction.insert(transactions);
+    return true;
   }
 }
