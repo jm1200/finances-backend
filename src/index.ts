@@ -22,7 +22,7 @@ import { UserSettingsResolver } from "./UserSettingsResolver";
   app.use(
     cors({
       credentials: true,
-      origin: "http://localhost:3000"
+      origin: "http://localhost:3000",
     })
   );
 
@@ -78,9 +78,10 @@ import { UserSettingsResolver } from "./UserSettingsResolver";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [UserResolver, FileUploadResolver, UserSettingsResolver]
+      resolvers: [UserResolver, FileUploadResolver, UserSettingsResolver],
+      dateScalarMode: "timestamp",
     }),
-    context: ({ req, res }) => ({ req, res })
+    context: ({ req, res }) => ({ req, res }),
   });
 
   apolloServer.applyMiddleware({ app, cors: false });

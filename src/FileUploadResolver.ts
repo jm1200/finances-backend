@@ -59,8 +59,8 @@ export class FileUploadResolver {
 
     let transactions = parseTransactions(parsedData);
 
-    //console.log("TRANSACTIONS: ", transactions);
-    //Transaction.insert(transactions.transactions);
+    console.log("TRANSACTIONS: ", transactions);
+    Transaction.insert(transactions.transactions);
     return {
       uploaded: true,
       name: fileName,

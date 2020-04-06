@@ -1,4 +1,4 @@
-import moment from "moment";
+//import moment from "moment";
 
 export class Transaction {
   account: string;
@@ -67,12 +67,22 @@ function parseTransObj(
 
   return {
     account,
-    rangeStart: formatDate(start),
-    rangeEnd: formatDate(end),
+    rangeStart: `${formatDate(start)}`,
+    rangeEnd: `${formatDate(end)}`,
     transactions,
   };
 }
 
 const formatDate = (date: String) => {
-  return moment(date.split("").slice(0, 8).join("")).format("MMM Do YYYY");
+  //console.log("date test");
+  //const dateFromFile = date.split("").slice(0, 8).join("");
+  //console.log("Date from file: ", dateFromFile);
+  const timestamp = date.split("").slice(0, 8).join("");
+
+  //console.log("timestamp??", timestamp);
+  // console.log(
+  //   "format timestamp: ",
+  //   moment(parseInt(timestamp)).format("YYYY-MM-DD")
+  // );
+  return timestamp;
 };
