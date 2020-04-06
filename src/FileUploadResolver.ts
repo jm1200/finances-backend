@@ -6,6 +6,7 @@ import {
   Field,
   InputType,
   Float,
+  Ctx,
 } from "type-graphql";
 import { GraphQLUpload } from "apollo-server-express";
 const path = require("path");
@@ -14,6 +15,7 @@ import { createWriteStream } from "fs";
 import { parse } from "ofx-js";
 import { parseTransactions } from "./modules/fileUploadResolver/parseTransactions";
 import { Transaction } from "./entity/Transaction";
+import { MyContext } from "./MyContext";
 const fs = require("fs");
 
 export interface Upload {
@@ -61,6 +63,13 @@ class UploadResponse {
   @Field(() => [Transaction])
   transactions?: Transaction[];
 }
+@ObjectType()
+class SubmitTransactionsResponse {
+  @Field()
+  inserted: boolean;
+  @Field()
+  message: string;
+}
 
 @Resolver()
 export class FileUploadResolver {
@@ -106,12 +115,17 @@ export class FileUploadResolver {
     };
   }
 
-  @Mutation(() => Boolean)
+  @Mutation(() => SubmitTransactionsResponse)
   async submitTransactions(
     @Arg("transactions", () => [TransactionInput]) transactions: Transaction[]
-  ): Promise<boolean> {
+  ): Promise<SubmitTransactionsResponse> {
     console.log("TRANSACTIONS: ", transactions);
-    Transaction.insert(transactions);
-    return true;
+    try {
+      await Transaction.insert(transactions);
+      return { inserted: true, message: "Inserted transactions successfully" };
+    } catch (err) {
+      //res.send("Duplicate values");
+      return { inserted: false, message: "failed to insert transactions" };
+    }
   }
 }

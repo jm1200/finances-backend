@@ -84,7 +84,11 @@ import { UserSettingsResolver } from "./UserSettingsResolver";
     context: ({ req, res }) => ({ req, res }),
   });
 
-  apolloServer.applyMiddleware({ app, cors: false });
+  apolloServer.applyMiddleware({
+    app,
+    cors: false,
+    bodyParserConfig: { limit: "100mb" },
+  });
 
   app.listen(4000, () => {
     console.log("Express server started at http://localhost:4000");
