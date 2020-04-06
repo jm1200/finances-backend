@@ -4,11 +4,11 @@ import {
   Mutation,
   Arg,
   UseMiddleware,
-  Int
+  Int,
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
-import { isAuth } from "./isAuth";
-import { UserSettings } from "./entity/UserSettings";
+import { isAuth } from "../../isAuth";
+import { UserSettings } from "../../entity/UserSettings";
 
 @Resolver()
 export class UserSettingsResolver extends BaseEntity {

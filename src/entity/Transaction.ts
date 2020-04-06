@@ -3,7 +3,7 @@ import { ObjectType, Field, Float } from "type-graphql";
 
 @ObjectType()
 @Entity("transactions")
-export class Transaction extends BaseEntity {
+export class TransactionEntity extends BaseEntity {
   @Field()
   @PrimaryColumn()
   transId: String;

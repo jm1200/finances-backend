@@ -2,8 +2,8 @@ import { Connection } from "typeorm";
 
 import { graphqlTestCall } from "./graphqlTestCall";
 import { createTestConn } from "./createTestConn";
-import { User } from "./entity/User";
-import { UserSettings } from "./entity/UserSettings";
+import { User } from "../entity/User";
+import { UserSettings } from "../entity/UserSettings";
 //import { verify } from "jsonwebtoken";
 //import TestConnection from './createTestConn'
 
@@ -85,15 +85,15 @@ describe("resolvers", () => {
 
     const registerResponse = await graphqlTestCall(registerMutation, {
       email: testUser.email,
-      password: testUser.password
+      password: testUser.password,
     });
 
     expect(registerResponse!.data!.register.user).toEqual({
       id: 1,
-      email: "test1@test.com"
+      email: "test1@test.com",
     });
     expect(registerResponse!.data!.register.userSettings).toEqual({
-      theme: "dark"
+      theme: "dark",
     });
     expect(registerResponse!.data!.register.accessToken).toBeDefined();
 
@@ -103,15 +103,15 @@ describe("resolvers", () => {
 
     const loginResponse = await graphqlTestCall(loginMutation, {
       email: testUser.email,
-      password: testUser.password
+      password: testUser.password,
     });
 
     expect(loginResponse!.data!.login.user).toEqual({
       id: dbUser!.id,
-      email: dbUser!.email
+      email: dbUser!.email,
     });
     expect(loginResponse!.data!.login.userSettings).toEqual({
-      theme: "dark"
+      theme: "dark",
     });
     expect(loginResponse!.data!.login.accessToken).toBeDefined();
 
@@ -122,11 +122,11 @@ describe("resolvers", () => {
     expect(meResponse!.data!.me).toEqual({
       user: {
         id: dbUser!.id,
-        email: dbUser!.email
+        email: dbUser!.email,
       },
       userSettings: {
-        theme: "dark"
-      }
+        theme: "dark",
+      },
     });
   }),
     it("tests revokeRefreshToken resolver", async () => {
@@ -134,7 +134,7 @@ describe("resolvers", () => {
 
       const registerResponse = await graphqlTestCall(registerMutation, {
         email: testUser.email,
-        password: testUser.password
+        password: testUser.password,
       });
 
       //const accessToken = registerResponse!.data!.register.accessToken;
@@ -166,7 +166,7 @@ describe("userSettingsResolver", () => {
 
     const registerResponse = await graphqlTestCall(registerMutation, {
       email: testUser.email,
-      password: testUser.password
+      password: testUser.password,
     });
 
     const userId = registerResponse!.data!.register.user.id;
@@ -185,7 +185,7 @@ describe("userSettingsResolver", () => {
       updateThemeMutation,
       {
         userId,
-        theme: "light"
+        theme: "light",
       },
       accessToken
     );

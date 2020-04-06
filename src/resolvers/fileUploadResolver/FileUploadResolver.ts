@@ -1,75 +1,17 @@
-import {
-  Resolver,
-  Mutation,
-  Arg,
-  ObjectType,
-  Field,
-  InputType,
-  Float,
-  Ctx,
-} from "type-graphql";
+import { Resolver, Mutation, Arg } from "type-graphql";
 import { GraphQLUpload } from "apollo-server-express";
 const path = require("path");
-import { Stream } from "stream";
 import { createWriteStream } from "fs";
 import { parse } from "ofx-js";
-import { parseTransactions } from "./modules/fileUploadResolver/parseTransactions";
-import { Transaction } from "./entity/Transaction";
-import { MyContext } from "./MyContext";
+import { parseTransactions } from "./parseTransactions";
+import { TransactionEntity } from "../../entity/Transaction";
+import {
+  UploadResponse,
+  Upload,
+  SubmitTransactionsResponse,
+  TransactionInput,
+} from "./types";
 const fs = require("fs");
-
-export interface Upload {
-  filename: string;
-  mimetype: string;
-  encoding: string;
-  createReadStream: () => Stream;
-}
-@InputType()
-export class TransactionInput {
-  @Field()
-  transId: String;
-
-  @Field()
-  account: String;
-
-  @Field()
-  type: String;
-
-  @Field()
-  datePosted: String;
-
-  @Field()
-  name: String;
-
-  @Field()
-  memo: String;
-
-  @Field(() => Float)
-  amount: number;
-}
-
-@ObjectType()
-class UploadResponse {
-  @Field()
-  uploaded: boolean;
-  @Field()
-  name: string;
-  @Field()
-  account?: string;
-  @Field()
-  rangeStart?: string;
-  @Field()
-  rangeEnd?: string;
-  @Field(() => [Transaction])
-  transactions?: Transaction[];
-}
-@ObjectType()
-class SubmitTransactionsResponse {
-  @Field()
-  inserted: boolean;
-  @Field()
-  message: string;
-}
 
 @Resolver()
 export class FileUploadResolver {
@@ -117,11 +59,12 @@ export class FileUploadResolver {
 
   @Mutation(() => SubmitTransactionsResponse)
   async submitTransactions(
-    @Arg("transactions", () => [TransactionInput]) transactions: Transaction[]
+    @Arg("transactions", () => [TransactionInput])
+    transactions: TransactionEntity[]
   ): Promise<SubmitTransactionsResponse> {
     console.log("TRANSACTIONS: ", transactions);
     try {
-      await Transaction.insert(transactions);
+      await TransactionEntity.insert(transactions);
       return { inserted: true, message: "Inserted transactions successfully" };
     } catch (err) {
       //res.send("Duplicate values");

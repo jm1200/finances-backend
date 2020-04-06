@@ -2,17 +2,18 @@ import "dotenv/config";
 import "reflect-metadata";
 import Express from "express";
 import { ApolloServer } from "apollo-server-express";
-import { UserResolver } from "./UserResolver";
+import cors from "cors";
 import { buildSchema } from "type-graphql";
+import { verify } from "jsonwebtoken";
 import { createConnection } from "typeorm";
 import cookieParser from "cookie-parser";
-import { verify } from "jsonwebtoken";
+
 import { User } from "./entity/User";
-import { createAccessToken, createRefreshToken } from "./auth";
-import { sendRefreshToken } from "./sendRefreshToken";
-import cors from "cors";
-import { FileUploadResolver } from "./FileUploadResolver";
-import { UserSettingsResolver } from "./UserSettingsResolver";
+import { createAccessToken, createRefreshToken } from "./utils/auth";
+import { sendRefreshToken } from "./utils/sendRefreshToken";
+import { FileUploadResolver } from "./resolvers/fileUploadResolver/FileUploadResolver";
+import { UserSettingsResolver } from "./resolvers/userSettingsResolver/UserSettingsResolver";
+import { UserResolver } from "./resolvers/userResolver/UserResolver";
 
 (async () => {
   const app = Express();

@@ -3,41 +3,21 @@ import {
   Query,
   Mutation,
   Arg,
-  ObjectType,
-  Field,
   Ctx,
   UseMiddleware,
-  Int
+  Int,
 } from "type-graphql";
 import { hash, compare } from "bcryptjs";
-import { User } from "./entity/User";
-import { MyContext } from "./MyContext";
-import { createAccessToken, createRefreshToken } from "./auth";
-import { isAuth } from "./isAuth";
-import { sendRefreshToken } from "./sendRefreshToken";
+import { User } from "../../entity/User";
+import { MyContext } from "../../MyContext";
+import { createAccessToken, createRefreshToken } from "../../utils/auth";
+import { isAuth } from "../../isAuth";
+import { sendRefreshToken } from "../../utils/sendRefreshToken";
 import { getConnection } from "typeorm";
 import { verify } from "jsonwebtoken";
 import { ApolloError } from "apollo-server-express";
-import { UserSettings } from "./entity/UserSettings";
-import { RegisterInput } from "./RegisterInput";
-
-@ObjectType()
-class LoginResponse {
-  @Field()
-  accessToken: string;
-  //must explicitly define type. User not primitive
-  @Field(() => User)
-  user: User;
-  @Field(() => UserSettings)
-  userSettings: UserSettings;
-}
-@ObjectType()
-class MeResponse {
-  @Field(() => User, { nullable: true })
-  user: User | null;
-  @Field(() => UserSettings, { nullable: true })
-  userSettings: UserSettings | null;
-}
+import { UserSettings } from "../../entity/UserSettings";
+import { LoginResponse, MeResponse, RegisterInput } from "./types";
 
 @Resolver()
 export class UserResolver {
@@ -127,7 +107,7 @@ export class UserResolver {
     return {
       accessToken: createAccessToken(user),
       user,
-      userSettings: userSettings!
+      userSettings: userSettings!,
     };
   }
 
@@ -142,13 +122,13 @@ export class UserResolver {
     try {
       const userInsert = await User.insert({
         email,
-        password: hashedPassword
+        password: hashedPassword,
       });
 
       const userId: number = userInsert.raw[0].id;
       await UserSettings.insert({
         userId,
-        theme: "dark"
+        theme: "dark",
       });
     } catch (err) {
       console.log("test error", err);
