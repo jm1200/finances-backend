@@ -33,9 +33,18 @@ export class UserResolver {
     return `your user id is: ${payload!.userId}`;
   }
 
+  @Query(() => UserEntity)
+  async user(@Arg("userId") userId: number) {
+    const user = await UserEntity.findOne(userId, {
+      relations: ["userSettings"],
+    });
+    console.log(user);
+    return user;
+  }
+
   @Query(() => [UserEntity])
   users() {
-    return UserEntity.find();
+    return UserEntity.find({ relations: ["userSettings"] });
   }
 
   @Query(() => MeResponse, { nullable: true })
@@ -43,18 +52,22 @@ export class UserResolver {
     const authorization = context.req.headers["authorization"];
     //if the user did not pass in authorization inside the header, then deny access
     if (!authorization) {
-      return { user: null, userSettings: null };
+      return { user: null };
     }
     try {
       const token = authorization.split(" ")[1];
       const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
-      const user = await UserEntity.findOne(payload.userId);
-      //if there is an authorization header, there will be a user.
-      const userSettings = await UserSettingsEntity.findOne(user!.id);
-      return { user: user!, userSettings: userSettings! };
+      const user = await UserEntity.findOne(payload.userId, {
+        relations: ["userSettings"],
+      });
+
+      if (user) {
+        return { user };
+      }
+      return { user: null };
     } catch (err) {
       console.log(err);
-      return { user: null, userSettings: null };
+      return { user: null };
     }
   }
 
@@ -81,12 +94,17 @@ export class UserResolver {
   //The cookie is then used to refresh the Access token when it expires.
   //the access token is only good for 15min. The refresh for 7d. We can't make the user
   //sign in every 15 min.
+
+  //##### LOGIN MUTATION #############################################################################
   @Mutation(() => LoginResponse)
   async login(
     @Arg("data") { email, password }: RegisterInput,
     @Ctx() { res }: MyContext
   ): Promise<LoginResponse> {
-    const user = await UserEntity.findOne({ where: { email } });
+    const user = await UserEntity.findOne(
+      { email },
+      { relations: ["userSettings"] }
+    );
 
     if (!user) {
       throw new ApolloError("Invalid email");
@@ -102,39 +120,35 @@ export class UserResolver {
 
     //res.cookie send refresh token in cookie/jid
     sendRefreshToken(res, createRefreshToken(user));
-    const userSettings = await UserSettingsEntity.findOne(user.id);
 
     return {
       accessToken: createAccessToken(user),
       user,
-      userSettings: userSettings!,
     };
   }
-
+  //##### REGISTER MUTATION #############################################################################
   @Mutation(() => LoginResponse)
   async register(
     @Arg("data") { email, password }: RegisterInput,
-
     @Ctx() { req, res }: MyContext
   ): Promise<LoginResponse> {
     const hashedPassword = await hash(password, 12);
 
     try {
-      const userInsert = await UserEntity.insert({
+      const userSettings = UserSettingsEntity.create({ theme: "dark" });
+      await userSettings.save();
+
+      await UserEntity.create({
         email,
         password: hashedPassword,
-      });
+        userSettingsId: userSettings.id,
+      }).save();
 
-      const userId: number = userInsert.raw[0].id;
-      await UserSettingsEntity.insert({
-        userId,
-        theme: "dark",
-      });
+      const data = { email, password };
+      return this.login(data, { req, res });
     } catch (err) {
       console.log("test error", err);
       throw new ApolloError(err.message);
     }
-    const data = { email, password };
-    return this.login(data, { req, res });
   }
 }

@@ -12,6 +12,7 @@ import { UserSettingsEntity } from "../../entity/UserSettings";
 
 @Resolver()
 export class UserSettingsResolver extends BaseEntity {
+  //might not need this query anymore.
   @Query(() => UserSettingsEntity)
   @UseMiddleware(isAuth)
   getUserSettings(@Arg("userId", () => Int) userId: number) {
@@ -22,11 +23,11 @@ export class UserSettingsResolver extends BaseEntity {
   @UseMiddleware(isAuth)
   async updateTheme(
     @Arg("theme") theme: string,
-    @Arg("userId") userId: number
+    @Arg("id") id: number
   ): Promise<UserSettingsEntity | null> {
     try {
-      await UserSettingsEntity.update(userId, { theme });
-      const userSettings = await UserSettingsEntity.findOne(userId);
+      await UserSettingsEntity.update(id, { theme });
+      const userSettings = await UserSettingsEntity.findOne(id);
       if (userSettings) {
         return userSettings;
       }
@@ -36,3 +37,4 @@ export class UserSettingsResolver extends BaseEntity {
     return null;
   }
 }
+//TODO figure out how to update userSettings with relations.

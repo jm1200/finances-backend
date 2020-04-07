@@ -28,12 +28,16 @@ export class UserEntity extends BaseEntity {
   @Column("int", { default: 0 })
   tokenVersion: number;
 
+  @Field(() => Int)
+  @Column()
+  userSettingsId: number;
+
   @Field(() => UserSettingsEntity)
   @OneToOne(() => UserSettingsEntity)
   @JoinColumn()
   userSettings: UserSettingsEntity;
 
-  @Field(() => [TransactionEntity])
+  //@Field(() => [TransactionEntity])
   @OneToMany(() => TransactionEntity, (transaction) => transaction.user)
   transactions: TransactionEntity[];
 }
