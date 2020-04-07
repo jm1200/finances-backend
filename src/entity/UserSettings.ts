@@ -1,11 +1,15 @@
-import { Entity, PrimaryColumn, Column, BaseEntity } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 import { ObjectType, Field, Int } from "type-graphql";
 
 @ObjectType()
-@Entity("user_settings")
-export class UserSettings extends BaseEntity {
+@Entity()
+export class UserSettingsEntity extends BaseEntity {
+  @Field()
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Field(() => Int)
-  @PrimaryColumn()
+  @Column()
   userId: number;
 
   @Field()

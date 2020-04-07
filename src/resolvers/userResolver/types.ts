@@ -1,7 +1,7 @@
 import { Length, IsEmail } from "class-validator";
 import { Field, InputType, ObjectType } from "type-graphql";
-import { User } from "../../entity/User";
-import { UserSettings } from "../../entity/UserSettings";
+import { UserEntity } from "../../entity/User";
+import { UserSettingsEntity } from "../../entity/UserSettings";
 
 @InputType()
 export class RegisterInput {
@@ -18,15 +18,15 @@ export class LoginResponse {
   @Field()
   accessToken: string;
   //must explicitly define type. User not primitive
-  @Field(() => User)
-  user: User;
-  @Field(() => UserSettings)
-  userSettings: UserSettings;
+  @Field(() => UserEntity)
+  user: UserEntity;
+  @Field(() => UserSettingsEntity)
+  userSettings: UserSettingsEntity;
 }
 @ObjectType()
 export class MeResponse {
-  @Field(() => User, { nullable: true })
-  user: User | null;
-  @Field(() => UserSettings, { nullable: true })
-  userSettings: UserSettings | null;
+  @Field(() => UserEntity, { nullable: true })
+  user: UserEntity | null;
+  @Field(() => UserSettingsEntity, { nullable: true })
+  userSettings: UserSettingsEntity | null;
 }

@@ -8,7 +8,7 @@ import {
   Int,
 } from "type-graphql";
 import { hash, compare } from "bcryptjs";
-import { User } from "../../entity/User";
+import { UserEntity } from "../../entity/User";
 import { MyContext } from "../../MyContext";
 import { createAccessToken, createRefreshToken } from "../../utils/auth";
 import { isAuth } from "../../isAuth";
@@ -16,7 +16,7 @@ import { sendRefreshToken } from "../../utils/sendRefreshToken";
 import { getConnection } from "typeorm";
 import { verify } from "jsonwebtoken";
 import { ApolloError } from "apollo-server-express";
-import { UserSettings } from "../../entity/UserSettings";
+import { UserSettingsEntity } from "../../entity/UserSettings";
 import { LoginResponse, MeResponse, RegisterInput } from "./types";
 
 @Resolver()
@@ -33,9 +33,9 @@ export class UserResolver {
     return `your user id is: ${payload!.userId}`;
   }
 
-  @Query(() => [User])
+  @Query(() => [UserEntity])
   users() {
-    return User.find();
+    return UserEntity.find();
   }
 
   @Query(() => MeResponse, { nullable: true })
@@ -48,9 +48,9 @@ export class UserResolver {
     try {
       const token = authorization.split(" ")[1];
       const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
-      const user = await User.findOne(payload.userId);
+      const user = await UserEntity.findOne(payload.userId);
       //if there is an authorization header, there will be a user.
-      const userSettings = await UserSettings.findOne(user!.id);
+      const userSettings = await UserSettingsEntity.findOne(user!.id);
       return { user: user!, userSettings: userSettings! };
     } catch (err) {
       console.log(err);
@@ -68,7 +68,7 @@ export class UserResolver {
   @Mutation(() => Boolean)
   async revokeRefreshTokensForUser(@Arg("userId", () => Int) userId: number) {
     await getConnection()
-      .getRepository(User)
+      .getRepository(UserEntity)
       .increment({ id: userId }, "tokenVersion", 1);
 
     return true;
@@ -86,7 +86,7 @@ export class UserResolver {
     @Arg("data") { email, password }: RegisterInput,
     @Ctx() { res }: MyContext
   ): Promise<LoginResponse> {
-    const user = await User.findOne({ where: { email } });
+    const user = await UserEntity.findOne({ where: { email } });
 
     if (!user) {
       throw new ApolloError("Invalid email");
@@ -102,7 +102,7 @@ export class UserResolver {
 
     //res.cookie send refresh token in cookie/jid
     sendRefreshToken(res, createRefreshToken(user));
-    const userSettings = await UserSettings.findOne(user.id);
+    const userSettings = await UserSettingsEntity.findOne(user.id);
 
     return {
       accessToken: createAccessToken(user),
@@ -120,13 +120,13 @@ export class UserResolver {
     const hashedPassword = await hash(password, 12);
 
     try {
-      const userInsert = await User.insert({
+      const userInsert = await UserEntity.insert({
         email,
         password: hashedPassword,
       });
 
       const userId: number = userInsert.raw[0].id;
-      await UserSettings.insert({
+      await UserSettingsEntity.insert({
         userId,
         theme: "dark",
       });

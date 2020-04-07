@@ -8,25 +8,25 @@ import {
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
-import { UserSettings } from "../../entity/UserSettings";
+import { UserSettingsEntity } from "../../entity/UserSettings";
 
 @Resolver()
 export class UserSettingsResolver extends BaseEntity {
-  @Query(() => UserSettings)
+  @Query(() => UserSettingsEntity)
   @UseMiddleware(isAuth)
   getUserSettings(@Arg("userId", () => Int) userId: number) {
-    return UserSettings.findOne(userId);
+    return UserSettingsEntity.findOne(userId);
   }
 
-  @Mutation(() => UserSettings, { nullable: true })
+  @Mutation(() => UserSettingsEntity, { nullable: true })
   @UseMiddleware(isAuth)
   async updateTheme(
     @Arg("theme") theme: string,
     @Arg("userId") userId: number
-  ): Promise<UserSettings | null> {
+  ): Promise<UserSettingsEntity | null> {
     try {
-      await UserSettings.update(userId, { theme });
-      const userSettings = await UserSettings.findOne(userId);
+      await UserSettingsEntity.update(userId, { theme });
+      const userSettings = await UserSettingsEntity.findOne(userId);
       if (userSettings) {
         return userSettings;
       }

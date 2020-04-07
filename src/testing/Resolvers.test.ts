@@ -2,8 +2,8 @@ import { Connection } from "typeorm";
 
 import { graphqlTestCall } from "./graphqlTestCall";
 import { createTestConn } from "./createTestConn";
-import { User } from "../entity/User";
-import { UserSettings } from "../entity/UserSettings";
+import { UserEntity } from "../entity/User";
+import { UserSettingsEntity } from "../entity/UserSettings";
 //import { verify } from "jsonwebtoken";
 //import TestConnection from './createTestConn'
 
@@ -97,7 +97,9 @@ describe("resolvers", () => {
     });
     expect(registerResponse!.data!.register.accessToken).toBeDefined();
 
-    const dbUser = await User.findOne({ where: { email: testUser.email } });
+    const dbUser = await UserEntity.findOne({
+      where: { email: testUser.email },
+    });
 
     expect(dbUser).toBeDefined();
 
@@ -142,7 +144,7 @@ describe("resolvers", () => {
 
       //const payload = verify(accessToken, process.env.ACCESS_TOKEN_SECRET!);
 
-      const userDb = await User.findOne(userId);
+      const userDb = await UserEntity.findOne(userId);
       expect(userDb?.tokenVersion).toEqual(0);
 
       const response = await graphqlTestCall(
@@ -151,7 +153,7 @@ describe("resolvers", () => {
       );
       expect(response!.data!.revokeRefreshTokensForUser).toEqual(true);
 
-      const updatedUserDb = await User.findOne(userId);
+      const updatedUserDb = await UserEntity.findOne(userId);
       expect(updatedUserDb?.tokenVersion).toEqual(1);
     }),
     it("tests logout mutation", async () => {
@@ -177,7 +179,7 @@ describe("userSettingsResolver", () => {
     expect(theme).toEqual("dark");
     expect(accessToken).toBeDefined();
 
-    const userSettingsDb = await UserSettings.findOne(userId);
+    const userSettingsDb = await UserSettingsEntity.findOne(userId);
 
     expect(userSettingsDb?.theme).toEqual("dark");
 
@@ -192,7 +194,7 @@ describe("userSettingsResolver", () => {
 
     expect(updateThemeResponse!.data!.updateTheme.theme).toEqual("light");
 
-    const updateUserSettingsDb = await UserSettings.findOne(userId);
+    const updateUserSettingsDb = await UserSettingsEntity.findOne(userId);
 
     expect(updateUserSettingsDb?.theme).toEqual("light");
   });

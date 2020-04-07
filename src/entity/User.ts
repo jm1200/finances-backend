@@ -1,9 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  OneToMany,
+  OneToOne,
+  JoinColumn,
+} from "typeorm";
 import { ObjectType, Field, Int } from "type-graphql";
+import { TransactionEntity } from "./Transaction";
+import { UserSettingsEntity } from "./UserSettings";
 
 @ObjectType()
-@Entity("users")
-export class User extends BaseEntity {
+@Entity()
+export class UserEntity extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id: number;
@@ -17,4 +27,13 @@ export class User extends BaseEntity {
 
   @Column("int", { default: 0 })
   tokenVersion: number;
+
+  @Field(() => UserSettingsEntity)
+  @OneToOne(() => UserSettingsEntity)
+  @JoinColumn()
+  userSettings: UserSettingsEntity;
+
+  @Field(() => [TransactionEntity])
+  @OneToMany(() => TransactionEntity, (transaction) => transaction.user)
+  transactions: TransactionEntity[];
 }

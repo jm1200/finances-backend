@@ -8,7 +8,7 @@ import { verify } from "jsonwebtoken";
 import { createConnection } from "typeorm";
 import cookieParser from "cookie-parser";
 
-import { User } from "./entity/User";
+import { UserEntity } from "./entity/User";
 import { createAccessToken, createRefreshToken } from "./utils/auth";
 import { sendRefreshToken } from "./utils/sendRefreshToken";
 import { FileUploadResolver } from "./resolvers/fileUploadResolver/FileUploadResolver";
@@ -55,7 +55,7 @@ import { UserResolver } from "./resolvers/userResolver/UserResolver";
     //if the user has already had valid access token.
     //A refresh token payload={userId:id}
 
-    const user = await User.findOne({ id: payload.userId });
+    const user = await UserEntity.findOne({ id: payload.userId });
 
     //if no user with that id, deny access
     if (!user) {
