@@ -1,4 +1,4 @@
-import { Resolver, Mutation, Arg } from "type-graphql";
+import { Resolver, Mutation, Arg, Ctx } from "type-graphql";
 import { GraphQLUpload } from "apollo-server-express";
 const path = require("path");
 import { createWriteStream } from "fs";
@@ -10,15 +10,30 @@ import {
   Upload,
   SubmitTransactionsResponse,
   TransactionInput,
-} from "./types";
+} from "../../types";
+import { MyContext } from "../../MyContext";
+import { verify } from "jsonwebtoken";
 const fs = require("fs");
 
 @Resolver()
 export class FileUploadResolver {
   @Mutation(() => UploadResponse)
   async uploadFile(
-    @Arg("file", () => GraphQLUpload!) file: Upload
+    @Arg("file", () => GraphQLUpload!) file: Upload,
+    @Ctx() context: MyContext
   ): Promise<UploadResponse> {
+    const authorization = context.req.headers["authorization"];
+    //if the user did not pass in authorization inside the header, then deny access
+    let userId;
+    try {
+      const token = authorization!.split(" ")[1];
+      const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
+      userId = payload.userId;
+      console.log("userId is", userId);
+    } catch (err) {
+      console.log(err);
+    }
+
     const fileName = file.filename;
     const filepath: string = path.join(__dirname, "../tempFiles", fileName);
     await new Promise((resolve) => {
@@ -38,8 +53,9 @@ export class FileUploadResolver {
     if (!parsedData) {
       throw new Error("could not parse file");
     }
+    //console.log("Parsed Data: ", parsedData);
 
-    let transactions = parseTransactions(parsedData);
+    let transactions = parseTransactions(parsedData, userId);
 
     try {
       fs.unlinkSync(filepath);
@@ -62,7 +78,7 @@ export class FileUploadResolver {
     @Arg("transactions", () => [TransactionInput])
     transactions: TransactionEntity[]
   ): Promise<SubmitTransactionsResponse> {
-    console.log("TRANSACTIONS: ", transactions);
+    console.log("TRANSACTIONS[0]: ", transactions[0]);
     try {
       await TransactionEntity.insert(transactions);
       return { inserted: true, message: "Inserted transactions successfully" };

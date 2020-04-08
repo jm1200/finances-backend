@@ -1,19 +1,13 @@
-import {
-  Entity,
-  Column,
-  BaseEntity,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-} from "typeorm";
+import { Entity, Column, BaseEntity, PrimaryColumn, ManyToOne } from "typeorm";
 import { ObjectType, Field, Float, Int } from "type-graphql";
 import { UserEntity } from "./User";
 
 @ObjectType()
 @Entity()
 export class TransactionEntity extends BaseEntity {
-  @Field(() => Int)
-  @PrimaryGeneratedColumn()
-  id: number;
+  @Field()
+  @PrimaryColumn()
+  id: String;
 
   @Field()
   @Column()

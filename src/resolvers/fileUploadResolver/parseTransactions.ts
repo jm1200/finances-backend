@@ -1,21 +1,13 @@
-//import moment from "moment";
+import { Transaction } from "../../types";
+import { v4 as uuid } from "uuid";
 
-export class Transaction {
-  account: string;
-  type: string;
-  datePosted: string;
-  transId: string;
-  name: string;
-  memo: string;
-  amount: number;
-}
 export class TransResponse {
   account: string;
   rangeStart: string;
   rangeEnd: string;
   transactions: Transaction[];
 }
-export const parseTransactions = (parsedData: any) => {
+export const parseTransactions = (parsedData: any, userId: number) => {
   //get account type
   let account: string;
   if (parsedData.OFX.BANKMSGSRSV1) {
@@ -34,7 +26,8 @@ export const parseTransactions = (parsedData: any) => {
       account,
       data.DTSTART,
       data.DTEND,
-      data.STMTTRN
+      data.STMTTRN,
+      userId
     );
   } else if (account === "Creditcard") {
     const data =
@@ -43,7 +36,8 @@ export const parseTransactions = (parsedData: any) => {
       account,
       data.DTSTART,
       data.DTEND,
-      data.STMTTRN
+      data.STMTTRN,
+      userId
     );
   }
   return transactions;
@@ -53,13 +47,16 @@ function parseTransObj(
   account: string,
   start: string,
   end: string,
-  trans: [Transaction]
+  trans: [Transaction],
+  userId: number
 ): TransResponse {
-  let transactions = trans.map((transObj: any) => ({
+  let transactions: Transaction[] = trans.map((transObj: any) => ({
+    id: uuid(),
+    transId: transObj.FITID,
+    userId,
     account,
     type: transObj.TRNTYPE,
     datePosted: formatDate(transObj.DTPOSTED),
-    transId: transObj.FITID,
     name: transObj.NAME ? transObj.NAME : "",
     memo: transObj.MEMO,
     amount: parseFloat(transObj.TRNAMT),
