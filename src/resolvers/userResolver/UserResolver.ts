@@ -101,10 +101,10 @@ export class UserResolver {
     @Arg("data") { email, password }: RegisterInput,
     @Ctx() { res }: MyContext
   ): Promise<LoginResponse> {
-    const user = await UserEntity.findOne(
-      { email },
-      { relations: ["userSettings"] }
-    );
+    const user = await UserEntity.findOne({
+      where: { email },
+      relations: ["userSettings"],
+    });
 
     if (!user) {
       throw new ApolloError("Invalid email");
