@@ -1,5 +1,6 @@
 import { ObjectType, Field, InputType, Float, Int } from "type-graphql";
 import { Stream } from "stream";
+import { Request, Response } from "express";
 
 @ObjectType()
 export class TransactionClass {
@@ -86,4 +87,10 @@ export class UploadResponse {
   rangeEnd?: string;
   @Field(() => [TransactionClass])
   transactions?: Transaction[];
+}
+
+export interface MyContext {
+  req: Request;
+  res: Response;
+  payload?: { userId: string };
 }

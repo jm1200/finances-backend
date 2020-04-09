@@ -18,6 +18,7 @@ import { verify } from "jsonwebtoken";
 import { ApolloError } from "apollo-server-express";
 import { UserSettingsEntity } from "../../entity/UserSettings";
 import { LoginResponse, MeResponse, RegisterInput } from "./types";
+import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 
 @Resolver()
 export class UserResolver {
@@ -33,15 +34,6 @@ export class UserResolver {
     return `your user id is: ${payload!.userId}`;
   }
 
-  @Query(() => UserEntity)
-  async user(@Arg("userId") userId: number) {
-    const user = await UserEntity.findOne(userId, {
-      relations: ["userSettings"],
-    });
-    console.log(user);
-    return user;
-  }
-
   @Query(() => [UserEntity])
   users() {
     return UserEntity.find({ relations: ["userSettings"] });
@@ -49,16 +41,20 @@ export class UserResolver {
 
   @Query(() => MeResponse, { nullable: true })
   async me(@Ctx() context: MyContext): Promise<MeResponse> {
-    const authorization = context.req.headers["authorization"];
-    //if the user did not pass in authorization inside the header, then deny access
-    if (!authorization) {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]);
+    if (!userId) {
       return { user: null };
     }
+
+    // const authorization = context.req.headers["authorization"];
+    // //if the user did not pass in authorization inside the header, then deny access
+    // if (!authorization) {
+    //   return { user: null };
+    // }
+
     try {
-      const token = authorization.split(" ")[1];
-      const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
-      const user = await UserEntity.findOne(payload.userId, {
-        relations: ["userSettings"],
+      const user = await UserEntity.findOne(userId, {
+        relations: ["userSettings", "transactions"],
       });
 
       if (user) {
@@ -66,7 +62,7 @@ export class UserResolver {
       }
       return { user: null };
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       return { user: null };
     }
   }

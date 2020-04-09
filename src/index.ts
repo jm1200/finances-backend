@@ -14,6 +14,7 @@ import { sendRefreshToken } from "./utils/sendRefreshToken";
 import { FileUploadResolver } from "./resolvers/fileUploadResolver/FileUploadResolver";
 import { UserSettingsResolver } from "./resolvers/userSettingsResolver/UserSettingsResolver";
 import { UserResolver } from "./resolvers/userResolver/UserResolver";
+import { TransactionsResolver } from "./resolvers/transactionsResolver/TransactionsResolver";
 
 (async () => {
   const app = Express();
@@ -79,7 +80,12 @@ import { UserResolver } from "./resolvers/userResolver/UserResolver";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [UserResolver, FileUploadResolver, UserSettingsResolver],
+      resolvers: [
+        UserResolver,
+        FileUploadResolver,
+        UserSettingsResolver,
+        TransactionsResolver,
+      ],
       dateScalarMode: "timestamp",
     }),
     context: ({ req, res }) => ({ req, res }),

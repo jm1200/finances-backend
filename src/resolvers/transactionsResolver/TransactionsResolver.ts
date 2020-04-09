@@ -5,19 +5,38 @@ import {
   Arg,
   UseMiddleware,
   Int,
+  Ctx,
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
-import { TransactionEntity } from "../../entity/Transaction";
+import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
+import { MyContext } from "../../types";
+import { UserEntity } from "../../entity/User";
 
 @Resolver()
 export class TransactionsResolver extends BaseEntity {
-  @Query(() => [TransactionEntity])
+  @Query(() => UserEntity)
   @UseMiddleware(isAuth)
-  getAllUserTransactionsForUser(
-    @Arg("allTransactions", () => Int) userId: number
-  ) {
-    //return TransactionEntity.find({where: userId});
+  async getAllUserTransactions(
+    @Ctx() context: MyContext
+  ): Promise<UserEntity | null> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+    if (!userId) {
+      return null;
+    }
+    try {
+      const user = await UserEntity.findOne(userId!, {
+        relations: ["transactions"],
+      });
+      console.log("User data: ", user);
+      if (user) {
+        return user;
+      }
+      return null;
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
   }
 
   // @Mutation(() => UserSettings, { nullable: true })
