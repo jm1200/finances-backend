@@ -3,6 +3,8 @@ import { buildSchema } from "type-graphql";
 import { FileUploadResolver } from "../resolvers/fileUploadResolver/FileUploadResolver";
 import { UserSettingsResolver } from "../resolvers/userSettingsResolver/UserSettingsResolver";
 import { UserResolver } from "../resolvers/userResolver/UserResolver";
+import { TransactionsResolver } from "../resolvers/transactionsResolver/TransactionsResolver";
+import { CategoriesResolver } from "../resolvers/categoriesResolver/CategoriesResolver";
 
 export const graphqlTestCall = async (
   query: any,
@@ -10,7 +12,13 @@ export const graphqlTestCall = async (
   accessToken?: string
 ) => {
   const schema = await buildSchema({
-    resolvers: [UserResolver, FileUploadResolver, UserSettingsResolver],
+    resolvers: [
+      UserResolver,
+      FileUploadResolver,
+      UserSettingsResolver,
+      TransactionsResolver,
+      CategoriesResolver,
+    ],
   });
   return graphql(
     schema,

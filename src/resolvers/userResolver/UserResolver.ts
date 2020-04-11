@@ -14,7 +14,6 @@ import { createAccessToken, createRefreshToken } from "../../utils/auth";
 import { isAuth } from "../../isAuth";
 import { sendRefreshToken } from "../../utils/sendRefreshToken";
 import { getConnection } from "typeorm";
-import { verify } from "jsonwebtoken";
 import { ApolloError } from "apollo-server-express";
 import { UserSettingsEntity } from "../../entity/UserSettings";
 import { LoginResponse, MeResponse, RegisterInput } from "./types";

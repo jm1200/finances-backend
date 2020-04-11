@@ -1,12 +1,4 @@
-import {
-  Resolver,
-  Query,
-  Mutation,
-  Arg,
-  UseMiddleware,
-  Int,
-  Ctx,
-} from "type-graphql";
+import { Resolver, Query, UseMiddleware, Ctx } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";

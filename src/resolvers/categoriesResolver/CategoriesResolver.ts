@@ -21,7 +21,6 @@ export class CategoriesResolver {
         relations: ["categories"],
       });
       if (user) {
-        console.log(user);
         return user;
       }
       return null;

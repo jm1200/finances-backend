@@ -4,7 +4,7 @@ import { graphqlTestCall } from "./graphqlTestCall";
 import { createTestConn } from "./createTestConn";
 import { UserEntity } from "../entity/User";
 import { UserSettingsEntity } from "../entity/UserSettings";
-//import { verify } from "jsonwebtoken";
+import faker from "faker";
 
 const registerMutation = `
 mutation Register($email: String!, $password: String!) {
@@ -72,6 +72,33 @@ mutation updateTheme($id: Int!, $theme:String!) {
   }
 }
 `;
+
+const addCategoryMutation = `
+mutation AddCategory($name: String!){
+  addCategory(name:$name)
+}
+`;
+const getUserCategoriesQuery = `
+{
+  getUserCategories{
+    categories{
+      name
+      id
+    }
+  }
+}
+`;
+
+const updateCategoryMutation = `
+mutation UpdateCategory($categoryId:Int!, $name: String!){
+  updateCategory(categoryId:$categoryId, name:$name)
+}
+`;
+
+const deleteCategoryMutation = `
+mutation DeleteCategory($categoryId: Int!){
+  deleteCategory(categoryId:$categoryId)
+}`;
 
 let conn: Connection;
 
@@ -208,5 +235,70 @@ describe("userSettingsResolver", () => {
     );
 
     expect(updateUserSettingsDb?.theme).toEqual("light");
+  });
+});
+
+//##############################  Category Resovler tests  #############################
+describe("Category Resolver Tests", () => {
+  it("tests category CRUD", async () => {
+    const testUser = { email: faker.internet.email(), password: "test" };
+
+    const registerResponse = await graphqlTestCall(registerMutation, {
+      email: testUser.email,
+      password: testUser.password,
+    });
+
+    const userId = registerResponse!.data!.register.user.id;
+    const accessToken = registerResponse!.data!.register.accessToken;
+
+    expect(userId).toBeDefined();
+    expect(accessToken).toBeDefined();
+    //Create
+    const addCategoryResponse = await graphqlTestCall(
+      addCategoryMutation,
+      {
+        name: "test",
+      },
+      accessToken
+    );
+    expect(addCategoryResponse!.data!.addCategory).toEqual(true);
+    //Read
+    const user = await graphqlTestCall(getUserCategoriesQuery, {}, accessToken);
+
+    const userData = user!.data!.getUserCategories;
+    expect(userData.categories).toEqual([{ name: "test", id: 1 }]);
+
+    let userDb = await UserEntity.findOne(userId, {
+      relations: ["categories"],
+    });
+    expect(userDb?.categories).toEqual([{ id: 1, name: "test", userId: 4 }]);
+
+    //Update
+    const updateResponse = await graphqlTestCall(
+      updateCategoryMutation,
+      { categoryId: 1, name: "updated test" },
+      accessToken
+    );
+    expect(updateResponse!.data!.updateCategory).toEqual(true);
+
+    userDb = await UserEntity.findOne(userId, {
+      relations: ["categories"],
+    });
+    expect(userDb?.categories).toEqual([
+      { id: 1, name: "updated test", userId: 4 },
+    ]);
+
+    //Delete
+    const deleteResponse = await graphqlTestCall(
+      deleteCategoryMutation,
+      { categoryId: 1 },
+      accessToken
+    );
+    expect(deleteResponse!.data!.deleteCategory).toEqual(true);
+
+    userDb = await UserEntity.findOne(userId, {
+      relations: ["categories"],
+    });
+    expect(userDb?.categories).toEqual([]);
   });
 });
