@@ -1,6 +1,7 @@
 import { Entity, Column, BaseEntity, PrimaryColumn, ManyToOne } from "typeorm";
 import { ObjectType, Field, Float, Int } from "type-graphql";
 import { UserEntity } from "./User";
+import { CategoryEntity } from "./Category";
 
 @ObjectType()
 @Entity()
@@ -44,4 +45,11 @@ export class TransactionEntity extends BaseEntity {
   @Field(() => Float)
   @Column({ type: "real" })
   amount: number;
+
+  //Transactions get imported with no category assigned yet. So nullable=true.
+  @Field(() => CategoryEntity, { nullable: true })
+  @ManyToOne(() => CategoryEntity, (category) => category.transactions, {
+    nullable: true,
+  })
+  category: CategoryEntity;
 }

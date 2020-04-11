@@ -15,7 +15,7 @@ export const getUserIdFromHeader = (
       return null;
     }
   } catch (err) {
-    console.log(err);
+    console.log("Could not verify user token");
     return null;
   }
 };

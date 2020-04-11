@@ -15,6 +15,7 @@ import { FileUploadResolver } from "./resolvers/fileUploadResolver/FileUploadRes
 import { UserSettingsResolver } from "./resolvers/userSettingsResolver/UserSettingsResolver";
 import { UserResolver } from "./resolvers/userResolver/UserResolver";
 import { TransactionsResolver } from "./resolvers/transactionsResolver/TransactionsResolver";
+import { CategoriesResolver } from "./resolvers/categoriesResolver/CategoriesResolver";
 
 (async () => {
   const app = Express();
@@ -85,6 +86,7 @@ import { TransactionsResolver } from "./resolvers/transactionsResolver/Transacti
         FileUploadResolver,
         UserSettingsResolver,
         TransactionsResolver,
+        CategoriesResolver,
       ],
       dateScalarMode: "timestamp",
     }),
