@@ -5,100 +5,7 @@ import { createTestConn } from "./createTestConn";
 import { UserEntity } from "../entity/User";
 import { UserSettingsEntity } from "../entity/UserSettings";
 import faker from "faker";
-
-const registerMutation = `
-mutation Register($email: String!, $password: String!) {
-  register(data: { email: $email, password: $password }) {
-    accessToken
-    user {
-      id
-      email
-      userSettingsId
-      userSettings {
-        theme
-      }
-    }
-  }
-}
-`;
-
-const loginMutation = `
-mutation Login($email: String!, $password: String!) {
-  login(data: { email: $email, password: $password }) {
-    accessToken
-    user {
-      email
-      id
-      userSettingsId
-      userSettings{
-        theme
-      }
-    }
-  }
-}
-
-`;
-
-const meQuery = `
-query Me {
-  me{
-    user{
-      email
-      id
-      userSettingsId
-      userSettings{
-        theme
-      }
-    }
-  }
-}
-`;
-
-const revokeRefreshTokensForUserMutation = `
-mutation RevokeRefreshTokensForUser($userId: Int!) {
-    revokeRefreshTokensForUser(userId:$userId)
-}
-`;
-
-const logoutMutation = `
-mutation Logout{
-    logout
-}`;
-
-const updateThemeMutation = `
-mutation updateTheme($id: Int!, $theme:String!) {
-  updateTheme(id: $id, theme: $theme) {
-    theme
-  }
-}
-`;
-
-const addCategoryMutation = `
-mutation AddCategory($name: String!){
-  addCategory(name:$name)
-}
-`;
-const getUserCategoriesQuery = `
-{
-  getUserCategories{
-    categories{
-      name
-      id
-    }
-  }
-}
-`;
-
-const updateCategoryMutation = `
-mutation UpdateCategory($categoryId:Int!, $name: String!){
-  updateCategory(categoryId:$categoryId, name:$name)
-}
-`;
-
-const deleteCategoryMutation = `
-mutation DeleteCategory($categoryId: Int!){
-  deleteCategory(categoryId:$categoryId)
-}`;
+import * as testGraphql from "./mutations";
 
 let conn: Connection;
 
@@ -114,10 +21,13 @@ describe("resolvers", () => {
   it("Working: register, login, and me", async () => {
     const testUser = { email: "test1@test.com", password: "test" };
 
-    const registerResponse = await graphqlTestCall(registerMutation, {
-      email: testUser.email,
-      password: testUser.password,
-    });
+    const registerResponse = await graphqlTestCall(
+      testGraphql.registerMutation,
+      {
+        email: testUser.email,
+        password: testUser.password,
+      }
+    );
 
     expect(registerResponse!.data!.register.user).toEqual({
       id: 1,
@@ -138,7 +48,7 @@ describe("resolvers", () => {
 
     expect(dbUser).toBeDefined();
 
-    const loginResponse = await graphqlTestCall(loginMutation, {
+    const loginResponse = await graphqlTestCall(testGraphql.loginMutation, {
       email: testUser.email,
       password: testUser.password,
     });
@@ -158,7 +68,11 @@ describe("resolvers", () => {
 
     let accessToken: string = loginResponse!.data!.login.accessToken;
 
-    const meResponse = await graphqlTestCall(meQuery, {}, accessToken);
+    const meResponse = await graphqlTestCall(
+      testGraphql.meQuery,
+      {},
+      accessToken
+    );
 
     expect(meResponse!.data!.me).toEqual({
       user: {
@@ -174,10 +88,13 @@ describe("resolvers", () => {
     it("tests revokeRefreshToken resolver", async () => {
       const testUser = { email: "test2@test.com.com", password: "test" };
 
-      const registerResponse = await graphqlTestCall(registerMutation, {
-        email: testUser.email,
-        password: testUser.password,
-      });
+      const registerResponse = await graphqlTestCall(
+        testGraphql.registerMutation,
+        {
+          email: testUser.email,
+          password: testUser.password,
+        }
+      );
 
       const userId = registerResponse!.data!.register.user.id;
 
@@ -185,7 +102,7 @@ describe("resolvers", () => {
       expect(userDb?.tokenVersion).toEqual(0);
 
       const response = await graphqlTestCall(
-        revokeRefreshTokensForUserMutation,
+        testGraphql.revokeRefreshTokensForUserMutation,
         { userId }
       );
       expect(response!.data!.revokeRefreshTokensForUser).toEqual(true);
@@ -194,7 +111,7 @@ describe("resolvers", () => {
       expect(updatedUserDb?.tokenVersion).toEqual(1);
     }),
     it("tests logout mutation", async () => {
-      const response = await graphqlTestCall(logoutMutation, {});
+      const response = await graphqlTestCall(testGraphql.logoutMutation, {});
 
       expect(response!.data!.logout).toEqual(true);
     });
@@ -204,10 +121,13 @@ describe("userSettingsResolver", () => {
   it("Update Theme mutation", async () => {
     const testUser = { email: "test3@test.com", password: "test" };
 
-    const registerResponse = await graphqlTestCall(registerMutation, {
-      email: testUser.email,
-      password: testUser.password,
-    });
+    const registerResponse = await graphqlTestCall(
+      testGraphql.registerMutation,
+      {
+        email: testUser.email,
+        password: testUser.password,
+      }
+    );
 
     const userId = registerResponse!.data!.register.user.id;
     const userSettingsId = registerResponse!.data!.register.user.userSettingsId;
@@ -220,7 +140,7 @@ describe("userSettingsResolver", () => {
     expect(accessToken).toBeDefined();
 
     const updateThemeResponse = await graphqlTestCall(
-      updateThemeMutation,
+      testGraphql.updateThemeMutation,
       {
         id: userSettingsId,
         theme: "light",
@@ -243,10 +163,13 @@ describe("Category Resolver Tests", () => {
   it("tests category CRUD", async () => {
     const testUser = { email: faker.internet.email(), password: "test" };
 
-    const registerResponse = await graphqlTestCall(registerMutation, {
-      email: testUser.email,
-      password: testUser.password,
-    });
+    const registerResponse = await graphqlTestCall(
+      testGraphql.registerMutation,
+      {
+        email: testUser.email,
+        password: testUser.password,
+      }
+    );
 
     const userId = registerResponse!.data!.register.user.id;
     const accessToken = registerResponse!.data!.register.accessToken;
@@ -255,7 +178,7 @@ describe("Category Resolver Tests", () => {
     expect(accessToken).toBeDefined();
     //Create
     const addCategoryResponse = await graphqlTestCall(
-      addCategoryMutation,
+      testGraphql.addCategoryMutation,
       {
         name: "test",
       },
@@ -263,7 +186,11 @@ describe("Category Resolver Tests", () => {
     );
     expect(addCategoryResponse!.data!.addCategory).toEqual(true);
     //Read
-    const user = await graphqlTestCall(getUserCategoriesQuery, {}, accessToken);
+    const user = await graphqlTestCall(
+      testGraphql.getUserCategoriesQuery,
+      {},
+      accessToken
+    );
 
     const userData = user!.data!.getUserCategories;
     expect(userData.categories).toEqual([{ name: "test", id: 1 }]);
@@ -271,11 +198,13 @@ describe("Category Resolver Tests", () => {
     let userDb = await UserEntity.findOne(userId, {
       relations: ["categories"],
     });
-    expect(userDb?.categories).toEqual([{ id: 1, name: "test", userId: 4 }]);
+    expect(userDb?.categories).toEqual([
+      { id: 1, name: "test", userId: 4, subCategories: null },
+    ]);
 
     //Update
     const updateResponse = await graphqlTestCall(
-      updateCategoryMutation,
+      testGraphql.updateCategoryMutation,
       { categoryId: 1, name: "updated test" },
       accessToken
     );
@@ -285,12 +214,12 @@ describe("Category Resolver Tests", () => {
       relations: ["categories"],
     });
     expect(userDb?.categories).toEqual([
-      { id: 1, name: "updated test", userId: 4 },
+      { id: 1, name: "updated test", userId: 4, subCategories: null },
     ]);
 
     //Delete
     const deleteResponse = await graphqlTestCall(
-      deleteCategoryMutation,
+      testGraphql.deleteCategoryMutation,
       { categoryId: 1 },
       accessToken
     );

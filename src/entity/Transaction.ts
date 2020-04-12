@@ -2,6 +2,7 @@ import { Entity, Column, BaseEntity, PrimaryColumn, ManyToOne } from "typeorm";
 import { ObjectType, Field, Float, Int } from "type-graphql";
 import { UserEntity } from "./User";
 import { CategoryEntity } from "./Category";
+//import { SubCategoryEntity } from "./SubCategory";
 
 @ObjectType()
 @Entity()
@@ -52,4 +53,14 @@ export class TransactionEntity extends BaseEntity {
     nullable: true,
   })
   category: CategoryEntity;
+
+  // @Field(() => SubCategoryEntity, { nullable: true })
+  // @ManyToOne(
+  //   () => SubCategoryEntity,
+  //   (subCategory) => subCategory.transactions,
+  //   {
+  //     nullable: true,
+  //   }
+  // )
+  // subCategory: SubCategoryEntity;
 }

@@ -103,4 +103,76 @@ export class CategoriesResolver {
       return false;
     }
   }
+
+  @Mutation(() => Boolean)
+  async addSubCategory(
+    @Arg("name") name: string,
+    @Arg("categoryId", () => Int) categoryId: number,
+    @Ctx() context: MyContext
+  ): Promise<Boolean> {
+    const userId: number = getUserIdFromHeader(
+      context.req.headers["authorization"]
+    ) as number;
+
+    if (!userId) {
+      return false;
+    }
+    try {
+      const category = await CategoryEntity.findOne(categoryId);
+      console.log("oldCategories: ", category);
+      let newSubCategories;
+      if (!category) {
+        return false;
+      } else if (category && category.subCategories) {
+        newSubCategories = [...category.subCategories, name];
+      } else {
+        newSubCategories = [name];
+      }
+
+      await CategoryEntity.update(categoryId, {
+        subCategories: newSubCategories,
+      });
+      return true;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
+  @Mutation(() => Boolean)
+  async deleteSubCategory(
+    @Arg("name") name: string,
+    @Arg("categoryId", () => Int) categoryId: number,
+    @Ctx() context: MyContext
+  ): Promise<Boolean> {
+    const userId: number = getUserIdFromHeader(
+      context.req.headers["authorization"]
+    ) as number;
+
+    if (!userId) {
+      return false;
+    }
+    try {
+      const category = await CategoryEntity.findOne(categoryId);
+
+      let newSubCategories;
+      if (!category) {
+        return false;
+      } else if (category && category.subCategories) {
+        newSubCategories = category.subCategories.filter((subCategory) => {
+          return subCategory !== name;
+        });
+      } else {
+        return false;
+      }
+
+      await CategoryEntity.update(categoryId, {
+        subCategories: newSubCategories,
+      });
+      return true;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
 }
