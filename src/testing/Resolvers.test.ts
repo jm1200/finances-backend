@@ -217,7 +217,42 @@ describe("Category Resolver Tests", () => {
       { id: 1, name: "updated test", userId: 4, subCategories: null },
     ]);
 
-    //Delete
+    //Add Sub Category
+    const addSubCatResponse = await graphqlTestCall(
+      testGraphql.addSubCategoryMutation,
+      { categoryId: 1, name: "test sub cat" },
+      accessToken
+    );
+    expect(addSubCatResponse!.data!.addSubCategory).toEqual(true);
+
+    userDb = await UserEntity.findOne(userId, {
+      relations: ["categories"],
+    });
+    expect(userDb?.categories).toEqual([
+      {
+        id: 1,
+        name: "updated test",
+        userId: 4,
+        subCategories: ["test sub cat"],
+      },
+    ]);
+
+    //Delete Sub Caegory
+    const deleteSubCatResponse = await graphqlTestCall(
+      testGraphql.deleteSubCategoryMutation,
+      { categoryId: 1, name: "test sub cat" },
+      accessToken
+    );
+    expect(deleteSubCatResponse!.data!.deleteSubCategory).toEqual(true);
+
+    userDb = await UserEntity.findOne(userId, {
+      relations: ["categories"],
+    });
+    expect(userDb?.categories).toEqual([
+      { id: 1, name: "updated test", userId: 4, subCategories: [] },
+    ]);
+
+    //Delete Category
     const deleteResponse = await graphqlTestCall(
       testGraphql.deleteCategoryMutation,
       { categoryId: 1 },

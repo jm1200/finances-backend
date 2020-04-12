@@ -91,3 +91,15 @@ export const deleteCategoryMutation = `
 mutation DeleteCategory($categoryId: Int!){
   deleteCategory(categoryId:$categoryId)
 }`;
+
+export const addSubCategoryMutation = `
+mutation AddSubCategory($name: String!, $categoryId: Int!){
+    addSubCategory(name:$name, categoryId:$categoryId)
+}
+`;
+
+export const deleteSubCategoryMutation = `
+mutation DeleteSubCategory($name: String!, $categoryId: Int!){
+    deleteSubCategory(name:$name, categoryId:$categoryId)
+}
+`;
