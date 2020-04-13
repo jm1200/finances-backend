@@ -1,3 +1,4 @@
+// #########################  User Resolver ######################################
 export const registerMutation = `
 mutation Register($email: String!, $password: String!) {
   register(data: { email: $email, password: $password }) {
@@ -45,7 +46,35 @@ query Me {
   }
 }
 `;
+export const userMutation = `
+query User($userId: Int!){
+    user(userId: $userId) {
+      id
+      email
+      userSettingsId
+      userSettings {
+        theme
+      }
+      transactions{
+        name
+        amount
+      }
+    }
+  }
+  `;
 
+export const usersQuery = `
+  {
+    users{
+      id
+      email
+      userSettingsId
+      userSettings{
+        theme
+      }
+    }
+  }
+  `;
 export const revokeRefreshTokensForUserMutation = `
 mutation RevokeRefreshTokensForUser($userId: Int!) {
     revokeRefreshTokensForUser(userId:$userId)
@@ -57,6 +86,8 @@ mutation Logout{
     logout
 }`;
 
+// #########################  UserSettings Resolver ######################################
+
 export const updateThemeMutation = `
 mutation updateTheme($id: Int!, $theme:String!) {
   updateTheme(id: $id, theme: $theme) {
@@ -64,6 +95,8 @@ mutation updateTheme($id: Int!, $theme:String!) {
   }
 }
 `;
+
+// #########################  Categories Resolver ######################################
 
 export const addCategoryMutation = `
 mutation AddCategory($name: String!){
@@ -102,4 +135,16 @@ export const deleteSubCategoryMutation = `
 mutation DeleteSubCategory($name: String!, $categoryId: Int!){
     deleteSubCategory(name:$name, categoryId:$categoryId)
 }
+
+`;
+
+// #########################  Transactions Resolver ######################################
+
+export const submitTransactionsMutation = `
+mutation SubmitTransactions($transactions: [TransactionInput!]!) {
+    submitTransactions(transactions:$transactions) {
+      message
+      inserted
+    }
+  }
 `;

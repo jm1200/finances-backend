@@ -33,6 +33,17 @@ export class UserResolver {
     return `your user id is: ${payload!.userId}`;
   }
 
+  @Query(() => UserEntity)
+  user(@Ctx() context: MyContext) {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]);
+    if (!userId) {
+      return { user: null };
+    }
+    return UserEntity.findOne(userId, {
+      relations: ["userSettings", "categories", "transactions"],
+    });
+  }
+
   @Query(() => [UserEntity])
   users() {
     return UserEntity.find({ relations: ["userSettings"] });
@@ -53,7 +64,7 @@ export class UserResolver {
 
     try {
       const user = await UserEntity.findOne(userId, {
-        relations: ["userSettings", "transactions"],
+        relations: ["userSettings"],
       });
 
       if (user) {
