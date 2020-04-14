@@ -47,6 +47,18 @@ export class TransactionEntity extends BaseEntity {
   @Column({ type: "real" })
   amount: number;
 
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  subCategoryName: String;
+
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  categoryName: String;
+
+  @Field(() => Int, { nullable: true })
+  @Column({ nullable: true })
+  categoryId: number;
+
   //Transactions get imported with no category assigned yet. So nullable=true.
   @Field(() => CategoryEntity, { nullable: true })
   @ManyToOne(() => CategoryEntity, (category) => category.transactions, {

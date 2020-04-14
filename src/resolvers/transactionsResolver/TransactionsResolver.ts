@@ -1,33 +1,64 @@
-import { Resolver, Query, UseMiddleware, Ctx } from "type-graphql";
+import {
+  Resolver,
+  // Query,
+  UseMiddleware,
+  Ctx,
+  Arg,
+  InputType,
+  Field,
+  Mutation,
+  Int,
+  ObjectType,
+} from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../types";
-import { UserEntity } from "../../entity/User";
+//import { UserEntity } from "../../entity/User";
+//import { CategoryEntity } from "../../entity/Category";
+import { TransactionEntity } from "../../entity/Transaction";
+import { CategoryEntity } from "../../entity/Category";
+
+@InputType()
+export class updateTransactionInput {
+  @Field({ nullable: true })
+  subCategoryName: String;
+  @Field({ nullable: true })
+  categoryName: String;
+}
 
 @Resolver()
 export class TransactionsResolver extends BaseEntity {
-  @Query(() => UserEntity)
+  @Mutation(() => Boolean)
   @UseMiddleware(isAuth)
-  async getAllUserTransactions(
+  async updateTransaction(
+    @Arg("data") data: updateTransactionInput,
+    @Arg("id", () => Int) id: number,
     @Ctx() context: MyContext
-  ): Promise<UserEntity | null> {
+  ): Promise<Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
     if (!userId) {
-      return null;
+      return false;
     }
     try {
-      const user = await UserEntity.findOne(userId!, {
-        relations: ["transactions"],
+      const categoryRes = await CategoryEntity.findOne({
+        where: { userId, name: data.categoryName },
       });
-      console.log("User data: ", user);
-      if (user) {
-        return user;
-      }
-      return null;
+      console.log(categoryRes);
+
+      // const res = await TransactionEntity.update(id, {
+      //   subCategoryName: data.subCategoryName,
+      //   categoryName: data.categoryName,
+      // });
+      // console.log("trans resolver 43", res);
+
+      //if category does not exist create one
+      //if category exists
+
+      return true;
     } catch (err) {
       console.log(err);
-      return null;
+      return false;
     }
   }
 
