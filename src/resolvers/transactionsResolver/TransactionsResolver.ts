@@ -9,6 +9,7 @@ import {
   Mutation,
   Int,
   ObjectType,
+  Query,
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
@@ -18,22 +19,72 @@ import { MyContext } from "../../types";
 //import { CategoryEntity } from "../../entity/Category";
 import { TransactionEntity } from "../../entity/Transaction";
 import { CategoryEntity } from "../../entity/Category";
+import { UserEntity } from "../../entity/User";
 
 @InputType()
 export class updateTransactionInput {
+  @Field()
+  id: string;
+  @Field(() => Int!)
+  categoryId: number;
   @Field({ nullable: true })
-  subCategoryName: String;
+  subCategoryName: string;
   @Field({ nullable: true })
-  categoryName: String;
+  categoryName: string;
 }
 
 @Resolver()
 export class TransactionsResolver extends BaseEntity {
+  @Query(() => [TransactionEntity] || Boolean)
+  async getAllTransactions(
+    @Ctx() context: MyContext
+  ): Promise<TransactionEntity[] | Boolean> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+    if (!userId) {
+      return false;
+    }
+    try {
+      const user = await UserEntity.findOne(userId, {
+        relations: ["transactions"],
+      });
+      if (user && user.transactions) {
+        const data = user.transactions.slice(0, 5);
+        return data;
+      }
+      return false;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+    return false;
+  }
+  @Query(() => TransactionEntity || Boolean)
+  async getTransactionsById(
+    @Arg("id") id: string,
+    @Ctx() context: MyContext
+  ): Promise<TransactionEntity | Boolean> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+    if (!userId) {
+      return false;
+    }
+    try {
+      const transaction = await TransactionEntity.findOne(id);
+      if (transaction) {
+        return transaction;
+      }
+      return false;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+    return false;
+  }
+
   @Mutation(() => Boolean)
   @UseMiddleware(isAuth)
-  async updateTransaction(
-    @Arg("data") data: updateTransactionInput,
-    @Arg("id", () => Int) id: number,
+  async updateCategoriesInTransaction(
+    @Arg("data")
+    { id, categoryId, categoryName, subCategoryName }: updateTransactionInput,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
@@ -41,19 +92,13 @@ export class TransactionsResolver extends BaseEntity {
       return false;
     }
     try {
-      const categoryRes = await CategoryEntity.findOne({
-        where: { userId, name: data.categoryName },
+      const res = await TransactionEntity.update(id, {
+        categoryId,
+        categoryName,
+        subCategoryName,
       });
-      console.log(categoryRes);
 
-      // const res = await TransactionEntity.update(id, {
-      //   subCategoryName: data.subCategoryName,
-      //   categoryName: data.categoryName,
-      // });
-      // console.log("trans resolver 43", res);
-
-      //if category does not exist create one
-      //if category exists
+      console.log(res);
 
       return true;
     } catch (err) {

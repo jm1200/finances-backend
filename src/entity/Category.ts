@@ -32,7 +32,7 @@ export class CategoryEntity extends BaseEntity {
   subCategories: string[];
 
   //There could be a category but no transactions. so nullable=true
-  //@Field(() => [TransactionEntity])
+  @Field(() => [TransactionEntity])
   @OneToMany(() => TransactionEntity, (transaction) => transaction.category)
   transactions: TransactionEntity[];
 

@@ -30,6 +30,32 @@ export class CategoriesResolver {
     }
   }
 
+  @Query(() => CategoryEntity)
+  async getCategory(
+    @Arg("categoryId", () => Int!) categoryId: number,
+    @Ctx() context: MyContext
+  ): Promise<CategoryEntity | Boolean> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]);
+
+    if (!userId) {
+      return false;
+    }
+
+    try {
+      const category = await CategoryEntity.findOne({
+        where: { userId, id: categoryId },
+        relations: ["transactions"],
+      });
+      if (category) {
+        return category;
+      }
+      return false;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
   @Mutation(() => Boolean)
   async addCategory(
     @Arg("name") name: string,
