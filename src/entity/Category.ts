@@ -10,7 +10,6 @@ import {
 
 import { TransactionEntity } from "./Transaction";
 import { UserEntity } from "./User";
-//import { SubCategoryEntity } from "./SubCategory";
 
 @ObjectType()
 @Entity()
@@ -35,9 +34,6 @@ export class CategoryEntity extends BaseEntity {
   @Field(() => [TransactionEntity])
   @OneToMany(() => TransactionEntity, (transaction) => transaction.category)
   transactions: TransactionEntity[];
-
-  // @OneToMany(() => SubCategoryEntity, (transaction) => transaction.category)
-  // subCategories: SubCategoryEntity[];
 
   @Field(() => UserEntity)
   @ManyToOne(() => UserEntity, (user) => user.categories)

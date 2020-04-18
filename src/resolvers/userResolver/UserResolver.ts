@@ -18,6 +18,8 @@ import { ApolloError } from "apollo-server-express";
 import { UserSettingsEntity } from "../../entity/UserSettings";
 import { LoginResponse, MeResponse, RegisterInput } from "./types";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
+import { CategoryEntity } from "../../entity/Category";
+import { defaultCategories } from "./defaultData";
 
 @Resolver()
 export class UserResolver {
@@ -144,11 +146,19 @@ export class UserResolver {
       const userSettings = UserSettingsEntity.create({ theme: "dark" });
       await userSettings.save();
 
-      await UserEntity.create({
+      const user = await UserEntity.create({
         email,
         password: hashedPassword,
         userSettingsId: userSettings.id,
       }).save();
+
+      defaultCategories(user.id).forEach((category) => {
+        CategoryEntity.create({
+          name: category.name,
+          userId: user.id,
+          subCategories: category.subCategories,
+        }).save();
+      });
 
       const data = { email, password };
       return this.login(data, { req, res });
