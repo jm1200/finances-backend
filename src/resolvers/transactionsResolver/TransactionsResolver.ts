@@ -1,6 +1,5 @@
 import {
   Resolver,
-  // Query,
   UseMiddleware,
   Ctx,
   Arg,
@@ -8,29 +7,24 @@ import {
   Field,
   Mutation,
   Int,
-  ObjectType,
   Query,
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../types";
-//import { UserEntity } from "../../entity/User";
-//import { CategoryEntity } from "../../entity/Category";
 import { TransactionEntity } from "../../entity/Transaction";
 import { CategoryEntity } from "../../entity/Category";
 import { UserEntity } from "../../entity/User";
 
 @InputType()
 export class updateTransactionInput {
-  @Field()
-  id: string;
+  @Field(() => [String])
+  ids: string[];
   @Field(() => Int!)
   categoryId: number;
   @Field({ nullable: true })
   subCategoryName: string;
-  @Field({ nullable: true })
-  categoryName: string;
 }
 
 @Resolver()
@@ -84,21 +78,34 @@ export class TransactionsResolver extends BaseEntity {
   @UseMiddleware(isAuth)
   async updateCategoriesInTransaction(
     @Arg("data")
-    { id, categoryId, categoryName, subCategoryName }: updateTransactionInput,
+    { ids, categoryId, subCategoryName }: updateTransactionInput,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
     if (!userId) {
       return false;
     }
-    try {
-      const res = await TransactionEntity.update(id, {
-        categoryId,
-        categoryName,
-        subCategoryName,
-      });
 
-      console.log(res);
+    try {
+      const category = await CategoryEntity.findOne(categoryId);
+
+      if (!category) {
+        return false;
+      }
+      const categoryName = category.name;
+      ids.forEach(async (id) => {
+        try {
+          await TransactionEntity.update(id, {
+            categoryId,
+            categoryName,
+            subCategoryName,
+          });
+          return true;
+        } catch (err) {
+          console.log("error inserting id: ", id);
+          return false;
+        }
+      });
 
       return true;
     } catch (err) {
