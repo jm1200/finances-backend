@@ -2,14 +2,13 @@ import { Query, Resolver, Mutation, Ctx, Arg, Int } from "type-graphql";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../MyContext";
 import { CategoryEntity } from "../../entity/Category";
-import { UserEntity } from "../../entity/User";
 
 @Resolver()
 export class CategoriesResolver {
-  @Query(() => UserEntity || null)
+  @Query(() => [CategoryEntity] || null)
   async getUserCategories(
     @Ctx() context: MyContext
-  ): Promise<UserEntity | null> {
+  ): Promise<CategoryEntity[] | null> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]);
 
     if (!userId) {
@@ -17,11 +16,12 @@ export class CategoriesResolver {
     }
 
     try {
-      const user = await UserEntity.findOne(userId, {
-        relations: ["categories"],
+      const categories = await CategoryEntity.find({
+        where: { userId },
+        relations: ["transactions"],
       });
-      if (user) {
-        return user;
+      if (categories) {
+        return categories;
       }
       return null;
     } catch (err) {

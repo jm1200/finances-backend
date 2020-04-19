@@ -106,10 +106,8 @@ mutation AddCategory($name: String!){
 export const getUserCategoriesQuery = `
 {
   getUserCategories{
-    categories{
       name
       id
-    }
   }
 }
 `;
