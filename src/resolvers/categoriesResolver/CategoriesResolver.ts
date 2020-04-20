@@ -34,7 +34,7 @@ export class CategoriesResolver {
   }
 
   @Query(() => CategoryEntity)
-  async getCategory(
+  async getCategorybyId(
     @Arg("categoryId", () => Int!) categoryId: number,
     @Ctx() context: MyContext
   ): Promise<CategoryEntity | Boolean> {
@@ -47,7 +47,7 @@ export class CategoriesResolver {
     try {
       const category = await CategoryEntity.findOne({
         where: { userId, id: categoryId },
-        relations: ["transactions"],
+        relations: ["transactions", "subCategories"],
       });
       if (category) {
         return category;

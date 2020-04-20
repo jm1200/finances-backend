@@ -41,7 +41,12 @@ export class UserResolver {
       return { user: null };
     }
     return UserEntity.findOne(userId, {
-      relations: ["userSettings", "categories", "transactions"],
+      relations: [
+        "userSettings",
+        "categories",
+        "transactions",
+        "categories.subCategories",
+      ],
     });
   }
 
