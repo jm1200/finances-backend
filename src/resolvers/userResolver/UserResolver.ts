@@ -18,8 +18,7 @@ import { ApolloError } from "apollo-server-express";
 import { UserSettingsEntity } from "../../entity/UserSettings";
 import { LoginResponse, MeResponse, RegisterInput } from "./types";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
-import { CategoryEntity } from "../../entity/Category";
-import { defaultCategories } from "./defaultData";
+import { createDefaultCategories } from "./defaultData";
 
 @Resolver()
 export class UserResolver {
@@ -152,13 +151,7 @@ export class UserResolver {
         userSettingsId: userSettings.id,
       }).save();
 
-      defaultCategories(user.id).forEach((category) => {
-        CategoryEntity.create({
-          name: category.name,
-          userId: user.id,
-          subCategories: category.subCategories,
-        }).save();
-      });
+      createDefaultCategories(user.id);
 
       const data = { email, password };
       return this.login(data, { req, res });

@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 
 import { TransactionEntity } from "./Transaction";
+import { SubCategoryEntity } from "./SubCategory";
 import { UserEntity } from "./User";
 
 @ObjectType()
@@ -22,20 +23,25 @@ export class CategoryEntity extends BaseEntity {
   @Column()
   name: string;
 
+  //Foreign Key
   @Field(() => Int)
   @Column()
   userId: number;
 
-  @Field(() => [String], { nullable: true })
-  @Column("text", { array: true, nullable: true })
-  subCategories: string[];
-
-  //There could be a category but no transactions. so nullable=true
-  @Field(() => [TransactionEntity])
-  @OneToMany(() => TransactionEntity, (transaction) => transaction.category)
-  transactions: TransactionEntity[];
-
   @Field(() => UserEntity)
   @ManyToOne(() => UserEntity, (user) => user.categories)
   user: UserEntity;
+
+  //returns array of subCategories. Might be null.
+  @Field(() => [SubCategoryEntity], { nullable: true })
+  //one category has many subCategoryEntity's.
+  //Relates to SubCategoryEntity through subCategory.category property.
+  @OneToMany(() => SubCategoryEntity, (subCategory) => subCategory.category, {
+    nullable: true,
+  })
+  subCategories: SubCategoryEntity[];
+
+  @Field(() => [TransactionEntity])
+  @OneToMany(() => TransactionEntity, (transaction) => transaction.category)
+  transactions: TransactionEntity[];
 }

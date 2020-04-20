@@ -2,3 +2,4 @@ Register user:
 
 1. test for errors? password not long enough... email not email...
 
+user:

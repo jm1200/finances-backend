@@ -11,6 +11,7 @@ import { ObjectType, Field, Int } from "type-graphql";
 import { TransactionEntity } from "./Transaction";
 import { UserSettingsEntity } from "./UserSettings";
 import { CategoryEntity } from "./Category";
+import { SubCategoryEntity } from "./SubCategory";
 
 @ObjectType()
 @Entity()
@@ -45,4 +46,8 @@ export class UserEntity extends BaseEntity {
   @Field(() => [CategoryEntity])
   @OneToMany(() => CategoryEntity, (category) => category.user)
   categories: CategoryEntity[];
+
+  @Field(() => [SubCategoryEntity])
+  @OneToMany(() => SubCategoryEntity, (subCategory) => subCategory.user)
+  subCategories: SubCategoryEntity[];
 }

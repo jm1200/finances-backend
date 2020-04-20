@@ -6,6 +6,7 @@ import { UserEntity } from "../entity/User";
 import { UserSettingsEntity } from "../entity/UserSettings";
 import faker from "faker";
 import * as testGraphql from "./mutations";
+import { CategoryEntity } from "../entity/Category";
 
 let conn: Connection;
 
@@ -184,16 +185,25 @@ describe("Category Resolver Tests", () => {
       },
       accessToken
     );
+
     expect(addCategoryResponse!.data!.addCategory).toEqual(true);
+
     //Read
     const categories = await graphqlTestCall(
       testGraphql.getUserCategoriesQuery,
       {},
       accessToken
     );
-    console.log(categories!.data!.getUserCategories[0]);
     const categoriesData = categories!.data!.getUserCategories;
-    expect(categoriesData[0]).toBeDefined();
+    console.log(categoriesData);
+    expect(categoriesData).toEqual([
+      { name: "Kids", id: 20 },
+      { name: "Rental Property A", id: 17 },
+      { name: "Home", id: 18 },
+      { name: "test", id: 21 },
+      { name: "Food", id: 19 },
+      { name: "Income", id: 16 },
+    ]);
 
     let userDb = await UserEntity.findOne(userId, {
       relations: ["categories"],
@@ -203,7 +213,7 @@ describe("Category Resolver Tests", () => {
     //Update
     const updateResponse = await graphqlTestCall(
       testGraphql.updateCategoryMutation,
-      { categoryId: 1, name: "updated test" },
+      { categoryId: 21, name: "updated test" },
       accessToken
     );
     expect(updateResponse!.data!.updateCategory).toEqual(true);
@@ -211,47 +221,55 @@ describe("Category Resolver Tests", () => {
     userDb = await UserEntity.findOne(userId, {
       relations: ["categories"],
     });
+
     expect(userDb?.categories).toBeDefined();
+    const updatedCategory = userDb!.categories.filter((cat) => cat.id == 21);
+    expect(updatedCategory[0].name).toEqual("updated test");
 
     //Add Sub Category
     const addSubCatResponse = await graphqlTestCall(
       testGraphql.addSubCategoryMutation,
-      { categoryId: 1, name: "test sub cat" },
+      { categoryId: 21, name: "test sub cat" },
       accessToken
     );
     expect(addSubCatResponse!.data!.addSubCategory).toEqual(true);
 
-    userDb = await UserEntity.findOne(userId, {
-      relations: ["categories"],
+    let categoryDb = await CategoryEntity.findOne(21, {
+      relations: ["subCategories"],
     });
-    expect(userDb?.categories).toBeDefined();
+
+    expect(categoryDb!.subCategories).toEqual([
+      {
+        id: 85,
+        name: "test sub cat",
+        categoryId: 21,
+        userId: 4,
+      },
+    ]);
 
     //Delete Sub Category
     const deleteSubCatResponse = await graphqlTestCall(
       testGraphql.deleteSubCategoryMutation,
-      { categoryId: 1, name: "test sub cat" },
+      { subCategoryId: 85 },
       accessToken
     );
+
     expect(deleteSubCatResponse!.data!.deleteSubCategory).toEqual(true);
-
-    userDb = await UserEntity.findOne(userId, {
-      relations: ["categories"],
+    categoryDb = await CategoryEntity.findOne(21, {
+      relations: ["subCategories"],
     });
-    expect(userDb?.categories).toEqual([
-      { id: 1, name: "updated test", userId: 4, subCategories: [] },
-    ]);
 
-    //Delete Category
+    expect(categoryDb!.subCategories).toEqual([]);
+
+    // Delete Category
     const deleteResponse = await graphqlTestCall(
       testGraphql.deleteCategoryMutation,
-      { categoryId: 1 },
+      { categoryId: 21 },
       accessToken
     );
     expect(deleteResponse!.data!.deleteCategory).toEqual(true);
 
-    userDb = await UserEntity.findOne(userId, {
-      relations: ["categories"],
-    });
-    expect(userDb?.categories).toEqual([]);
+    categoryDb = await CategoryEntity.findOne(21);
+    expect(categoryDb).toBeUndefined();
   });
 });

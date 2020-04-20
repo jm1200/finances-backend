@@ -2,6 +2,9 @@ import { Query, Resolver, Mutation, Ctx, Arg, Int } from "type-graphql";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../MyContext";
 import { CategoryEntity } from "../../entity/Category";
+import { createCategory } from "../utils/createCategoryEntity";
+import { createSubCategory } from "../utils/createSubCategoryEntity";
+import { SubCategoryEntity } from "../../entity/SubCategory";
 
 @Resolver()
 export class CategoriesResolver {
@@ -18,7 +21,7 @@ export class CategoriesResolver {
     try {
       const categories = await CategoryEntity.find({
         where: { userId },
-        relations: ["transactions"],
+        relations: ["transactions", "subCategories"],
       });
       if (categories) {
         return categories;
@@ -69,10 +72,7 @@ export class CategoriesResolver {
       return false;
     }
     try {
-      await CategoryEntity.create({
-        name,
-        userId,
-      }).save();
+      await createCategory(userId, name);
       return true;
     } catch (err) {
       console.log(err);
@@ -143,21 +143,9 @@ export class CategoriesResolver {
     if (!userId) {
       return false;
     }
-    try {
-      const category = await CategoryEntity.findOne(categoryId);
-      console.log("oldCategories: ", category);
-      let newSubCategories;
-      if (!category) {
-        return false;
-      } else if (category && category.subCategories) {
-        newSubCategories = [...category.subCategories, name];
-      } else {
-        newSubCategories = [name];
-      }
 
-      await CategoryEntity.update(categoryId, {
-        subCategories: newSubCategories,
-      });
+    try {
+      await createSubCategory(userId, name, categoryId);
       return true;
     } catch (err) {
       console.log(err);
@@ -167,8 +155,7 @@ export class CategoriesResolver {
 
   @Mutation(() => Boolean)
   async deleteSubCategory(
-    @Arg("name") name: string,
-    @Arg("categoryId", () => Int) categoryId: number,
+    @Arg("subCategoryId", () => Int) subCategoryId: number,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
     const userId: number = getUserIdFromHeader(
@@ -179,22 +166,8 @@ export class CategoriesResolver {
       return false;
     }
     try {
-      const category = await CategoryEntity.findOne(categoryId);
+      await SubCategoryEntity.delete(subCategoryId);
 
-      let newSubCategories;
-      if (!category) {
-        return false;
-      } else if (category && category.subCategories) {
-        newSubCategories = category.subCategories.filter((subCategory) => {
-          return subCategory !== name;
-        });
-      } else {
-        return false;
-      }
-
-      await CategoryEntity.update(categoryId, {
-        subCategories: newSubCategories,
-      });
       return true;
     } catch (err) {
       console.log(err);

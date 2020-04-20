@@ -130,8 +130,8 @@ mutation AddSubCategory($name: String!, $categoryId: Int!){
 `;
 
 export const deleteSubCategoryMutation = `
-mutation DeleteSubCategory($name: String!, $categoryId: Int!){
-    deleteSubCategory(name:$name, categoryId:$categoryId)
+mutation DeleteSubCategory($subCategoryId: Int!){
+    deleteSubCategory(subCategoryId:$subCategoryId)
 }
 
 `;
