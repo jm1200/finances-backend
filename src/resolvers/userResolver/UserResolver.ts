@@ -44,8 +44,9 @@ export class UserResolver {
       relations: [
         "userSettings",
         "categories",
-        "transactions",
         "categories.subCategories",
+        "transactions",
+        "subCategories",
       ],
     });
   }

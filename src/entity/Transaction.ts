@@ -48,13 +48,9 @@ export class TransactionEntity extends BaseEntity {
   @Column({ type: "real" })
   amount: number;
 
-  @Field({ nullable: true })
+  @Field(() => Int, { nullable: true })
   @Column({ nullable: true })
-  subCategoryName: String;
-
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  categoryName: String;
+  subCategoryId: number;
 
   @Field(() => Int, { nullable: true })
   @Column({ nullable: true })

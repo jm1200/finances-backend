@@ -14,17 +14,16 @@ import { isAuth } from "../../isAuth";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../types";
 import { TransactionEntity } from "../../entity/Transaction";
-import { CategoryEntity } from "../../entity/Category";
 import { UserEntity } from "../../entity/User";
 
 @InputType()
 export class updateTransactionInput {
   @Field(() => [String])
   ids: string[];
-  @Field(() => Int!)
+  @Field(() => Int, { nullable: true })
   categoryId: number;
-  @Field({ nullable: true })
-  subCategoryName: string;
+  @Field(() => Int, { nullable: true })
+  subCategoryId: number;
 }
 
 @Resolver()
@@ -78,7 +77,7 @@ export class TransactionsResolver extends BaseEntity {
   @UseMiddleware(isAuth)
   async updateCategoriesInTransaction(
     @Arg("data")
-    { ids, categoryId, subCategoryName }: updateTransactionInput,
+    { ids, categoryId, subCategoryId }: updateTransactionInput,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
@@ -87,18 +86,11 @@ export class TransactionsResolver extends BaseEntity {
     }
 
     try {
-      const category = await CategoryEntity.findOne(categoryId);
-
-      if (!category) {
-        return false;
-      }
-      const categoryName = category.name;
       ids.forEach(async (id) => {
         try {
           await TransactionEntity.update(id, {
             categoryId,
-            categoryName,
-            subCategoryName,
+            subCategoryId,
           });
           return true;
         } catch (err) {
@@ -113,22 +105,4 @@ export class TransactionsResolver extends BaseEntity {
       return false;
     }
   }
-
-  // @Mutation(() => UserSettings, { nullable: true })
-  // @UseMiddleware(isAuth)
-  // async updateTheme(
-  //   @Arg("theme") theme: string,
-  //   @Arg("userId") userId: number
-  // ): Promise<UserSettings | null> {
-  //   try {
-  //     await UserSettings.update(userId, { theme });
-  //     const userSettings = await UserSettings.findOne(userId);
-  //     if (userSettings) {
-  //       return userSettings;
-  //     }
-  //   } catch (err) {
-  //     console.log("could not update user settings");
-  //   }
-  //   return null;
-  // }
 }
