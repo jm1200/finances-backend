@@ -12,10 +12,6 @@ export class TransactionEntity extends BaseEntity {
   @PrimaryColumn()
   id: String;
 
-  @Field()
-  @Column()
-  transId: String;
-
   @Field(() => Int!)
   @Column()
   userId: number;

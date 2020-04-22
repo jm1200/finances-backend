@@ -7,8 +7,6 @@ export class TransactionClass {
   @Field()
   id: string;
   @Field()
-  transId: string;
-  @Field()
   userId: number;
   @Field()
   account: string;
@@ -31,8 +29,6 @@ export class TransactionInput {
   @Field(() => Int)
   userId: number;
   @Field()
-  transId: String;
-  @Field()
   account: String;
   @Field()
   type: String;
@@ -48,7 +44,6 @@ export class TransactionInput {
 
 export interface Transaction {
   id: string;
-  transId: string;
   userId: number;
   account: string;
   type: string;

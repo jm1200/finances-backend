@@ -51,8 +51,7 @@ function parseTransObj(
   userId: number
 ): TransResponse {
   let transactions: Transaction[] = trans.map((transObj: any) => ({
-    id: uuid(),
-    transId: transObj.FITID,
+    id: transObj.FITID,
     userId,
     account,
     type: transObj.TRNTYPE,
