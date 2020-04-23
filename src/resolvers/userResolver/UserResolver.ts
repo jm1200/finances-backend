@@ -5,7 +5,6 @@ import {
   Arg,
   Ctx,
   UseMiddleware,
-  Int,
 } from "type-graphql";
 import { hash, compare } from "bcryptjs";
 import { UserEntity } from "../../entity/User";
@@ -92,7 +91,7 @@ export class UserResolver {
   }
 
   @Mutation(() => Boolean)
-  async revokeRefreshTokensForUser(@Arg("userId", () => Int) userId: number) {
+  async revokeRefreshTokensForUser(@Arg("userId") userId: string) {
     await getConnection()
       .getRepository(UserEntity)
       .increment({ id: userId }, "tokenVersion", 1);

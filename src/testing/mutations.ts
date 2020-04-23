@@ -47,7 +47,7 @@ query Me {
 }
 `;
 export const userMutation = `
-query User($userId: Int!){
+query User($userId: String!){
     user(userId: $userId) {
       id
       email
@@ -76,7 +76,7 @@ export const usersQuery = `
   }
   `;
 export const revokeRefreshTokensForUserMutation = `
-mutation RevokeRefreshTokensForUser($userId: Int!) {
+mutation RevokeRefreshTokensForUser($userId: String!) {
     revokeRefreshTokensForUser(userId:$userId)
 }
 `;
@@ -89,7 +89,7 @@ mutation Logout{
 // #########################  UserSettings Resolver ######################################
 
 export const updateThemeMutation = `
-mutation updateTheme($id: Int!, $theme:String!) {
+mutation updateTheme($id: String!, $theme:String!) {
   updateTheme(id: $id, theme: $theme) {
     theme
   }
@@ -113,24 +113,24 @@ export const getUserCategoriesQuery = `
 `;
 
 export const updateCategoryMutation = `
-mutation UpdateCategory($categoryId:Int!, $name: String!){
+mutation UpdateCategory($categoryId:String!, $name: String!){
   updateCategory(categoryId:$categoryId, name:$name)
 }
 `;
 
 export const deleteCategoryMutation = `
-mutation DeleteCategory($categoryId: Int!){
+mutation DeleteCategory($categoryId: String!){
   deleteCategory(categoryId:$categoryId)
 }`;
 
 export const addSubCategoryMutation = `
-mutation AddSubCategory($name: String!, $categoryId: Int!){
+mutation AddSubCategory($name: String!, $categoryId: String!){
     addSubCategory(name:$name, categoryId:$categoryId)
 }
 `;
 
 export const deleteSubCategoryMutation = `
-mutation DeleteSubCategory($subCategoryId: Int!){
+mutation DeleteSubCategory($subCategoryId: String!){
     deleteSubCategory(subCategoryId:$subCategoryId)
 }
 

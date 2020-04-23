@@ -23,7 +23,7 @@ export class UserSettingsResolver extends BaseEntity {
   @UseMiddleware(isAuth)
   async updateTheme(
     @Arg("theme") theme: string,
-    @Arg("id", () => Int) id: number
+    @Arg("id") id: string
   ): Promise<UserSettingsEntity | null> {
     try {
       await UserSettingsEntity.update(id, { theme });

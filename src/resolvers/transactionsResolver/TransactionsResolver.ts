@@ -6,7 +6,6 @@ import {
   InputType,
   Field,
   Mutation,
-  Int,
   Query,
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
@@ -20,10 +19,10 @@ import { UserEntity } from "../../entity/User";
 export class updateTransactionInput {
   @Field(() => [String])
   ids: string[];
-  @Field(() => Int, { nullable: true })
-  categoryId: number;
-  @Field(() => Int, { nullable: true })
-  subCategoryId: number;
+  @Field({ nullable: true })
+  categoryId: string;
+  @Field({ nullable: true })
+  subCategoryId: string;
 }
 
 @Resolver()

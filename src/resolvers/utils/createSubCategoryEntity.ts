@@ -1,9 +1,9 @@
 import { SubCategoryEntity } from "../../entity/SubCategory";
 
 export const createSubCategory = async (
-  userId: number,
+  userId: string,
   name: string,
-  categoryId: number
+  categoryId: string
 ) => {
   try {
     await SubCategoryEntity.create({

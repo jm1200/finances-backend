@@ -1,7 +1,7 @@
 import { createCategory } from "../utils/createCategoryEntity";
 import { createSubCategory } from "../utils/createSubCategoryEntity";
 
-export const createDefaultCategories = async (userId: number) => {
+export const createDefaultCategories = async (userId: string) => {
   defaultCategories.forEach(async (category) => {
     const categoryId = await createCategory(userId, category.name);
     if (categoryId) {

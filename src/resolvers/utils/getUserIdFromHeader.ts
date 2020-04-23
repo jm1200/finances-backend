@@ -2,7 +2,7 @@ import { verify } from "jsonwebtoken";
 
 export const getUserIdFromHeader = (
   authHeader: string | undefined
-): string | number | null => {
+): string | null => {
   if (!authHeader) {
     return null;
   }

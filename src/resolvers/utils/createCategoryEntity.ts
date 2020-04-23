@@ -1,9 +1,9 @@
 import { CategoryEntity } from "../../entity/Category";
 
 export const createCategory = async (
-  userId: number,
+  userId: string,
   name: string
-): Promise<number | null> => {
+): Promise<string | null> => {
   try {
     const newCategory = await CategoryEntity.create({ userId, name }).save();
     return newCategory.id;

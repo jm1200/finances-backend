@@ -1,4 +1,4 @@
-import { Query, Resolver, Mutation, Ctx, Arg, Int } from "type-graphql";
+import { Query, Resolver, Mutation, Ctx, Arg } from "type-graphql";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../MyContext";
 import { CategoryEntity } from "../../entity/Category";
@@ -23,6 +23,7 @@ export class CategoriesResolver {
         where: { userId },
         relations: ["transactions", "subCategories"],
       });
+
       if (categories) {
         return categories;
       }
@@ -35,7 +36,7 @@ export class CategoriesResolver {
 
   @Query(() => CategoryEntity)
   async getCategorybyId(
-    @Arg("categoryId", () => Int!) categoryId: number,
+    @Arg("categoryId") categoryId: string,
     @Ctx() context: MyContext
   ): Promise<CategoryEntity | Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]);
@@ -64,9 +65,9 @@ export class CategoriesResolver {
     @Arg("name") name: string,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
-    const userId: number = getUserIdFromHeader(
+    const userId: string | null = getUserIdFromHeader(
       context.req.headers["authorization"]
-    ) as number;
+    );
 
     if (!userId) {
       return false;
@@ -83,12 +84,12 @@ export class CategoriesResolver {
   @Mutation(() => Boolean)
   async updateCategory(
     @Arg("name") name: string,
-    @Arg("categoryId", () => Int) categoryId: number,
+    @Arg("categoryId") categoryId: string,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
-    const userId: number = getUserIdFromHeader(
+    const userId: string | null = getUserIdFromHeader(
       context.req.headers["authorization"]
-    ) as number;
+    );
 
     if (!userId) {
       return false;
@@ -110,12 +111,12 @@ export class CategoriesResolver {
 
   @Mutation(() => Boolean)
   async deleteCategory(
-    @Arg("categoryId", () => Int) categoryId: number,
+    @Arg("categoryId") categoryId: string,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
-    const userId: number = getUserIdFromHeader(
+    const userId: string | null = getUserIdFromHeader(
       context.req.headers["authorization"]
-    ) as number;
+    );
 
     if (!userId) {
       return false;
@@ -133,12 +134,12 @@ export class CategoriesResolver {
   @Mutation(() => Boolean)
   async addSubCategory(
     @Arg("name") name: string,
-    @Arg("categoryId", () => Int) categoryId: number,
+    @Arg("categoryId") categoryId: string,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
-    const userId: number = getUserIdFromHeader(
+    const userId: string | null = getUserIdFromHeader(
       context.req.headers["authorization"]
-    ) as number;
+    );
 
     if (!userId) {
       return false;
@@ -155,12 +156,12 @@ export class CategoriesResolver {
 
   @Mutation(() => Boolean)
   async deleteSubCategory(
-    @Arg("subCategoryId", () => Int) subCategoryId: number,
+    @Arg("subCategoryId") subCategoryId: string,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
-    const userId: number = getUserIdFromHeader(
+    const userId: string | null = getUserIdFromHeader(
       context.req.headers["authorization"]
-    ) as number;
+    );
 
     if (!userId) {
       return false;

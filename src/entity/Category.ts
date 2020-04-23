@@ -1,4 +1,4 @@
-import { ObjectType, Field, Int } from "type-graphql";
+import { ObjectType, Field } from "type-graphql";
 import {
   Entity,
   BaseEntity,
@@ -15,18 +15,18 @@ import { UserEntity } from "./User";
 @ObjectType()
 @Entity()
 export class CategoryEntity extends BaseEntity {
-  @Field(() => Int!)
-  @PrimaryGeneratedColumn()
-  id: number;
+  @Field()
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Field()
   @Column()
   name: string;
 
   //Foreign Key
-  @Field(() => Int)
+  @Field()
   @Column()
-  userId: number;
+  userId: string;
 
   @Field(() => UserEntity)
   @ManyToOne(() => UserEntity, (user) => user.categories)

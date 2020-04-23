@@ -7,7 +7,7 @@ import {
   OneToOne,
   JoinColumn,
 } from "typeorm";
-import { ObjectType, Field, Int } from "type-graphql";
+import { ObjectType, Field } from "type-graphql";
 import { TransactionEntity } from "./Transaction";
 import { UserSettingsEntity } from "./UserSettings";
 import { CategoryEntity } from "./Category";
@@ -16,9 +16,9 @@ import { SubCategoryEntity } from "./SubCategory";
 @ObjectType()
 @Entity()
 export class UserEntity extends BaseEntity {
-  @Field(() => Int)
-  @PrimaryGeneratedColumn()
-  id: number;
+  @Field()
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Field()
   @Column({ unique: true })
@@ -30,9 +30,9 @@ export class UserEntity extends BaseEntity {
   @Column("int", { default: 0 })
   tokenVersion: number;
 
-  @Field(() => Int)
+  @Field()
   @Column()
-  userSettingsId: number;
+  userSettingsId: string;
 
   @Field(() => UserSettingsEntity)
   @OneToOne(() => UserSettingsEntity)
