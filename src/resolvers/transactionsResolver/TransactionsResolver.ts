@@ -8,6 +8,7 @@ import {
   Mutation,
   Query,
   ObjectType,
+  Float,
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
@@ -34,6 +35,10 @@ export class IGroupedTransactionsClass {
   name: string;
   @Field()
   memo: string;
+  @Field(() => [Float!]!)
+  amounts: number[];
+  @Field(() => Float!)
+  averageAmount: number;
   @Field()
   categoryName: string;
   @Field()
@@ -124,11 +129,18 @@ export class TransactionsResolver extends BaseEntity {
         const keyName = transaction.keyName(transaction);
         if (Object.keys(groupedTransactions).includes(keyName)) {
           groupedTransactions[keyName].ids.push(transaction.id);
+          groupedTransactions[keyName].amounts.push(transaction.amount);
+          groupedTransactions[keyName].averageAmount =
+            groupedTransactions[keyName].amounts.reduce((acc, cur) => {
+              return (acc += cur);
+            }) / groupedTransactions[keyName].amounts.length;
         } else {
           groupedTransactions[keyName] = {
             id: keyName,
             name: transaction.name,
             memo: transaction.memo,
+            amounts: [transaction.amount],
+            averageAmount: transaction.amount,
             subCategoryName: transaction.subCategory.name,
             categoryName: transaction.category.name,
             ids: [transaction.id],
@@ -152,6 +164,8 @@ export class TransactionsResolver extends BaseEntity {
             trans.categoryName === "uncategorized"
         )
         .slice(0, 10);
+
+      console.log("TR 170: ", data[0]);
 
       return data;
 
