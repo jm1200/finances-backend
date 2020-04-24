@@ -1,16 +1,15 @@
 import { Entity, Column, BaseEntity, PrimaryColumn, ManyToOne } from "typeorm";
-import { ObjectType, Field, Float } from "type-graphql";
+import { ObjectType, Field, Float, Root } from "type-graphql";
 import { UserEntity } from "./User";
 import { CategoryEntity } from "./Category";
 import { SubCategoryEntity } from "./SubCategory";
-//import { SubCategoryEntity } from "./SubCategory";
 
 @ObjectType()
 @Entity()
 export class TransactionEntity extends BaseEntity {
   @Field()
   @PrimaryColumn()
-  id: String;
+  id: string;
 
   @Field()
   @Column()
@@ -22,23 +21,28 @@ export class TransactionEntity extends BaseEntity {
 
   @Field()
   @Column()
-  account: String;
+  account: string;
 
   @Field()
   @Column()
-  type: String;
+  type: string;
 
   @Field()
   @Column()
-  datePosted: String;
+  datePosted: string;
 
   @Field()
   @Column()
-  name: String;
+  name: string;
 
   @Field()
   @Column()
-  memo: String;
+  memo: string;
+
+  @Field()
+  keyName(@Root() parent: TransactionEntity): string {
+    return parent.name.concat(parent.memo);
+  }
 
   @Field(() => Float)
   @Column({ type: "real" })

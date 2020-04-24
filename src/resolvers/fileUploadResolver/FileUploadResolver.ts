@@ -55,7 +55,8 @@ export class FileUploadResolver {
     }
     //console.log("Parsed Data: ", parsedData);
 
-    let transactions = parseTransactions(parsedData, userId);
+    let transactions = await parseTransactions(parsedData, userId);
+    //console.log("transactions ", transactions);
 
     try {
       fs.unlinkSync(filepath);
@@ -84,6 +85,7 @@ export class FileUploadResolver {
       return { inserted: true, message: "Inserted transactions successfully" };
     } catch (err) {
       //res.send("Duplicate values");
+      console.log(err);
       return { inserted: false, message: "failed to insert transactions" };
     }
   }

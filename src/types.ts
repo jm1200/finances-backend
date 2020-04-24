@@ -1,4 +1,4 @@
-import { ObjectType, Field, InputType, Float, Int } from "type-graphql";
+import { ObjectType, Field, InputType, Float } from "type-graphql";
 import { Stream } from "stream";
 import { Request, Response } from "express";
 
@@ -7,7 +7,7 @@ export class TransactionClass {
   @Field()
   id: string;
   @Field()
-  userId: number;
+  userId: string;
   @Field()
   account: string;
   @Field()
@@ -16,6 +16,10 @@ export class TransactionClass {
   datePosted: string;
   @Field()
   name: string;
+  @Field()
+  categoryId: string;
+  @Field()
+  subCategoryId: string;
   @Field()
   memo: string;
   @Field()
@@ -26,8 +30,8 @@ export class TransactionClass {
 export class TransactionInput {
   @Field()
   id: String;
-  @Field(() => Int)
-  userId: number;
+  @Field()
+  userId: string;
   @Field()
   account: String;
   @Field()
@@ -37,6 +41,10 @@ export class TransactionInput {
   @Field()
   name: String;
   @Field()
+  categoryId: string;
+  @Field()
+  subCategoryId: string;
+  @Field()
   memo: String;
   @Field(() => Float)
   amount: number;
@@ -44,7 +52,9 @@ export class TransactionInput {
 
 export interface Transaction {
   id: string;
-  userId: number;
+  userId: string;
+  categoryId: string;
+  subCategoryId: string;
   account: string;
   type: string;
   datePosted: string;

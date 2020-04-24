@@ -7,6 +7,7 @@ import {
   Field,
   Mutation,
   Query,
+  ObjectType,
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
@@ -25,10 +26,37 @@ export class updateTransactionInput {
   subCategoryId: string;
 }
 
+@ObjectType()
+export class IGroupedTransactionsClass {
+  @Field()
+  id: string;
+  @Field()
+  name: string;
+  @Field()
+  memo: string;
+  @Field()
+  categoryName: string;
+  @Field()
+  subCategoryName: string;
+  @Field(() => [String])
+  ids: string[];
+}
+// interface IGroupedTransactions {
+//   id: string;
+//   name: string;
+//   memo: string;
+//   subCategoryName: string;
+//   categoryName: string;
+//   ids: string[];
+// }
+interface IGroupedTransactionsMap {
+  [key: string]: IGroupedTransactionsClass;
+}
+
 @Resolver()
 export class TransactionsResolver extends BaseEntity {
   @Query(() => [TransactionEntity] || Boolean)
-  async getAllTransactions(
+  async getUserTransactions(
     @Ctx() context: MyContext
   ): Promise<TransactionEntity[] | Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
@@ -65,6 +93,75 @@ export class TransactionsResolver extends BaseEntity {
         return transaction;
       }
       return false;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+    return false;
+  }
+
+  @Query(() => [IGroupedTransactionsClass] || Boolean)
+  async getTransactionsToCategorize(
+    @Ctx() context: MyContext
+  ): Promise<IGroupedTransactionsClass[] | Boolean> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+    if (!userId) {
+      return false;
+    }
+    try {
+      console.log(userId);
+      const transactions = await TransactionEntity.find({
+        where: { userId },
+        relations: ["category", "subCategory"],
+      });
+
+      if (transactions.length === 0) {
+        return false;
+      }
+
+      let groupedTransactions: IGroupedTransactionsMap = {};
+      transactions.forEach((transaction) => {
+        const keyName = transaction.keyName(transaction);
+        if (Object.keys(groupedTransactions).includes(keyName)) {
+          groupedTransactions[keyName].ids.push(transaction.id);
+        } else {
+          groupedTransactions[keyName] = {
+            id: keyName,
+            name: transaction.name,
+            memo: transaction.memo,
+            subCategoryName: transaction.subCategory.name,
+            categoryName: transaction.category.name,
+            ids: [transaction.id],
+          };
+        }
+      });
+
+      const arrayedGroupedTransactions: IGroupedTransactionsClass[] = [];
+      Object.keys(groupedTransactions).forEach((keyName) => {
+        arrayedGroupedTransactions.push(groupedTransactions[keyName]);
+      });
+
+      const data = arrayedGroupedTransactions
+        .sort((a: IGroupedTransactionsClass, b: IGroupedTransactionsClass) => {
+          if (b.ids.length < a.ids.length) return -1;
+          if (a.ids.length > b.ids.length) return 1;
+          return 0;
+        })
+        .filter(
+          (trans: IGroupedTransactionsClass) =>
+            trans.categoryName === "uncategorized"
+        )
+        .slice(0, 10);
+
+      return data;
+
+      //console.log("TR 113: grouped transactions", arrayedGroupedTransactions);
+
+      // console.log(
+      //   transactions[0].keyName(transactions[0]),
+      //   transactions[0].category.name,
+      //   transactions[0].subCategory.name
+      // );
     } catch (err) {
       console.log(err);
       return false;

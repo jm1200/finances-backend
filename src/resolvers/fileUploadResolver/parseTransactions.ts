@@ -1,4 +1,7 @@
 import { Transaction } from "../../types";
+import { CategorizedTransactionsEntity } from "../../entity/CategorizedTransactions";
+import { CategoryEntity } from "../../entity/Category";
+import { SubCategoryEntity } from "../../entity/SubCategory";
 //import { v4 as uuid } from "uuid";
 
 export class TransResponse {
@@ -7,7 +10,7 @@ export class TransResponse {
   rangeEnd: string;
   transactions: Transaction[];
 }
-export const parseTransactions = (parsedData: any, userId: number) => {
+export const parseTransactions = (parsedData: any, userId: string) => {
   //get account type
   let account: string;
   if (parsedData.OFX.BANKMSGSRSV1) {
@@ -43,23 +46,60 @@ export const parseTransactions = (parsedData: any, userId: number) => {
   return transactions;
 };
 
-function parseTransObj(
+async function parseTransObj(
   account: string,
   start: string,
   end: string,
   trans: [Transaction],
-  userId: number
-): TransResponse {
-  let transactions: Transaction[] = trans.map((transObj: any) => ({
-    id: transObj.FITID,
-    userId,
-    account,
-    type: transObj.TRNTYPE,
-    datePosted: formatDate(transObj.DTPOSTED),
-    name: transObj.NAME ? transObj.NAME : "",
-    memo: transObj.MEMO,
-    amount: parseFloat(transObj.TRNAMT),
-  }));
+  userId: string
+): Promise<TransResponse> {
+  let categoryId: string;
+  let subCategoryId: string;
+  const catRes = await CategoryEntity.findOne({
+    where: { userId, name: "uncategorized" },
+  });
+  const unCategorizedCategoryId = catRes!.id;
+
+  const subCatRes = await SubCategoryEntity.findOne({
+    where: { userId, name: "uncategorized" },
+  });
+  const unCategorizedSubCategoryId = subCatRes!.id;
+
+  //console.log("uncat cats", unCategorizedCategory, unCategorizedSubCategory);
+
+  const categorizedTransactions = await CategorizedTransactionsEntity.find({
+    where: { userId },
+  });
+  // interface INormalisedCategorizedTransactions {
+  //   [key: string]: CategorizedTransactionsEntity;
+  // }
+  //let normalisedCategorizedTransactions: INormalisedCategorizedTransactions;
+
+  if (categorizedTransactions.length === 0) {
+    categoryId = unCategorizedCategoryId;
+    subCategoryId = unCategorizedSubCategoryId;
+    console.log("inserteing uncat cat ids", categoryId, subCategoryId);
+  } else {
+    console.log("PT 82: keyname", categorizedTransactions[0].keyName);
+    // categorizedTransactions.forEach(categorizedTransaction=>{
+
+    // })
+  }
+
+  let transactions: Transaction[] = trans.map((transObj: any) => {
+    return {
+      id: transObj.FITID,
+      userId,
+      account,
+      categoryId,
+      subCategoryId,
+      type: transObj.TRNTYPE,
+      datePosted: formatDate(transObj.DTPOSTED),
+      name: transObj.NAME ? transObj.NAME : "",
+      memo: transObj.MEMO,
+      amount: parseFloat(transObj.TRNAMT),
+    };
+  });
 
   return {
     account,

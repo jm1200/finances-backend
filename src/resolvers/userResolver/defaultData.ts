@@ -16,6 +16,10 @@ export const createDefaultCategories = async (userId: string) => {
 
 export const defaultCategories = [
   {
+    name: "uncategorized",
+    subCategories: ["uncategorized"],
+  },
+  {
     name: "Income",
     subCategories: ["Person A", "Business B", "Rental C"],
   },
