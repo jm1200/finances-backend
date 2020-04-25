@@ -30,6 +30,19 @@ export class updateTransactionInput {
   @Field({ nullable: true })
   note: string;
 }
+@InputType()
+export class updateAllTransactionsInput {
+  @Field({ nullable: true })
+  name?: string;
+  @Field({ nullable: true })
+  memo?: string;
+  @Field({ nullable: true })
+  categoryId: string;
+  @Field({ nullable: true })
+  subCategoryId: string;
+  @Field({ nullable: true })
+  note?: string;
+}
 
 @ObjectType()
 export class IGroupedTransactionsClass {
@@ -91,6 +104,7 @@ export class TransactionsResolver extends BaseEntity {
     }
     return false;
   }
+
   @Query(() => TransactionEntity || Boolean)
   async getTransactionsById(
     @Arg("id") id: string,
@@ -101,7 +115,9 @@ export class TransactionsResolver extends BaseEntity {
       return false;
     }
     try {
-      const transaction = await TransactionEntity.findOne(id);
+      const transaction = await TransactionEntity.findOne(id, {
+        relations: ["category", "subCategory"],
+      });
       if (transaction) {
         return transaction;
       }
@@ -128,7 +144,7 @@ export class TransactionsResolver extends BaseEntity {
         where: { userId },
         relations: ["category", "subCategory"],
       });
-
+      console.log("TR 131 starting filtered transactions");
       const filteredTransactions = transactions.filter((transaction: any) => {
         const date = transaction.datePosted;
         const yearTest =
@@ -251,6 +267,47 @@ export class TransactionsResolver extends BaseEntity {
     } catch (err) {
       console.log(err);
       console.log("error inserting id: ", id);
+      return false;
+    }
+  }
+
+  @Mutation(() => Boolean)
+  @UseMiddleware(isAuth)
+  async updateCategoriesInAllTransactions(
+    @Arg("data")
+    { name, memo, categoryId, subCategoryId, note }: updateAllTransactionsInput,
+    @Ctx() context: MyContext
+  ): Promise<Boolean> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+    if (!userId) {
+      return false;
+    }
+
+    try {
+      const transactions = await TransactionEntity.find({
+        where: {
+          name,
+          memo,
+        },
+      });
+
+      console.log("TR 289 ", transactions);
+      transactions.forEach(async (transaction) => {
+        const res = await TransactionEntity.update(transaction.id, {
+          categoryId,
+          subCategoryId,
+          name,
+          memo,
+          note,
+        });
+
+        console.log("TR 302", res);
+      });
+
+      return true;
+    } catch (err) {
+      console.log(err);
+      console.log("error inserting name: ", name);
       return false;
     }
   }
