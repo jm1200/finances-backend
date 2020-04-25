@@ -62,9 +62,9 @@ export class IGroupedTransactionsClass {
 //   categoryName: string;
 //   ids: string[];
 // }
-interface IGroupedTransactionsMap {
-  [key: string]: IGroupedTransactionsClass;
-}
+// interface IGroupedTransactionsMap {
+//   [key: string]: IGroupedTransactionsClass;
+// }
 
 @Resolver()
 export class TransactionsResolver extends BaseEntity {
@@ -161,73 +161,73 @@ export class TransactionsResolver extends BaseEntity {
     }
   }
 
-  @Query(() => [IGroupedTransactionsClass] || Boolean)
-  async getTransactionsToCategorize(
-    @Ctx() context: MyContext
-  ): Promise<IGroupedTransactionsClass[] | Boolean> {
-    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
-    if (!userId) {
-      return false;
-    }
-    try {
-      const transactions = await TransactionEntity.find({
-        where: { userId },
-        relations: ["category", "subCategory"],
-      });
+  // @Query(() => [IGroupedTransactionsClass] || Boolean)
+  // async getTransactionsToCategorize(
+  //   @Ctx() context: MyContext
+  // ): Promise<IGroupedTransactionsClass[] | Boolean> {
+  //   const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+  //   if (!userId) {
+  //     return false;
+  //   }
+  //   try {
+  //     const transactions = await TransactionEntity.find({
+  //       where: { userId },
+  //       relations: ["category", "subCategory"],
+  //     });
 
-      if (transactions.length === 0) {
-        return false;
-      }
+  //     if (transactions.length === 0) {
+  //       return false;
+  //     }
 
-      let groupedTransactions: IGroupedTransactionsMap = {};
-      transactions.forEach((transaction) => {
-        const keyName = transaction.keyName(transaction);
-        if (Object.keys(groupedTransactions).includes(keyName)) {
-          groupedTransactions[keyName].ids.push(transaction.id);
-          groupedTransactions[keyName].amounts.push(transaction.amount);
-          groupedTransactions[keyName].averageAmount =
-            groupedTransactions[keyName].amounts.reduce((acc, cur) => {
-              return (acc += cur);
-            }) / groupedTransactions[keyName].amounts.length;
-        } else {
-          groupedTransactions[keyName] = {
-            id: keyName,
-            datePosted: transaction.datePosted,
-            name: transaction.name,
-            memo: transaction.memo,
-            note: transaction.note,
-            amounts: [transaction.amount],
-            averageAmount: transaction.amount,
-            subCategoryName: transaction.subCategory.name,
-            categoryName: transaction.category.name,
-            ids: [transaction.id],
-          };
-        }
-      });
+  //     let groupedTransactions: IGroupedTransactionsMap = {};
+  //     transactions.forEach((transaction) => {
+  //       const keyName = transaction.keyName(transaction);
+  //       if (Object.keys(groupedTransactions).includes(keyName)) {
+  //         groupedTransactions[keyName].ids.push(transaction.id);
+  //         groupedTransactions[keyName].amounts.push(transaction.amount);
+  //         groupedTransactions[keyName].averageAmount =
+  //           groupedTransactions[keyName].amounts.reduce((acc, cur) => {
+  //             return (acc += cur);
+  //           }) / groupedTransactions[keyName].amounts.length;
+  //       } else {
+  //         groupedTransactions[keyName] = {
+  //           id: keyName,
+  //           datePosted: transaction.datePosted,
+  //           name: transaction.name,
+  //           memo: transaction.memo,
+  //           note: transaction.note,
+  //           amounts: [transaction.amount],
+  //           averageAmount: transaction.amount,
+  //           subCategoryName: transaction.subCategory.name,
+  //           categoryName: transaction.category.name,
+  //           ids: [transaction.id],
+  //         };
+  //       }
+  //     });
 
-      const arrayedGroupedTransactions: IGroupedTransactionsClass[] = [];
-      Object.keys(groupedTransactions).forEach((keyName) => {
-        arrayedGroupedTransactions.push(groupedTransactions[keyName]);
-      });
+  //     const arrayedGroupedTransactions: IGroupedTransactionsClass[] = [];
+  //     Object.keys(groupedTransactions).forEach((keyName) => {
+  //       arrayedGroupedTransactions.push(groupedTransactions[keyName]);
+  //     });
 
-      const data = arrayedGroupedTransactions.sort(
-        (a: IGroupedTransactionsClass, b: IGroupedTransactionsClass) => {
-          let c = parseInt(a.datePosted);
-          let d = parseInt(b.datePosted);
-          if (d < c) return -1;
-          if (d > c) return 1;
+  //     const data = arrayedGroupedTransactions.sort(
+  //       (a: IGroupedTransactionsClass, b: IGroupedTransactionsClass) => {
+  //         let c = parseInt(a.datePosted);
+  //         let d = parseInt(b.datePosted);
+  //         if (d < c) return -1;
+  //         if (d > c) return 1;
 
-          return 0;
-        }
-      );
+  //         return 0;
+  //       }
+  //     );
 
-      return data;
-    } catch (err) {
-      console.log(err);
-      return false;
-    }
-    return false;
-  }
+  //     return data;
+  //   } catch (err) {
+  //     console.log(err);
+  //     return false;
+  //   }
+  //   return false;
+  // }
 
   @Mutation(() => Boolean)
   @UseMiddleware(isAuth)
@@ -242,12 +242,11 @@ export class TransactionsResolver extends BaseEntity {
     }
 
     try {
-      const res = await TransactionEntity.update(id, {
+      await TransactionEntity.update(id, {
         categoryId,
         subCategoryId,
         note,
       });
-      console.log("TR 248: ", res);
       return true;
     } catch (err) {
       console.log(err);
