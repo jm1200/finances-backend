@@ -6,7 +6,7 @@ export const createDefaultCategories = async (userId: string) => {
     const categoryId = await createCategory(userId, category.name);
     if (categoryId) {
       category.subCategories.forEach(async (subCategory) => {
-        createSubCategory(userId, subCategory, categoryId);
+        await createSubCategory(userId, subCategory, categoryId);
       });
     } else {
       console.log("error creating default categories");
@@ -21,7 +21,7 @@ export const defaultCategories = [
   },
   {
     name: "Income",
-    subCategories: ["Person A", "Business B", "Rental C"],
+    subCategories: ["Person A", "Business B", "Rental C", "uncategorized"],
   },
   {
     name: "Rental Property A",
@@ -31,6 +31,7 @@ export const defaultCategories = [
       "Cable",
       "Property Taxes",
       "Mortgage",
+      "uncategorized",
     ],
   },
   {
@@ -42,14 +43,21 @@ export const defaultCategories = [
       "Gas",
       "Electricity",
       "Water",
+      "uncategorized",
     ],
   },
   {
     name: "Food",
-    subCategories: ["Fast food", "Restaurants", "Groceries"],
+    subCategories: ["Fast food", "Restaurants", "Groceries", "uncategorized"],
   },
   {
     name: "Kids",
-    subCategories: ["Clothes", "School", "Entertainement", "Activities"],
+    subCategories: [
+      "Clothes",
+      "School",
+      "Entertainement",
+      "Activities",
+      "uncategorized",
+    ],
   },
 ];

@@ -197,8 +197,9 @@ describe("Category Resolver Tests", () => {
       accessToken
     );
     const categoriesData = categories!.data!.getUserCategories;
-    //console.log(categoriesData);
+    console.log(categoriesData);
     expect(categoriesData).toEqual([
+      { name: expect.any(String), id: expect.any(String) },
       { name: expect.any(String), id: expect.any(String) },
       { name: expect.any(String), id: expect.any(String) },
       { name: expect.any(String), id: expect.any(String) },
@@ -250,6 +251,12 @@ describe("Category Resolver Tests", () => {
     expect(categoryDb!.subCategories).toEqual([
       {
         id: expect.any(String),
+        name: "uncategorized",
+        categoryId: expect.any(String),
+        userId: expect.any(String),
+      },
+      {
+        id: expect.any(String),
         name: "test sub cat",
         categoryId: expect.any(String),
         userId: expect.any(String),
@@ -273,7 +280,14 @@ describe("Category Resolver Tests", () => {
       relations: ["subCategories"],
     });
 
-    expect(categoryDb!.subCategories).toEqual([]);
+    expect(categoryDb!.subCategories).toEqual([
+      {
+        id: expect.any(String),
+        name: "uncategorized",
+        categoryId: expect.any(String),
+        userId: expect.any(String),
+      },
+    ]);
 
     // Delete Category
     const deleteResponse = await graphqlTestCall(

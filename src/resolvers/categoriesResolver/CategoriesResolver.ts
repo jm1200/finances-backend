@@ -73,7 +73,9 @@ export class CategoriesResolver {
       return false;
     }
     try {
-      await createCategory(userId, name);
+      let newCategoryId = await createCategory(userId, name);
+      if (!newCategoryId) return false;
+      await createSubCategory(userId, "uncategorized", newCategoryId);
       return true;
     } catch (err) {
       console.log(err);
@@ -122,6 +124,12 @@ export class CategoriesResolver {
       return false;
     }
     try {
+      let subCategories = await SubCategoryEntity.find({
+        where: { categoryId },
+      });
+      subCategories.forEach(async (subCategory) => {
+        await SubCategoryEntity.delete(subCategory.id);
+      });
       await CategoryEntity.delete(categoryId);
 
       return true;

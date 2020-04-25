@@ -47,7 +47,7 @@ export class TransactionEntity extends BaseEntity {
   keyName(@Root() parent: TransactionEntity): string {
     return parent.name
       .concat(parent.memo ? parent.memo : "")
-      .concat(parent.note ? parent.note : "");
+      .concat(parent.note ? parent.note.slice(0, 10) : "");
   }
 
   @Field(() => Float)

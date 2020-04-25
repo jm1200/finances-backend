@@ -101,6 +101,7 @@ async function parseTransObj(
     };
   });
 
+  console.log("PT 104: ", transactions[0]);
   return {
     account,
     rangeStart: `${formatDate(start)}`,

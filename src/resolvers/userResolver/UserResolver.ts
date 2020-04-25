@@ -156,7 +156,7 @@ export class UserResolver {
         userSettingsId: userSettings.id,
       }).save();
 
-      createDefaultCategories(user.id);
+      await createDefaultCategories(user.id);
 
       const data = { email, password };
       return this.login(data, { req, res });
