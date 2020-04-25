@@ -9,6 +9,7 @@ import {
   Query,
   ObjectType,
   Float,
+  Int,
 } from "type-graphql";
 import { BaseEntity } from "typeorm";
 import { isAuth } from "../../isAuth";
@@ -16,15 +17,18 @@ import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../types";
 import { TransactionEntity } from "../../entity/Transaction";
 import { UserEntity } from "../../entity/User";
+import moment from "moment";
 
 @InputType()
 export class updateTransactionInput {
-  @Field(() => [String])
-  ids: string[];
+  @Field()
+  id: string;
   @Field({ nullable: true })
   categoryId: string;
   @Field({ nullable: true })
   subCategoryId: string;
+  @Field({ nullable: true })
+  note: string;
 }
 
 @ObjectType()
@@ -32,9 +36,13 @@ export class IGroupedTransactionsClass {
   @Field()
   id: string;
   @Field()
+  datePosted: string;
+  @Field()
   name: string;
   @Field()
   memo: string;
+  @Field()
+  note: string;
   @Field(() => [Float!]!)
   amounts: number[];
   @Field(() => Float!)
@@ -105,6 +113,54 @@ export class TransactionsResolver extends BaseEntity {
     return false;
   }
 
+  @Query(() => [TransactionEntity] || Boolean)
+  async getTransactionsByMonth(
+    @Arg("month") month: string,
+    @Arg("year", () => Int) year: number,
+    @Ctx() context: MyContext
+  ): Promise<TransactionEntity[] | Boolean> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+    if (!userId) {
+      return false;
+    }
+    try {
+      const transactions = await TransactionEntity.find({
+        where: { userId },
+        relations: ["category", "subCategory"],
+      });
+
+      const filteredTransactions = transactions.filter((transaction: any) => {
+        const date = transaction.datePosted;
+        const yearTest =
+          moment(date, "YYYYMMDD").format("YYYY") === year.toString();
+        const monthTest = moment(date, "YYYYMMDD").format("MMM") === month;
+        if (yearTest && monthTest) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+
+      filteredTransactions.sort(
+        (a: TransactionEntity, b: TransactionEntity) => {
+          let c = parseInt(a.datePosted);
+          let d = parseInt(b.datePosted);
+          if (d > c) return -1;
+          if (d < c) return 1;
+          if (a.amount > b.amount) return -1;
+          if (a.amount < b.amount) return 1;
+
+          return 0;
+        }
+      );
+
+      return filteredTransactions;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
   @Query(() => [IGroupedTransactionsClass] || Boolean)
   async getTransactionsToCategorize(
     @Ctx() context: MyContext
@@ -114,7 +170,6 @@ export class TransactionsResolver extends BaseEntity {
       return false;
     }
     try {
-      console.log(userId);
       const transactions = await TransactionEntity.find({
         where: { userId },
         relations: ["category", "subCategory"],
@@ -137,8 +192,10 @@ export class TransactionsResolver extends BaseEntity {
         } else {
           groupedTransactions[keyName] = {
             id: keyName,
+            datePosted: transaction.datePosted,
             name: transaction.name,
             memo: transaction.memo,
+            note: transaction.note,
             amounts: [transaction.amount],
             averageAmount: transaction.amount,
             subCategoryName: transaction.subCategory.name,
@@ -153,29 +210,18 @@ export class TransactionsResolver extends BaseEntity {
         arrayedGroupedTransactions.push(groupedTransactions[keyName]);
       });
 
-      const data = arrayedGroupedTransactions
-        .sort((a: IGroupedTransactionsClass, b: IGroupedTransactionsClass) => {
-          if (b.ids.length < a.ids.length) return -1;
-          if (a.ids.length > b.ids.length) return 1;
-          return 0;
-        })
-        .filter(
-          (trans: IGroupedTransactionsClass) =>
-            trans.categoryName === "uncategorized"
-        )
-        .slice(0, 10);
+      const data = arrayedGroupedTransactions.sort(
+        (a: IGroupedTransactionsClass, b: IGroupedTransactionsClass) => {
+          let c = parseInt(a.datePosted);
+          let d = parseInt(b.datePosted);
+          if (d < c) return -1;
+          if (d > c) return 1;
 
-      console.log("TR 170: ", data[0]);
+          return 0;
+        }
+      );
 
       return data;
-
-      //console.log("TR 113: grouped transactions", arrayedGroupedTransactions);
-
-      // console.log(
-      //   transactions[0].keyName(transactions[0]),
-      //   transactions[0].category.name,
-      //   transactions[0].subCategory.name
-      // );
     } catch (err) {
       console.log(err);
       return false;
@@ -187,7 +233,7 @@ export class TransactionsResolver extends BaseEntity {
   @UseMiddleware(isAuth)
   async updateCategoriesInTransaction(
     @Arg("data")
-    { ids, categoryId, subCategoryId }: updateTransactionInput,
+    { id, categoryId, subCategoryId, note }: updateTransactionInput,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
@@ -196,22 +242,16 @@ export class TransactionsResolver extends BaseEntity {
     }
 
     try {
-      ids.forEach(async (id) => {
-        try {
-          await TransactionEntity.update(id, {
-            categoryId,
-            subCategoryId,
-          });
-          return true;
-        } catch (err) {
-          console.log("error inserting id: ", id);
-          return false;
-        }
+      const res = await TransactionEntity.update(id, {
+        categoryId,
+        subCategoryId,
+        note,
       });
-
+      console.log("TR 248: ", res);
       return true;
     } catch (err) {
       console.log(err);
+      console.log("error inserting id: ", id);
       return false;
     }
   }

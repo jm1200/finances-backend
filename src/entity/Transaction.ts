@@ -39,9 +39,15 @@ export class TransactionEntity extends BaseEntity {
   @Column()
   memo: string;
 
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  note: string;
+
   @Field()
   keyName(@Root() parent: TransactionEntity): string {
-    return parent.name.concat(parent.memo);
+    return parent.name
+      .concat(parent.memo ? parent.memo : "")
+      .concat(parent.note ? parent.note : "");
   }
 
   @Field(() => Float)
