@@ -44,6 +44,10 @@ export class TransactionEntity extends BaseEntity {
   note: string;
 
   @Field()
+  @Column()
+  savedCategory: boolean;
+
+  @Field()
   keyName(@Root() parent: TransactionEntity): string {
     return parent.name
       .concat(parent.memo ? parent.memo : "")

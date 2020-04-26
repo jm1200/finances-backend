@@ -16,6 +16,7 @@ import { UserSettingsResolver } from "./resolvers/userSettingsResolver/UserSetti
 import { UserResolver } from "./resolvers/userResolver/UserResolver";
 import { TransactionsResolver } from "./resolvers/transactionsResolver/TransactionsResolver";
 import { CategoriesResolver } from "./resolvers/categoriesResolver/CategoriesResolver";
+import { SavedCategoriesResolver } from "./resolvers/catorizedTransactionsResolver/CategorizedTransactionsResolver";
 
 (async () => {
   const app = Express();
@@ -87,6 +88,7 @@ import { CategoriesResolver } from "./resolvers/categoriesResolver/CategoriesRes
         UserSettingsResolver,
         TransactionsResolver,
         CategoriesResolver,
+        SavedCategoriesResolver,
       ],
       dateScalarMode: "timestamp",
     }),

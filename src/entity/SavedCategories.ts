@@ -13,7 +13,7 @@ import { CategoryEntity } from "./Category";
 
 @ObjectType()
 @Entity()
-export class CategorizedTransactionsEntity extends BaseEntity {
+export class SavedCategoriesEntity extends BaseEntity {
   @Field()
   @PrimaryGeneratedColumn("uuid")
   id: string;
@@ -27,7 +27,7 @@ export class CategorizedTransactionsEntity extends BaseEntity {
   memo: string;
 
   @Field()
-  keyName(@Root() parent: CategorizedTransactionsEntity): string {
+  keyName(@Root() parent: SavedCategoriesEntity): string {
     return parent.name.concat(parent.memo);
   }
 

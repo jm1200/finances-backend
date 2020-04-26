@@ -1,5 +1,5 @@
 import { Transaction } from "../../types";
-import { CategorizedTransactionsEntity } from "../../entity/CategorizedTransactions";
+import { SavedCategoriesEntity } from "../../entity/SavedCategories";
 import { CategoryEntity } from "../../entity/Category";
 import { SubCategoryEntity } from "../../entity/SubCategory";
 //import { v4 as uuid } from "uuid";
@@ -67,7 +67,7 @@ async function parseTransObj(
 
   //console.log("uncat cats", unCategorizedCategory, unCategorizedSubCategory);
 
-  const categorizedTransactions = await CategorizedTransactionsEntity.find({
+  const categorizedTransactions = await SavedCategoriesEntity.find({
     where: { userId },
   });
   // interface INormalisedCategorizedTransactions {
@@ -94,6 +94,7 @@ async function parseTransObj(
       categoryId,
       subCategoryId,
       type: transObj.TRNTYPE,
+      savedCategory: false,
       datePosted: formatDate(transObj.DTPOSTED),
       name: transObj.NAME ? transObj.NAME : "",
       memo: transObj.MEMO,

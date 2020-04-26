@@ -17,6 +17,8 @@ export class TransactionClass {
   @Field()
   name: string;
   @Field()
+  savedCategory: boolean;
+  @Field()
   categoryId: string;
   @Field()
   subCategoryId: string;
@@ -45,6 +47,8 @@ export class TransactionInput {
   @Field()
   subCategoryId: string;
   @Field()
+  savedCategory: boolean;
+  @Field()
   memo: String;
   @Field(() => Float)
   amount: number;
@@ -55,6 +59,7 @@ export interface Transaction {
   userId: string;
   categoryId: string;
   subCategoryId: string;
+  savedCategory: boolean;
   account: string;
   type: string;
   datePosted: string;

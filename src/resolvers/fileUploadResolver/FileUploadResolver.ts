@@ -56,7 +56,6 @@ export class FileUploadResolver {
     //console.log("Parsed Data: ", parsedData);
 
     let transactions = await parseTransactions(parsedData, userId);
-    //console.log("transactions ", transactions);
 
     try {
       fs.unlinkSync(filepath);

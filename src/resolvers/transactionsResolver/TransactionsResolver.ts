@@ -34,6 +34,8 @@ export class updateTransactionInput {
 export class updateAllTransactionsInput {
   @Field({ nullable: true })
   name?: string;
+  @Field()
+  savedCategory: boolean;
   @Field({ nullable: true })
   memo?: string;
   @Field({ nullable: true })
