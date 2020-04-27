@@ -29,6 +29,8 @@ export class updateTransactionInput {
   subCategoryId: string;
   @Field({ nullable: true })
   note: string;
+  @Field()
+  savedCategory: boolean;
 }
 @InputType()
 export class updateAllTransactionsInput {
@@ -96,7 +98,7 @@ export class TransactionsResolver extends BaseEntity {
         relations: ["transactions"],
       });
       if (user && user.transactions) {
-        const data = user.transactions.slice(0, 5);
+        const data = user.transactions;
         return data;
       }
       return false;
@@ -251,7 +253,13 @@ export class TransactionsResolver extends BaseEntity {
   @UseMiddleware(isAuth)
   async updateCategoriesInTransaction(
     @Arg("data")
-    { id, categoryId, subCategoryId, note }: updateTransactionInput,
+    {
+      id,
+      categoryId,
+      subCategoryId,
+      note,
+      savedCategory,
+    }: updateTransactionInput,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
@@ -264,6 +272,7 @@ export class TransactionsResolver extends BaseEntity {
         categoryId,
         subCategoryId,
         note,
+        savedCategory,
       });
       return true;
     } catch (err) {
@@ -277,7 +286,14 @@ export class TransactionsResolver extends BaseEntity {
   @UseMiddleware(isAuth)
   async updateCategoriesInAllTransactions(
     @Arg("data")
-    { name, memo, categoryId, subCategoryId, note }: updateAllTransactionsInput,
+    {
+      name,
+      memo,
+      categoryId,
+      subCategoryId,
+      note,
+      savedCategory,
+    }: updateAllTransactionsInput,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
@@ -301,6 +317,7 @@ export class TransactionsResolver extends BaseEntity {
           name,
           memo,
           note,
+          savedCategory,
         });
 
         console.log("TR 302", res);

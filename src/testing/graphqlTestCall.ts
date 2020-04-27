@@ -5,6 +5,7 @@ import { UserSettingsResolver } from "../resolvers/userSettingsResolver/UserSett
 import { UserResolver } from "../resolvers/userResolver/UserResolver";
 import { TransactionsResolver } from "../resolvers/transactionsResolver/TransactionsResolver";
 import { CategoriesResolver } from "../resolvers/categoriesResolver/CategoriesResolver";
+import { SavedCategoriesResolver } from "../resolvers/savedCategoriesResolver/CategorizedTransactionsResolver";
 
 export const graphqlTestCall = async (
   query: any,
@@ -18,6 +19,7 @@ export const graphqlTestCall = async (
       UserSettingsResolver,
       TransactionsResolver,
       CategoriesResolver,
+      SavedCategoriesResolver,
     ],
   });
   return graphql(

@@ -16,7 +16,7 @@ import { UserSettingsResolver } from "./resolvers/userSettingsResolver/UserSetti
 import { UserResolver } from "./resolvers/userResolver/UserResolver";
 import { TransactionsResolver } from "./resolvers/transactionsResolver/TransactionsResolver";
 import { CategoriesResolver } from "./resolvers/categoriesResolver/CategoriesResolver";
-import { SavedCategoriesResolver } from "./resolvers/catorizedTransactionsResolver/CategorizedTransactionsResolver";
+import { SavedCategoriesResolver } from "./resolvers/savedCategoriesResolver/CategorizedTransactionsResolver";
 
 (async () => {
   const app = Express();

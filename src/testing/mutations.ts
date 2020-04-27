@@ -146,3 +146,34 @@ mutation SubmitTransactions($transactions: [TransactionInput!]!) {
     }
   }
 `;
+
+// #########################  SavedCaetgories Resolver ######################################
+export const createSavedCategoryMutation = `
+mutation CreateSavedCategory($name:String, $memo:String, $categoryId:String!, $subCategoryId:String!){
+  createSavedCategory(data:{name:$name, memo:$memo, categoryId: $categoryId, subCategoryId:$subCategoryId})
+}
+`;
+export const getUserSavedCategoriesMutation = `
+query GetUserSavedCategories{
+  getUserSavedCategories{
+    id
+    name
+    memo
+    keyName
+    userId
+    category{
+      name
+      id
+    }
+    subCategory{
+      name
+      id
+    }
+  }
+}
+`;
+export const deleteSavedCategoryMutation = `
+mutation DeleteSavedCategory($id:String!){
+  deleteSavedCategory(id:$id)
+}
+`;

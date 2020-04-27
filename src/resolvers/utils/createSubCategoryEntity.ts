@@ -6,12 +6,16 @@ export const createSubCategory = async (
   categoryId: string
 ) => {
   try {
-    await SubCategoryEntity.create({
+    const newSubCategory = await SubCategoryEntity.create({
       userId,
       name,
       categoryId,
-    }).save();
+    });
+
+    await newSubCategory.save();
+
+    //console.log("CSCE 15, creating subcategory", res);
   } catch (err) {
-    console.log("Could not create category", err);
+    console.log("Could not create subCategory", err);
   }
 };

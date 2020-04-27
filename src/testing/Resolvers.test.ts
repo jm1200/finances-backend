@@ -21,7 +21,7 @@ afterAll(async () => {
 
 describe("resolvers", () => {
   it("Working: register, login, and me", async () => {
-    const testUser = { email: "test1@test.com", password: "test" };
+    const testUser = { email: faker.internet.email(), password: "test" };
 
     const registerResponse = await graphqlTestCall(
       testGraphql.registerMutation,
@@ -33,7 +33,7 @@ describe("resolvers", () => {
 
     expect(registerResponse!.data!.register.user).toEqual({
       id: expect.any(String),
-      email: "test1@test.com",
+      email: testUser.email,
       userSettings: {
         theme: "dark",
       },
@@ -57,7 +57,7 @@ describe("resolvers", () => {
 
     expect(loginResponse!.data!.login.user).toEqual({
       id: expect.any(String),
-      email: "test1@test.com",
+      email: testUser.email,
       userSettings: {
         theme: "dark",
       },
@@ -161,6 +161,34 @@ describe("userSettingsResolver", () => {
   });
 });
 
+//##############################  SavedCategory Resovler tests  #############################
+
+describe("Saved Category Tests", () => {
+  it("tests saved category CRD", async () => {
+    const testUser = { email: faker.internet.email(), password: "test" };
+
+    const registerResponse = await graphqlTestCall(
+      testGraphql.registerMutation,
+      {
+        email: testUser.email,
+        password: testUser.password,
+      }
+    );
+
+    const userId = registerResponse!.data!.register.user.id;
+    const accessToken = registerResponse!.data!.register.accessToken;
+
+    expect(userId).toBeDefined();
+    expect(accessToken).toBeDefined();
+
+    //create
+
+    //read
+
+    //delete
+  });
+});
+
 //##############################  Category Resovler tests  #############################
 describe("Category Resolver Tests", () => {
   it("tests category CRUD", async () => {
@@ -197,7 +225,6 @@ describe("Category Resolver Tests", () => {
       accessToken
     );
     const categoriesData = categories!.data!.getUserCategories;
-    console.log(categoriesData);
     expect(categoriesData).toEqual([
       { name: expect.any(String), id: expect.any(String) },
       { name: expect.any(String), id: expect.any(String) },
@@ -301,5 +328,26 @@ describe("Category Resolver Tests", () => {
       where: { name: "updated test" },
     });
     expect(categoryDb).toBeUndefined();
+
+    const categories1 = await graphqlTestCall(
+      testGraphql.getUserCategoriesQuery,
+      {},
+      accessToken
+    );
+
+    const categoriesData1 = categories1!.data!.getUserCategories;
+    expect(categoriesData1).toEqual([
+      { name: expect.any(String), id: expect.any(String) },
+      { name: expect.any(String), id: expect.any(String) },
+      { name: expect.any(String), id: expect.any(String) },
+      { name: expect.any(String), id: expect.any(String) },
+      { name: expect.any(String), id: expect.any(String) },
+      { name: expect.any(String), id: expect.any(String) },
+    ]);
+
+    userDb = await UserEntity.findOne(userId, {
+      relations: ["categories"],
+    });
+    expect(userDb?.categories).toBeDefined();
   });
 });

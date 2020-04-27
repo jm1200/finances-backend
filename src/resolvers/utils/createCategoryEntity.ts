@@ -5,7 +5,9 @@ export const createCategory = async (
   name: string
 ): Promise<string | null> => {
   try {
-    const newCategory = await CategoryEntity.create({ userId, name }).save();
+    const newCategory = await CategoryEntity.create({ userId, name });
+    await newCategory.save();
+    //console.log("CCE 9: creating category ", newCategory);
 
     return newCategory.id;
   } catch (err) {

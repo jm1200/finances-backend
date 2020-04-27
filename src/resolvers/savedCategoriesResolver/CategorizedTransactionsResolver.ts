@@ -13,9 +13,9 @@ import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 
 @InputType()
 class SavedCategoriesInput {
-  @Field()
+  @Field({ nullable: true })
   name?: string;
-  @Field()
+  @Field({ nullable: true })
   memo?: string;
   @Field()
   categoryId: string;
@@ -51,7 +51,7 @@ export class SavedCategoriesResolver {
     }
   }
 
-  @Mutation(() => Boolean)
+  @Mutation(() => Boolean || null)
   async createSavedCategory(
     @Arg("data") data: SavedCategoriesInput,
     @Ctx() context: MyContext
@@ -63,9 +63,12 @@ export class SavedCategoriesResolver {
     }
 
     try {
-      const res = await SavedCategoriesEntity.create(data).save();
+      const res = await SavedCategoriesEntity.create({
+        userId,
+        ...data,
+      }).save();
       console.log("CTR 69: res ", res);
-      return null;
+      return true;
     } catch (err) {
       console.log(err);
       return null;
