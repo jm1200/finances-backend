@@ -309,7 +309,7 @@ export class TransactionsResolver extends BaseEntity {
       });
 
       transactions.forEach(async (transaction) => {
-        const res = await TransactionEntity.update(transaction.id, {
+        await TransactionEntity.update(transaction.id, {
           categoryId,
           subCategoryId,
           name,
