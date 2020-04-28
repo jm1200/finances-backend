@@ -78,14 +78,26 @@ export class FileUploadResolver {
     @Arg("transactions", () => [TransactionInput])
     transactions: TransactionEntity[]
   ): Promise<SubmitTransactionsResponse> {
-    console.log("TRANSACTIONS[0]: ", transactions[0]);
-    try {
-      await TransactionEntity.insert(transactions);
-      return { inserted: true, message: "Inserted transactions successfully" };
-    } catch (err) {
-      //res.send("Duplicate values");
-      console.log(err);
-      return { inserted: false, message: "failed to insert transactions" };
+    let duplicatedKeys: string[] = [];
+
+    for (let index in transactions) {
+      try {
+        await TransactionEntity.insert(transactions[index]);
+      } catch (err) {
+        duplicatedKeys.push(transactions[index].id);
+        console.log(
+          `Duplicate entry found: ${transactions[index].name} on ${transactions[index].datePosted}`
+        );
+      }
+    }
+
+    if (duplicatedKeys.length > 0) {
+      return {
+        inserted: false,
+        message: `Found (${duplicatedKeys.length}) duplicate entries, but inserted the rest. `,
+      };
+    } else {
+      return { inserted: true, message: "inserted successfully" };
     }
   }
 }

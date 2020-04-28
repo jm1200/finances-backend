@@ -78,10 +78,7 @@ async function parseTransObj(
     savedCategoriesMap[savedCategory.keyName(savedCategory)] = savedCategory;
   });
 
-  console.log("PT 72", categorizedTransactions);
-
   let transactions: Transaction[] = trans.map((transObj: any) => {
-    console.log("pt 84 transobj", transObj);
     if (
       transObj.NAME &&
       Object.keys(savedCategoriesMap).includes(
@@ -92,14 +89,9 @@ async function parseTransObj(
         savedCategoriesMap[transObj.NAME.concat(transObj.MEMO)].categoryId;
       subCategoryId =
         savedCategoriesMap[transObj.NAME.concat(transObj.MEMO)].subCategoryId;
-      console.log(
-        "Found a saved category! ",
-        savedCategoriesMap[transObj.NAME.concat(transObj.MEMO)]
-      );
     } else {
       categoryId = unCategorizedCategoryId;
       subCategoryId = unCategorizedSubCategoryId;
-      console.log("inserteing uncat cat ids", categoryId, subCategoryId);
     }
     return {
       id: transObj.FITID,
@@ -116,7 +108,6 @@ async function parseTransObj(
     };
   });
 
-  console.log("PT 104: ", transactions[0]);
   return {
     account,
     rangeStart: `${formatDate(start)}`,
