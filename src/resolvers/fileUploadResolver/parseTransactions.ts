@@ -94,7 +94,7 @@ async function parseTransObj(
       categoryId,
       subCategoryId,
       type: transObj.TRNTYPE,
-      savedCategory: false,
+      savedCategoryId: null,
       datePosted: formatDate(transObj.DTPOSTED),
       name: transObj.NAME ? transObj.NAME : "",
       memo: transObj.MEMO,

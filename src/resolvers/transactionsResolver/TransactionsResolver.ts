@@ -29,15 +29,15 @@ export class updateTransactionInput {
   subCategoryId: string;
   @Field({ nullable: true })
   note: string;
-  @Field()
-  savedCategory: boolean;
+  @Field({ nullable: true })
+  savedCategoryId: string;
 }
 @InputType()
 export class updateAllTransactionsInput {
   @Field({ nullable: true })
   name?: string;
-  @Field()
-  savedCategory: boolean;
+  @Field({ nullable: true })
+  savedCategoryId: string;
   @Field({ nullable: true })
   memo?: string;
   @Field({ nullable: true })
@@ -258,7 +258,7 @@ export class TransactionsResolver extends BaseEntity {
       categoryId,
       subCategoryId,
       note,
-      savedCategory,
+      savedCategoryId,
     }: updateTransactionInput,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
@@ -272,7 +272,7 @@ export class TransactionsResolver extends BaseEntity {
         categoryId,
         subCategoryId,
         note,
-        savedCategory,
+        savedCategoryId,
       });
       return true;
     } catch (err) {
@@ -292,7 +292,7 @@ export class TransactionsResolver extends BaseEntity {
       categoryId,
       subCategoryId,
       note,
-      savedCategory,
+      savedCategoryId,
     }: updateAllTransactionsInput,
     @Ctx() context: MyContext
   ): Promise<Boolean> {
@@ -317,7 +317,7 @@ export class TransactionsResolver extends BaseEntity {
           name,
           memo,
           note,
-          savedCategory,
+          savedCategoryId,
         });
 
         console.log("TR 302", res);

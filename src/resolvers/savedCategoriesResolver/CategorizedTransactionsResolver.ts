@@ -10,6 +10,7 @@ import {
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
 import { MyContext } from "../../MyContext";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
+import { TransactionEntity } from "../../entity/Transaction";
 
 @InputType()
 class SavedCategoriesInput {
@@ -38,7 +39,7 @@ export class SavedCategoriesResolver {
     try {
       const savedCategories = await SavedCategoriesEntity.find({
         where: { userId },
-        relations: ["category", "subCategory"],
+        relations: ["category", "subCategory", "transactions"],
       });
 
       if (savedCategories) {
@@ -51,11 +52,11 @@ export class SavedCategoriesResolver {
     }
   }
 
-  @Mutation(() => Boolean || null)
+  @Mutation(() => SavedCategoriesEntity || null)
   async createSavedCategory(
     @Arg("data") data: SavedCategoriesInput,
     @Ctx() context: MyContext
-  ) {
+  ): Promise<SavedCategoriesEntity | null> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]);
 
     if (!userId) {
@@ -68,7 +69,7 @@ export class SavedCategoriesResolver {
         ...data,
       }).save();
       console.log("CTR 69: res ", res);
-      return true;
+      return res;
     } catch (err) {
       console.log(err);
       return null;
@@ -76,7 +77,11 @@ export class SavedCategoriesResolver {
   }
 
   @Mutation(() => Boolean)
-  async deleteSavedCategory(@Arg("id") id: string, @Ctx() context: MyContext) {
+  async deleteSavedCategory(
+    //@Arg("transactionId") transactionId: string,
+    @Arg("savedCategoryId") savedCategoryId: string,
+    @Ctx() context: MyContext
+  ) {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]);
 
     if (!userId) {
@@ -84,7 +89,21 @@ export class SavedCategoriesResolver {
     }
 
     try {
-      await SavedCategoriesEntity.delete(id);
+      const savedCategory = await SavedCategoriesEntity.findOne(
+        savedCategoryId,
+        {
+          relations: ["transactions"],
+        }
+      );
+      console.log("CTR 93", savedCategory);
+      if (savedCategory!.transactions.length > 0) {
+        savedCategory?.transactions.forEach(async (transaction) => {
+          await TransactionEntity.update(transaction.id, {
+            savedCategoryId: null,
+          });
+        });
+      }
+      await SavedCategoriesEntity.delete(savedCategoryId);
 
       return true;
     } catch (err) {

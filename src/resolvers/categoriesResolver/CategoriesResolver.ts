@@ -21,7 +21,7 @@ export class CategoriesResolver {
     try {
       const categories = await CategoryEntity.find({
         where: { userId },
-        relations: ["transactions", "subCategories"],
+        relations: ["transactions", "subCategories", "savedCategories"],
       });
 
       if (categories) {

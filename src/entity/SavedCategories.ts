@@ -6,10 +6,13 @@ import {
   Column,
   OneToOne,
   JoinColumn,
+  OneToMany,
+  ManyToOne,
 } from "typeorm";
 
 import { SubCategoryEntity } from "./SubCategory";
 import { CategoryEntity } from "./Category";
+import { TransactionEntity } from "./Transaction";
 
 @ObjectType()
 @Entity()
@@ -45,7 +48,7 @@ export class SavedCategoriesEntity extends BaseEntity {
   categoryId: string;
 
   @Field(() => CategoryEntity)
-  @OneToOne(() => CategoryEntity)
+  @ManyToOne(() => CategoryEntity)
   @JoinColumn()
   category: CategoryEntity;
 
@@ -54,7 +57,14 @@ export class SavedCategoriesEntity extends BaseEntity {
   subCategoryId: string;
 
   @Field(() => SubCategoryEntity, { nullable: true })
-  @OneToOne(() => SubCategoryEntity, { nullable: true })
+  @ManyToOne(() => SubCategoryEntity, { nullable: true })
   @JoinColumn()
   subCategory: SubCategoryEntity;
+
+  @Field(() => [TransactionEntity])
+  @OneToMany(
+    () => TransactionEntity,
+    (transaction) => transaction.savedCategory
+  )
+  transactions: TransactionEntity[];
 }

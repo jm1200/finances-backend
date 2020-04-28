@@ -3,6 +3,7 @@ import { ObjectType, Field, Float, Root } from "type-graphql";
 import { UserEntity } from "./User";
 import { CategoryEntity } from "./Category";
 import { SubCategoryEntity } from "./SubCategory";
+import { SavedCategoriesEntity } from "./SavedCategories";
 
 @ObjectType()
 @Entity()
@@ -43,9 +44,16 @@ export class TransactionEntity extends BaseEntity {
   @Column({ nullable: true })
   note: string;
 
-  @Field()
-  @Column()
-  savedCategory: boolean;
+  @Field(() => String || null, { nullable: true })
+  @Column({ nullable: true, type: "varchar" })
+  savedCategoryId?: string | null;
+
+  @Field(() => SavedCategoriesEntity, { nullable: true })
+  @ManyToOne(
+    () => SavedCategoriesEntity,
+    (savedCategory) => savedCategory.transactions
+  )
+  savedCategory: SavedCategoriesEntity;
 
   @Field()
   keyName(@Root() parent: TransactionEntity): string {
