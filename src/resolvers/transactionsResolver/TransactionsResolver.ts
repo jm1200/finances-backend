@@ -148,7 +148,6 @@ export class TransactionsResolver extends BaseEntity {
         where: { userId },
         relations: ["category", "subCategory"],
       });
-      console.log("TR 131 starting filtered transactions");
       const filteredTransactions = transactions.filter((transaction: any) => {
         const date = transaction.datePosted;
         const yearTest =
@@ -309,7 +308,6 @@ export class TransactionsResolver extends BaseEntity {
         },
       });
 
-      console.log("TR 289 ", transactions);
       transactions.forEach(async (transaction) => {
         const res = await TransactionEntity.update(transaction.id, {
           categoryId,
@@ -319,8 +317,6 @@ export class TransactionsResolver extends BaseEntity {
           note,
           savedCategoryId,
         });
-
-        console.log("TR 302", res);
       });
 
       return true;

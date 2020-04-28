@@ -55,6 +55,7 @@ async function parseTransObj(
 ): Promise<TransResponse> {
   let categoryId: string;
   let subCategoryId: string;
+  let savedCategoryId: string | null = null;
   const catRes = await CategoryEntity.findOne({
     where: { userId, name: "uncategorized" },
   });
@@ -65,28 +66,41 @@ async function parseTransObj(
   });
   const unCategorizedSubCategoryId = subCatRes!.id;
 
-  //console.log("uncat cats", unCategorizedCategory, unCategorizedSubCategory);
-
   const categorizedTransactions = await SavedCategoriesEntity.find({
     where: { userId },
   });
-  // interface INormalisedCategorizedTransactions {
-  //   [key: string]: CategorizedTransactionsEntity;
-  // }
-  //let normalisedCategorizedTransactions: INormalisedCategorizedTransactions;
-
-  if (categorizedTransactions.length === 0) {
-    categoryId = unCategorizedCategoryId;
-    subCategoryId = unCategorizedSubCategoryId;
-    console.log("inserteing uncat cat ids", categoryId, subCategoryId);
-  } else {
-    console.log("PT 82: keyname", categorizedTransactions[0].keyName);
-    // categorizedTransactions.forEach(categorizedTransaction=>{
-
-    // })
+  interface ISavedCategoriesMap {
+    [key: string]: SavedCategoriesEntity;
   }
 
+  let savedCategoriesMap: ISavedCategoriesMap = {};
+  categorizedTransactions.forEach((savedCategory) => {
+    savedCategoriesMap[savedCategory.keyName(savedCategory)] = savedCategory;
+  });
+
+  console.log("PT 72", categorizedTransactions);
+
   let transactions: Transaction[] = trans.map((transObj: any) => {
+    console.log("pt 84 transobj", transObj);
+    if (
+      transObj.NAME &&
+      Object.keys(savedCategoriesMap).includes(
+        transObj.NAME.concat(transObj.MEMO)
+      )
+    ) {
+      categoryId =
+        savedCategoriesMap[transObj.NAME.concat(transObj.MEMO)].categoryId;
+      subCategoryId =
+        savedCategoriesMap[transObj.NAME.concat(transObj.MEMO)].subCategoryId;
+      console.log(
+        "Found a saved category! ",
+        savedCategoriesMap[transObj.NAME.concat(transObj.MEMO)]
+      );
+    } else {
+      categoryId = unCategorizedCategoryId;
+      subCategoryId = unCategorizedSubCategoryId;
+      console.log("inserteing uncat cat ids", categoryId, subCategoryId);
+    }
     return {
       id: transObj.FITID,
       userId,
@@ -94,7 +108,7 @@ async function parseTransObj(
       categoryId,
       subCategoryId,
       type: transObj.TRNTYPE,
-      savedCategoryId: null,
+      savedCategoryId,
       datePosted: formatDate(transObj.DTPOSTED),
       name: transObj.NAME ? transObj.NAME : "",
       memo: transObj.MEMO,
