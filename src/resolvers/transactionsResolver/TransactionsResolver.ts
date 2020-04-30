@@ -395,6 +395,7 @@ export class TransactionsResolver extends BaseEntity {
                 .save()
                 .then(async (newCategoryData) => {
                   //update all transactions with new categories only and new savedCategoryId.
+
                   transactions.forEach(async (transaction) => {
                     console.log(
                       `updating ${transaction.name}, 
