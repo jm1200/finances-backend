@@ -1,4 +1,4 @@
-import { ObjectType, Field, Root } from "type-graphql";
+import { ObjectType, Field, Root, Float } from "type-graphql";
 import {
   Entity,
   BaseEntity,
@@ -21,12 +21,16 @@ export class SavedCategoriesEntity extends BaseEntity {
   id: string;
 
   @Field()
-  @Column({ unique: true })
+  @Column()
   name: string;
 
   @Field({ nullable: true })
   @Column({ nullable: true })
   memo: string;
+
+  @Field(() => Float, { nullable: true })
+  @Column({ type: "real", nullable: true })
+  amount: number | null;
 
   @Field()
   keyName(@Root() parent: SavedCategoriesEntity): string {

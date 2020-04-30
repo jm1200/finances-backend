@@ -6,6 +6,7 @@ import {
   Arg,
   InputType,
   Field,
+  Float,
 } from "type-graphql";
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
 import { MyContext } from "../../MyContext";
@@ -18,6 +19,8 @@ class SavedCategoriesInput {
   name?: string;
   @Field({ nullable: true })
   memo?: string;
+  @Field(() => Float, { nullable: true })
+  amount?: number;
   @Field()
   categoryId: string;
   @Field()
@@ -68,7 +71,6 @@ export class SavedCategoriesResolver {
         userId,
         ...data,
       }).save();
-      console.log("CTR 69: res ", res);
       return res;
     } catch (err) {
       console.log(err);
