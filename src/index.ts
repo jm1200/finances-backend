@@ -17,6 +17,7 @@ import { UserResolver } from "./resolvers/userResolver/UserResolver";
 import { TransactionsResolver } from "./resolvers/transactionsResolver/TransactionsResolver";
 import { CategoriesResolver } from "./resolvers/categoriesResolver/CategoriesResolver";
 import { SavedCategoriesResolver } from "./resolvers/savedCategoriesResolver/CategorizedTransactionsResolver";
+import { printSchema } from "graphql";
 
 (async () => {
   const app = Express();

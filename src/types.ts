@@ -1,6 +1,11 @@
 import { ObjectType, Field, InputType, Float } from "type-graphql";
 import { Stream } from "stream";
 import { Request, Response } from "express";
+import { TransactionEntity } from "./entity/Transaction";
+import Maybe from "graphql/tsutils/Maybe";
+import { SavedCategoriesEntity } from "./entity/SavedCategories";
+import { CategoryEntity } from "./entity/Category";
+import { SubCategoryEntity } from "./entity/SubCategory";
 
 @ObjectType()
 export class TransactionClass {
@@ -104,3 +109,24 @@ export interface MyContext {
   res: Response;
   payload?: { userId: string };
 }
+
+export type RowInput = { __typename?: "TransactionEntity" } & Pick<
+  TransactionEntity,
+  "id" | "datePosted" | "name" | "memo" | "note" | "amount" | "keyName"
+> & {
+    savedCategory?: Maybe<
+      { __typename?: "SavedCategoriesEntity" } & Pick<
+        SavedCategoriesEntity,
+        "id" | "name" | "amounts"
+      >
+    >;
+    category?: Maybe<
+      { __typename?: "CategoryEntity" } & Pick<CategoryEntity, "id" | "name">
+    >;
+    subCategory?: Maybe<
+      { __typename?: "SubCategoryEntity" } & Pick<
+        SubCategoryEntity,
+        "id" | "name"
+      >
+    >;
+  };

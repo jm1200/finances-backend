@@ -46,7 +46,7 @@ export class TransactionEntity extends BaseEntity {
 
   @Field(() => String || null, { nullable: true })
   @Column({ nullable: true, type: "varchar" })
-  savedCategoryId?: string | null;
+  savedCategoryId: string | null;
 
   @Field(() => SavedCategoriesEntity, { nullable: true })
   @ManyToOne(

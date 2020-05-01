@@ -16,11 +16,11 @@ import { TransactionEntity } from "../../entity/Transaction";
 @InputType()
 class SavedCategoriesInput {
   @Field({ nullable: true })
-  name?: string;
+  name: string;
   @Field({ nullable: true })
-  memo?: string;
-  @Field(() => Float, { nullable: true })
-  amount?: number;
+  memo: string;
+  @Field(() => [Float], { nullable: true })
+  amounts: number[];
   @Field()
   categoryId: string;
   @Field()

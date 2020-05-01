@@ -28,9 +28,9 @@ export class SavedCategoriesEntity extends BaseEntity {
   @Column({ nullable: true })
   memo: string;
 
-  @Field(() => Float, { nullable: true })
-  @Column({ type: "real", nullable: true })
-  amount: number | null;
+  @Field(() => [Float])
+  @Column({ type: "real", array: true })
+  amounts: number[];
 
   @Field()
   keyName(@Root() parent: SavedCategoriesEntity): string {

@@ -11,7 +11,7 @@ import {
   Float,
   Int,
 } from "type-graphql";
-import { BaseEntity, Between } from "typeorm";
+import { BaseEntity, Between, Transaction } from "typeorm";
 import { isAuth } from "../../isAuth";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../types";
@@ -33,23 +33,7 @@ export class updateTransactionInput {
   @Field({ nullable: true })
   savedCategoryId: string;
 }
-@InputType()
-export class updateAllTransactionsInput {
-  @Field({ nullable: true })
-  name: string;
-  @Field({ nullable: true })
-  memo: string;
-  @Field({ nullable: true })
-  note: string;
-  @Field(() => Float, { nullable: true })
-  amount?: number;
-  @Field({ nullable: true })
-  savedCategoryId?: string;
-  @Field({ nullable: true })
-  categoryId?: string;
-  @Field({ nullable: true })
-  subCategoryId?: string;
-}
+
 @InputType()
 export class updateCategoriesInTransactionsInput {
   @Field()
@@ -63,12 +47,13 @@ export class updateCategoriesInTransactionsInput {
   @Field(() => Float)
   amount: number;
   @Field({ nullable: true })
-  savedCategoryId?: string;
-  @Field({ nullable: true })
-  categoryId?: string;
-  @Field({ nullable: true })
-  subCategoryId?: string;
-
+  savedCategoryId: string;
+  @Field(() => [Float], { nullable: true })
+  savedCategoryAmounts: [number];
+  @Field()
+  selectedCategoryId: string;
+  @Field()
+  selectedSubCategoryId: string;
   @Field()
   checkAmount: boolean;
   @Field()
@@ -98,17 +83,6 @@ export class IGroupedTransactionsClass {
   @Field(() => [String])
   ids: string[];
 }
-// interface IGroupedTransactions {
-//   id: string;
-//   name: string;
-//   memo: string;
-//   subCategoryName: string;
-//   categoryName: string;
-//   ids: string[];
-// }
-// interface IGroupedTransactionsMap {
-//   [key: string]: IGroupedTransactionsClass;
-// }
 
 @Resolver()
 export class TransactionsResolver extends BaseEntity {
@@ -209,74 +183,6 @@ export class TransactionsResolver extends BaseEntity {
 
   @Mutation(() => Boolean)
   @UseMiddleware(isAuth)
-  async updateCategoriesInTransaction(
-    @Arg("data")
-    {
-      id,
-      categoryId,
-      subCategoryId,
-      note,
-      savedCategoryId,
-    }: updateTransactionInput,
-    @Ctx() context: MyContext
-  ): Promise<Boolean> {
-    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
-    if (!userId) {
-      return false;
-    }
-
-    try {
-      await TransactionEntity.update(id, {
-        categoryId,
-        subCategoryId,
-        note,
-        savedCategoryId,
-      });
-      return true;
-    } catch (err) {
-      console.log(err);
-      console.log("error inserting id: ", id);
-      return false;
-    }
-  }
-  //In the middle of updating this resolver to compare amounts as well as name, memo, note
-  @Mutation(() => Boolean)
-  @UseMiddleware(isAuth)
-  async updateCategoriesInAllTransactions(
-    @Arg("data")
-    data: updateAllTransactionsInput,
-    @Ctx() context: MyContext
-  ): Promise<Boolean> {
-    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
-    if (!userId) {
-      return false;
-    }
-    //this is not going to work mcdonalds transaction amounts vary by more than 10%
-    try {
-      const transactions = await TransactionEntity.find({
-        where: {
-          name: data.name,
-          memo: data.memo,
-          note: data.note,
-        },
-      });
-
-      transactions.forEach(async (transaction) => {
-        await TransactionEntity.update(transaction.id, {
-          ...data,
-        });
-      });
-
-      return true;
-    } catch (err) {
-      console.log(err);
-      console.log("error inserting name: ", name);
-      return false;
-    }
-  }
-
-  @Mutation(() => Boolean)
-  @UseMiddleware(isAuth)
   async updateCategoriesInTransactions(
     @Arg("data")
     data: updateCategoriesInTransactionsInput,
@@ -288,279 +194,168 @@ export class TransactionsResolver extends BaseEntity {
     }
 
     try {
-      console.log("TR291 input ", data);
+      const updateTransactions = async (
+        name: string,
+        memo: string,
+        selectedCategoryId: string,
+        selectedSubCategoryId: string,
+        savedCategoryId: string | null,
+        amount?: number
+      ): Promise<void> => {
+        let transactions: TransactionEntity[];
+        if (amount) {
+          let low: number;
+          let high: number;
 
-      // let transactions: TransactionEntity[];
-
-      if (data.checkAmount) {
-        let low: number;
-        let high: number;
-
-        if (data.amount < 0) {
-          low = data.amount * 1.1;
-          high = data.amount * 0.9;
-        } else {
-          high = data.amount * 1.1;
-          low = data.amount * 0.9;
-        }
-        let transactions = await TransactionEntity.find({
-          where: {
-            name: data.name,
-            memo: data.memo,
-            note: data.note,
-            amount: Between(low, high),
-          },
-        });
-        if (data.savedCategoryId) {
-          if (data.applyToAll) {
-            console.log(
-              `Test: checkAmount: ${data.checkAmount}, applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}`
-            );
-            //Update saved category with new names, selectedCategories and amount
-
-            try {
-              await SavedCategoriesEntity.update(data.savedCategoryId, {
-                name: data.name,
-                memo: data.memo,
-                categoryId: data.categoryId,
-                subCategoryId: data.subCategoryId,
-                amount: data.amount,
-              });
-            } catch (err) {
-              console.log("TR 318", err);
-            }
-
-            //update all transactions with new categories only. savedCategoryId should exist already because
-            //a savedCategory exists AND applyToAll is checked.
-
-            transactions.forEach(async (transaction) => {
-              try {
-                await TransactionEntity.update(transaction.id, {
-                  note: undefined,
-                  categoryId: data.categoryId,
-                  subCategoryId: data.subCategoryId,
-                });
-              } catch (err) {
-                console.log("TR 329", err);
-              }
-            });
+          if (data.amount < 0) {
+            low = data.amount * 1.1;
+            high = data.amount * 0.9;
           } else {
-            console.log(
-              `Test: checkAmount: ${data.checkAmount}, applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}`
-            );
-            //we no longer wish to applyToAll for the select transaction.
-            //so first remove the savedCategoryIds from all transactions that were found.
-            transactions.forEach(async (transaction) => {
-              try {
-                await TransactionEntity.update(transaction.id, {
-                  note: undefined,
-                  savedCategoryId: null,
-                });
-              } catch (err) {
-                console.log("TR 343", err);
-              }
-            });
-            //then update the single transaction in case new categories were selected
-            try {
-              await TransactionEntity.update(data.id, {
-                note: data.note,
-                categoryId: data.categoryId,
-                subCategoryId: data.subCategoryId,
-              });
-            } catch (err) {
-              console.log("TR 352", err);
-            }
-            //then delete the savedCategory
-            try {
-              await SavedCategoriesEntity.delete(data.savedCategoryId);
-            } catch (err) {
-              console.log("TR 356", err);
-            }
+            high = data.amount * 1.1;
+            low = data.amount * 0.9;
           }
+          transactions = await TransactionEntity.find({
+            where: { name, memo, amount: Between(low, high) },
+          });
         } else {
-          if (data.applyToAll) {
-            console.log(
-              `Test: checkAmount: ${data.checkAmount}, applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}`
-            );
-            //no savedCategory exists, so create one to use. data.amount exists, so use it instead of null.
-            try {
-              SavedCategoriesEntity.create({
-                userId,
-                name: data.name,
-                memo: data.memo,
-                amount: data.amount,
-                categoryId: data.categoryId,
-                subCategoryId: data.subCategoryId,
-              })
-                .save()
-                .then(async (newCategoryData) => {
-                  //update all transactions with new categories only and new savedCategoryId.
+          transactions = await TransactionEntity.find({
+            where: { name, memo },
+          });
+        }
+        transactions.forEach(async (transaction) => {
+          await TransactionEntity.update(transaction.id, {
+            categoryId: selectedCategoryId,
+            subCategoryId: selectedSubCategoryId,
+            savedCategoryId,
+          });
+        });
+      };
 
-                  transactions.forEach(async (transaction) => {
-                    console.log(
-                      `updating ${transaction.name}, 
-                      id: ${transaction.id}, 
-                      with updated categoryId: ${data.categoryId}, 
-                      updated subCategoryId: ${data.subCategoryId}, 
-                      savedCategoryId: ${newCategoryData.id}`
-                    );
-                    await TransactionEntity.update(transaction.id, {
-                      note: undefined,
-                      categoryId: data.categoryId,
-                      subCategoryId: data.subCategoryId,
-                      savedCategoryId: newCategoryData.id,
-                    });
+      if (!data.applyToAll) {
+        //if applyToall is false, we don't want a saved category.
+        try {
+          //if a saved category exists, delete it from every transactions first,
+          //then delete the category
+          if (data.savedCategoryId) {
+            SavedCategoriesEntity.findOne(data.savedCategoryId, {
+              relations: ["transactions"],
+            })
+              .then((savedCategory) => {
+                savedCategory!.transactions.forEach(async (transaction) => {
+                  await TransactionEntity.update(transaction.id, {
+                    savedCategoryId: null,
                   });
                 });
-            } catch (err) {
-              console.log("TR 408, ", err);
-            }
-          } else {
-            console.log(
-              `Test: checkAmount: ${data.checkAmount}, applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}`
-            );
-            //no savedCategory exists, so nothing to delete. Just need to update a single transaction
-            // in case categories changed. SavedCategory doesn't exist so it should be null already.
-            try {
-              await TransactionEntity.update(data.id, {
-                note: data.note,
-                categoryId: data.categoryId,
-                subCategoryId: data.subCategoryId,
+              })
+              .then(async () => {
+                await SavedCategoriesEntity.delete(data.savedCategoryId);
               });
-            } catch (err) {
-              console.log("TR 410", err);
-            }
           }
+          //we still want to update the single category
+          await TransactionEntity.update(data.id, {
+            categoryId: data.selectedCategoryId,
+            subCategoryId: data.selectedSubCategoryId,
+            savedCategoryId: data.savedCategoryId,
+          });
+        } catch (err) {
+          console.log("Error trying to delete saved Category, ", err);
         }
       } else {
-        //amount does not exist so don't check for amount.
-        let transactions = await TransactionEntity.find({
-          where: {
-            name: data.name,
-            memo: data.memo,
-            note: data.note,
-          },
-        });
+        //applyToAll is true, we want a saved category
         if (data.savedCategoryId) {
-          if (data.applyToAll) {
-            console.log(
-              `Test: checkAmount: ${data.checkAmount}, applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}`
-            );
-            //Update saved category with new selectedCategories only. make sure amount is null.
-            try {
-              await SavedCategoriesEntity.update(data.savedCategoryId, {
-                name: data.name,
-                memo: data.memo,
-                categoryId: data.categoryId,
-                subCategoryId: data.subCategoryId,
-                amount: null,
-              });
-            } catch (err) {
-              console.log("TR 436", err);
+          //if one already exists, update it with new amount
+          let savedCategory = await SavedCategoriesEntity.findOne(
+            data.savedCategoryId
+          );
+          if (data.checkAmount) {
+            //update saved category and transactions with amount
+            if (!data.savedCategoryAmounts.includes(data.amount)) {
+              if (savedCategory) {
+                let newAmounts: number[] = savedCategory.amounts;
+                newAmounts.push(data.amount);
+                await SavedCategoriesEntity.update(data.savedCategoryId, {
+                  amounts: newAmounts,
+                });
+              }
             }
 
-            //update all transactions with new categories only. savedCategoryId should exist already because
-            //a savedCategory exists AND applyToAll is checked.
-            transactions.forEach(async (transaction) => {
-              try {
-                await TransactionEntity.update(transaction.id, {
-                  note: undefined,
-                  categoryId: data.categoryId,
-                  subCategoryId: data.subCategoryId,
-                });
-              } catch (err) {
-                console.log("TR 451", err);
-              }
-            });
+            updateTransactions(
+              data.name,
+              data.memo,
+              data.selectedCategoryId,
+              data.selectedSubCategoryId,
+              data.savedCategoryId,
+              data.amount
+            );
           } else {
-            console.log(
-              `Test: checkAmount: ${data.checkAmount}, applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}`
-            );
-            //we no longer wish to applyToAll for the select transaction.
-            //so first remove the savedCategoryIds from all transactions that were found.
-            transactions.forEach(async (transaction) => {
-              try {
-                await TransactionEntity.update(transaction.id, {
-                  note: undefined,
-                  savedCategoryId: null,
-                });
-              } catch (err) {
-                console.log("TR 465", err);
-              }
-            });
-
-            //then update the single transaction in case new categories were selected
-            try {
-              await TransactionEntity.update(data.id, {
-                note: data.note,
-                categoryId: data.categoryId,
-                subCategoryId: data.subCategoryId,
+            //update saved category and transactions without amount
+            if (savedCategory) {
+              let newAmounts: number[] = savedCategory.amounts;
+              newAmounts = newAmounts.filter(
+                (amount) => amount !== data.amount
+              );
+              await SavedCategoriesEntity.update(data.savedCategoryId, {
+                amounts: newAmounts,
               });
-            } catch (err) {
-              console.log("TR 475", err);
             }
-
-            //then delete the savedCategory
-            try {
-              await SavedCategoriesEntity.delete(data.savedCategoryId);
-            } catch (err) {
-              console.log("TR 480", err);
-            }
+            updateTransactions(
+              data.name,
+              data.memo,
+              data.selectedCategoryId,
+              data.selectedSubCategoryId,
+              data.savedCategoryId
+            );
           }
         } else {
-          if (data.applyToAll) {
-            console.log(
-              `Test: checkAmount: ${data.checkAmount}, applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}`
-            );
-            //no savedCategory exists, so create one to use. data.amount does not exist, so use null.
-
-            await SavedCategoriesEntity.create({
-              userId,
+          //no savedCategory exists, so create one depending on
+          //whether checkAmount is true.
+          if (data.checkAmount) {
+            SavedCategoriesEntity.create({
               name: data.name,
               memo: data.memo,
-              amount: null,
-              categoryId: data.categoryId,
-              subCategoryId: data.subCategoryId,
+              amounts: [data.amount],
+              userId,
+              categoryId: data.selectedCategoryId,
+              subCategoryId: data.selectedSubCategoryId,
             })
               .save()
-              .then((data) => {
-                //update all transactions with new categories only and new savedCategoryId.
-                transactions.forEach(async (transaction) => {
-                  try {
-                    await TransactionEntity.update(transaction.id, {
-                      note: undefined,
-                      categoryId: data.categoryId,
-                      subCategoryId: data.subCategoryId,
-                      savedCategoryId: data.id,
-                    });
-                  } catch (err) {
-                    console.log("TR 516", err);
-                  }
-                });
+              .then((res) => {
+                updateTransactions(
+                  data.name,
+                  data.memo,
+                  data.selectedCategoryId,
+                  data.selectedSubCategoryId,
+                  res.id,
+                  data.amount
+                );
               });
           } else {
-            console.log(
-              `Test: checkAmount: ${data.checkAmount}, applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}`
-            );
-            //no savedCategory exists, so nothing to delete. Just need to update a single transaction
-            // in case categories changed. Saved category should already be null.
-            try {
-              await TransactionEntity.update(data.id, {
-                note: data.note,
-                categoryId: data.categoryId,
-                subCategoryId: data.subCategoryId,
+            SavedCategoriesEntity.create({
+              name: data.name,
+              memo: data.memo,
+              amounts: [],
+              userId,
+              categoryId: data.selectedCategoryId,
+              subCategoryId: data.selectedSubCategoryId,
+            })
+              .save()
+              .then((res) => {
+                updateTransactions(
+                  data.name,
+                  data.memo,
+                  data.selectedCategoryId,
+                  data.selectedSubCategoryId,
+                  res.id
+                );
               });
-            } catch (err) {
-              console.log("TR 530", err);
-            }
           }
         }
       }
 
+      await TransactionEntity.update(data.id, { note: data.note });
       return true;
     } catch (err) {
-      console.log(err);
-      console.log("error inserting name: ", name);
+      console.log("TR263", err);
       return false;
     }
   }

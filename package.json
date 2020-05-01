@@ -41,6 +41,7 @@
   },
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "gen": "./node_modules/.bin/graphql-codegen --config codegen.json"
   }
 }
