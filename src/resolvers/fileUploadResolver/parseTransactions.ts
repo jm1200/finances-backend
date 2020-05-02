@@ -54,59 +54,65 @@ async function parseTransObj(
   userId: string
 ): Promise<TransResponse> {
   let categoryId: string;
+
+  //Get users uncategorized category ids
   let subCategoryId: string;
   let savedCategoryId: string | null = null;
   const catRes = await CategoryEntity.findOne({
     where: { userId, name: "uncategorized" },
   });
-  const unCategorizedCategoryId = catRes!.id;
+  console.log("uncat cat", catRes!.id, catRes!.name);
+  categoryId = catRes!.id;
 
   const subCatRes = await SubCategoryEntity.findOne({
     where: { userId, name: "uncategorized" },
   });
-  const unCategorizedSubCategoryId = subCatRes!.id;
+  console.log("uncat cat", catRes!.id, catRes!.name);
+  subCategoryId = subCatRes!.id;
 
-  const categorizedTransactions = await SavedCategoriesEntity.find({
-    where: { userId },
-  });
-  interface ISavedCategoriesMap {
-    [key: string]: SavedCategoriesEntity;
-  }
+  //normalize savedCategories
 
-  let savedCategoriesMap: ISavedCategoriesMap = {};
-  categorizedTransactions.forEach((savedCategory) => {
-    savedCategoriesMap[savedCategory.keyName(savedCategory)] = savedCategory;
-  });
+  //Find savedCategories
 
-  let transactions: Transaction[] = trans.map((transObj: any) => {
-    if (
-      transObj.NAME &&
-      Object.keys(savedCategoriesMap).includes(
-        transObj.NAME.concat(transObj.MEMO)
-      )
-    ) {
-      categoryId =
-        savedCategoriesMap[transObj.NAME.concat(transObj.MEMO)].categoryId;
-      subCategoryId =
-        savedCategoriesMap[transObj.NAME.concat(transObj.MEMO)].subCategoryId;
-    } else {
-      categoryId = unCategorizedCategoryId;
-      subCategoryId = unCategorizedSubCategoryId;
-    }
-    return {
-      id: transObj.FITID,
-      userId,
-      account,
-      categoryId,
-      subCategoryId,
-      type: transObj.TRNTYPE,
-      savedCategoryId,
-      datePosted: formatDate(transObj.DTPOSTED),
-      name: transObj.NAME ? transObj.NAME : "",
-      memo: transObj.MEMO,
-      amount: parseFloat(transObj.TRNAMT),
-    };
-  });
+  let transactions: Transaction[] = await Promise.all(
+    trans.map(async (transObj: any) => {
+      const res = await SavedCategoriesEntity.find({
+        where: { name: transObj.NAME, memo: transObj.MEMO },
+      });
+
+      if (res.length > 1) {
+        res.forEach((cat) => {
+          if (cat.amounts.includes(parseFloat(transObj.TRNAMT))) {
+            console.log("PT84 cat", cat);
+            categoryId = cat.categoryId;
+            subCategoryId = cat.subCategoryId;
+            savedCategoryId = cat.id;
+          }
+        });
+      } else if (res.length === 1) {
+        categoryId = res[0].categoryId;
+        subCategoryId = res[0].subCategoryId;
+        savedCategoryId = res[0].id;
+      } else {
+        categoryId = catRes!.id;
+        subCategoryId = subCatRes!.id;
+      }
+
+      return {
+        id: transObj.FITID,
+        userId,
+        account,
+        categoryId,
+        subCategoryId,
+        type: transObj.TRNTYPE,
+        savedCategoryId,
+        datePosted: formatDate(transObj.DTPOSTED),
+        name: transObj.NAME ? transObj.NAME : "",
+        memo: transObj.MEMO,
+        amount: parseFloat(transObj.TRNAMT),
+      };
+    })
+  );
 
   return {
     account,

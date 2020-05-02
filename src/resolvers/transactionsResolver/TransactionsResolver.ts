@@ -291,11 +291,11 @@ export class TransactionsResolver extends BaseEntity {
             //update saved category and transactions without amount
             if (savedCategory) {
               let newAmounts: number[] = savedCategory.amounts;
-              newAmounts = newAmounts.filter(
+              let amounts = newAmounts.filter(
                 (amount) => amount !== data.amount
               );
               await SavedCategoriesEntity.update(data.savedCategoryId, {
-                amounts: newAmounts,
+                amounts,
               });
             }
             updateTransactions(
