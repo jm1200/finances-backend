@@ -7,11 +7,10 @@ import {
   Field,
   Mutation,
   Query,
-  ObjectType,
   Float,
   Int,
 } from "type-graphql";
-import { BaseEntity, Between, Transaction } from "typeorm";
+import { BaseEntity, Between } from "typeorm";
 import { isAuth } from "../../isAuth";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../types";
@@ -19,20 +18,6 @@ import { TransactionEntity } from "../../entity/Transaction";
 import { UserEntity } from "../../entity/User";
 import moment from "moment";
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
-
-@InputType()
-export class updateTransactionInput {
-  @Field()
-  id: string;
-  @Field({ nullable: true })
-  categoryId: string;
-  @Field({ nullable: true })
-  subCategoryId: string;
-  @Field({ nullable: true })
-  note: string;
-  @Field({ nullable: true })
-  savedCategoryId: string;
-}
 
 @InputType()
 export class updateCategoriesInTransactionsInput {
@@ -58,30 +43,6 @@ export class updateCategoriesInTransactionsInput {
   checkAmount: boolean;
   @Field()
   applyToAll: boolean;
-}
-
-@ObjectType()
-export class IGroupedTransactionsClass {
-  @Field()
-  id: string;
-  @Field()
-  datePosted: string;
-  @Field()
-  name: string;
-  @Field()
-  memo: string;
-  @Field()
-  note: string;
-  @Field(() => [Float!]!)
-  amounts: number[];
-  @Field(() => Float!)
-  averageAmount: number;
-  @Field()
-  categoryName: string;
-  @Field()
-  subCategoryName: string;
-  @Field(() => [String])
-  ids: string[];
 }
 
 @Resolver()
@@ -145,6 +106,7 @@ export class TransactionsResolver extends BaseEntity {
       return false;
     }
     try {
+      //Maybe pagination here instead using FindAndCount
       const transactions = await TransactionEntity.find({
         where: { userId },
         relations: ["category", "subCategory", "savedCategory"],

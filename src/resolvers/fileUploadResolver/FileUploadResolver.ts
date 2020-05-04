@@ -29,7 +29,6 @@ export class FileUploadResolver {
       const token = authorization!.split(" ")[1];
       const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
       userId = payload.userId;
-      console.log("userId is", userId);
     } catch (err) {
       console.log(err);
     }
@@ -43,7 +42,6 @@ export class FileUploadResolver {
         .on("close", resolve);
     });
 
-    console.log("file written");
     const data = fs.readFileSync(filepath, { encoding: "utf8" });
     if (!data) {
       throw new Error("Could not read file");

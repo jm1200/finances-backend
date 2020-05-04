@@ -31,6 +31,10 @@ export const defaultCategories = [
     ],
   },
   {
+    name: "Travel",
+    subCategories: ["Airline", "Hotel", "Rental Car", "uncategorized"],
+  },
+  {
     name: "Auto",
     subCategories: [
       "Maintenance",
@@ -38,6 +42,30 @@ export const defaultCategories = [
       "Gas",
       "Parking",
       "407",
+      "uncategorized",
+    ],
+  },
+  {
+    name: "Family",
+    subCategories: [
+      "Shopping",
+      "Essentials",
+      "Entertainment",
+      "Healthcare",
+      "uncategorized",
+    ],
+  },
+  {
+    name: "Money Transfers",
+    subCategories: [
+      "Creditcard Payments",
+      "Pension Payments",
+      "RESP transfers",
+      "John RRSP transfer",
+      "Meghan RRSP transfer",
+      "Donations",
+      "Banking Charges",
+      "Transfer to Savings",
       "uncategorized",
     ],
   },
@@ -76,7 +104,13 @@ export const defaultCategories = [
   },
   {
     name: "Food",
-    subCategories: ["Fast food", "Restaurants", "Groceries", "uncategorized"],
+    subCategories: [
+      "Fast food",
+      "Restaurants",
+      "Groceries",
+      "Booze",
+      "uncategorized",
+    ],
   },
   {
     name: "Kids",
@@ -85,7 +119,6 @@ export const defaultCategories = [
       "Clothes",
       "School",
       "Entertainement",
-      "Activities",
       "Health Care",
       "Transfer to RESP",
       "uncategorized",
@@ -111,6 +144,7 @@ export const defaultCategories = [
     name: "John",
     subCategories: [
       "Employement Expenses",
+      "Away Food",
       "Cell Phone",
       "Healthcare",
       "Shopping",
@@ -119,5 +153,5 @@ export const defaultCategories = [
       "uncategorized",
     ],
   },
-  { name: "Shopping", subCategories: ["gifts", "uncategorized"] },
+  { name: "Shopping", subCategories: ["Gifts", "Online", "uncategorized"] },
 ];

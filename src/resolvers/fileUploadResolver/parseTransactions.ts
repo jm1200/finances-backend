@@ -61,13 +61,11 @@ async function parseTransObj(
   const catRes = await CategoryEntity.findOne({
     where: { userId, name: "uncategorized" },
   });
-  console.log("uncat cat", catRes!.id, catRes!.name);
   categoryId = catRes!.id;
 
   const subCatRes = await SubCategoryEntity.findOne({
     where: { userId, name: "uncategorized" },
   });
-  console.log("uncat cat", catRes!.id, catRes!.name);
   subCategoryId = subCatRes!.id;
 
   //normalize savedCategories
@@ -83,7 +81,6 @@ async function parseTransObj(
       if (res.length > 1) {
         res.forEach((cat) => {
           if (cat.amounts.includes(parseFloat(transObj.TRNAMT))) {
-            console.log("PT84 cat", cat);
             categoryId = cat.categoryId;
             subCategoryId = cat.subCategoryId;
             savedCategoryId = cat.id;

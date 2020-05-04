@@ -21,7 +21,7 @@ export class CategoriesResolver {
     try {
       const categories = await CategoryEntity.find({
         where: { userId },
-        relations: ["transactions", "subCategories", "savedCategories"],
+        relations: ["subCategories"],
       });
 
       if (categories) {
@@ -50,6 +50,7 @@ export class CategoriesResolver {
     }
 
     try {
+      CategoryEntity.findAndCount({});
       const category = await CategoryEntity.findOne({
         where: { userId, id: categoryId },
         relations: ["transactions", "subCategories"],
