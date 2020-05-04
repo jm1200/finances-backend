@@ -1,7 +1,9 @@
 import { Transaction } from "../../types";
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
-import { CategoryEntity } from "../../entity/Category";
-import { SubCategoryEntity } from "../../entity/SubCategory";
+import {
+  getKnownCategories,
+  getNormalizedCategories,
+} from "./getKnownCategories";
 //import { v4 as uuid } from "uuid";
 
 export class TransResponse {
@@ -50,27 +52,51 @@ async function parseTransObj(
   account: string,
   start: string,
   end: string,
-  trans: [Transaction],
+  trans: any,
   userId: string
 ): Promise<TransResponse> {
   let categoryId: string;
-
-  //Get users uncategorized category ids
   let subCategoryId: string;
   let savedCategoryId: string | null = null;
-  const catRes = await CategoryEntity.findOne({
-    where: { userId, name: "uncategorized" },
-  });
-  categoryId = catRes!.id;
 
-  const subCatRes = await SubCategoryEntity.findOne({
-    where: { userId, name: "uncategorized" },
-  });
-  subCategoryId = subCatRes!.id;
+  const normalizedCategories = await getNormalizedCategories();
+  const KNOWN_CATEGORIES_MAP = await getKnownCategories();
 
-  //normalize savedCategories
+  const inKnownCategories = (name: string): string => {
+    let knownCategory: string = "";
+    for (let i = 0; i < Object.keys(KNOWN_CATEGORIES_MAP).length; i++) {
+      if (name.toLowerCase().includes(Object.keys(KNOWN_CATEGORIES_MAP)[i])) {
+        knownCategory = Object.keys(KNOWN_CATEGORIES_MAP)[i];
+        break;
+      }
+    }
+    return knownCategory;
+  };
 
-  //Find savedCategories
+  //Create saved categories
+  for (let i = 0; i < trans.length; i++) {
+    //if a name exists AND that name is a known category, create a saved category
+    // if one doesn't exist already.
+    if (trans[i].NAME && inKnownCategories(trans[i].NAME)) {
+      const savedCategoryResponse = await SavedCategoriesEntity.findOne({
+        where: { name: trans[i].NAME, memo: trans[i].MEMO },
+      });
+      if (!savedCategoryResponse) {
+        let categoryId =
+          KNOWN_CATEGORIES_MAP[inKnownCategories(trans[i].NAME)].categoryId;
+        let subCategoryId =
+          KNOWN_CATEGORIES_MAP[inKnownCategories(trans[i].NAME)].subCategoryId;
+        const res = await SavedCategoriesEntity.create({
+          name: trans[i].NAME,
+          memo: trans[i].MEMO,
+          userId,
+          categoryId,
+          subCategoryId,
+          amounts: [],
+        }).save();
+      }
+    }
+  }
 
   let transactions: Transaction[] = await Promise.all(
     trans.map(async (transObj: any) => {
@@ -79,6 +105,7 @@ async function parseTransObj(
       });
 
       if (res.length > 1) {
+        //check amounts to compare
         res.forEach((cat) => {
           if (cat.amounts.includes(parseFloat(transObj.TRNAMT))) {
             categoryId = cat.categoryId;
@@ -87,12 +114,16 @@ async function parseTransObj(
           }
         });
       } else if (res.length === 1) {
+        //the correct category already exists
         categoryId = res[0].categoryId;
         subCategoryId = res[0].subCategoryId;
         savedCategoryId = res[0].id;
       } else {
-        categoryId = catRes!.id;
-        subCategoryId = subCatRes!.id;
+        categoryId = normalizedCategories["uncategorized"].id;
+        subCategoryId =
+          normalizedCategories["uncategorized"].subCategories["uncategorized"]
+            .id;
+        // }
       }
 
       return {

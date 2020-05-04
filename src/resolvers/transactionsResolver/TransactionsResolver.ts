@@ -217,7 +217,7 @@ export class TransactionsResolver extends BaseEntity {
           await TransactionEntity.update(data.id, {
             categoryId: data.selectedCategoryId,
             subCategoryId: data.selectedSubCategoryId,
-            savedCategoryId: data.savedCategoryId,
+            savedCategoryId: null,
           });
         } catch (err) {
           console.log("Error trying to delete saved Category, ", err);
