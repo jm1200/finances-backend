@@ -32,7 +32,13 @@ export const defaultCategories = [
   },
   {
     name: "Travel",
-    subCategories: ["Airline", "Hotel", "Rental Car", "uncategorized"],
+    subCategories: [
+      "Airline",
+      "Hotel",
+      "Rental Car",
+      "Tax/Uber",
+      "uncategorized",
+    ],
   },
   {
     name: "Auto",
@@ -40,6 +46,7 @@ export const defaultCategories = [
       "Maintenance",
       "Insurance",
       "Gas",
+      "Licensing",
       "Parking",
       "407",
       "uncategorized",
@@ -50,6 +57,7 @@ export const defaultCategories = [
     subCategories: [
       "Shopping",
       "Essentials",
+      "Clothes",
       "Entertainment",
       "Healthcare",
       "uncategorized",
@@ -109,6 +117,7 @@ export const defaultCategories = [
       "Restaurants",
       "Groceries",
       "Booze",
+      "Treats",
       "uncategorized",
     ],
   },
@@ -154,4 +163,5 @@ export const defaultCategories = [
     ],
   },
   { name: "Shopping", subCategories: ["Gifts", "Online", "uncategorized"] },
+  { name: "zzIgnore", subCategories: ["uncategorized"] },
 ];

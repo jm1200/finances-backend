@@ -192,6 +192,9 @@ export class TransactionsResolver extends BaseEntity {
           });
         });
       };
+      console.log(
+        `TR195: applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}, checkAmount: ${data.checkAmount} `
+      );
 
       if (!data.applyToAll) {
         //if applyToall is false, we don't want a saved category.
@@ -204,9 +207,13 @@ export class TransactionsResolver extends BaseEntity {
             })
               .then((savedCategory) => {
                 savedCategory!.transactions.forEach(async (transaction) => {
-                  await TransactionEntity.update(transaction.id, {
-                    savedCategoryId: null,
-                  });
+                  try {
+                    await TransactionEntity.update(transaction.id, {
+                      savedCategoryId: null,
+                    });
+                  } catch (err) {
+                    console.log("TR215, ", err);
+                  }
                 });
               })
               .then(async () => {
@@ -214,11 +221,15 @@ export class TransactionsResolver extends BaseEntity {
               });
           }
           //we still want to update the single category
-          await TransactionEntity.update(data.id, {
-            categoryId: data.selectedCategoryId,
-            subCategoryId: data.selectedSubCategoryId,
-            savedCategoryId: null,
-          });
+          try {
+            await TransactionEntity.update(data.id, {
+              categoryId: data.selectedCategoryId,
+              subCategoryId: data.selectedSubCategoryId,
+              savedCategoryId: null,
+            });
+          } catch (err) {
+            console.log("TR227, ", err);
+          }
         } catch (err) {
           console.log("Error trying to delete saved Category, ", err);
         }
