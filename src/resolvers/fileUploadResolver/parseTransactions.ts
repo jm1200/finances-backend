@@ -1,4 +1,5 @@
 import { Transaction } from "../../types";
+import numeral from "numeral";
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
 import {
   getKnownCategories,
@@ -86,7 +87,7 @@ async function parseTransObj(
           KNOWN_CATEGORIES_MAP[inKnownCategories(trans[i].NAME)].categoryId;
         let subCategoryId =
           KNOWN_CATEGORIES_MAP[inKnownCategories(trans[i].NAME)].subCategoryId;
-        const res = await SavedCategoriesEntity.create({
+        await SavedCategoriesEntity.create({
           name: trans[i].NAME,
           memo: trans[i].MEMO,
           userId,
@@ -137,7 +138,7 @@ async function parseTransObj(
         datePosted: formatDate(transObj.DTPOSTED),
         name: transObj.NAME ? transObj.NAME : "",
         memo: transObj.MEMO,
-        amount: parseFloat(transObj.TRNAMT),
+        amount: parseFloat(numeral(transObj.TRNAMT).format("0.00")),
       };
     })
   );

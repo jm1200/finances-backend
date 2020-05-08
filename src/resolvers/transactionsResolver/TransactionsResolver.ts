@@ -71,6 +71,32 @@ export class TransactionsResolver extends BaseEntity {
     return false;
   }
 
+  // @Query(() => [TransactionEntity] || Boolean)
+  // async getUserTransactionsForCashFlow(
+  //   @Ctx() context: MyContext
+  // ): Promise<TransactionEntity[] | Boolean> {
+  //   const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+  //   if (!userId) {
+  //     return false;
+  //   }
+  //   try {
+  //     const transactions = await TransactionEntity.find({
+  //       where: { userId },
+  //       relations: ["category", "subCategory"],
+  //     });
+  //     if (transactions) {
+  //       parseTransactionsForCashFlowAnalysis(transactions);
+
+  //       return transactions;
+  //     }
+  //     return false;
+  //   } catch (err) {
+  //     console.log(err);
+  //     return false;
+  //   }
+  //   return false;
+  // }
+
   @Query(() => TransactionEntity || Boolean)
   async getTransactionsById(
     @Arg("id") id: string,

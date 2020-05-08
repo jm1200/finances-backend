@@ -17,7 +17,7 @@ import { UserResolver } from "./resolvers/userResolver/UserResolver";
 import { TransactionsResolver } from "./resolvers/transactionsResolver/TransactionsResolver";
 import { CategoriesResolver } from "./resolvers/categoriesResolver/CategoriesResolver";
 import { SavedCategoriesResolver } from "./resolvers/savedCategoriesResolver/CategorizedTransactionsResolver";
-import { printSchema } from "graphql";
+import { printSchema, GraphQLSchema } from "graphql";
 
 (async () => {
   const app = Express();
@@ -81,18 +81,28 @@ import { printSchema } from "graphql";
 
   await createConnection();
 
+  async function generateSchema(): Promise<GraphQLSchema> {
+    try {
+      const schema = await buildSchema({
+        resolvers: [
+          UserResolver,
+          FileUploadResolver,
+          UserSettingsResolver,
+          TransactionsResolver,
+          CategoriesResolver,
+          SavedCategoriesResolver,
+        ],
+      });
+
+      return schema;
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
+  }
+
   const apolloServer = new ApolloServer({
-    schema: await buildSchema({
-      resolvers: [
-        UserResolver,
-        FileUploadResolver,
-        UserSettingsResolver,
-        TransactionsResolver,
-        CategoriesResolver,
-        SavedCategoriesResolver,
-      ],
-      dateScalarMode: "timestamp",
-    }),
+    schema: await generateSchema(),
     context: ({ req, res }) => ({ req, res }),
   });
 

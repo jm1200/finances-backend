@@ -5,6 +5,10 @@ import { CategoryEntity } from "../../entity/Category";
 import { createCategory } from "../utils/createCategoryEntity";
 import { createSubCategory } from "../utils/createSubCategoryEntity";
 import { SubCategoryEntity } from "../../entity/SubCategory";
+import {
+  parseTransactionsForCashFlowAnalysis,
+  IDisplayData,
+} from "./parseTransactionsForCashFlowAnalysis";
 
 @Resolver()
 export class CategoriesResolver {
@@ -30,6 +34,38 @@ export class CategoriesResolver {
           if (b.name < a.name) return 1;
           return 0;
         });
+      }
+      return null;
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
+  }
+  @Query(() => [IDisplayData] || null)
+  async getUserSubCategories(
+    @Ctx() context: MyContext
+  ): Promise<IDisplayData[] | null> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]);
+
+    if (!userId) {
+      return null;
+    }
+
+    try {
+      const subCategories = await SubCategoryEntity.find({
+        where: { userId },
+        relations: ["category", "transactions"],
+      });
+
+      if (subCategories) {
+        const displayData = parseTransactionsForCashFlowAnalysis(subCategories);
+
+        return displayData;
+        // .sort((a, b) => {
+        //   if (b.name > a.name) return -1;
+        //   if (b.name < a.name) return 1;
+        //   return 0;
+        // });
       }
       return null;
     } catch (err) {
