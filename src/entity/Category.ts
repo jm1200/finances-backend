@@ -12,6 +12,7 @@ import { TransactionEntity } from "./Transaction";
 import { SubCategoryEntity } from "./SubCategory";
 import { UserEntity } from "./User";
 import { SavedCategoriesEntity } from "./SavedCategories";
+import { CategoryTotalsEntity } from "./CategoryTotals";
 
 @ObjectType()
 @Entity()
@@ -52,4 +53,11 @@ export class CategoryEntity extends BaseEntity {
     (savedCategory) => savedCategory.category
   )
   savedCategories: SavedCategoriesEntity[];
+
+  @Field(() => [CategoryTotalsEntity])
+  @OneToMany(
+    () => CategoryTotalsEntity,
+    (categoryTotal) => categoryTotal.category
+  )
+  categoryTotals: CategoryTotalsEntity[];
 }

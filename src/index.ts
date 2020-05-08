@@ -92,6 +92,7 @@ import { printSchema, GraphQLSchema } from "graphql";
           CategoriesResolver,
           SavedCategoriesResolver,
         ],
+        dateScalarMode: "timestamp",
       });
 
       return schema;
