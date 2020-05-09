@@ -44,7 +44,8 @@ export class CategoriesResolver {
   @Query(() => [IDisplayData] || null)
   async getUserSubCategories(
     @Arg("selectedYear", () => Int) selectedYear: number,
-    @Ctx() context: MyContext
+    @Ctx() context: MyContext,
+    @Arg("filteredCategory", { nullable: true }) filteredCategory?: string
   ): Promise<IDisplayData[] | null> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]);
 
@@ -61,7 +62,8 @@ export class CategoriesResolver {
       if (subCategories) {
         const displayData = parseTransactionsForCashFlowAnalysis(
           subCategories,
-          selectedYear
+          selectedYear,
+          filteredCategory
         );
 
         return displayData;
