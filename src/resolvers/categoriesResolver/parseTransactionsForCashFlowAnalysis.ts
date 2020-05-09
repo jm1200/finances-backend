@@ -3,6 +3,7 @@ import moment from "moment";
 //import fs from "fs";
 import numeral from "numeral";
 import { SubCategoryEntity } from "../../entity/SubCategory";
+import { CategoryTotalsEntity } from "../../entity/CategoryTotals";
 import { ObjectType, Field } from "type-graphql";
 
 type Month =
@@ -157,7 +158,8 @@ interface ICategoryRow {
 }
 
 export const parseTransactionsForCashFlowAnalysis = (
-  subCategories: SubCategoryEntity[]
+  subCategories: SubCategoryEntity[],
+  selectedYear: number
 ) => {
   let categoryRows: ICategoryRow = {};
   console.log("PTFC164 running");
@@ -186,16 +188,23 @@ export const parseTransactionsForCashFlowAnalysis = (
         med: 0,
       };
       if (subCategory.transactions.length > 0) {
-        subCategory.transactions.forEach((transaction) => {
-          let month: Month = moment(transaction.datePosted, "YYYYMMDD").format(
-            "MMM"
-          ) as Month;
-          newSubCategoryRow[month] += Math.abs(transaction.amount);
-          categoryRows[subCategory.category.id][month] += Math.abs(
-            transaction.amount
-          );
-        });
-        console.log("new sub category row: ", newSubCategoryRow);
+        let filteredTransactions = subCategory.transactions.filter(
+          (transaction) =>
+            transaction.datePosted.slice(0, 4) === selectedYear.toString()
+        );
+        if (filteredTransactions.length > 0) {
+          filteredTransactions.forEach((transaction) => {
+            let month: Month = moment(
+              transaction.datePosted,
+              "YYYYMMDD"
+            ).format("MMM") as Month;
+            newSubCategoryRow[month] += Math.abs(transaction.amount);
+            categoryRows[subCategory.category.id][month] += Math.abs(
+              transaction.amount
+            );
+          });
+        }
+
         categoryRows[subCategory.category.id].subCategories[
           subCategory.id
         ] = newSubCategoryRow;
@@ -250,17 +259,28 @@ export const parseTransactionsForCashFlowAnalysis = (
       };
       //fill them with transaction amounts
       if (subCategory.transactions.length > 0) {
-        subCategory.transactions.forEach((transaction) => {
-          let month: Month = moment(transaction.datePosted, "YYYYMMDD").format(
-            "MMM"
-          ) as Month;
-          newSubCategoryRow[subCategory.id][month] += Math.abs(
-            transaction.amount
-          );
-          categoryRows[subCategory.category.id][month] += Math.abs(
-            transaction.amount
-          );
-        });
+        let filteredTransactions = subCategory.transactions.filter(
+          (transaction) => {
+            return (
+              transaction.datePosted.slice(0, 4) === selectedYear.toString()
+            );
+          }
+        );
+        if (filteredTransactions.length > 0) {
+          filteredTransactions.forEach((transaction) => {
+            let month: Month = moment(
+              transaction.datePosted,
+              "YYYYMMDD"
+            ).format("MMM") as Month;
+            newSubCategoryRow[subCategory.id][month] += Math.abs(
+              transaction.amount
+            );
+            categoryRows[subCategory.category.id][month] += Math.abs(
+              transaction.amount
+            );
+          });
+        }
+
         categoryRows[subCategory.category.id].subCategories = newSubCategoryRow;
       }
     }
@@ -269,19 +289,25 @@ export const parseTransactionsForCashFlowAnalysis = (
   //console.log("PTFC180, ", categoryRows);
   const getAverages = (array: number[]) => {
     let filteredArray = array.filter((num) => num !== 0);
-    let low, high, avg, med;
-    low = Math.min(...filteredArray);
-    high = Math.max(...filteredArray);
-    let sum = filteredArray.reduce(
-      (previous, current) => (current += previous)
-    );
-    avg = sum / filteredArray.length;
+    let low,
+      high,
+      avg,
+      med = 0;
+    if (filteredArray && filteredArray.length > 0) {
+      low = Math.min(...filteredArray);
+      high = Math.max(...filteredArray);
+      let sum = filteredArray.reduce(
+        (previous, current) => (current += previous)
+      );
+      avg = sum / filteredArray.length;
 
-    filteredArray.sort((a, b) => a - b);
-    med =
-      (filteredArray[(filteredArray.length - 1) >> 1] +
-        filteredArray[filteredArray.length >> 1]) /
-      2;
+      filteredArray.sort((a, b) => a - b);
+      med =
+        (filteredArray[(filteredArray.length - 1) >> 1] +
+          filteredArray[filteredArray.length >> 1]) /
+        2;
+    }
+
     return { low, high, avg, med };
   };
 

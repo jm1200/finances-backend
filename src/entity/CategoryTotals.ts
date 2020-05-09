@@ -35,12 +35,13 @@ export class CategoryTotalsEntity extends BaseEntity {
   @Column({ type: "real" })
   total: number;
 
+  //category totals row do not have a subCategoryId. can be null
   @Field({ nullable: true })
   @Column({ nullable: true })
   subCategoryId: string;
 
-  @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Field()
+  @Column()
   categoryId: string;
 
   @Field(() => CategoryEntity)
@@ -52,5 +53,5 @@ export class CategoryTotalsEntity extends BaseEntity {
     () => SubCategoryEntity,
     (subCategory) => subCategory.categoryTotals
   )
-  subCategory: SubCategoryEntity;
+  subCategory: SubCategoryEntity | null;
 }

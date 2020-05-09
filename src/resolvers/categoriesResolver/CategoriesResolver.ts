@@ -1,4 +1,4 @@
-import { Query, Resolver, Mutation, Ctx, Arg } from "type-graphql";
+import { Query, Resolver, Mutation, Ctx, Arg, Int } from "type-graphql";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../MyContext";
 import { CategoryEntity } from "../../entity/Category";
@@ -43,6 +43,7 @@ export class CategoriesResolver {
   }
   @Query(() => [IDisplayData] || null)
   async getUserSubCategories(
+    @Arg("selectedYear", () => Int) selectedYear: number,
     @Ctx() context: MyContext
   ): Promise<IDisplayData[] | null> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]);
@@ -58,7 +59,10 @@ export class CategoriesResolver {
       });
 
       if (subCategories) {
-        const displayData = parseTransactionsForCashFlowAnalysis(subCategories);
+        const displayData = parseTransactionsForCashFlowAnalysis(
+          subCategories,
+          selectedYear
+        );
 
         return displayData;
         // .sort((a, b) => {
