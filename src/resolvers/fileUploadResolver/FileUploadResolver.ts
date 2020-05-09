@@ -20,9 +20,11 @@ export class FileUploadResolver {
   @Mutation(() => UploadResponse)
   async uploadFile(
     @Arg("file", () => GraphQLUpload!) file: Upload,
+    @Arg("book") book: string,
     @Ctx() context: MyContext
   ): Promise<UploadResponse> {
     const authorization = context.req.headers["authorization"];
+
     //if the user did not pass in authorization inside the header, then deny access
     let userId;
     try {
@@ -53,7 +55,8 @@ export class FileUploadResolver {
     }
     //console.log("Parsed Data: ", parsedData);
 
-    let transactions = await parseTransactions(parsedData, userId);
+    let transactions = await parseTransactions(parsedData, userId, book);
+    console.log("FUR59", transactions.transactions[0]);
 
     try {
       fs.unlinkSync(filepath);

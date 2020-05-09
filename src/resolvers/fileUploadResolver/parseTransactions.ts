@@ -1,4 +1,4 @@
-import { Transaction } from "../../types";
+import { TransactionClass } from "../../types";
 import numeral from "numeral";
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
 import {
@@ -11,9 +11,13 @@ export class TransResponse {
   account: string;
   rangeStart: string;
   rangeEnd: string;
-  transactions: Transaction[];
+  transactions: TransactionClass[];
 }
-export const parseTransactions = (parsedData: any, userId: string) => {
+export const parseTransactions = (
+  parsedData: any,
+  userId: string,
+  book: string
+) => {
   //get account type
   let account: string;
   if (parsedData.OFX.BANKMSGSRSV1) {
@@ -33,7 +37,8 @@ export const parseTransactions = (parsedData: any, userId: string) => {
       data.DTSTART,
       data.DTEND,
       data.STMTTRN,
-      userId
+      userId,
+      book
     );
   } else if (account === "Creditcard") {
     const data =
@@ -43,7 +48,8 @@ export const parseTransactions = (parsedData: any, userId: string) => {
       data.DTSTART,
       data.DTEND,
       data.STMTTRN,
-      userId
+      userId,
+      book
     );
   }
   return transactions;
@@ -54,7 +60,8 @@ async function parseTransObj(
   start: string,
   end: string,
   trans: any,
-  userId: string
+  userId: string,
+  book: string
 ): Promise<TransResponse> {
   let categoryId: string;
   let subCategoryId: string;
@@ -90,6 +97,7 @@ async function parseTransObj(
         await SavedCategoriesEntity.create({
           name: trans[i].NAME,
           memo: trans[i].MEMO,
+          book,
           userId,
           categoryId,
           subCategoryId,
@@ -99,10 +107,14 @@ async function parseTransObj(
     }
   }
 
-  let transactions: Transaction[] = await Promise.all(
+  let transactions: TransactionClass[] = await Promise.all(
     trans.map(async (transObj: any) => {
       const res = await SavedCategoriesEntity.find({
-        where: { name: transObj.NAME, memo: transObj.MEMO },
+        where: {
+          name: transObj.NAME,
+          memo: transObj.MEMO,
+          book: transObj.book,
+        },
       });
 
       if (res.length > 1) {
@@ -130,6 +142,7 @@ async function parseTransObj(
       return {
         id: transObj.FITID,
         userId,
+        book,
         account,
         categoryId,
         subCategoryId,
@@ -142,7 +155,6 @@ async function parseTransObj(
       };
     })
   );
-
   return {
     account,
     rangeStart: `${formatDate(start)}`,

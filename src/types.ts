@@ -14,6 +14,8 @@ export class TransactionClass {
   @Field()
   userId: string;
   @Field()
+  book: String;
+  @Field()
   account: string;
   @Field()
   type: string;
@@ -42,6 +44,8 @@ export class TransactionInput {
   @Field()
   account: String;
   @Field()
+  book: String;
+  @Field()
   type: String;
   @Field()
   datePosted: String;
@@ -59,19 +63,20 @@ export class TransactionInput {
   amount: number;
 }
 
-export interface Transaction {
-  id: string;
-  userId: string;
-  categoryId: string;
-  subCategoryId: string;
-  savedCategoryId: string | null;
-  account: string;
-  type: string;
-  datePosted: string;
-  name: string;
-  memo: string;
-  amount: number;
-}
+// export interface Transaction {
+//   id: string;
+//   userId: string;
+
+//   categoryId: string;
+//   subCategoryId: string;
+//   savedCategoryId: string | null;
+//   account: string;
+//   type: string;
+//   datePosted: string;
+//   name: string;
+//   memo: string;
+//   amount: number;
+// }
 
 export interface Upload {
   filename: string;
@@ -101,7 +106,7 @@ export class UploadResponse {
   @Field()
   rangeEnd?: string;
   @Field(() => [TransactionClass])
-  transactions?: Transaction[];
+  transactions?: TransactionClass[];
 }
 
 export interface MyContext {

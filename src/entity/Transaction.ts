@@ -22,6 +22,10 @@ export class TransactionEntity extends BaseEntity {
 
   @Field()
   @Column()
+  book: string;
+
+  @Field()
+  @Column()
   account: string;
 
   @Field()
@@ -64,28 +68,20 @@ export class TransactionEntity extends BaseEntity {
   @Column({ type: "real" })
   amount: number;
 
-  @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Field()
+  @Column()
   subCategoryId: string;
 
-  @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Field()
+  @Column()
   categoryId: string;
 
   //Transactions get imported with no category assigned yet. So nullable=true.
-  @Field(() => CategoryEntity, { nullable: true })
-  @ManyToOne(() => CategoryEntity, (category) => category.transactions, {
-    nullable: true,
-  })
+  @Field(() => CategoryEntity)
+  @ManyToOne(() => CategoryEntity, (category) => category.transactions)
   category: CategoryEntity;
 
-  @Field(() => SubCategoryEntity, { nullable: true })
-  @ManyToOne(
-    () => SubCategoryEntity,
-    (subCategory) => subCategory.transactions,
-    {
-      nullable: true,
-    }
-  )
+  @Field(() => SubCategoryEntity)
+  @ManyToOne(() => SubCategoryEntity, (subCategory) => subCategory.transactions)
   subCategory: SubCategoryEntity;
 }

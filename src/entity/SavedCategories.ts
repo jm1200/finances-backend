@@ -28,6 +28,10 @@ export class SavedCategoriesEntity extends BaseEntity {
   @Column({ nullable: true })
   memo: string;
 
+  @Field()
+  @Column()
+  book: string;
+
   @Field(() => [Float])
   @Column({ type: "real", array: true })
   amounts: number[];
