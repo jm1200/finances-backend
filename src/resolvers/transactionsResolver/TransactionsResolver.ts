@@ -25,6 +25,8 @@ export class updateCategoriesInTransactionsInput {
   id: string;
   @Field({ nullable: true })
   name: string;
+  @Field()
+  book: string;
   @Field({ nullable: true })
   memo: string;
   @Field({ nullable: true })
@@ -185,6 +187,8 @@ export class TransactionsResolver extends BaseEntity {
       const updateTransactions = async (
         name: string,
         memo: string,
+        book: string,
+        note: string,
         selectedCategoryId: string,
         selectedSubCategoryId: string,
         savedCategoryId: string | null,
@@ -215,6 +219,8 @@ export class TransactionsResolver extends BaseEntity {
             categoryId: selectedCategoryId,
             subCategoryId: selectedSubCategoryId,
             savedCategoryId,
+            book,
+            note,
           });
         });
       };
@@ -281,6 +287,8 @@ export class TransactionsResolver extends BaseEntity {
             updateTransactions(
               data.name,
               data.memo,
+              data.book,
+              data.note,
               data.selectedCategoryId,
               data.selectedSubCategoryId,
               data.savedCategoryId,
@@ -300,6 +308,8 @@ export class TransactionsResolver extends BaseEntity {
             updateTransactions(
               data.name,
               data.memo,
+              data.book,
+              data.note,
               data.selectedCategoryId,
               data.selectedSubCategoryId,
               data.savedCategoryId
@@ -312,6 +322,7 @@ export class TransactionsResolver extends BaseEntity {
             SavedCategoriesEntity.create({
               name: data.name,
               memo: data.memo,
+              book: data.book,
               amounts: [data.amount],
               userId,
               categoryId: data.selectedCategoryId,
@@ -322,6 +333,8 @@ export class TransactionsResolver extends BaseEntity {
                 updateTransactions(
                   data.name,
                   data.memo,
+                  data.book,
+                  data.note,
                   data.selectedCategoryId,
                   data.selectedSubCategoryId,
                   res.id,
@@ -342,6 +355,8 @@ export class TransactionsResolver extends BaseEntity {
                 updateTransactions(
                   data.name,
                   data.memo,
+                  data.book,
+                  data.note,
                   data.selectedCategoryId,
                   data.selectedSubCategoryId,
                   res.id

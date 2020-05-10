@@ -113,7 +113,7 @@ async function parseTransObj(
         where: {
           name: transObj.NAME,
           memo: transObj.MEMO,
-          book: transObj.book,
+          book,
         },
       });
 
