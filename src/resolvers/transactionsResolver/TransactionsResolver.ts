@@ -183,6 +183,7 @@ export class TransactionsResolver extends BaseEntity {
       return false;
     }
 
+    console.log(data);
     try {
       const updateTransactions = async (
         name: string,
