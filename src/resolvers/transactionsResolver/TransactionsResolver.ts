@@ -183,7 +183,6 @@ export class TransactionsResolver extends BaseEntity {
       return false;
     }
 
-    console.log(data);
     try {
       const updateTransactions = async (
         name: string,
@@ -225,9 +224,6 @@ export class TransactionsResolver extends BaseEntity {
           });
         });
       };
-      console.log(
-        `TR195: applyToAll: ${data.applyToAll}, savedCategoryId: ${data.savedCategoryId}, checkAmount: ${data.checkAmount} `
-      );
 
       if (!data.applyToAll) {
         //if applyToall is false, we don't want a saved category.
