@@ -183,7 +183,7 @@ export class TransactionsResolver extends BaseEntity {
     if (!userId) {
       return false;
     }
-    console.log("TR186 data: ", data);
+
     //Maybe need selectedBook and book to be separtae
 
     const updateTransactions = async (
@@ -220,26 +220,31 @@ export class TransactionsResolver extends BaseEntity {
           //if a saved category exists, delete it from every transactions first,
           //then delete the category
           if (data.savedCategoryId) {
-            SavedCategoriesEntity.findOne(data.savedCategoryId, {
-              relations: ["transactions"],
-            })
-              .then((savedCategory) => {
-                savedCategory!.transactions.forEach(async (transaction) => {
-                  try {
-                    await TransactionEntity.update(transaction.id, {
+            const savedCategory = await SavedCategoriesEntity.findOne(
+              data.savedCategoryId,
+              {
+                relations: ["transactions"],
+              }
+            );
+            if (savedCategory) {
+              for (let i = 0; i < savedCategory.transactions.length; i++) {
+                try {
+                  await TransactionEntity.update(
+                    savedCategory.transactions[i].id,
+                    {
                       savedCategoryId: null,
-                    });
-                  } catch (err) {
-                    console.log("TR215, ", err);
-                  }
-                });
-              })
-              .then(async () => {
+                    }
+                  );
+                } catch (err) {
+                  console.log("TR215, ", err);
+                }
+              }
+              try {
                 await SavedCategoriesEntity.delete(data.savedCategoryId);
-              })
-              .catch((err) => {
-                console.log("TR259", err);
-              });
+              } catch (err) {
+                console.log("TR239 ", err);
+              }
+            }
           }
           //we still want to update the single category
           try {

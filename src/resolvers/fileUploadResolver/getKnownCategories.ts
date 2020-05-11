@@ -13,6 +13,8 @@ const KNOWN_CATEGORIES: IKnownCategory[] = [
   { name: "a&w", categoryName: "Food", subCategoryName: "Fast food" },
   { name: "tim hortons", categoryName: "Food", subCategoryName: "Fast food" },
   { name: "burger king", categoryName: "Food", subCategoryName: "Fast food" },
+  { name: "impark", categoryName: "Auto", subCategoryName: "Parking" },
+  { name: "parking", categoryName: "Auto", subCategoryName: "Parking" },
   {
     name: "five guys burgers",
     categoryName: "Food",
