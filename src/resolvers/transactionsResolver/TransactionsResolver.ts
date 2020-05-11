@@ -171,6 +171,7 @@ export class TransactionsResolver extends BaseEntity {
     }
   }
 
+  //Left off trying to figure out why transaction doesn't update when I switch the book value to 377 hyde park rd.
   @Mutation(() => Boolean)
   @UseMiddleware(isAuth)
   async updateCategoriesInTransactions(
@@ -182,40 +183,25 @@ export class TransactionsResolver extends BaseEntity {
     if (!userId) {
       return false;
     }
+    console.log("TR186 data: ", data);
+    //Maybe need selectedBook and book to be separtae
 
-    try {
-      const updateTransactions = async (
-        name: string,
-        memo: string,
-        book: string,
-        note: string,
-        selectedCategoryId: string,
-        selectedSubCategoryId: string,
-        savedCategoryId: string | null,
-        amount?: number
-      ): Promise<void> => {
+    const updateTransactions = async (
+      name: string,
+      memo: string,
+      book: string,
+      note: string,
+      selectedCategoryId: string,
+      selectedSubCategoryId: string,
+      savedCategoryId: string | null
+    ): Promise<void> => {
+      try {
         let transactions: TransactionEntity[];
-        if (amount) {
-          let low: number;
-          let high: number;
-
-          if (data.amount < 0) {
-            low = data.amount * 1.1;
-            high = data.amount * 0.9;
-          } else {
-            high = data.amount * 1.1;
-            low = data.amount * 0.9;
-          }
-          transactions = await TransactionEntity.find({
-            where: { name, memo, amount: Between(low, high) },
-          });
-        } else {
-          transactions = await TransactionEntity.find({
-            where: { name, memo },
-          });
-        }
-        transactions.forEach(async (transaction) => {
-          await TransactionEntity.update(transaction.id, {
+        transactions = await TransactionEntity.find({
+          where: { name, memo, book },
+        });
+        transactions.forEach((transaction) => {
+          TransactionEntity.update(transaction.id, {
             categoryId: selectedCategoryId,
             subCategoryId: selectedSubCategoryId,
             savedCategoryId,
@@ -223,8 +209,11 @@ export class TransactionsResolver extends BaseEntity {
             note,
           });
         });
-      };
-
+      } catch (err) {
+        console.log("TR234", err);
+      }
+    };
+    try {
       if (!data.applyToAll) {
         //if applyToall is false, we don't want a saved category.
         try {
@@ -247,11 +236,16 @@ export class TransactionsResolver extends BaseEntity {
               })
               .then(async () => {
                 await SavedCategoriesEntity.delete(data.savedCategoryId);
+              })
+              .catch((err) => {
+                console.log("TR259", err);
               });
           }
           //we still want to update the single category
           try {
             await TransactionEntity.update(data.id, {
+              book: data.book,
+              note: data.note,
               categoryId: data.selectedCategoryId,
               subCategoryId: data.selectedSubCategoryId,
               savedCategoryId: null,
@@ -264,105 +258,70 @@ export class TransactionsResolver extends BaseEntity {
         }
       } else {
         //applyToAll is true, we want a saved category
+        //two posibilites
         if (data.savedCategoryId) {
-          //if one already exists, update it with new amount
-          let savedCategory = await SavedCategoriesEntity.findOne(
+          //if one already exists, update all transactions
+
+          updateTransactions(
+            data.name,
+            data.memo,
+            data.book,
+            data.note,
+            data.selectedCategoryId,
+            data.selectedSubCategoryId,
             data.savedCategoryId
           );
-          if (data.checkAmount) {
-            //update saved category and transactions with amount
-            if (!data.savedCategoryAmounts.includes(data.amount)) {
-              if (savedCategory) {
-                let newAmounts: number[] = savedCategory.amounts;
-                newAmounts.push(data.amount);
-                await SavedCategoriesEntity.update(data.savedCategoryId, {
-                  amounts: newAmounts,
-                });
-              }
-            }
-
-            updateTransactions(
-              data.name,
-              data.memo,
-              data.book,
-              data.note,
-              data.selectedCategoryId,
-              data.selectedSubCategoryId,
-              data.savedCategoryId,
-              data.amount
-            );
-          } else {
-            //update saved category and transactions without amount
-            if (savedCategory) {
-              let newAmounts: number[] = savedCategory.amounts;
-              let amounts = newAmounts.filter(
-                (amount) => amount !== data.amount
-              );
-              await SavedCategoriesEntity.update(data.savedCategoryId, {
-                amounts,
-              });
-            }
-            updateTransactions(
-              data.name,
-              data.memo,
-              data.book,
-              data.note,
-              data.selectedCategoryId,
-              data.selectedSubCategoryId,
-              data.savedCategoryId
-            );
+          // and update the one transaction
+          try {
+            await TransactionEntity.update(data.id, {
+              book: data.book,
+              note: data.note,
+              categoryId: data.selectedCategoryId,
+              subCategoryId: data.selectedSubCategoryId,
+              savedCategoryId: data.savedCategoryId,
+            });
+          } catch (err) {
+            console.log("TR227, ", err);
           }
         } else {
-          //no savedCategory exists, so create one depending on
-          //whether checkAmount is true.
-          if (data.checkAmount) {
-            SavedCategoriesEntity.create({
-              name: data.name,
-              memo: data.memo,
-              book: data.book,
-              amounts: [data.amount],
-              userId,
-              categoryId: data.selectedCategoryId,
-              subCategoryId: data.selectedSubCategoryId,
+          SavedCategoriesEntity.create({
+            name: data.name,
+            memo: data.memo,
+            book: data.book,
+            amounts: [],
+            userId,
+            categoryId: data.selectedCategoryId,
+            subCategoryId: data.selectedSubCategoryId,
+          })
+            .save()
+            .then((res) => {
+              updateTransactions(
+                data.name,
+                data.memo,
+                data.book,
+                data.note,
+                data.selectedCategoryId,
+                data.selectedSubCategoryId,
+                res.id
+              );
+              return res;
             })
-              .save()
-              .then((res) => {
-                updateTransactions(
-                  data.name,
-                  data.memo,
-                  data.book,
-                  data.note,
-                  data.selectedCategoryId,
-                  data.selectedSubCategoryId,
-                  res.id,
-                  data.amount
-                );
+            .then((res) => {
+              TransactionEntity.update(data.id, {
+                book: data.book,
+                note: data.note,
+                categoryId: data.selectedCategoryId,
+                subCategoryId: data.selectedSubCategoryId,
+                savedCategoryId: res.id,
               });
-          } else {
-            SavedCategoriesEntity.create({
-              name: data.name,
-              memo: data.memo,
-              amounts: [],
-              userId,
-              categoryId: data.selectedCategoryId,
-              subCategoryId: data.selectedSubCategoryId,
             })
-              .save()
-              .then((res) => {
-                updateTransactions(
-                  data.name,
-                  data.memo,
-                  data.book,
-                  data.note,
-                  data.selectedCategoryId,
-                  data.selectedSubCategoryId,
-                  res.id
-                );
-              });
-          }
+            .catch((err) => {
+              console.log("TR376", err);
+            });
+          // }
         }
       }
-
+      //update note by itself
       await TransactionEntity.update(data.id, { note: data.note });
       return true;
     } catch (err) {

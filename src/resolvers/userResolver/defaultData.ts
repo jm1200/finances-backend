@@ -24,7 +24,7 @@ export const defaultCategories = [
     subCategories: [
       "John",
       "Meghan",
-      "Rental",
+      "377 Hyde Park Rd.",
       "Credit Card Payment",
       "Government",
       "uncategorized",
