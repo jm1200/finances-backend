@@ -5,10 +5,8 @@ import { CategoryEntity } from "../../entity/Category";
 import { createCategory } from "../utils/createCategoryEntity";
 import { createSubCategory } from "../utils/createSubCategoryEntity";
 import { SubCategoryEntity } from "../../entity/SubCategory";
-import {
-  parseTransactionsForCashFlowAnalysis,
-  IDisplayData,
-} from "./parseTransactionsForCashFlowAnalysis";
+import { parseTransactionsForCashFlowAnalysis } from "./parseTransactionsForCashFlowAnalysis";
+import { IDisplayData } from "./types";
 
 @Resolver()
 export class CategoriesResolver {
@@ -41,11 +39,38 @@ export class CategoriesResolver {
       return null;
     }
   }
+
+  @Query(() => [SubCategoryEntity] || null)
+  async getOnlyUserSubCategories(
+    @Ctx() context: MyContext
+  ): Promise<SubCategoryEntity[] | null> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]);
+
+    if (!userId) {
+      return null;
+    }
+
+    try {
+      const subCategories = await SubCategoryEntity.find({
+        where: { userId },
+        relations: ["category", "transactions"],
+      });
+
+      if (subCategories) {
+        return subCategories;
+      }
+      return null;
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
+  }
+
   @Query(() => [IDisplayData] || null)
   async getUserSubCategories(
     @Arg("selectedYear", () => Int) selectedYear: number,
-    @Ctx() context: MyContext,
-    @Arg("filteredCategory", { nullable: true }) filteredCategory?: string
+    @Arg("filteredCategory") filteredCategory: string,
+    @Ctx() context: MyContext
   ): Promise<IDisplayData[] | null> {
     const userId = getUserIdFromHeader(context.req.headers["authorization"]);
 

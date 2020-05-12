@@ -1,405 +1,88 @@
 import moment from "moment";
-//var util = require("util");
-//import fs from "fs";
+var util = require("util");
+import fs from "fs";
 import numeral from "numeral";
 import { SubCategoryEntity } from "../../entity/SubCategory";
 //import { CategoryTotalsEntity } from "../../entity/CategoryTotals";
-import { ObjectType, Field } from "type-graphql";
-
-type Month =
-  | "Jan"
-  | "Feb"
-  | "Mar"
-  | "Apr"
-  | "May"
-  | "Jun"
-  | "Jul"
-  | "Aug"
-  | "Sep"
-  | "Oct"
-  | "Nov"
-  | "Dec";
-
-interface SubCategoryRow {
-  subCategoryName: string;
-  subCategoryId: string;
-  Jan: number;
-  Feb: number;
-  Mar: number;
-  Apr: number;
-  May: number;
-  Jun: number;
-  Jul: number;
-  Aug: number;
-  Sep: number;
-  Oct: number;
-  Nov: number;
-  Dec: number;
-  low?: number;
-  high?: number;
-  avg?: number;
-  med?: number;
-}
-
-@ObjectType()
-class IDisplaySubCategoryRow {
-  @Field()
-  subCategoryName: string;
-  @Field()
-  subCategoryId: string;
-  @Field()
-  Jan: string;
-  @Field()
-  Feb: string;
-  @Field()
-  Mar: string;
-  @Field()
-  Apr: string;
-  @Field()
-  May: string;
-  @Field()
-  Jun: string;
-  @Field()
-  Jul: string;
-  @Field()
-  Aug: string;
-  @Field()
-  Sep: string;
-  @Field()
-  Oct: string;
-  @Field()
-  Nov: string;
-  @Field()
-  Dec: string;
-  @Field()
-  low?: string;
-  @Field()
-  high?: string;
-  @Field()
-  avg?: string;
-  @Field()
-  med?: string;
-}
-
-@ObjectType()
-export class IDisplayData {
-  @Field()
-  categoryName: string;
-  @Field()
-  subCategoryName: string;
-  @Field()
-  categoryId: string;
-  @Field()
-  subCategoryLength: number;
-  @Field()
-  Jan: string;
-  @Field()
-  Feb: string;
-  @Field()
-  Mar: string;
-  @Field()
-  Apr: string;
-  @Field()
-  May: string;
-  @Field()
-  Jun: string;
-  @Field()
-  Jul: string;
-  @Field()
-  Aug: string;
-  @Field()
-  Sep: string;
-  @Field()
-  Oct: string;
-  @Field()
-  Nov: string;
-  @Field()
-  Dec: string;
-  @Field()
-  low?: string;
-  @Field()
-  high?: string;
-  @Field()
-  avg?: string;
-  @Field()
-  med?: string;
-  @Field(() => [IDisplaySubCategoryRow])
-  subCategories: IDisplaySubCategoryRow[];
-}
-
-interface ISubCategoryRow {
-  [key: string]: SubCategoryRow;
-}
-
-interface ICategoryRow {
-  [key: string]: {
-    categoryName: string;
-    subCategoryName: string;
-    categoryId: string;
-    subCategoryLength: number;
-    Jan: number;
-    Feb: number;
-    Mar: number;
-    Apr: number;
-    May: number;
-    Jun: number;
-    Jul: number;
-    Aug: number;
-    Sep: number;
-    Oct: number;
-    Nov: number;
-    Dec: number;
-    low?: number;
-    high?: number;
-    avg?: number;
-    med?: number;
-    subCategories: ISubCategoryRow;
-  };
-}
+import {
+  ICategoryRow,
+  IDisplayData,
+  IDisplaySubCategoryRow,
+  Month,
+  SubCategoryRow,
+} from "./types";
+import {
+  initCategoryRows,
+  newSubCategoryRow,
+  newCategoryRow,
+} from "./setupRows";
 
 export const parseTransactionsForCashFlowAnalysis = (
   subCategories: SubCategoryEntity[],
   selectedYear: number,
-  filteredCategory?: string
+  filteredCategory: string
 ) => {
-  let categoryRows: ICategoryRow = {
-    grandTotals: {
-      categoryId: "cashFlow",
-      categoryName: "Grand Totals",
-      subCategoryName: "Cash Flow",
-      subCategoryLength: 3,
-      Jan: 0,
-      Feb: 0,
-      Mar: 0,
-      Apr: 0,
-      May: 0,
-      Jun: 0,
-      Jul: 0,
-      Aug: 0,
-      Sep: 0,
-      Oct: 0,
-      Nov: 0,
-      Dec: 0,
-      low: 0,
-      high: 0,
-      avg: 0,
-      med: 0,
-      subCategories: {
-        income: {
-          subCategoryId: "Income",
-          subCategoryName: "Income",
-          Jan: 0,
-          Feb: 0,
-          Mar: 0,
-          Apr: 0,
-          May: 0,
-          Jun: 0,
-          Jul: 0,
-          Aug: 0,
-          Sep: 0,
-          Oct: 0,
-          Nov: 0,
-          Dec: 0,
-          low: 0,
-          high: 0,
-          avg: 0,
-          med: 0,
-        },
-        expenses: {
-          subCategoryId: "Expenses",
-          subCategoryName: "Expenses",
-          Jan: 0,
-          Feb: 0,
-          Mar: 0,
-          Apr: 0,
-          May: 0,
-          Jun: 0,
-          Jul: 0,
-          Aug: 0,
-          Sep: 0,
-          Oct: 0,
-          Nov: 0,
-          Dec: 0,
-          low: 0,
-          high: 0,
-          avg: 0,
-          med: 0,
-        },
-      },
-    },
-  };
-  //TODO --> left off trying to figure out how to filter out rental income from regular income.
-  // when a categoryFilter is applied, the income category is left out and rental income is dropped.
-  // when no filter is applied, rental income is counted when it shouldn't.
-  console.log("PTFC164 running");
-  let filteredSubCategories = subCategories;
-  if (filteredCategory) {
-    filteredSubCategories = subCategories.filter(
-      (subCategory) => subCategory.category.name === filteredCategory
-    );
-  }
-  filteredSubCategories
+  console.log("PTFC 25 running with: ", filteredCategory, selectedYear);
+  // CREATE GRAND TOTAL ROWS for the top of each Book section
+  let categoryRows: ICategoryRow = initCategoryRows();
+  let testObj: any = [];
+  subCategories
     .filter((subCategory) => subCategory.category.name !== "zzIgnore")
     .forEach((subCategory) => {
-      if (Object.keys(categoryRows).includes(subCategory.category.id)) {
-        //Sub category will not exist because each is subCategory is unique to each category.
-        //create new sub category row for existing category row.
-        let newSubCategoryRow = {
-          subCategoryId: subCategory.id,
-          subCategoryName: subCategory.name,
-          Jan: 0,
-          Feb: 0,
-          Mar: 0,
-          Apr: 0,
-          May: 0,
-          Jun: 0,
-          Jul: 0,
-          Aug: 0,
-          Sep: 0,
-          Oct: 0,
-          Nov: 0,
-          Dec: 0,
-          low: 0,
-          high: 0,
-          avg: 0,
-          med: 0,
-        };
-        if (subCategory.transactions.length > 0) {
-          let filteredTransactions = subCategory.transactions.filter(
-            (transaction) =>
-              transaction.datePosted.slice(0, 4) === selectedYear.toString()
-          );
-          if (filteredTransactions.length > 0) {
-            filteredTransactions.forEach((transaction) => {
-              let month: Month = moment(
-                transaction.datePosted,
-                "YYYYMMDD"
-              ).format("MMM") as Month;
-              newSubCategoryRow[month] += Math.abs(transaction.amount);
-              categoryRows[subCategory.category.id][month] += Math.abs(
-                transaction.amount
-              );
-              if (subCategory.category.name === "Income") {
-                if (subCategory.name === filteredCategory)
-                  categoryRows["grandTotals"].subCategories.income[
-                    month
-                  ] += Math.abs(transaction.amount);
-              } else {
-                categoryRows["grandTotals"].subCategories.expenses[
-                  month
-                ] += Math.abs(transaction.amount);
-              }
-              categoryRows["grandTotals"][month] += transaction.amount;
-            });
-          }
-
-          categoryRows[subCategory.category.id].subCategories[
-            subCategory.id
-          ] = newSubCategoryRow;
-        }
-      } else {
-        //create the first subCategory row
-        let newSubCategoryRow: ISubCategoryRow = {};
-        newSubCategoryRow[subCategory.id] = {
-          subCategoryId: subCategory.id,
-          subCategoryName: subCategory.name,
-          Jan: 0,
-          Feb: 0,
-          Mar: 0,
-          Apr: 0,
-          May: 0,
-          Jun: 0,
-          Jul: 0,
-          Aug: 0,
-          Sep: 0,
-          Oct: 0,
-          Nov: 0,
-          Dec: 0,
-          low: 0,
-          high: 0,
-          avg: 0,
-          med: 0,
-        };
-        //Category Row does not exist. Create new one.
-
-        categoryRows[subCategory.category.id] = {
-          categoryId: subCategory.category.id,
-          categoryName: subCategory.category.name,
-          subCategoryName: subCategory.category.name + " Totals",
-          subCategoryLength: 0,
-          Jan: 0,
-          Feb: 0,
-          Mar: 0,
-          Apr: 0,
-          May: 0,
-          Jun: 0,
-          Jul: 0,
-          Aug: 0,
-          Sep: 0,
-          Oct: 0,
-          Nov: 0,
-          Dec: 0,
-          low: 0,
-          high: 0,
-          avg: 0,
-          med: 0,
-          subCategories: {},
-        };
-        //fill them with transaction amounts
-        if (subCategory.transactions.length > 0) {
-          //filter by selected year
-          let filteredTransactions = subCategory.transactions.filter(
-            (transaction) => {
-              return (
-                transaction.datePosted.slice(0, 4) === selectedYear.toString()
+      //there are default categories, some sub categories may not have any transactions
+      //because the user has not needed them. So only display subcategories that have values
+      if (subCategory.transactions.length > 0) {
+        //For each subcategory, filter through the transactions and select for the book and the year.
+        let newSubCatRow = newSubCategoryRow(subCategory.id, subCategory.name);
+        subCategory.transactions.forEach((transaction) => {
+          const test =
+            transaction.book === filteredCategory &&
+            transaction.datePosted.slice(0, 4) === selectedYear.toString();
+          if (test) {
+            if (!Object.keys(categoryRows).includes(subCategory.category.id)) {
+              categoryRows[subCategory.category.id] = newCategoryRow(
+                subCategory.category.id,
+                subCategory.category.name
               );
             }
-          );
+            if (
+              !Object.keys(
+                categoryRows[subCategory.category.id].subCategories
+              ).includes(subCategory.id)
+            ) {
+              categoryRows[subCategory.category.id].subCategories[
+                subCategory.id
+              ] = newSubCategoryRow(subCategory.id, subCategory.name);
+            }
 
-          if (filteredTransactions.length > 0) {
-            filteredTransactions.forEach((transaction) => {
-              let month: Month = moment(
-                transaction.datePosted,
-                "YYYYMMDD"
-              ).format("MMM") as Month;
-              newSubCategoryRow[subCategory.id][month] += Math.abs(
-                transaction.amount
-              );
-              categoryRows[subCategory.category.id][month] += Math.abs(
-                transaction.amount
-              );
-              //TODO --> left off trying to figure out how to filter out rental income from regular income.
-              // when a categoryFilter is applied, the income category is left out and rental income is dropped.
-              // when no filter is applied, rental income is counted when it shouldn't.
-              
-            //Going to try to fix this with different Books ie. Home, Rental
+            let month: Month = moment(
+              transaction.datePosted,
+              "YYYYMMDD"
+            ).format("MMM") as Month;
 
-              if (subCategory.category.name === "Income") {
-                if (filteredCategory) {
-                  //only add filtered
-                } else {
-                  //add everything but rental property... huge bug
-                }
-                categoryRows["grandTotals"].subCategories.income[
-                  month
-                ] += Math.abs(transaction.amount);
-              } else {
-                categoryRows["grandTotals"].subCategories.expenses[
-                  month
-                ] += Math.abs(transaction.amount);
-              }
-              categoryRows["grandTotals"][month] += transaction.amount;
-            });
+            //update subcategory row
+            categoryRows[subCategory.category.id].subCategories[subCategory.id][
+              month
+            ] += transaction.amount;
+
+            //update category row
+            categoryRows[subCategory.category.id][month] += transaction.amount;
+
+            //update grand totals
+            categoryRows["grandTotals"][month] += transaction.amount;
+            if (transaction.amount < 0) {
+              categoryRows["grandTotals"].subCategories["expenses"][month] +=
+                transaction.amount;
+            } else {
+              categoryRows["grandTotals"].subCategories["income"][month] +=
+                transaction.amount;
+            }
           }
-
-          categoryRows[
-            subCategory.category.id
-          ].subCategories = newSubCategoryRow;
-        }
+        });
       }
     });
 
-  //console.log("PTFC180, ", categoryRows);
+  //console.log("PTFC89, ", categoryRows);
   const getAverages = (array: number[]) => {
     let filteredArray = array.filter((num) => num !== 0);
     let low,
@@ -548,7 +231,8 @@ export const parseTransactionsForCashFlowAnalysis = (
 
   // fs.writeFileSync(
   //   "./test.txt",
-  //   util.inspect(displayData, { showHidden: true, depth: null })
+  //   util.inspect(categoryRows, { showHidden: true, depth: null })
   // );
+
   return displayData;
 };
