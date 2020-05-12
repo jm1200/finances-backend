@@ -22,7 +22,6 @@ export const parseTransactionsForCashFlowAnalysis = (
   selectedYear: number,
   filteredCategory: string
 ) => {
-  console.log("PTFC 25 running with: ", filteredCategory, selectedYear);
   // CREATE GRAND TOTAL ROWS for the top of each Book section
   let categoryRows: ICategoryRow = initCategoryRows();
   let testObj: any = [];
