@@ -1,4 +1,4 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import "reflect-metadata";
 import Express from "express";
 import { ApolloServer } from "apollo-server-express";
@@ -17,8 +17,9 @@ import { UserResolver } from "./resolvers/userResolver/UserResolver";
 import { TransactionsResolver } from "./resolvers/transactionsResolver/TransactionsResolver";
 import { CategoriesResolver } from "./resolvers/categoriesResolver/CategoriesResolver";
 import { SavedCategoriesResolver } from "./resolvers/savedCategoriesResolver/CategorizedTransactionsResolver";
-import { printSchema, GraphQLSchema } from "graphql";
+import { GraphQLSchema } from "graphql";
 
+dotenv.config();
 (async () => {
   const app = Express();
 

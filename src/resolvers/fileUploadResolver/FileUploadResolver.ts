@@ -56,7 +56,6 @@ export class FileUploadResolver {
     //console.log("Parsed Data: ", parsedData);
 
     let transactions = await parseTransactions(parsedData, userId, book);
-    console.log("FUR59", transactions.transactions[0]);
 
     try {
       fs.unlinkSync(filepath);
@@ -86,9 +85,6 @@ export class FileUploadResolver {
         await TransactionEntity.insert(transactions[index]);
       } catch (err) {
         duplicatedKeys.push(transactions[index].id);
-        console.log(
-          `Duplicate entry found: ${transactions[index].name} on ${transactions[index].datePosted}`
-        );
       }
     }
 

@@ -30,7 +30,7 @@ const KNOWN_CATEGORIES: IKnownCategory[] = [
   { name: "esso", categoryName: "Auto", subCategoryName: "Gas" },
   { name: "petrocan", categoryName: "Auto", subCategoryName: "Gas" },
   { name: "onroute", categoryName: "Auto", subCategoryName: "Gas" },
-  { name: "homesense", categoryName: "Meghan", subCategoryName: "Shopping" },
+  { name: "homesense", categoryName: "Shopping", subCategoryName: "Meghan" },
   {
     name: "shoppers drug mart",
     categoryName: "Family",
