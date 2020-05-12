@@ -84,7 +84,9 @@ export const parseTransactionsForCashFlowAnalysis = (
 
   //console.log("PTFC89, ", categoryRows);
   const getAverages = (array: number[]) => {
-    let filteredArray = array.filter((num) => num !== 0);
+    let filteredArray = array
+      .filter((num) => num !== 0)
+      .map((x) => Math.abs(x));
     let low,
       high,
       avg,
@@ -121,7 +123,7 @@ export const parseTransactionsForCashFlowAnalysis = (
   });
 
   categoryRowsArray.forEach((category) => {
-    let monthValues: number[] = [
+    let catMonthValues: number[] = [
       category.Jan,
       category.Feb,
       category.Mar,
@@ -135,46 +137,33 @@ export const parseTransactionsForCashFlowAnalysis = (
       category.Nov,
       category.Dec,
     ];
-    const { low, high, avg, med } = getAverages(monthValues);
+    const { low, high, avg, med } = getAverages(catMonthValues);
     category.low = low;
     category.high = high;
     category.avg = avg;
     category.med = med;
     category.subCategoryLength = category.subCategories.length;
-
-    category.Jan,
-      category.Feb,
-      category.Mar,
-      category.Apr,
-      category.May,
-      category.Jun,
-      category.Jul,
-      category.Aug,
-      category.Sep,
-      category.Oct,
-      category.Nov,
-      category.Dec,
-      category.subCategories.forEach((subCategory) => {
-        let monthValues: number[] = [
-          category.Jan,
-          category.Feb,
-          category.Mar,
-          category.Apr,
-          category.May,
-          category.Jun,
-          category.Jul,
-          category.Aug,
-          category.Sep,
-          category.Oct,
-          category.Nov,
-          category.Dec,
-        ];
-        const { low, high, avg, med } = getAverages(monthValues);
-        subCategory.low = low;
-        subCategory.high = high;
-        subCategory.avg = avg;
-        subCategory.med = med;
-      });
+    category.subCategories.forEach((subCategory) => {
+      let monthValues: number[] = [
+        subCategory.Jan,
+        subCategory.Feb,
+        subCategory.Mar,
+        subCategory.Apr,
+        subCategory.May,
+        subCategory.Jun,
+        subCategory.Jul,
+        subCategory.Aug,
+        subCategory.Sep,
+        subCategory.Oct,
+        subCategory.Nov,
+        subCategory.Dec,
+      ];
+      const { low, high, avg, med } = getAverages(monthValues);
+      subCategory.low = low;
+      subCategory.high = high;
+      subCategory.avg = avg;
+      subCategory.med = med;
+    });
   });
 
   let displayData: IDisplayData[] = [];
