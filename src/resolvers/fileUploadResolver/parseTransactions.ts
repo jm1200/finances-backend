@@ -1,5 +1,7 @@
 import { TransactionClass } from "../../types";
 import numeral from "numeral";
+// var util = require("util");
+// import fs from "fs";
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
 import {
   getKnownCategories,
@@ -67,9 +69,19 @@ async function parseTransObj(
   let subCategoryId: string;
   let savedCategoryId: string | null = null;
 
+  //gives shape:
+  //"categoryId": {id: string;
+  //              name: string;
+  //              subCategories: {
+  //                  "subCategoryId": SubCategoryEntity
+  //              }}
   const normalizedCategories = await getNormalizedCategories();
+
+  //gives shape:
+  //"categoryName": { categoryId: string; subCategoryId: string }
   const KNOWN_CATEGORIES_MAP = await getKnownCategories();
 
+  //returns the known category name if it is known.
   const inKnownCategories = (name: string): string => {
     let knownCategory: string = "";
     for (let i = 0; i < Object.keys(KNOWN_CATEGORIES_MAP).length; i++) {
@@ -81,13 +93,13 @@ async function parseTransObj(
     return knownCategory;
   };
 
-  //Create saved categories
+  // Create saved categories
   for (let i = 0; i < trans.length; i++) {
     //if a name exists AND that name is a known category, create a saved category
     // if one doesn't exist already.
     if (trans[i].NAME && inKnownCategories(trans[i].NAME)) {
       const savedCategoryResponse = await SavedCategoriesEntity.findOne({
-        where: { name: trans[i].NAME, memo: trans[i].MEMO },
+        where: { name: trans[i].NAME, memo: trans[i].MEMO, book },
       });
       if (!savedCategoryResponse) {
         let categoryId =
@@ -109,34 +121,24 @@ async function parseTransObj(
 
   let transactions: TransactionClass[] = await Promise.all(
     trans.map(async (transObj: any) => {
-      const res = await SavedCategoriesEntity.find({
+      const res = await SavedCategoriesEntity.findOne({
         where: {
           name: transObj.NAME,
           memo: transObj.MEMO,
           book,
         },
       });
-
-      if (res.length > 1) {
-        //check amounts to compare
-        res.forEach((cat) => {
-          if (cat.amounts.includes(parseFloat(transObj.TRNAMT))) {
-            categoryId = cat.categoryId;
-            subCategoryId = cat.subCategoryId;
-            savedCategoryId = cat.id;
-          }
-        });
-      } else if (res.length === 1) {
+      if (res) {
         //the correct category already exists
-        categoryId = res[0].categoryId;
-        subCategoryId = res[0].subCategoryId;
-        savedCategoryId = res[0].id;
+        categoryId = res.categoryId;
+        subCategoryId = res.subCategoryId;
+        savedCategoryId = res.id;
       } else {
         categoryId = normalizedCategories["uncategorized"].id;
         subCategoryId =
           normalizedCategories["uncategorized"].subCategories["uncategorized"]
             .id;
-        // }
+        savedCategoryId = null;
       }
 
       return {
@@ -155,11 +157,16 @@ async function parseTransObj(
       };
     })
   );
+
+  // fs.writeFileSync(
+  //   "./test.txt",
+  //   util.inspect(await transactions, { showHidden: true, depth: null })
+  // );
   return {
     account,
     rangeStart: `${formatDate(start)}`,
     rangeEnd: `${formatDate(end)}`,
-    transactions,
+    transactions: await transactions,
   };
 }
 

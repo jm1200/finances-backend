@@ -18,6 +18,8 @@ import { TransactionEntity } from "../../entity/Transaction";
 import { UserEntity } from "../../entity/User";
 import moment from "moment";
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
+var util = require("util");
+import fs from "fs";
 
 @InputType()
 export class updateCategoriesInTransactionsInput {
@@ -25,8 +27,6 @@ export class updateCategoriesInTransactionsInput {
   id: string;
   @Field({ nullable: true })
   name: string;
-  @Field()
-  book: string;
   @Field({ nullable: true })
   memo: string;
   @Field({ nullable: true })
@@ -35,14 +35,14 @@ export class updateCategoriesInTransactionsInput {
   amount: number;
   @Field({ nullable: true })
   savedCategoryId: string;
-  @Field(() => [Float], { nullable: true })
-  savedCategoryAmounts: [number];
   @Field()
   selectedCategoryId: string;
   @Field()
   selectedSubCategoryId: string;
   @Field()
-  checkAmount: boolean;
+  book: string;
+  @Field()
+  selectedBook: string;
   @Field()
   applyToAll: boolean;
 }
@@ -183,155 +183,353 @@ export class TransactionsResolver extends BaseEntity {
     if (!userId) {
       return false;
     }
-
-    //Maybe need selectedBook and book to be separtae
-
-    const updateTransactions = async (
-      name: string,
-      memo: string,
-      book: string,
-      note: string,
-      selectedCategoryId: string,
-      selectedSubCategoryId: string,
-      savedCategoryId: string | null
-    ): Promise<void> => {
+    console.log("TR184 update transactions mutation running");
+    console.log("TR185 arguments from frontend", data);
+    //first, if apply to all is false things are easy. We don't want a savedCategory so if there is one delete it.
+    //then updtate all transactions, but gotta update the transactions to savedCategory null first.
+    if (!data.applyToAll) {
+      console.log("apply to all: false");
       try {
-        let transactions: TransactionEntity[];
-        transactions = await TransactionEntity.find({
-          where: { name, memo, book },
-        });
-        transactions.forEach((transaction) => {
-          TransactionEntity.update(transaction.id, {
-            categoryId: selectedCategoryId,
-            subCategoryId: selectedSubCategoryId,
-            savedCategoryId,
-            book,
-            note,
-          });
-        });
-      } catch (err) {
-        console.log("TR234", err);
-      }
-    };
-    try {
-      if (!data.applyToAll) {
-        //if applyToall is false, we don't want a saved category.
-        try {
-          //if a saved category exists, delete it from every transactions first,
-          //then delete the category
-          if (data.savedCategoryId) {
-            const savedCategory = await SavedCategoriesEntity.findOne(
-              data.savedCategoryId,
-              {
-                relations: ["transactions"],
-              }
-            );
-            if (savedCategory) {
-              for (let i = 0; i < savedCategory.transactions.length; i++) {
-                try {
-                  await TransactionEntity.update(
-                    savedCategory.transactions[i].id,
-                    {
-                      savedCategoryId: null,
-                    }
-                  );
-                } catch (err) {
-                  console.log("TR215, ", err);
-                }
-              }
-              try {
-                await SavedCategoriesEntity.delete(data.savedCategoryId);
-              } catch (err) {
-                console.log("TR239 ", err);
-              }
-            }
-          }
-          //we still want to update the single category
-          try {
-            await TransactionEntity.update(data.id, {
-              book: data.book,
-              note: data.note,
-              categoryId: data.selectedCategoryId,
-              subCategoryId: data.selectedSubCategoryId,
-              savedCategoryId: null,
-            });
-          } catch (err) {
-            console.log("TR227, ", err);
-          }
-        } catch (err) {
-          console.log("Error trying to delete saved Category, ", err);
-        }
-      } else {
-        //applyToAll is true, we want a saved category
-        //two posibilites
         if (data.savedCategoryId) {
-          //if one already exists, update all transactions
+          console.log("Apply to all is false, category exists");
 
-          updateTransactions(
-            data.name,
-            data.memo,
-            data.book,
-            data.note,
-            data.selectedCategoryId,
-            data.selectedSubCategoryId,
-            data.savedCategoryId
+          //look for a saved category
+          const savedCategory = await SavedCategoriesEntity.findOne(
+            data.savedCategoryId,
+            {
+              relations: ["transactions"],
+            }
           );
-          // and update the one transaction
-          try {
-            await TransactionEntity.update(data.id, {
-              book: data.book,
-              note: data.note,
-              categoryId: data.selectedCategoryId,
-              subCategoryId: data.selectedSubCategoryId,
-              savedCategoryId: data.savedCategoryId,
-            });
-          } catch (err) {
-            console.log("TR227, ", err);
+
+          // if a savedCategory exists set null in all transactions and delete the savedCategory
+          if (savedCategory) {
+            console.log("category found: updating savedCategoryId to null");
+            for (let i = 0; i < savedCategory.transactions.length; i++) {
+              await TransactionEntity.update(savedCategory.transactions[i].id, {
+                savedCategoryId: null,
+              });
+            }
+            console.log("delete savedCategory");
+            const delres = await SavedCategoriesEntity.delete(
+              data.savedCategoryId
+            );
+            console.log("deleted savedcategory: ", delres);
+          } else {
+            console.log("did not find a saved category for deletion.");
           }
+
+          //update the single transaction
+          console.log("Apply to all is false, updating transaction");
+          await TransactionEntity.update(data.id, {
+            book: data.selectedBook,
+            note: data.note,
+            categoryId: data.selectedCategoryId,
+            subCategoryId: data.selectedSubCategoryId,
+            savedCategoryId: null,
+          });
         } else {
-          SavedCategoriesEntity.create({
+          //no saved category. still want to update every other transaction with same
+          // n/m/b and delete saved category. and update the transaction.
+          console.log(
+            "there was no saved categoryId. checking for a savedCategory with n/m/b"
+          );
+          //find all transactions with same n/m/b
+          let savedCategory = await SavedCategoriesEntity.findOne({
+            where: {
+              name: data.name,
+              memo: data.memo,
+              book: data.selectedBook,
+            },
+            relations: ["transactions"],
+          });
+
+          //set savedCateoryId to null if there are other trnsacations with n/m/b
+          if (savedCategory) {
+            console.log(
+              "a savedCategory was found. savedCategoryId: ",
+              savedCategory.id
+            );
+
+            for (let i = 0; i < savedCategory.transactions.length; i++) {
+              await TransactionEntity.update(savedCategory.transactions[i].id, {
+                savedCategoryId: null,
+              });
+            }
+
+            //delete savedCategoryId
+            await SavedCategoriesEntity.delete(savedCategory.id);
+          }
+
+          //update the single transaction
+          await TransactionEntity.update(data.id, {
+            book: data.selectedBook,
+            note: data.note,
+            categoryId: data.selectedCategoryId,
+            subCategoryId: data.selectedSubCategoryId,
+            savedCategoryId: null,
+          });
+        }
+      } catch (err) {
+        console.log("!data.apply to all block error", err);
+      }
+    } else {
+      console.log("apply to all is true");
+      //so now we want a savedCategoryId
+      //does one exist already?
+      if (!data.savedCategoryId) {
+        //if a saved category doesn't exist.
+        console.log(
+          "Apply to all true, category does not exist. creating new savedCategory"
+        );
+        try {
+          //create one
+          const newCategory = await SavedCategoriesEntity.create({
             name: data.name,
             memo: data.memo,
-            book: data.book,
+            book: data.selectedBook,
             amounts: [],
             userId,
             categoryId: data.selectedCategoryId,
             subCategoryId: data.selectedSubCategoryId,
-          })
-            .save()
-            .then((res) => {
-              updateTransactions(
-                data.name,
-                data.memo,
-                data.book,
-                data.note,
-                data.selectedCategoryId,
-                data.selectedSubCategoryId,
-                res.id
-              );
-              return res;
-            })
-            .then((res) => {
-              TransactionEntity.update(data.id, {
-                book: data.book,
-                note: data.note,
+          }).save();
+          //update the transaction with newsavedCategory id
+
+          console.log(
+            "Created new category with selected categories: ",
+            newCategory
+          );
+          await TransactionEntity.update(data.id, {
+            book: data.selectedBook,
+            note: data.note,
+            categoryId: data.selectedCategoryId,
+            subCategoryId: data.selectedSubCategoryId,
+            savedCategoryId: newCategory.id,
+          });
+
+          //update all transactions with same n/m/b to the new saved category id
+          console.log("updating all transactions with same n/m/b");
+          const transactions = await TransactionEntity.find({
+            where: {
+              name: data.name,
+              memo: data.memo,
+              book: data.selectedBook,
+            },
+          });
+          console.log(
+            "updating all transactions that have the shape: ",
+            transactions[0]
+          );
+          for (let i = 0; i < transactions.length; i++) {
+            await TransactionEntity.update(transactions[i].id, {
+              categoryId: data.selectedCategoryId,
+              subCategoryId: data.selectedSubCategoryId,
+              savedCategoryId: newCategory.id,
+            });
+          }
+        } catch (err) {
+          console.log("error in applyToAll:true, no saved category found");
+        }
+      } else {
+        try {
+          console.log("apply to all is true, a savedCategory exists");
+          //a savedcategory exists. the question is: did the book change as well?
+          if (data.book === data.selectedBook) {
+            console.log("the books are the same");
+            //the book did not change. So we can use the existing savedCategoryId and update it
+            // with new categories.
+
+            console.log("update SavedCategory with new categories");
+            let sceres = await SavedCategoriesEntity.update(
+              data.savedCategoryId,
+              {
                 categoryId: data.selectedCategoryId,
                 subCategoryId: data.selectedSubCategoryId,
-                savedCategoryId: res.id,
-              });
-            })
-            .catch((err) => {
-              console.log("TR376", err);
+              }
+            );
+            console.log("updated saved category. res: ", sceres);
+
+            console.log("update the transaction with new categories");
+            let TEres = await TransactionEntity.update(data.id, {
+              note: data.note,
+              categoryId: data.selectedCategoryId,
+              subCategoryId: data.selectedSubCategoryId,
             });
-          // }
+            console.log("updated single transcation: ", TEres);
+
+            console.log(
+              "update all transactions with that saved categorId with new ids"
+            );
+            let savedCategory = await SavedCategoriesEntity.findOne(
+              data.savedCategoryId,
+              { relations: ["transactions"] }
+            );
+            console.log("searched for savedCategory: ", savedCategory);
+
+            if (savedCategory) {
+              console.log(
+                "updating all transactions with shape: ",
+                savedCategory.transactions[0]
+              );
+              for (let i = 0; i < savedCategory.transactions.length; i++) {
+                await TransactionEntity.update(
+                  savedCategory.transactions[i].id,
+                  {
+                    categoryId: data.selectedCategoryId,
+                    subCategoryId: data.selectedSubCategoryId,
+                  }
+                );
+              }
+            } else {
+              console.log("error , no saved category found");
+            }
+          } else {
+            //book has changed.
+            console.log(
+              "book has changed. Does a savedCategory already exist in the db with the same n/m/b?"
+            );
+            let existingSavedCategory = await SavedCategoriesEntity.findOne({
+              where: {
+                name: data.name,
+                memo: data.memo,
+                book: data.selectedBook,
+              },
+            });
+
+            if (existingSavedCategory) {
+              try {
+                //example: a transaction was categorized already with:
+                //{book: "Home", applyToAll: true} so a category does exist in row.
+                //now a change is made to book, and a saved category for that n/m/B exists.
+                console.log(
+                  "apply to all is true. data.savedCategoryId exists from frontend. The book has changed. there is an existing savedCategory. switch to that savedCategoryId"
+                );
+
+                console.log("update SavedCategory with newcategory ids.");
+                await SavedCategoriesEntity.update(existingSavedCategory.id, {
+                  categoryId: data.selectedCategoryId,
+                  subCategoryId: data.selectedSubCategoryId,
+                });
+
+                console.log(
+                  "update single transaction with category ids and existing savedCategoryid. update book because it changed."
+                );
+                await TransactionEntity.update(data.id, {
+                  book: data.selectedBook,
+                  savedCategoryId: existingSavedCategory.id,
+                  categoryId: data.selectedCategoryId,
+                  subCategoryId: data.selectedSubCategoryId,
+                });
+
+                console.log("find all transactions with n/m/b.");
+                let transactions = await TransactionEntity.find({
+                  where: {
+                    name: data.name,
+                    memo: data.memo,
+                    book: data.selectedBook,
+                  },
+                });
+
+                //write this should only find n/m/b transactions!
+                fs.writeFileSync(
+                  "./test2.txt",
+                  util.inspect(transactions, { showHidden: true, depth: null })
+                );
+
+                console.log("update all transactions");
+                //reset all transactions with the same n/m/b (newly selected book) to the
+                //same categories, savedCategory..
+                if (transactions.length > 0) {
+                  console.log(
+                    "update transactions with shape: ",
+                    transactions[0]
+                  );
+                  for (let i = 0; i < transactions.length; i++) {
+                    await TransactionEntity.update(transactions[i].id, {
+                      categoryId: data.selectedCategoryId,
+                      subCategoryId: data.selectedSubCategoryId,
+                      savedCategoryId: existingSavedCategory.id,
+                    });
+                  }
+                }
+              } catch (err) {
+                console.log("error inside existing saved category block", err);
+              }
+            } else {
+              try {
+                //example: a transaction was categorized already with:
+                //{book: "Home", applyToAll: true} so a category does exist in row.
+                //now a change is made to book, and a saved category for that n/m/B does not exist.
+                console.log(
+                  "apply to all is true. data.savedCategoryId exists from frontend. The book has changed. there is no existing savedCategory."
+                );
+                console.log(
+                  "create new savedCategory because one doesn't exist to switch to. (we swtiched books)"
+                );
+                let newSavedCategory = await SavedCategoriesEntity.create({
+                  name: data.name,
+                  memo: data.memo,
+                  book: data.selectedBook,
+                  amounts: [],
+                  userId,
+                  categoryId: data.selectedCategoryId,
+                  subCategoryId: data.selectedSubCategoryId,
+                }).save();
+                console.log("create new SavedCategory: ", newSavedCategory);
+
+                console.log("update single transaction");
+                await TransactionEntity.update(data.id, {
+                  book: data.selectedBook,
+                  savedCategoryId: newSavedCategory.id,
+                  categoryId: data.selectedCategoryId,
+                  subCategoryId: data.selectedSubCategoryId,
+                });
+
+                console.log("find all transactions with n/m/b.");
+                let transactions = await TransactionEntity.find({
+                  where: {
+                    name: data.name,
+                    memo: data.memo,
+                    book: data.selectedBook,
+                  },
+                });
+
+                //write this should only find n/m/b transactions!
+                fs.writeFileSync(
+                  "./test.txt",
+                  util.inspect(transactions, { showHidden: true, depth: null })
+                );
+                console.log(
+                  "update all transactions with n/m/b with new categories and new saved category"
+                );
+                if (transactions.length > 0) {
+                  console.log(
+                    "update transactions with shape: ",
+                    transactions[0]
+                  );
+                  for (let i = 0; i < transactions.length; i++) {
+                    await TransactionEntity.update(transactions[i].id, {
+                      categoryId: data.selectedCategoryId,
+                      subCategoryId: data.selectedSubCategoryId,
+                      savedCategoryId: newSavedCategory.id,
+                    });
+                  }
+                }
+              } catch (err) {
+                console.log(
+                  "error inside no existing saved category block",
+                  err
+                );
+              }
+            }
+          }
+        } catch (err) {
+          console.log(
+            "error in the applyToAll:true, savedCategoryexists block",
+            err
+          );
         }
       }
-      //update note by itself
-      await TransactionEntity.update(data.id, { note: data.note });
-      return true;
-    } catch (err) {
-      console.log("TR263", err);
-      return false;
     }
+    return true;
   }
 }

@@ -1,6 +1,6 @@
 import moment from "moment";
-var util = require("util");
-import fs from "fs";
+// var util = require("util");
+// import fs from "fs";
 import numeral from "numeral";
 import { SubCategoryEntity } from "../../entity/SubCategory";
 //import { CategoryTotalsEntity } from "../../entity/CategoryTotals";
@@ -9,7 +9,7 @@ import {
   IDisplayData,
   IDisplaySubCategoryRow,
   Month,
-  SubCategoryRow,
+  // SubCategoryRow,
 } from "./types";
 import {
   initCategoryRows,
@@ -24,7 +24,7 @@ export const parseTransactionsForCashFlowAnalysis = (
 ) => {
   // CREATE GRAND TOTAL ROWS for the top of each Book section
   let categoryRows: ICategoryRow = initCategoryRows();
-  let testObj: any = [];
+
   subCategories
     .filter((subCategory) => subCategory.category.name !== "zzIgnore")
     .forEach((subCategory) => {
@@ -32,7 +32,6 @@ export const parseTransactionsForCashFlowAnalysis = (
       //because the user has not needed them. So only display subcategories that have values
       if (subCategory.transactions.length > 0) {
         //For each subcategory, filter through the transactions and select for the book and the year.
-        let newSubCatRow = newSubCategoryRow(subCategory.id, subCategory.name);
         subCategory.transactions.forEach((transaction) => {
           const test =
             transaction.book === filteredCategory &&
@@ -90,13 +89,12 @@ export const parseTransactionsForCashFlowAnalysis = (
       high,
       avg,
       med = 0;
+
+    let sum = array.reduce((previous, current) => (current += previous));
+    avg = sum / array.length;
     if (filteredArray && filteredArray.length > 0) {
       low = Math.min(...filteredArray);
       high = Math.max(...filteredArray);
-      let sum = filteredArray.reduce(
-        (previous, current) => (current += previous)
-      );
-      avg = sum / filteredArray.length;
 
       filteredArray.sort((a, b) => a - b);
       med =

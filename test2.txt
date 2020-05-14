@@ -1,35 +1,5 @@
 [
   TransactionEntity {
-    id: '0000989887362020041700001',
-    userId: 'afe4ad7d-990a-49a0-ad81-a05038af8c05',
-    book: '377 Hyde Park Rd.',
-    account: 'Bank',
-    type: 'CHECK',
-    datePosted: '20200417',
-    name: 'ALLSTATE INS CO. OF CANADA',
-    memo: 'CM12;ALLSTATE INS CO. OF CANADA',
-    note: null,
-    savedCategoryId: null,
-    amount: -59.54,
-    subCategoryId: 'd172d0ca-51c6-42b3-bee0-5cb0c33e04ea',
-    categoryId: '8e2af7bd-fae5-47cb-9ab0-e9c854dff335'
-  },
-  TransactionEntity {
-    id: '0000989887362020031700001',
-    userId: 'afe4ad7d-990a-49a0-ad81-a05038af8c05',
-    book: '377 Hyde Park Rd.',
-    account: 'Bank',
-    type: 'CHECK',
-    datePosted: '20200317',
-    name: 'ALLSTATE INS CO. OF CANADA',
-    memo: 'CM12;ALLSTATE INS CO. OF CANADA',
-    note: null,
-    savedCategoryId: null,
-    amount: -59.54,
-    subCategoryId: 'd172d0ca-51c6-42b3-bee0-5cb0c33e04ea',
-    categoryId: '8e2af7bd-fae5-47cb-9ab0-e9c854dff335'
-  },
-  TransactionEntity {
     id: '0000676689622019031900002',
     userId: 'afe4ad7d-990a-49a0-ad81-a05038af8c05',
     book: '377 Hyde Park Rd.',
@@ -43,6 +13,36 @@
     amount: -57.77,
     subCategoryId: 'd172d0ca-51c6-42b3-bee0-5cb0c33e04ea',
     categoryId: '8e2af7bd-fae5-47cb-9ab0-e9c854dff335'
+  },
+  TransactionEntity {
+    id: '0000989887362020041700001',
+    userId: 'afe4ad7d-990a-49a0-ad81-a05038af8c05',
+    book: '377 Hyde Park Rd.',
+    account: 'Bank',
+    type: 'CHECK',
+    datePosted: '20200417',
+    name: 'ALLSTATE INS CO. OF CANADA',
+    memo: 'CM12;ALLSTATE INS CO. OF CANADA',
+    note: null,
+    savedCategoryId: 'd5b71914-27a5-4dce-8492-eff4db002efd',
+    amount: -59.54,
+    subCategoryId: '02979f78-4a21-42ae-88d7-6e3fd10e5ef1',
+    categoryId: '870f71b3-6b99-4221-8418-fe7f46f71bf3'
+  },
+  TransactionEntity {
+    id: '0000989887362020031700001',
+    userId: 'afe4ad7d-990a-49a0-ad81-a05038af8c05',
+    book: '377 Hyde Park Rd.',
+    account: 'Bank',
+    type: 'CHECK',
+    datePosted: '20200317',
+    name: 'ALLSTATE INS CO. OF CANADA',
+    memo: 'CM12;ALLSTATE INS CO. OF CANADA',
+    note: null,
+    savedCategoryId: 'd5b71914-27a5-4dce-8492-eff4db002efd',
+    amount: -59.54,
+    subCategoryId: '02979f78-4a21-42ae-88d7-6e3fd10e5ef1',
+    categoryId: '870f71b3-6b99-4221-8418-fe7f46f71bf3'
   },
   [length]: 3
 ]

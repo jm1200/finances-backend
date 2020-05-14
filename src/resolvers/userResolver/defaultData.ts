@@ -80,7 +80,7 @@ export const defaultCategories = [
     ],
   },
   {
-    name: "Rental Property",
+    name: "377 Hyde Park Rd.",
     subCategories: [
       "Mortgage",
       "Cleaning",
@@ -160,7 +160,14 @@ export const defaultCategories = [
   },
   {
     name: "Shopping",
-    subCategories: ["Gifts", "Online", "Meghan", "John", "uncategorized"],
+    subCategories: [
+      "Gifts",
+      "Essentials",
+      "Online",
+      "Meghan",
+      "John",
+      "uncategorized",
+    ],
   },
   {
     name: "Entertainement",
