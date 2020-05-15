@@ -67,7 +67,7 @@ export class CategoriesResolver {
   }
 
   @Query(() => [IDisplayData] || null)
-  async getUserSubCategories(
+  async getUserSubCategoriesForCashFlow(
     @Arg("selectedYear", () => Int) selectedYear: number,
     @Arg("filteredCategory") filteredCategory: string,
     @Ctx() context: MyContext
