@@ -1,48 +1,86 @@
-[
-  TransactionEntity {
-    id: '0000989887362020041700001',
-    userId: 'afe4ad7d-990a-49a0-ad81-a05038af8c05',
-    book: '377 Hyde Park Rd.',
-    account: 'Bank',
-    type: 'CHECK',
-    datePosted: '20200417',
-    name: 'ALLSTATE INS CO. OF CANADA',
-    memo: 'CM12;ALLSTATE INS CO. OF CANADA',
-    note: null,
-    savedCategoryId: null,
-    amount: -59.54,
-    subCategoryId: 'd172d0ca-51c6-42b3-bee0-5cb0c33e04ea',
-    categoryId: '8e2af7bd-fae5-47cb-9ab0-e9c854dff335'
+{
+  grandTotal: {
+    categoryName: 'Year over Year',
+    categoryId: 'Year over Year',
+    subCategoryName: 'Grand Total Cash Flow',
+    years: {
+      '2019': { year: '2019', amount: 775.8599999999971 },
+      '2020': { year: '2020', amount: 4722.1 }
+    },
+    subCategoryLength: 2,
+    subCategories: {
+      income: {
+        subCategoryId: 'Income',
+        subCategoryName: 'Income',
+        years: {
+          '2019': { year: '2019', amount: 0 },
+          '2020': { year: '2020', amount: 0 }
+        }
+      },
+      expenses: {
+        subCategoryId: 'Expenses',
+        subCategoryName: 'Expenses',
+        years: {
+          '2019': { year: '2019', amount: 0 },
+          '2020': { year: '2020', amount: 0 }
+        }
+      }
+    }
   },
-  TransactionEntity {
-    id: '0000989887362020031700001',
-    userId: 'afe4ad7d-990a-49a0-ad81-a05038af8c05',
-    book: '377 Hyde Park Rd.',
-    account: 'Bank',
-    type: 'CHECK',
-    datePosted: '20200317',
-    name: 'ALLSTATE INS CO. OF CANADA',
-    memo: 'CM12;ALLSTATE INS CO. OF CANADA',
-    note: null,
-    savedCategoryId: null,
-    amount: -59.54,
-    subCategoryId: 'd172d0ca-51c6-42b3-bee0-5cb0c33e04ea',
-    categoryId: '8e2af7bd-fae5-47cb-9ab0-e9c854dff335'
+  Home: {
+    categoryId: 'Home',
+    categoryName: 'Home',
+    subCategoryName: 'Home Totals',
+    subCategoryLength: 0,
+    years: {
+      '2019': { year: '2019', amount: -3754.9799999999977 },
+      '2020': { year: '2020', amount: 2072.2800000000007 }
+    },
+    subCategories: {
+      income: {
+        subCategoryId: 'Income',
+        subCategoryName: 'Income',
+        years: {
+          '2019': { year: '2019', amount: 119669.86 },
+          '2020': { year: '2020', amount: 48364.549999999996 }
+        }
+      },
+      expenses: {
+        subCategoryId: 'Expenses',
+        subCategoryName: 'Expenses',
+        years: {
+          '2019': { year: '2019', amount: -123424.84000000005 },
+          '2020': { year: '2020', amount: -46292.270000000004 }
+        }
+      }
+    }
   },
-  TransactionEntity {
-    id: '0000676689622019031900002',
-    userId: 'afe4ad7d-990a-49a0-ad81-a05038af8c05',
-    book: '377 Hyde Park Rd.',
-    account: 'Bank',
-    type: 'CHECK',
-    datePosted: '20190319',
-    name: 'ALLSTATE INS CO. OF CANADA',
-    memo: 'CM12;ALLSTATE INS CO. OF CANADA',
-    note: null,
-    savedCategoryId: 'd5b71914-27a5-4dce-8492-eff4db002efd',
-    amount: -57.77,
-    subCategoryId: 'd172d0ca-51c6-42b3-bee0-5cb0c33e04ea',
-    categoryId: '8e2af7bd-fae5-47cb-9ab0-e9c854dff335'
-  },
-  [length]: 3
-]
+  '377 Hyde Park Rd.': {
+    categoryId: '377 Hyde Park Rd.',
+    categoryName: '377 Hyde Park Rd.',
+    subCategoryName: '377 Hyde Park Rd. Totals',
+    subCategoryLength: 0,
+    years: {
+      '2019': { year: '2019', amount: 4530.839999999998 },
+      '2020': { year: '2020', amount: 2649.8199999999997 }
+    },
+    subCategories: {
+      income: {
+        subCategoryId: 'Income',
+        subCategoryName: 'Income',
+        years: {
+          '2019': { year: '2019', amount: 22435 },
+          '2020': { year: '2020', amount: 9300.220000000001 }
+        }
+      },
+      expenses: {
+        subCategoryId: 'Expenses',
+        subCategoryName: 'Expenses',
+        years: {
+          '2019': { year: '2019', amount: -17904.160000000003 },
+          '2020': { year: '2020', amount: -6650.399999999999 }
+        }
+      }
+    }
+  }
+}

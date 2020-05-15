@@ -18,8 +18,10 @@ import { TransactionEntity } from "../../entity/Transaction";
 import { UserEntity } from "../../entity/User";
 import moment from "moment";
 import { SavedCategoriesEntity } from "../../entity/SavedCategories";
+import { ICategoryRowSummary, IDisplayDataSummary } from "./types";
 var util = require("util");
 import fs from "fs";
+import { initCategoryRows, newCategoryRow } from "./setupRows";
 
 @InputType()
 export class updateCategoriesInTransactionsInput {
@@ -74,32 +76,6 @@ export class TransactionsResolver extends BaseEntity {
     }
     return false;
   }
-
-  // @Query(() => [TransactionEntity] || Boolean)
-  // async getUserTransactionsForCashFlow(
-  //   @Ctx() context: MyContext
-  // ): Promise<TransactionEntity[] | Boolean> {
-  //   const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
-  //   if (!userId) {
-  //     return false;
-  //   }
-  //   try {
-  //     const transactions = await TransactionEntity.find({
-  //       where: { userId },
-  //       relations: ["category", "subCategory"],
-  //     });
-  //     if (transactions) {
-  //       parseTransactionsForCashFlowAnalysis(transactions);
-
-  //       return transactions;
-  //     }
-  //     return false;
-  //   } catch (err) {
-  //     console.log(err);
-  //     return false;
-  //   }
-  //   return false;
-  // }
 
   @Query(() => TransactionEntity || Boolean)
   async getTransactionsById(
@@ -586,5 +562,114 @@ export class TransactionsResolver extends BaseEntity {
       }
     }
     return true;
+  }
+
+  @Query(() => [IDisplayDataSummary] || Boolean)
+  async getTotalsForSummary(
+    @Ctx() context: MyContext
+  ): Promise<IDisplayDataSummary[] | Boolean> {
+    const userId = getUserIdFromHeader(context.req.headers["authorization"]!);
+    if (!userId) {
+      return false;
+    }
+
+    let normDisplayData: ICategoryRowSummary = initCategoryRows();
+    let displayData: IDisplayDataSummary[] = [];
+
+    try {
+      const transactions = await TransactionEntity.find({ where: { userId } });
+      if (transactions) {
+        //Make book if none exists
+        transactions.forEach((transaction) => {
+          if (!Object.keys(normDisplayData).includes(transaction.book)) {
+            //no book. create new CategoryRow
+            normDisplayData[transaction.book] = newCategoryRow(
+              transaction.book,
+              transaction.book
+            );
+          }
+          //Make Year if none exists
+          let year = transaction.datePosted.slice(0, 4);
+          Object.keys(normDisplayData).forEach((key) => {
+            if (!Object.keys(normDisplayData[key].years).includes(year)) {
+              //year does not exist. make new onefor every for category and subcategory rows
+              normDisplayData[key].years[year] = {
+                year,
+                amount: 0,
+              };
+              normDisplayData[key].subCategories.income.years[year] = {
+                year,
+                amount: 0,
+              };
+              normDisplayData[key].subCategories.expenses.years[year] = {
+                year,
+                amount: 0,
+              };
+            }
+          });
+
+          //console.log("TR608", normDisplayData[transaction.book]);
+          normDisplayData.grandTotal.years[year].amount += transaction.amount;
+          normDisplayData[transaction.book].years[year].amount +=
+            transaction.amount;
+          if (transaction.amount > 0) {
+            normDisplayData[transaction.book].subCategories.income.years[
+              year
+            ].amount += transaction.amount;
+            normDisplayData.grandTotal.subCategories.income.years[
+              year
+            ].amount += transaction.amount;
+          } else {
+            normDisplayData[transaction.book].subCategories.expenses.years[
+              year
+            ].amount += transaction.amount;
+            normDisplayData.grandTotal.subCategories.expenses.years[
+              year
+            ].amount += transaction.amount;
+          }
+
+          displayData = Object.keys(normDisplayData).map((key) => {
+            return Object.assign(
+              {},
+              { ...normDisplayData[key] },
+              {
+                years: Object.keys(normDisplayData[key].years).map(
+                  (yearKey) => normDisplayData[key].years[yearKey]
+                ),
+              },
+              {
+                subCategories: Object.keys(
+                  normDisplayData[key].subCategories
+                ).map((subCategoryKey) =>
+                  Object.assign(
+                    {},
+                    { ...normDisplayData[key].subCategories[subCategoryKey] },
+                    {
+                      years: Object.keys(
+                        normDisplayData[key].subCategories[subCategoryKey].years
+                      ).map(
+                        (yearKey) =>
+                          normDisplayData[key].subCategories[subCategoryKey]
+                            .years[yearKey]
+                      ),
+                    }
+                  )
+                ),
+              }
+            );
+          });
+          // fs.writeFileSync(
+          //   "./test.js",
+          //   util.inspect(displayData, { showHidden: true, depth: null })
+          // );
+        });
+      } else {
+        return false;
+      }
+      return displayData;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
   }
 }
