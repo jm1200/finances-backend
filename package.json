@@ -43,7 +43,7 @@
     "uuid": "^7.0.3"
   },
   "scripts": {
-    "start": "ts-node-dev src/index.ts",
+    "start": "node -r ts-node/register --max-old-space-size=3049 src/index.ts",
     "test": "jest",
     "gen": "./node_modules/.bin/graphql-codegen --config codegen.json"
   }
