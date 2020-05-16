@@ -10,7 +10,7 @@ import {
   Float,
   Int,
 } from "type-graphql";
-import { BaseEntity } from "typeorm";
+import { BaseEntity, MoreThan, Not } from "typeorm";
 import { isAuth } from "../../isAuth";
 import { getUserIdFromHeader } from "../utils/getUserIdFromHeader";
 import { MyContext } from "../../types";
@@ -22,6 +22,11 @@ import { ICategoryRowSummary, IDisplayDataSummary } from "./types";
 var util = require("util");
 import fs from "fs";
 import { initCategoryRows, newCategoryRow } from "./setupRows";
+import {
+  parseTransactionsForBudget,
+  ArrayedBudgetCategoryRow,
+} from "./parseTransactionsForBudget";
+import { CategoryEntity } from "../../entity/Category";
 
 @InputType()
 export class updateCategoriesInTransactionsInput {
@@ -667,6 +672,50 @@ export class TransactionsResolver extends BaseEntity {
         return false;
       }
       return displayData;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
+  @Query(() => [ArrayedBudgetCategoryRow] || Boolean)
+  async getUserTransactionsForBudget(
+    @Arg("book") book: string,
+    @Arg("selectedTimeFrame", () => Float!) selectedTimeFrame: number,
+    @Ctx() context: MyContext
+  ): Promise<ArrayedBudgetCategoryRow[] | Boolean> {
+    const userId: string | null = getUserIdFromHeader(
+      context.req.headers["authorization"]
+    );
+
+    if (!userId) {
+      return false;
+    }
+    try {
+      let startDate = parseInt(
+        moment().subtract(selectedTimeFrame, "months").format("YYYYMMDD")
+      );
+
+      let zzignoreCat = await CategoryEntity.findOne({
+        where: { name: "zzIgnore" },
+      });
+
+      const transactions = await TransactionEntity.find({
+        where: {
+          userId,
+          datePosted: MoreThan(startDate),
+          categoryId: Not(zzignoreCat!.id),
+          book,
+        },
+        relations: ["category", "subCategory"],
+      });
+
+      if (transactions) {
+        return parseTransactionsForBudget(transactions, selectedTimeFrame);
+      }
+      //return displayData;
+
+      return false;
     } catch (err) {
       console.log(err);
       return false;

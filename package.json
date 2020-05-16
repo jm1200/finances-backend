@@ -43,8 +43,9 @@
     "uuid": "^7.0.3"
   },
   "scripts": {
-    "start": "node -r ts-node/register --max-old-space-size=3049 src/index.ts",
+    "start": "nodemon",
     "test": "jest",
-    "gen": "./node_modules/.bin/graphql-codegen --config codegen.json"
+    "gen": "./node_modules/.bin/graphql-codegen --config codegen.json",
+    "oldStart": "node -r ts-node/register --max-old-space-size=3049 src/index.ts"
   }
 }
