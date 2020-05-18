@@ -27,6 +27,7 @@ import {
   ArrayedBudgetCategoryRow,
 } from "./parseTransactionsForBudget";
 import { CategoryEntity } from "../../entity/Category";
+import { BudgetsEntity } from "../../entity/Budgets";
 
 @InputType()
 export class updateCategoriesInTransactionsInput {
@@ -682,6 +683,7 @@ export class TransactionsResolver extends BaseEntity {
   async getUserTransactionsForBudget(
     @Arg("book") book: string,
     @Arg("selectedTimeFrame", () => Float!) selectedTimeFrame: number,
+    @Arg("selectedBudget") selectedBudget: string,
     @Ctx() context: MyContext
   ): Promise<ArrayedBudgetCategoryRow[] | Boolean> {
     const userId: string | null = getUserIdFromHeader(
@@ -710,8 +712,29 @@ export class TransactionsResolver extends BaseEntity {
         relations: ["category", "subCategory"],
       });
 
+      let budget = await BudgetsEntity.findOne({
+        where: { name: selectedBudget },
+      });
+      console.log("PTFB 134", budget);
+      let parsedBudget = {
+        name: "",
+        values: "",
+      };
+      if (budget) {
+        parsedBudget = { name: budget.name, values: budget.values };
+      }
+
       if (transactions) {
-        return parseTransactionsForBudget(transactions, selectedTimeFrame);
+        let parsedData = parseTransactionsForBudget(
+          transactions,
+          selectedTimeFrame,
+          parsedBudget
+        );
+        fs.writeFileSync(
+          "./test.txt",
+          util.inspect(parsedData, { showHidden: true, depth: null })
+        );
+        return parsedData;
       }
       //return displayData;
 

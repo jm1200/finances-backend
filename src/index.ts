@@ -17,6 +17,7 @@ import { UserResolver } from "./resolvers/userResolver/UserResolver";
 import { TransactionsResolver } from "./resolvers/transactionsResolver/TransactionsResolver";
 import { CategoriesResolver } from "./resolvers/categoriesResolver/CategoriesResolver";
 import { SavedCategoriesResolver } from "./resolvers/savedCategoriesResolver/CategorizedTransactionsResolver";
+import { BudgetsResolver } from "./resolvers/budgetsResolver/BudgetsResolver";
 import { GraphQLSchema } from "graphql";
 
 dotenv.config();
@@ -95,6 +96,7 @@ dotenv.config();
           TransactionsResolver,
           CategoriesResolver,
           SavedCategoriesResolver,
+          BudgetsResolver,
         ],
         dateScalarMode: "timestamp",
       });

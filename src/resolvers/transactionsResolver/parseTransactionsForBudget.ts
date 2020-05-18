@@ -2,8 +2,9 @@
 var util = require("util");
 import fs from "fs";
 // import numeral from "numeral";
-import { TransactionEntity } from "src/entity/Transaction";
+import { TransactionEntity } from "../../entity/Transaction";
 import { Field, ObjectType, Float } from "type-graphql";
+import numeral from "numeral";
 
 interface BudgetSubCategoryRow {
   inputValue: number;
@@ -90,7 +91,8 @@ const createCategoryRow = (
 
 export const parseTransactionsForBudget = (
   transactions: TransactionEntity[],
-  selectedTimeFrame: number
+  selectedTimeFrame: number,
+  selectedBudget?: { name: string; values: string }
 ): ArrayedBudgetCategoryRow[] => {
   let normDisplayData: IBudgetCategoryRow = {};
   transactions.forEach((transaction) => {
@@ -127,6 +129,14 @@ export const parseTransactionsForBudget = (
     }
   });
 
+  let budget: any = {};
+  if (selectedBudget && selectedBudget.values) {
+    budget.name = selectedBudget.name;
+    budget.values = JSON.parse(selectedBudget.values);
+  }
+
+  console.log("PTFB 137", budget);
+
   let arrayedDisplayData: ArrayedBudgetCategoryRow[] = Object.keys(
     normDisplayData
   ).map((categoryKey) =>
@@ -145,9 +155,22 @@ export const parseTransactionsForBudget = (
             normDisplayData[categoryKey].subCategories[
               subCategoryKey
             ].amounts.reduce((acc, cur) => (acc += cur)) / selectedTimeFrame;
+          let inputValue = avg;
+          if (
+            budget &&
+            budget.values &&
+            Object.keys(budget.values).includes(subCategoryKey)
+          ) {
+            console.log(
+              "Budget value found! using: ",
+              budget.values[subCategoryKey].value
+            );
+            inputValue = numeral(budget.values[subCategoryKey].value).value();
+          }
           return {
             avg,
-            inputValue: avg,
+            //TODO save budget and load them here or just use average values
+            inputValue,
             subCategoryId:
               normDisplayData[categoryKey].subCategories[subCategoryKey]
                 .subCategoryId,
