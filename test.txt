@@ -1,18 +1,317 @@
 [
-  TransactionEntity {
-    id: '0000989887362020041600001',
-    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
-    book: 'Home',
-    account: 'Bank',
-    type: 'CHECK',
-    datePosted: '20200416',
-    name: 'ROGERS CABLE TV TORONTO',
-    memo: 'CM44;ROGERS CABLE TV TORONTO',
-    note: null,
-    savedCategoryId: '5dd8e448-7a9a-476e-91c8-e6f740fa9410',
-    amount: -83.61,
-    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
-    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6'
+  {
+    categoryId: '87c3e9db-1cad-4467-896f-a9bbbe84629f',
+    categoryName: 'Auto',
+    subCategoryLength: 4,
+    subCategories: [
+      {
+        avg: -137.47,
+        inputValue: -137.47,
+        subCategoryId: 'bd19f7f5-4df7-44f0-bf80-e9f9455adfa2',
+        subCategoryName: 'Insurance'
+      },
+      {
+        avg: -55.515,
+        inputValue: -55.515,
+        subCategoryId: 'bc443a06-5ebe-4694-afd4-d0edfb621671',
+        subCategoryName: 'Gas'
+      },
+      {
+        avg: -8,
+        inputValue: -8,
+        subCategoryId: 'a8e27802-e38f-4019-b547-1ef5c5cc0b81',
+        subCategoryName: 'Maintenance'
+      },
+      {
+        avg: -7.105,
+        inputValue: -7.105,
+        subCategoryId: '3149083a-b8ec-4691-8684-fbb7c34409f1',
+        subCategoryName: '407'
+      },
+      [length]: 4
+    ]
   },
-  [length]: 1
+  {
+    categoryId: '7095ae2d-672d-4293-9271-0ccab279d9c2',
+    categoryName: 'Entertainement',
+    subCategoryLength: 2,
+    subCategories: [
+      {
+        avg: -20.115,
+        inputValue: -20.115,
+        subCategoryId: '13049d6d-da84-4213-9b09-6373c49be1ab',
+        subCategoryName: 'Meghan'
+      },
+      {
+        avg: -7.495,
+        inputValue: -7.495,
+        subCategoryId: '8d641af7-b3e8-47db-aceb-5d0b54c731b7',
+        subCategoryName: 'Family'
+      },
+      [length]: 2
+    ]
+  },
+  {
+    categoryId: 'f1d1a6e9-c90f-4859-bd5f-d20f4f0185c8',
+    categoryName: 'Family',
+    subCategoryLength: 2,
+    subCategories: [
+      {
+        avg: -87.675,
+        inputValue: -87.675,
+        subCategoryId: '43c187fb-e9c8-4a36-a715-f2039f2f4d91',
+        subCategoryName: 'Clothes'
+      },
+      {
+        avg: -1.495,
+        inputValue: -1.495,
+        subCategoryId: '53221bd0-cd92-4991-ac3d-9165f1a77c7c',
+        subCategoryName: 'Essentials'
+      },
+      [length]: 2
+    ]
+  },
+  {
+    categoryId: '6e70430b-55e7-48c9-ab7c-039f233831e2',
+    categoryName: 'Food',
+    subCategoryLength: 4,
+    subCategories: [
+      {
+        avg: -1042.3600000000001,
+        inputValue: -1042.3600000000001,
+        subCategoryId: '2ac66625-3651-437a-933b-16a6c52681b7',
+        subCategoryName: 'Groceries'
+      },
+      {
+        avg: -258.545,
+        inputValue: -258.545,
+        subCategoryId: '93cdb324-8c4f-4ea7-83f0-96e5f2bf3dca',
+        subCategoryName: 'Booze'
+      },
+      {
+        avg: -102.87000000000002,
+        inputValue: -102.87000000000002,
+        subCategoryId: '985f3c5d-939c-432f-af7c-3bce08aff348',
+        subCategoryName: 'Fast food'
+      },
+      {
+        avg: -24.16,
+        inputValue: -24.16,
+        subCategoryId: '64600538-0a34-4173-9a4e-10cd41c0c9ab',
+        subCategoryName: 'Treats'
+      },
+      [length]: 4
+    ]
+  },
+  {
+    categoryId: 'ee2b0686-6e06-44f2-bbd6-ed3d12bdc8e9',
+    categoryName: 'Healthcare',
+    subCategoryLength: 1,
+    subCategories: [
+      {
+        avg: 40,
+        inputValue: 40,
+        subCategoryId: 'c363c6ae-24dc-478f-b8b1-86fbc92b910a',
+        subCategoryName: 'John'
+      },
+      [length]: 1
+    ]
+  },
+  {
+    categoryId: '5d10e395-5893-4a70-81c5-8d72d0f6409c',
+    categoryName: 'Home',
+    subCategoryLength: 8,
+    subCategories: [
+      {
+        avg: -1690.96,
+        inputValue: -1690.96,
+        subCategoryId: 'de8892e8-6230-4ab7-8541-253df56fbb6d',
+        subCategoryName: 'Mortgage'
+      },
+      {
+        avg: -273.225,
+        inputValue: -273.225,
+        subCategoryId: '1a73fccb-2280-467d-96e1-e5746c2d5612',
+        subCategoryName: 'Electricity'
+      },
+      {
+        avg: -220.6,
+        inputValue: -220.6,
+        subCategoryId: 'f04b12aa-5493-49d0-8142-c1cad3a2a9bb',
+        subCategoryName: 'Water'
+      },
+      {
+        avg: -168.34,
+        inputValue: -168.34,
+        subCategoryId: 'eb4b9e3e-3b88-42d0-bd8b-c1f174f0cc08',
+        subCategoryName: 'Pool/Hot tub'
+      },
+      {
+        avg: -65.565,
+        inputValue: -65.565,
+        subCategoryId: '1542717e-46e0-41c6-8514-1d6245938d67',
+        subCategoryName: 'Insurance'
+      },
+      {
+        avg: -53.105,
+        inputValue: -53.105,
+        subCategoryId: 'a0fe87ea-7c17-489c-b682-aa10a1765422',
+        subCategoryName: 'Cable'
+      },
+      {
+        avg: -43.42,
+        inputValue: -43.42,
+        subCategoryId: '39e5176c-246f-49b8-a846-e73f36396059',
+        subCategoryName: 'Gas'
+      },
+      {
+        avg: -21.47,
+        inputValue: -21.47,
+        subCategoryId: '5f0b2e5a-9e83-44f1-9e61-31ae99c8f52e',
+        subCategoryName: 'uncategorized'
+      },
+      [length]: 8
+    ]
+  },
+  {
+    categoryId: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
+    categoryName: 'Income',
+    subCategoryLength: 4,
+    subCategories: [
+      {
+        avg: 0.395,
+        inputValue: 0.395,
+        subCategoryId: '3ddaa349-c229-4fc7-965a-6158e08c719b',
+        subCategoryName: 'Interest'
+      },
+      {
+        avg: 2573.61,
+        inputValue: 2573.61,
+        subCategoryId: 'b745b6b5-c693-430e-82d9-ec37de328d9f',
+        subCategoryName: 'Government'
+      },
+      {
+        avg: 3340.255,
+        inputValue: 3340.255,
+        subCategoryId: '67bd5f07-37ee-4ee4-b557-c16b805172ab',
+        subCategoryName: 'Meghan'
+      },
+      {
+        avg: 5922.78,
+        inputValue: 5922.78,
+        subCategoryId: '2bd019cc-7bd0-43e4-98a6-6c3447db033b',
+        subCategoryName: 'John'
+      },
+      [length]: 4
+    ]
+  },
+  {
+    categoryId: 'b3bbda80-8074-45b2-9326-fb0b5e35b859',
+    categoryName: 'John',
+    subCategoryLength: 1,
+    subCategories: [
+      {
+        avg: -79.78,
+        inputValue: -79.78,
+        subCategoryId: '8ba15f01-b510-448a-b790-19a34502cdad',
+        subCategoryName: 'Cell Phone'
+      },
+      [length]: 1
+    ]
+  },
+  {
+    categoryId: 'dc4d9f8a-9dfa-4981-8ba7-22e281555a18',
+    categoryName: 'Kids',
+    subCategoryLength: 1,
+    subCategories: [
+      {
+        avg: -42.5,
+        inputValue: -42.5,
+        subCategoryId: '01f29b2b-25d0-40c3-84db-acee8a478fa3',
+        subCategoryName: 'Entertainement'
+      },
+      [length]: 1
+    ]
+  },
+  {
+    categoryId: '88bae796-7e48-4a5f-87cf-7674180e69a4',
+    categoryName: 'Meghan',
+    subCategoryLength: 2,
+    subCategories: [
+      {
+        avg: -44.64,
+        inputValue: -44.64,
+        subCategoryId: 'df478ede-14ee-4fbc-a441-8914d5db1a02',
+        subCategoryName: 'Cell Phone'
+      },
+      {
+        avg: 4.955000000000007,
+        inputValue: 4.955000000000007,
+        subCategoryId: '15beb66b-22d2-48d8-aff1-914f833b1e2f',
+        subCategoryName: 'Employement Expenses'
+      },
+      [length]: 2
+    ]
+  },
+  {
+    categoryId: '34479992-63a9-4c8c-af6b-fbf5e0b20883',
+    categoryName: 'Pets',
+    subCategoryLength: 1,
+    subCategories: [
+      {
+        avg: -231.45,
+        inputValue: -231.45,
+        subCategoryId: '00d3062e-e476-48fd-8e61-ebdd217723f1',
+        subCategoryName: 'Vet bill'
+      },
+      [length]: 1
+    ]
+  },
+  {
+    categoryId: '9f1e0cc2-f8b0-4167-bcd1-0037c320f043',
+    categoryName: 'Shopping',
+    subCategoryLength: 4,
+    subCategories: [
+      {
+        avg: -267.645,
+        inputValue: -267.645,
+        subCategoryId: '0e5b9df9-da6f-4a92-b280-bad222d3da2c',
+        subCategoryName: 'Meghan'
+      },
+      {
+        avg: -241.52000000000004,
+        inputValue: -241.52000000000004,
+        subCategoryId: 'f45a3b03-568f-4a54-a31f-4317d9bf31a9',
+        subCategoryName: 'Online'
+      },
+      {
+        avg: -38.205,
+        inputValue: -38.205,
+        subCategoryId: '1ba30998-51c3-4703-a66e-ace21c1751d5',
+        subCategoryName: 'Essentials'
+      },
+      {
+        avg: -3.65,
+        inputValue: -3.65,
+        subCategoryId: '16643925-dc2e-416b-a6ac-f8cf84e67e80',
+        subCategoryName: 'John'
+      },
+      [length]: 4
+    ]
+  },
+  {
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    categoryName: 'uncategorized',
+    subCategoryLength: 1,
+    subCategories: [
+      {
+        avg: 221.355,
+        inputValue: 221.355,
+        subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+        subCategoryName: 'uncategorized'
+      },
+      [length]: 1
+    ]
+  },
+  [length]: 13
 ]

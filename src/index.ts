@@ -79,8 +79,11 @@ dotenv.config();
 
     return res.send({ ok: true, accessToken: createAccessToken(user) });
   });
-
-  await createConnection();
+  try {
+    await createConnection();
+  } catch (err) {
+    console.log("error creating connection", err);
+  }
 
   async function generateSchema(): Promise<GraphQLSchema> {
     try {

@@ -26,7 +26,7 @@ const KNOWN_CATEGORIES: IKnownCategory[] = [
   { name: "metro", categoryName: "Food", subCategoryName: "Groceries" },
   { name: "rcss", categoryName: "Food", subCategoryName: "Groceries" },
   { name: "remark", categoryName: "Food", subCategoryName: "Groceries" },
-  { name: "mobil", categoryName: "Auto", subCategoryName: "Gas" },
+
   { name: "esso", categoryName: "Auto", subCategoryName: "Gas" },
   { name: "petrocan", categoryName: "Auto", subCategoryName: "Gas" },
   { name: "onroute", categoryName: "Auto", subCategoryName: "Gas" },

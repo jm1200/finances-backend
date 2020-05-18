@@ -6,6 +6,7 @@ import { TransactionEntity } from "src/entity/Transaction";
 import { Field, ObjectType, Float } from "type-graphql";
 
 interface BudgetSubCategoryRow {
+  inputValue: number;
   subCategoryId: string;
   subCategoryName: string;
   amounts: number[];
@@ -27,6 +28,8 @@ class DisplaySubCategoryRow {
   subCategoryId: string;
   @Field()
   subCategoryName: string;
+  @Field()
+  inputValue: number;
   @Field(() => Float)
   avg: number;
 }
@@ -58,6 +61,7 @@ const createSubCategoryRow = (
   firstAmount: number
 ): BudgetSubCategoryRow => {
   return {
+    inputValue: 0,
     subCategoryId,
     subCategoryName,
     amounts: [firstAmount],
@@ -137,17 +141,19 @@ export const parseTransactionsForBudget = (
         subCategories: Object.keys(
           normDisplayData[categoryKey].subCategories
         ).map((subCategoryKey) => {
+          let avg =
+            normDisplayData[categoryKey].subCategories[
+              subCategoryKey
+            ].amounts.reduce((acc, cur) => (acc += cur)) / selectedTimeFrame;
           return {
+            avg,
+            inputValue: avg,
             subCategoryId:
               normDisplayData[categoryKey].subCategories[subCategoryKey]
                 .subCategoryId,
             subCategoryName:
               normDisplayData[categoryKey].subCategories[subCategoryKey]
                 .subCategoryName,
-            avg:
-              normDisplayData[categoryKey].subCategories[
-                subCategoryKey
-              ].amounts.reduce((acc, cur) => (acc += cur)) / selectedTimeFrame,
           };
         }),
       }
