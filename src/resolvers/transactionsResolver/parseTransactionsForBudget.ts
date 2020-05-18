@@ -156,7 +156,6 @@ export const parseTransactionsForBudget = (
 
   arrayedDisplayData.forEach((category) => {
     category.subCategories.sort((a, b) => {
-      console.log(a, b);
       if (a.avg > b.avg) return 1;
       if (a.avg < b.avg) return -1;
       return 0;
