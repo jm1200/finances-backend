@@ -9,6 +9,7 @@ import {
   Query,
   Float,
   Int,
+  ObjectType,
 } from "type-graphql";
 import { BaseEntity, MoreThan, Not } from "typeorm";
 import { isAuth } from "../../isAuth";
@@ -55,6 +56,14 @@ export class updateCategoriesInTransactionsInput {
   applyToAll: boolean;
   @Field()
   noConflict: boolean;
+}
+
+@ObjectType()
+class TransPageReturn {
+  @Field(() => Int)
+  length: number;
+  @Field(() => [TransactionEntity])
+  transactions: TransactionEntity[];
 }
 
 @Resolver()
@@ -741,6 +750,90 @@ export class TransactionsResolver extends BaseEntity {
       }
       //return displayData;
 
+      return false;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
+  @Query(() => TransPageReturn || Boolean)
+  async getUserTransactionsForTransactionsPage(
+    @Ctx() context: MyContext,
+    @Arg("skip", () => Int) skip: number,
+    @Arg("take", () => Int) take: number,
+    @Arg("filter") filter: string,
+    //Add arguments for selected columns
+    //@Arg("datePosted") datePosted: boolean,
+    @Arg("order") order: string,
+    @Arg("month", { nullable: true }) month?: string,
+    @Arg("year", () => Int, { nullable: true }) year?: number
+  ): Promise<TransPageReturn | Boolean> {
+    const userId: string | null = getUserIdFromHeader(
+      context.req.headers["authorization"]
+    );
+
+    if (!userId) {
+      return false;
+    }
+    type Order = keyof TransactionEntity;
+    // let selectedFields: Order[] = ["name"];
+    // if (datePosted) selectedFields.push("datePosted");
+
+    try {
+      let transactions = await TransactionEntity.find({
+        where: { userId },
+        // select: selectedFields,
+        relations: ["category", "subCategory", "savedCategory"],
+      });
+      console.log("TR771", transactions);
+
+      let dateFilteredTransactions = transactions;
+
+      if (month && year) {
+        dateFilteredTransactions = transactions.filter((transaction: any) => {
+          const date = transaction.datePosted;
+          const yearTest =
+            moment(date, "YYYYMMDD").format("YYYY") === year.toString();
+          const monthTest = moment(date, "YYYYMMDD").format("MMM") === month;
+          if (yearTest && monthTest) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+      }
+
+      let filteredTransactions = dateFilteredTransactions.filter(
+        (transaction) => {
+          return (
+            (transaction.name &&
+              transaction.name.toLowerCase().includes(filter)) ||
+            (transaction.memo &&
+              transaction.memo.toLowerCase().includes(filter)) ||
+            transaction.category.name.toLowerCase().includes(filter) ||
+            transaction.subCategory.name.toLowerCase().includes(filter)
+          );
+        }
+      );
+      let length = filteredTransactions.length;
+      //console.log("TR791 ", filteredTransactions);
+      let sortedTransactions = filteredTransactions.sort((a, b) => {
+        if (!a[order as Order] || !b[order as Order]) return 0;
+        if (a[order as Order]! > b[order as Order]!) return 1;
+        if (a[order as Order]! < b[order as Order]!) return -1;
+        return 0;
+      });
+
+      console.log("tr792", sortedTransactions);
+
+      let slicedTransactions = sortedTransactions.slice(
+        skip * take,
+        skip * take + take
+      );
+      console.log("tr796", slicedTransactions);
+
+      return { length, transactions: slicedTransactions };
       return false;
     } catch (err) {
       console.log(err);
