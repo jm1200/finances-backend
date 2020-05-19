@@ -2,235 +2,331 @@
   {
     categoryId: '87c3e9db-1cad-4467-896f-a9bbbe84629f',
     categoryName: 'Auto',
-    subCategoryLength: 4,
+    subCategoryLength: 6,
     subCategories: [
       {
-        avg: -137.47,
-        inputValue: -137.47,
-        subCategoryId: 'bd19f7f5-4df7-44f0-bf80-e9f9455adfa2',
-        subCategoryName: 'Insurance'
-      },
-      {
-        avg: -55.515,
-        inputValue: -55.515,
+        avg: -353.5208333333333,
+        inputValue: -300,
         subCategoryId: 'bc443a06-5ebe-4694-afd4-d0edfb621671',
         subCategoryName: 'Gas'
       },
       {
-        avg: -8,
-        inputValue: -8,
+        avg: -227.215,
+        inputValue: -227.21,
+        subCategoryId: 'bd19f7f5-4df7-44f0-bf80-e9f9455adfa2',
+        subCategoryName: 'Insurance'
+      },
+      {
+        avg: -208.24083333333337,
+        inputValue: -150,
         subCategoryId: 'a8e27802-e38f-4019-b547-1ef5c5cc0b81',
         subCategoryName: 'Maintenance'
       },
       {
-        avg: -7.105,
-        inputValue: -7.105,
+        avg: -47.5,
+        inputValue: -47.5,
+        subCategoryId: '17a23500-fab9-44e0-a915-ce13c5d50c12',
+        subCategoryName: 'Licensing'
+      },
+      {
+        avg: -7.261666666666666,
+        inputValue: 0,
         subCategoryId: '3149083a-b8ec-4691-8684-fbb7c34409f1',
         subCategoryName: '407'
       },
-      [length]: 4
+      {
+        avg: -5.260833333333333,
+        inputValue: -5.26,
+        subCategoryId: '218a13b5-5cc4-469a-bb11-841d7eaccf31',
+        subCategoryName: 'Parking'
+      },
+      [length]: 6
     ]
   },
   {
     categoryId: '7095ae2d-672d-4293-9271-0ccab279d9c2',
     categoryName: 'Entertainement',
-    subCategoryLength: 2,
+    subCategoryLength: 4,
     subCategories: [
       {
-        avg: -20.115,
-        inputValue: -20.115,
+        avg: -145.0358333333334,
+        inputValue: 0,
         subCategoryId: '13049d6d-da84-4213-9b09-6373c49be1ab',
         subCategoryName: 'Meghan'
       },
       {
-        avg: -7.495,
-        inputValue: -7.495,
+        avg: -104.86333333333333,
+        inputValue: 0,
+        subCategoryId: '01d63787-e5b4-43c8-ae6d-c7cb67ac3d37',
+        subCategoryName: 'Kids'
+      },
+      {
+        avg: -89.14583333333333,
+        inputValue: 0,
         subCategoryId: '8d641af7-b3e8-47db-aceb-5d0b54c731b7',
         subCategoryName: 'Family'
       },
-      [length]: 2
+      {
+        avg: -28.05666666666666,
+        inputValue: 0,
+        subCategoryId: '5b9c49bd-269d-48f9-9f22-a3f469b420bb',
+        subCategoryName: 'John'
+      },
+      [length]: 4
     ]
   },
   {
     categoryId: 'f1d1a6e9-c90f-4859-bd5f-d20f4f0185c8',
     categoryName: 'Family',
-    subCategoryLength: 2,
+    subCategoryLength: 4,
     subCategories: [
       {
-        avg: -87.675,
-        inputValue: -87.675,
+        avg: -14.612499999999999,
+        inputValue: 0,
         subCategoryId: '43c187fb-e9c8-4a36-a715-f2039f2f4d91',
         subCategoryName: 'Clothes'
       },
       {
-        avg: -1.495,
-        inputValue: -1.495,
+        avg: -14.27833333333333,
+        inputValue: 0,
+        subCategoryId: '741c512c-9139-4bcd-9084-921098fc3532',
+        subCategoryName: 'Entertainment'
+      },
+      {
+        avg: -9.079166666666667,
+        inputValue: 0,
         subCategoryId: '53221bd0-cd92-4991-ac3d-9165f1a77c7c',
         subCategoryName: 'Essentials'
       },
-      [length]: 2
+      {
+        avg: -1.8708333333333333,
+        inputValue: 0,
+        subCategoryId: '4d8a382c-80e2-42d7-bf01-b6fced10e53b',
+        subCategoryName: 'Shopping'
+      },
+      [length]: 4
     ]
   },
   {
     categoryId: '6e70430b-55e7-48c9-ab7c-039f233831e2',
     categoryName: 'Food',
-    subCategoryLength: 4,
+    subCategoryLength: 5,
     subCategories: [
       {
-        avg: -1042.3600000000001,
-        inputValue: -1042.3600000000001,
+        avg: -1081.8191666666664,
+        inputValue: -1000,
         subCategoryId: '2ac66625-3651-437a-933b-16a6c52681b7',
         subCategoryName: 'Groceries'
       },
       {
-        avg: -258.545,
-        inputValue: -258.545,
-        subCategoryId: '93cdb324-8c4f-4ea7-83f0-96e5f2bf3dca',
-        subCategoryName: 'Booze'
+        avg: -231.6975000000001,
+        inputValue: -50,
+        subCategoryId: 'ab1cfa7a-5094-47f5-b92a-1e8a4e866ebd',
+        subCategoryName: 'Restaurants'
       },
       {
-        avg: -102.87000000000002,
-        inputValue: -102.87000000000002,
+        avg: -176.80499999999998,
+        inputValue: -50,
         subCategoryId: '985f3c5d-939c-432f-af7c-3bce08aff348',
         subCategoryName: 'Fast food'
       },
       {
-        avg: -24.16,
-        inputValue: -24.16,
+        avg: -92.29916666666666,
+        inputValue: -25,
+        subCategoryId: '93cdb324-8c4f-4ea7-83f0-96e5f2bf3dca',
+        subCategoryName: 'Booze'
+      },
+      {
+        avg: -41.0225,
+        inputValue: -25,
         subCategoryId: '64600538-0a34-4173-9a4e-10cd41c0c9ab',
         subCategoryName: 'Treats'
       },
-      [length]: 4
+      [length]: 5
     ]
   },
   {
     categoryId: 'ee2b0686-6e06-44f2-bbd6-ed3d12bdc8e9',
     categoryName: 'Healthcare',
-    subCategoryLength: 1,
+    subCategoryLength: 3,
     subCategories: [
       {
-        avg: 40,
-        inputValue: 40,
+        avg: -198.16666666666666,
+        inputValue: -150,
+        subCategoryId: '20a7bc00-e413-4157-b10c-c6e90a26e3c9',
+        subCategoryName: 'Family'
+      },
+      {
+        avg: -8.593333333333332,
+        inputValue: 0,
+        subCategoryId: '3e7f92a6-e0e5-41d0-8656-fe438f3657fc',
+        subCategoryName: 'Meghan'
+      },
+      {
+        avg: 46.25,
+        inputValue: 0,
         subCategoryId: 'c363c6ae-24dc-478f-b8b1-86fbc92b910a',
         subCategoryName: 'John'
       },
-      [length]: 1
+      [length]: 3
     ]
   },
   {
     categoryId: '5d10e395-5893-4a70-81c5-8d72d0f6409c',
     categoryName: 'Home',
-    subCategoryLength: 8,
+    subCategoryLength: 9,
     subCategories: [
       {
-        avg: -1690.96,
-        inputValue: -1690.96,
+        avg: -1831.8733333333328,
+        inputValue: -1831.87,
         subCategoryId: 'de8892e8-6230-4ab7-8541-253df56fbb6d',
         subCategoryName: 'Mortgage'
       },
       {
-        avg: -273.225,
-        inputValue: -273.225,
+        avg: -220.66166666666666,
+        inputValue: -220.66,
         subCategoryId: '1a73fccb-2280-467d-96e1-e5746c2d5612',
         subCategoryName: 'Electricity'
       },
       {
-        avg: -220.6,
-        inputValue: -220.6,
+        avg: -168.51083333333335,
+        inputValue: -168.51,
         subCategoryId: 'f04b12aa-5493-49d0-8142-c1cad3a2a9bb',
         subCategoryName: 'Water'
       },
       {
-        avg: -168.34,
-        inputValue: -168.34,
-        subCategoryId: 'eb4b9e3e-3b88-42d0-bd8b-c1f174f0cc08',
-        subCategoryName: 'Pool/Hot tub'
-      },
-      {
-        avg: -65.565,
-        inputValue: -65.565,
+        avg: -129.98250000000004,
+        inputValue: -129.98,
         subCategoryId: '1542717e-46e0-41c6-8514-1d6245938d67',
         subCategoryName: 'Insurance'
       },
       {
-        avg: -53.105,
-        inputValue: -53.105,
+        avg: -97.8925,
+        inputValue: -97.89,
+        subCategoryId: 'eb4b9e3e-3b88-42d0-bd8b-c1f174f0cc08',
+        subCategoryName: 'Pool/Hot tub'
+      },
+      {
+        avg: -92.41000000000001,
+        inputValue: -92.41,
+        subCategoryId: '62820e87-fc30-411a-97e4-b974df9f58d3',
+        subCategoryName: 'Maintenance'
+      },
+      {
+        avg: -90.23083333333335,
+        inputValue: -90.23,
         subCategoryId: 'a0fe87ea-7c17-489c-b682-aa10a1765422',
         subCategoryName: 'Cable'
       },
       {
-        avg: -43.42,
-        inputValue: -43.42,
+        avg: -77.03083333333335,
+        inputValue: -77.03,
         subCategoryId: '39e5176c-246f-49b8-a846-e73f36396059',
         subCategoryName: 'Gas'
       },
       {
-        avg: -21.47,
-        inputValue: -21.47,
+        avg: -3.578333333333333,
+        inputValue: -3.58,
         subCategoryId: '5f0b2e5a-9e83-44f1-9e61-31ae99c8f52e',
         subCategoryName: 'uncategorized'
       },
-      [length]: 8
+      [length]: 9
     ]
   },
   {
     categoryId: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
     categoryName: 'Income',
-    subCategoryLength: 4,
+    subCategoryLength: 5,
     subCategories: [
       {
-        avg: 0.395,
-        inputValue: 0.395,
+        avg: 0.3316666666666666,
+        inputValue: 0.33,
         subCategoryId: '3ddaa349-c229-4fc7-965a-6158e08c719b',
         subCategoryName: 'Interest'
       },
       {
-        avg: 2573.61,
-        inputValue: 2573.61,
+        avg: 39.166666666666664,
+        inputValue: 39.17,
+        subCategoryId: 'f00b50b7-80cf-49bd-9ea8-82912bfda48a',
+        subCategoryName: 'uncategorized'
+      },
+      {
+        avg: 849.5124999999998,
+        inputValue: 400,
         subCategoryId: 'b745b6b5-c693-430e-82d9-ec37de328d9f',
         subCategoryName: 'Government'
       },
       {
-        avg: 3340.255,
-        inputValue: 3340.255,
+        avg: 3625.4266666666667,
+        inputValue: 3625.43,
         subCategoryId: '67bd5f07-37ee-4ee4-b557-c16b805172ab',
         subCategoryName: 'Meghan'
       },
       {
-        avg: 5922.78,
-        inputValue: 5922.78,
+        avg: 4448.233333333334,
+        inputValue: 1600,
         subCategoryId: '2bd019cc-7bd0-43e4-98a6-6c3447db033b',
         subCategoryName: 'John'
       },
-      [length]: 4
+      [length]: 5
     ]
   },
   {
     categoryId: 'b3bbda80-8074-45b2-9326-fb0b5e35b859',
     categoryName: 'John',
-    subCategoryLength: 1,
+    subCategoryLength: 3,
     subCategories: [
       {
-        avg: -79.78,
-        inputValue: -79.78,
+        avg: -105.46750000000002,
+        inputValue: 0,
+        subCategoryId: 'eabf8ad3-885b-4f34-9487-72e80a90fc08',
+        subCategoryName: 'Away Food'
+      },
+      {
+        avg: -94.795,
+        inputValue: -94.79,
         subCategoryId: '8ba15f01-b510-448a-b790-19a34502cdad',
         subCategoryName: 'Cell Phone'
       },
-      [length]: 1
+      {
+        avg: -43.093333333333334,
+        inputValue: 0,
+        subCategoryId: '4b5f5fb9-63a7-4f70-a8f7-7ff1c15b1bda',
+        subCategoryName: 'Employement Expenses'
+      },
+      [length]: 3
     ]
   },
   {
     categoryId: 'dc4d9f8a-9dfa-4981-8ba7-22e281555a18',
     categoryName: 'Kids',
-    subCategoryLength: 1,
+    subCategoryLength: 4,
     subCategories: [
       {
-        avg: -42.5,
-        inputValue: -42.5,
+        avg: -481.6666666666667,
+        inputValue: 0,
+        subCategoryId: 'a6de0678-faa2-4027-b209-647dea41a507',
+        subCategoryName: 'Daycare'
+      },
+      {
+        avg: -77.11333333333333,
+        inputValue: 0,
         subCategoryId: '01f29b2b-25d0-40c3-84db-acee8a478fa3',
         subCategoryName: 'Entertainement'
       },
-      [length]: 1
+      {
+        avg: -16.8,
+        inputValue: 0,
+        subCategoryId: '2000a9e5-71e5-4cbe-924b-1d2a616417aa',
+        subCategoryName: 'Clothes'
+      },
+      {
+        avg: -15.3525,
+        inputValue: 0,
+        subCategoryId: '0022e3ef-568f-47ff-82af-889d04328672',
+        subCategoryName: 'School'
+      },
+      [length]: 4
     ]
   },
   {
@@ -239,14 +335,14 @@
     subCategoryLength: 2,
     subCategories: [
       {
-        avg: -44.64,
-        inputValue: -44.64,
+        avg: -93.17583333333333,
+        inputValue: -93.18,
         subCategoryId: 'df478ede-14ee-4fbc-a441-8914d5db1a02',
         subCategoryName: 'Cell Phone'
       },
       {
-        avg: 4.955000000000007,
-        inputValue: 4.955000000000007,
+        avg: -26.198333333333327,
+        inputValue: -26.2,
         subCategoryId: '15beb66b-22d2-48d8-aff1-914f833b1e2f',
         subCategoryName: 'Employement Expenses'
       },
@@ -254,49 +350,125 @@
     ]
   },
   {
-    categoryId: '34479992-63a9-4c8c-af6b-fbf5e0b20883',
-    categoryName: 'Pets',
-    subCategoryLength: 1,
+    categoryId: 'e94049e5-b09f-43c0-9efb-56f704da28ab',
+    categoryName: 'Money Transfers',
+    subCategoryLength: 6,
     subCategories: [
       {
-        avg: -231.45,
-        inputValue: -231.45,
+        avg: -129.16666666666666,
+        inputValue: 0,
+        subCategoryId: '00929de4-6321-4942-a402-64b5a8e330cf',
+        subCategoryName: 'Transfer to Savings'
+      },
+      {
+        avg: -70.83333333333333,
+        inputValue: 0,
+        subCategoryId: '0a65c4ed-b296-4ae2-ab36-0588f582d72d',
+        subCategoryName: 'Pension Payments'
+      },
+      {
+        avg: -7.5,
+        inputValue: 0,
+        subCategoryId: '4236c1f5-7d7c-4576-a5d3-ff4bfc8e810f',
+        subCategoryName: 'Donations'
+      },
+      {
+        avg: -1.0416666666666667,
+        inputValue: 0,
+        subCategoryId: '88932c41-c4cc-4401-ac60-7ad046ca1b74',
+        subCategoryName: 'Banking Charges'
+      },
+      {
+        avg: -0.08833333333333333,
+        inputValue: 0,
+        subCategoryId: 'd9e5c6ce-8268-4e79-a6d4-de995738d42f',
+        subCategoryName: 'Creditcard Interest'
+      },
+      {
+        avg: 8.333333333333334,
+        inputValue: 0,
+        subCategoryId: 'fd1702d3-329b-4e8f-b240-44503eebdba9',
+        subCategoryName: 'RESP transfers'
+      },
+      [length]: 6
+    ]
+  },
+  {
+    categoryId: '34479992-63a9-4c8c-af6b-fbf5e0b20883',
+    categoryName: 'Pets',
+    subCategoryLength: 3,
+    subCategories: [
+      {
+        avg: -43.53416666666667,
+        inputValue: -43.53,
+        subCategoryId: 'b73be573-efdf-462f-b62d-37ec337c7cc4',
+        subCategoryName: 'Food/Treats'
+      },
+      {
+        avg: -38.574999999999996,
+        inputValue: -38.57,
         subCategoryId: '00d3062e-e476-48fd-8e61-ebdd217723f1',
         subCategoryName: 'Vet bill'
       },
-      [length]: 1
+      {
+        avg: -14.125,
+        inputValue: 0,
+        subCategoryId: 'f443e285-4758-4ca8-96d5-d3fedacd38a9',
+        subCategoryName: 'Grooming'
+      },
+      [length]: 3
     ]
   },
   {
     categoryId: '9f1e0cc2-f8b0-4167-bcd1-0037c320f043',
     categoryName: 'Shopping',
-    subCategoryLength: 4,
+    subCategoryLength: 5,
     subCategories: [
       {
-        avg: -267.645,
-        inputValue: -267.645,
+        avg: -966.7516666666671,
+        inputValue: 0,
         subCategoryId: '0e5b9df9-da6f-4a92-b280-bad222d3da2c',
         subCategoryName: 'Meghan'
       },
       {
-        avg: -241.52000000000004,
-        inputValue: -241.52000000000004,
+        avg: -195.86833333333323,
+        inputValue: 0,
         subCategoryId: 'f45a3b03-568f-4a54-a31f-4317d9bf31a9',
         subCategoryName: 'Online'
       },
       {
-        avg: -38.205,
-        inputValue: -38.205,
-        subCategoryId: '1ba30998-51c3-4703-a66e-ace21c1751d5',
-        subCategoryName: 'Essentials'
+        avg: -97.02916666666668,
+        inputValue: 0,
+        subCategoryId: '1fa8e181-b49a-4f2f-8c00-4cc2dffc6bcd',
+        subCategoryName: 'Gifts'
       },
       {
-        avg: -3.65,
-        inputValue: -3.65,
+        avg: -89.83166666666666,
+        inputValue: 0,
         subCategoryId: '16643925-dc2e-416b-a6ac-f8cf84e67e80',
         subCategoryName: 'John'
       },
-      [length]: 4
+      {
+        avg: -76.71916666666665,
+        inputValue: -76.72,
+        subCategoryId: '1ba30998-51c3-4703-a66e-ace21c1751d5',
+        subCategoryName: 'Essentials'
+      },
+      [length]: 5
+    ]
+  },
+  {
+    categoryId: 'd3ccff59-ef0a-4337-8511-2db61c31611f',
+    categoryName: 'Travel',
+    subCategoryLength: 1,
+    subCategories: [
+      {
+        avg: -4.704166666666667,
+        inputValue: 0,
+        subCategoryId: 'b7708acf-957f-48dd-a768-eb06bdbb1670',
+        subCategoryName: 'Hotel'
+      },
+      [length]: 1
     ]
   },
   {
@@ -305,13 +477,13 @@
     subCategoryLength: 1,
     subCategories: [
       {
-        avg: 221.355,
-        inputValue: 221.355,
+        avg: -128.51166666666668,
+        inputValue: -128.51,
         subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
         subCategoryName: 'uncategorized'
       },
       [length]: 1
     ]
   },
-  [length]: 13
+  [length]: 15
 ]
