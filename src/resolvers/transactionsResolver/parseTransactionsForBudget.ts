@@ -92,7 +92,7 @@ const createCategoryRow = (
 export const parseTransactionsForBudget = (
   transactions: TransactionEntity[],
   selectedTimeFrame: number,
-  selectedBudget?: { name: string; values: string }
+  selectedBudget?: { id: string; values: string }
 ): ArrayedBudgetCategoryRow[] => {
   let normDisplayData: IBudgetCategoryRow = {};
   transactions.forEach((transaction) => {
@@ -128,10 +128,10 @@ export const parseTransactionsForBudget = (
       }
     }
   });
-
+  console.log(selectedBudget);
   let budget: any = {};
   if (selectedBudget && selectedBudget.values) {
-    budget.name = selectedBudget.name;
+    budget.id = selectedBudget.id;
     budget.values = JSON.parse(selectedBudget.values);
   }
 

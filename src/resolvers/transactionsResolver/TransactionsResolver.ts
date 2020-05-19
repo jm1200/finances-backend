@@ -712,16 +712,19 @@ export class TransactionsResolver extends BaseEntity {
         relations: ["category", "subCategory"],
       });
 
-      let budget = await BudgetsEntity.findOne({
-        where: { name: selectedBudget },
-      });
+      let budget: BudgetsEntity | undefined;
+      if (selectedBudget !== "Default Budget") {
+        budget = await BudgetsEntity.findOne({
+          where: { id: selectedBudget },
+        });
+      }
       console.log("PTFB 134", budget);
       let parsedBudget = {
-        name: "",
+        id: "",
         values: "",
       };
       if (budget) {
-        parsedBudget = { name: budget.name, values: budget.values };
+        parsedBudget = { id: budget.id, values: budget.values };
       }
 
       if (transactions) {
@@ -730,10 +733,10 @@ export class TransactionsResolver extends BaseEntity {
           selectedTimeFrame,
           parsedBudget
         );
-        fs.writeFileSync(
-          "./test.txt",
-          util.inspect(parsedData, { showHidden: true, depth: null })
-        );
+        // fs.writeFileSync(
+        //   "./test.txt",
+        //   util.inspect(parsedData, { showHidden: true, depth: null })
+        // );
         return parsedData;
       }
       //return displayData;

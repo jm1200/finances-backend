@@ -6,25 +6,25 @@
     subCategories: [
       {
         avg: -137.47,
-        inputValue: -0,
+        inputValue: -137.47,
         subCategoryId: 'bd19f7f5-4df7-44f0-bf80-e9f9455adfa2',
         subCategoryName: 'Insurance'
       },
       {
         avg: -55.515,
-        inputValue: -0,
+        inputValue: -55.515,
         subCategoryId: 'bc443a06-5ebe-4694-afd4-d0edfb621671',
         subCategoryName: 'Gas'
       },
       {
         avg: -8,
-        inputValue: -0,
+        inputValue: -8,
         subCategoryId: 'a8e27802-e38f-4019-b547-1ef5c5cc0b81',
         subCategoryName: 'Maintenance'
       },
       {
         avg: -7.105,
-        inputValue: -0,
+        inputValue: -7.105,
         subCategoryId: '3149083a-b8ec-4691-8684-fbb7c34409f1',
         subCategoryName: '407'
       },
@@ -38,13 +38,13 @@
     subCategories: [
       {
         avg: -20.115,
-        inputValue: -20.11,
+        inputValue: -20.115,
         subCategoryId: '13049d6d-da84-4213-9b09-6373c49be1ab',
         subCategoryName: 'Meghan'
       },
       {
         avg: -7.495,
-        inputValue: -7.49,
+        inputValue: -7.495,
         subCategoryId: '8d641af7-b3e8-47db-aceb-5d0b54c731b7',
         subCategoryName: 'Family'
       },
@@ -58,13 +58,13 @@
     subCategories: [
       {
         avg: -87.675,
-        inputValue: -87.67,
+        inputValue: -87.675,
         subCategoryId: '43c187fb-e9c8-4a36-a715-f2039f2f4d91',
         subCategoryName: 'Clothes'
       },
       {
         avg: -1.495,
-        inputValue: -1.49,
+        inputValue: -1.495,
         subCategoryId: '53221bd0-cd92-4991-ac3d-9165f1a77c7c',
         subCategoryName: 'Essentials'
       },
@@ -78,19 +78,19 @@
     subCategories: [
       {
         avg: -1042.3600000000001,
-        inputValue: -1042.36,
+        inputValue: -1042.3600000000001,
         subCategoryId: '2ac66625-3651-437a-933b-16a6c52681b7',
         subCategoryName: 'Groceries'
       },
       {
         avg: -258.545,
-        inputValue: -258.54,
+        inputValue: -258.545,
         subCategoryId: '93cdb324-8c4f-4ea7-83f0-96e5f2bf3dca',
         subCategoryName: 'Booze'
       },
       {
         avg: -102.87000000000002,
-        inputValue: -102.87,
+        inputValue: -102.87000000000002,
         subCategoryId: '985f3c5d-939c-432f-af7c-3bce08aff348',
         subCategoryName: 'Fast food'
       },
@@ -130,7 +130,7 @@
       },
       {
         avg: -273.225,
-        inputValue: -273.22,
+        inputValue: -273.225,
         subCategoryId: '1a73fccb-2280-467d-96e1-e5746c2d5612',
         subCategoryName: 'Electricity'
       },
@@ -148,13 +148,13 @@
       },
       {
         avg: -65.565,
-        inputValue: -65.56,
+        inputValue: -65.565,
         subCategoryId: '1542717e-46e0-41c6-8514-1d6245938d67',
         subCategoryName: 'Insurance'
       },
       {
         avg: -53.105,
-        inputValue: -53.1,
+        inputValue: -53.105,
         subCategoryId: 'a0fe87ea-7c17-489c-b682-aa10a1765422',
         subCategoryName: 'Cable'
       },
@@ -180,7 +180,7 @@
     subCategories: [
       {
         avg: 0.395,
-        inputValue: 0.4,
+        inputValue: 0.395,
         subCategoryId: '3ddaa349-c229-4fc7-965a-6158e08c719b',
         subCategoryName: 'Interest'
       },
@@ -192,7 +192,7 @@
       },
       {
         avg: 3340.255,
-        inputValue: 3340.26,
+        inputValue: 3340.255,
         subCategoryId: '67bd5f07-37ee-4ee4-b557-c16b805172ab',
         subCategoryName: 'Meghan'
       },
@@ -246,7 +246,7 @@
       },
       {
         avg: 4.955000000000007,
-        inputValue: 4.96,
+        inputValue: 4.955000000000007,
         subCategoryId: '15beb66b-22d2-48d8-aff1-914f833b1e2f',
         subCategoryName: 'Employement Expenses'
       },
@@ -274,19 +274,19 @@
     subCategories: [
       {
         avg: -267.645,
-        inputValue: -267.64,
+        inputValue: -267.645,
         subCategoryId: '0e5b9df9-da6f-4a92-b280-bad222d3da2c',
         subCategoryName: 'Meghan'
       },
       {
         avg: -241.52000000000004,
-        inputValue: -241.52,
+        inputValue: -241.52000000000004,
         subCategoryId: 'f45a3b03-568f-4a54-a31f-4317d9bf31a9',
         subCategoryName: 'Online'
       },
       {
         avg: -38.205,
-        inputValue: -38.2,
+        inputValue: -38.205,
         subCategoryId: '1ba30998-51c3-4703-a66e-ace21c1751d5',
         subCategoryName: 'Essentials'
       },
@@ -306,7 +306,7 @@
     subCategories: [
       {
         avg: 221.355,
-        inputValue: 221.36,
+        inputValue: 221.355,
         subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
         subCategoryName: 'uncategorized'
       },
