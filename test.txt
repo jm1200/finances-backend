@@ -5,20 +5,20 @@
     subCategoryLength: 6,
     subCategories: [
       {
-        avg: -353.5208333333333,
-        inputValue: -300,
+        avg: -348.06749999999994,
+        inputValue: -348.06749999999994,
         subCategoryId: 'bc443a06-5ebe-4694-afd4-d0edfb621671',
         subCategoryName: 'Gas'
       },
       {
         avg: -227.215,
-        inputValue: -227.21,
+        inputValue: -227.215,
         subCategoryId: 'bd19f7f5-4df7-44f0-bf80-e9f9455adfa2',
         subCategoryName: 'Insurance'
       },
       {
         avg: -208.24083333333337,
-        inputValue: -150,
+        inputValue: -208.24083333333337,
         subCategoryId: 'a8e27802-e38f-4019-b547-1ef5c5cc0b81',
         subCategoryName: 'Maintenance'
       },
@@ -30,13 +30,13 @@
       },
       {
         avg: -7.261666666666666,
-        inputValue: 0,
+        inputValue: -7.261666666666666,
         subCategoryId: '3149083a-b8ec-4691-8684-fbb7c34409f1',
         subCategoryName: '407'
       },
       {
         avg: -5.260833333333333,
-        inputValue: -5.26,
+        inputValue: -5.260833333333333,
         subCategoryId: '218a13b5-5cc4-469a-bb11-841d7eaccf31',
         subCategoryName: 'Parking'
       },
@@ -50,25 +50,25 @@
     subCategories: [
       {
         avg: -145.0358333333334,
-        inputValue: 0,
+        inputValue: -145.0358333333334,
         subCategoryId: '13049d6d-da84-4213-9b09-6373c49be1ab',
         subCategoryName: 'Meghan'
       },
       {
         avg: -104.86333333333333,
-        inputValue: 0,
+        inputValue: -104.86333333333333,
         subCategoryId: '01d63787-e5b4-43c8-ae6d-c7cb67ac3d37',
         subCategoryName: 'Kids'
       },
       {
         avg: -89.14583333333333,
-        inputValue: 0,
+        inputValue: -89.14583333333333,
         subCategoryId: '8d641af7-b3e8-47db-aceb-5d0b54c731b7',
         subCategoryName: 'Family'
       },
       {
         avg: -28.05666666666666,
-        inputValue: 0,
+        inputValue: -28.05666666666666,
         subCategoryId: '5b9c49bd-269d-48f9-9f22-a3f469b420bb',
         subCategoryName: 'John'
       },
@@ -82,25 +82,25 @@
     subCategories: [
       {
         avg: -14.612499999999999,
-        inputValue: 0,
+        inputValue: -14.612499999999999,
         subCategoryId: '43c187fb-e9c8-4a36-a715-f2039f2f4d91',
         subCategoryName: 'Clothes'
       },
       {
         avg: -14.27833333333333,
-        inputValue: 0,
+        inputValue: -14.27833333333333,
         subCategoryId: '741c512c-9139-4bcd-9084-921098fc3532',
         subCategoryName: 'Entertainment'
       },
       {
         avg: -9.079166666666667,
-        inputValue: 0,
+        inputValue: -9.079166666666667,
         subCategoryId: '53221bd0-cd92-4991-ac3d-9165f1a77c7c',
         subCategoryName: 'Essentials'
       },
       {
         avg: -1.8708333333333333,
-        inputValue: 0,
+        inputValue: -1.8708333333333333,
         subCategoryId: '4d8a382c-80e2-42d7-bf01-b6fced10e53b',
         subCategoryName: 'Shopping'
       },
@@ -114,31 +114,31 @@
     subCategories: [
       {
         avg: -1081.8191666666664,
-        inputValue: -1000,
+        inputValue: -1081.8191666666664,
         subCategoryId: '2ac66625-3651-437a-933b-16a6c52681b7',
         subCategoryName: 'Groceries'
       },
       {
         avg: -231.6975000000001,
-        inputValue: -50,
+        inputValue: -231.6975000000001,
         subCategoryId: 'ab1cfa7a-5094-47f5-b92a-1e8a4e866ebd',
         subCategoryName: 'Restaurants'
       },
       {
-        avg: -176.80499999999998,
-        inputValue: -50,
+        avg: -175.82416666666666,
+        inputValue: -175.82416666666666,
         subCategoryId: '985f3c5d-939c-432f-af7c-3bce08aff348',
         subCategoryName: 'Fast food'
       },
       {
         avg: -92.29916666666666,
-        inputValue: -25,
+        inputValue: -92.29916666666666,
         subCategoryId: '93cdb324-8c4f-4ea7-83f0-96e5f2bf3dca',
         subCategoryName: 'Booze'
       },
       {
         avg: -41.0225,
-        inputValue: -25,
+        inputValue: -41.0225,
         subCategoryId: '64600538-0a34-4173-9a4e-10cd41c0c9ab',
         subCategoryName: 'Treats'
       },
@@ -152,19 +152,19 @@
     subCategories: [
       {
         avg: -198.16666666666666,
-        inputValue: -150,
+        inputValue: -198.16666666666666,
         subCategoryId: '20a7bc00-e413-4157-b10c-c6e90a26e3c9',
         subCategoryName: 'Family'
       },
       {
         avg: -8.593333333333332,
-        inputValue: 0,
+        inputValue: -8.593333333333332,
         subCategoryId: '3e7f92a6-e0e5-41d0-8656-fe438f3657fc',
         subCategoryName: 'Meghan'
       },
       {
         avg: 46.25,
-        inputValue: 0,
+        inputValue: 46.25,
         subCategoryId: 'c363c6ae-24dc-478f-b8b1-86fbc92b910a',
         subCategoryName: 'John'
       },
@@ -178,55 +178,55 @@
     subCategories: [
       {
         avg: -1831.8733333333328,
-        inputValue: -1831.87,
+        inputValue: -1831.8733333333328,
         subCategoryId: 'de8892e8-6230-4ab7-8541-253df56fbb6d',
         subCategoryName: 'Mortgage'
       },
       {
         avg: -220.66166666666666,
-        inputValue: -220.66,
+        inputValue: -220.66166666666666,
         subCategoryId: '1a73fccb-2280-467d-96e1-e5746c2d5612',
         subCategoryName: 'Electricity'
       },
       {
         avg: -168.51083333333335,
-        inputValue: -168.51,
+        inputValue: -168.51083333333335,
         subCategoryId: 'f04b12aa-5493-49d0-8142-c1cad3a2a9bb',
         subCategoryName: 'Water'
       },
       {
         avg: -129.98250000000004,
-        inputValue: -129.98,
+        inputValue: -129.98250000000004,
         subCategoryId: '1542717e-46e0-41c6-8514-1d6245938d67',
         subCategoryName: 'Insurance'
       },
       {
         avg: -97.8925,
-        inputValue: -97.89,
+        inputValue: -97.8925,
         subCategoryId: 'eb4b9e3e-3b88-42d0-bd8b-c1f174f0cc08',
         subCategoryName: 'Pool/Hot tub'
       },
       {
         avg: -92.41000000000001,
-        inputValue: -92.41,
+        inputValue: -92.41000000000001,
         subCategoryId: '62820e87-fc30-411a-97e4-b974df9f58d3',
         subCategoryName: 'Maintenance'
       },
       {
         avg: -90.23083333333335,
-        inputValue: -90.23,
+        inputValue: -90.23083333333335,
         subCategoryId: 'a0fe87ea-7c17-489c-b682-aa10a1765422',
         subCategoryName: 'Cable'
       },
       {
         avg: -77.03083333333335,
-        inputValue: -77.03,
+        inputValue: -77.03083333333335,
         subCategoryId: '39e5176c-246f-49b8-a846-e73f36396059',
         subCategoryName: 'Gas'
       },
       {
         avg: -3.578333333333333,
-        inputValue: -3.58,
+        inputValue: -3.578333333333333,
         subCategoryId: '5f0b2e5a-9e83-44f1-9e61-31ae99c8f52e',
         subCategoryName: 'uncategorized'
       },
@@ -240,31 +240,31 @@
     subCategories: [
       {
         avg: 0.3316666666666666,
-        inputValue: 0.33,
+        inputValue: 0.3316666666666666,
         subCategoryId: '3ddaa349-c229-4fc7-965a-6158e08c719b',
         subCategoryName: 'Interest'
       },
       {
         avg: 39.166666666666664,
-        inputValue: 39.17,
+        inputValue: 39.166666666666664,
         subCategoryId: 'f00b50b7-80cf-49bd-9ea8-82912bfda48a',
         subCategoryName: 'uncategorized'
       },
       {
         avg: 849.5124999999998,
-        inputValue: 400,
+        inputValue: 849.5124999999998,
         subCategoryId: 'b745b6b5-c693-430e-82d9-ec37de328d9f',
         subCategoryName: 'Government'
       },
       {
         avg: 3625.4266666666667,
-        inputValue: 3625.43,
+        inputValue: 3625.4266666666667,
         subCategoryId: '67bd5f07-37ee-4ee4-b557-c16b805172ab',
         subCategoryName: 'Meghan'
       },
       {
         avg: 4448.233333333334,
-        inputValue: 1600,
+        inputValue: 4448.233333333334,
         subCategoryId: '2bd019cc-7bd0-43e4-98a6-6c3447db033b',
         subCategoryName: 'John'
       },
@@ -278,19 +278,19 @@
     subCategories: [
       {
         avg: -105.46750000000002,
-        inputValue: 0,
+        inputValue: -105.46750000000002,
         subCategoryId: 'eabf8ad3-885b-4f34-9487-72e80a90fc08',
         subCategoryName: 'Away Food'
       },
       {
         avg: -94.795,
-        inputValue: -94.79,
+        inputValue: -94.795,
         subCategoryId: '8ba15f01-b510-448a-b790-19a34502cdad',
         subCategoryName: 'Cell Phone'
       },
       {
         avg: -43.093333333333334,
-        inputValue: 0,
+        inputValue: -43.093333333333334,
         subCategoryId: '4b5f5fb9-63a7-4f70-a8f7-7ff1c15b1bda',
         subCategoryName: 'Employement Expenses'
       },
@@ -304,25 +304,25 @@
     subCategories: [
       {
         avg: -481.6666666666667,
-        inputValue: 0,
+        inputValue: -481.6666666666667,
         subCategoryId: 'a6de0678-faa2-4027-b209-647dea41a507',
         subCategoryName: 'Daycare'
       },
       {
         avg: -77.11333333333333,
-        inputValue: 0,
+        inputValue: -77.11333333333333,
         subCategoryId: '01f29b2b-25d0-40c3-84db-acee8a478fa3',
         subCategoryName: 'Entertainement'
       },
       {
         avg: -16.8,
-        inputValue: 0,
+        inputValue: -16.8,
         subCategoryId: '2000a9e5-71e5-4cbe-924b-1d2a616417aa',
         subCategoryName: 'Clothes'
       },
       {
         avg: -15.3525,
-        inputValue: 0,
+        inputValue: -15.3525,
         subCategoryId: '0022e3ef-568f-47ff-82af-889d04328672',
         subCategoryName: 'School'
       },
@@ -336,13 +336,13 @@
     subCategories: [
       {
         avg: -93.17583333333333,
-        inputValue: -93.18,
+        inputValue: -93.17583333333333,
         subCategoryId: 'df478ede-14ee-4fbc-a441-8914d5db1a02',
         subCategoryName: 'Cell Phone'
       },
       {
         avg: -26.198333333333327,
-        inputValue: -26.2,
+        inputValue: -26.198333333333327,
         subCategoryId: '15beb66b-22d2-48d8-aff1-914f833b1e2f',
         subCategoryName: 'Employement Expenses'
       },
@@ -356,37 +356,37 @@
     subCategories: [
       {
         avg: -129.16666666666666,
-        inputValue: 0,
+        inputValue: -129.16666666666666,
         subCategoryId: '00929de4-6321-4942-a402-64b5a8e330cf',
         subCategoryName: 'Transfer to Savings'
       },
       {
         avg: -70.83333333333333,
-        inputValue: 0,
+        inputValue: -70.83333333333333,
         subCategoryId: '0a65c4ed-b296-4ae2-ab36-0588f582d72d',
         subCategoryName: 'Pension Payments'
       },
       {
-        avg: -7.5,
-        inputValue: 0,
+        avg: -5.416666666666667,
+        inputValue: -5.416666666666667,
         subCategoryId: '4236c1f5-7d7c-4576-a5d3-ff4bfc8e810f',
         subCategoryName: 'Donations'
       },
       {
         avg: -1.0416666666666667,
-        inputValue: 0,
+        inputValue: -1.0416666666666667,
         subCategoryId: '88932c41-c4cc-4401-ac60-7ad046ca1b74',
         subCategoryName: 'Banking Charges'
       },
       {
         avg: -0.08833333333333333,
-        inputValue: 0,
+        inputValue: -0.08833333333333333,
         subCategoryId: 'd9e5c6ce-8268-4e79-a6d4-de995738d42f',
         subCategoryName: 'Creditcard Interest'
       },
       {
         avg: 8.333333333333334,
-        inputValue: 0,
+        inputValue: 8.333333333333334,
         subCategoryId: 'fd1702d3-329b-4e8f-b240-44503eebdba9',
         subCategoryName: 'RESP transfers'
       },
@@ -400,19 +400,19 @@
     subCategories: [
       {
         avg: -43.53416666666667,
-        inputValue: -43.53,
+        inputValue: -43.53416666666667,
         subCategoryId: 'b73be573-efdf-462f-b62d-37ec337c7cc4',
         subCategoryName: 'Food/Treats'
       },
       {
         avg: -38.574999999999996,
-        inputValue: -38.57,
+        inputValue: -38.574999999999996,
         subCategoryId: '00d3062e-e476-48fd-8e61-ebdd217723f1',
         subCategoryName: 'Vet bill'
       },
       {
         avg: -14.125,
-        inputValue: 0,
+        inputValue: -14.125,
         subCategoryId: 'f443e285-4758-4ca8-96d5-d3fedacd38a9',
         subCategoryName: 'Grooming'
       },
@@ -426,31 +426,31 @@
     subCategories: [
       {
         avg: -966.7516666666671,
-        inputValue: 0,
+        inputValue: -966.7516666666671,
         subCategoryId: '0e5b9df9-da6f-4a92-b280-bad222d3da2c',
         subCategoryName: 'Meghan'
       },
       {
-        avg: -195.86833333333323,
-        inputValue: 0,
+        avg: -195.74666666666656,
+        inputValue: -195.74666666666656,
         subCategoryId: 'f45a3b03-568f-4a54-a31f-4317d9bf31a9',
         subCategoryName: 'Online'
       },
       {
         avg: -97.02916666666668,
-        inputValue: 0,
+        inputValue: -97.02916666666668,
         subCategoryId: '1fa8e181-b49a-4f2f-8c00-4cc2dffc6bcd',
         subCategoryName: 'Gifts'
       },
       {
         avg: -89.83166666666666,
-        inputValue: 0,
+        inputValue: -89.83166666666666,
         subCategoryId: '16643925-dc2e-416b-a6ac-f8cf84e67e80',
         subCategoryName: 'John'
       },
       {
         avg: -76.71916666666665,
-        inputValue: -76.72,
+        inputValue: -76.71916666666665,
         subCategoryId: '1ba30998-51c3-4703-a66e-ace21c1751d5',
         subCategoryName: 'Essentials'
       },
@@ -464,7 +464,7 @@
     subCategories: [
       {
         avg: -4.704166666666667,
-        inputValue: 0,
+        inputValue: -4.704166666666667,
         subCategoryId: 'b7708acf-957f-48dd-a768-eb06bdbb1670',
         subCategoryName: 'Hotel'
       },
@@ -478,7 +478,7 @@
     subCategories: [
       {
         avg: -128.51166666666668,
-        inputValue: -128.51,
+        inputValue: -128.51166666666668,
         subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
         subCategoryName: 'uncategorized'
       },
