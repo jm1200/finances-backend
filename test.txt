@@ -5,40 +5,64 @@
     subCategoryLength: 6,
     subCategories: [
       {
-        avg: -348.06749999999994,
-        inputValue: -348.06749999999994,
+        currentMonth: 0,
+        lastMonth: -111.03,
+        lastYearCurrentMonth: -549.3699999999999,
+        lastYearLastMonth: -400.37,
+        avg: -423.4966666666669,
+        inputValue: -300,
         subCategoryId: 'bc443a06-5ebe-4694-afd4-d0edfb621671',
         subCategoryName: 'Gas'
       },
       {
-        avg: -227.215,
-        inputValue: -227.215,
+        currentMonth: 0,
+        lastMonth: -274.94,
+        lastYearCurrentMonth: -237.71,
+        lastYearLastMonth: -237.71,
+        avg: -266.8333333333333,
+        inputValue: -227.21,
         subCategoryId: 'bd19f7f5-4df7-44f0-bf80-e9f9455adfa2',
         subCategoryName: 'Insurance'
       },
       {
-        avg: -208.24083333333337,
-        inputValue: -208.24083333333337,
+        currentMonth: 0,
+        lastMonth: -10,
+        lastYearCurrentMonth: -5,
+        lastYearLastMonth: -268.59000000000003,
+        avg: -231.04000000000005,
+        inputValue: -150,
         subCategoryId: 'a8e27802-e38f-4019-b547-1ef5c5cc0b81',
         subCategoryName: 'Maintenance'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -47.5,
         inputValue: -47.5,
         subCategoryId: '17a23500-fab9-44e0-a915-ce13c5d50c12',
         subCategoryName: 'Licensing'
       },
       {
-        avg: -7.261666666666666,
-        inputValue: -7.261666666666666,
-        subCategoryId: '3149083a-b8ec-4691-8684-fbb7c34409f1',
-        subCategoryName: '407'
-      },
-      {
-        avg: -5.260833333333333,
-        inputValue: -5.260833333333333,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -48.75,
+        avg: -9.323333333333332,
+        inputValue: -5.26,
         subCategoryId: '218a13b5-5cc4-469a-bb11-841d7eaccf31',
         subCategoryName: 'Parking'
+      },
+      {
+        currentMonth: 0,
+        lastMonth: -14.21,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -14.38,
+        avg: -8.46,
+        inputValue: 0,
+        subCategoryId: '3149083a-b8ec-4691-8684-fbb7c34409f1',
+        subCategoryName: '407'
       },
       [length]: 6
     ]
@@ -49,26 +73,42 @@
     subCategoryLength: 4,
     subCategories: [
       {
-        avg: -145.0358333333334,
-        inputValue: -145.0358333333334,
+        currentMonth: 0,
+        lastMonth: -40.23,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -148.03,
+        avg: -157.3716666666667,
+        inputValue: 0,
         subCategoryId: '13049d6d-da84-4213-9b09-6373c49be1ab',
         subCategoryName: 'Meghan'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -104.86333333333333,
-        inputValue: -104.86333333333333,
+        inputValue: 0,
         subCategoryId: '01d63787-e5b4-43c8-ae6d-c7cb67ac3d37',
         subCategoryName: 'Kids'
       },
       {
-        avg: -89.14583333333333,
-        inputValue: -89.14583333333333,
+        currentMonth: 0,
+        lastMonth: -14.99,
+        lastYearCurrentMonth: -63.97,
+        lastYearLastMonth: 0,
+        avg: -93.06500000000001,
+        inputValue: 0,
         subCategoryId: '8d641af7-b3e8-47db-aceb-5d0b54c731b7',
         subCategoryName: 'Family'
       },
       {
-        avg: -28.05666666666666,
-        inputValue: -28.05666666666666,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -6.51,
+        lastYearLastMonth: -263.21,
+        avg: -49.990833333333335,
+        inputValue: 0,
         subCategoryId: '5b9c49bd-269d-48f9-9f22-a3f469b420bb',
         subCategoryName: 'John'
       },
@@ -81,28 +121,44 @@
     subCategoryLength: 4,
     subCategories: [
       {
+        currentMonth: 0,
+        lastMonth: -175.35,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -14.612499999999999,
-        inputValue: -14.612499999999999,
+        inputValue: 0,
         subCategoryId: '43c187fb-e9c8-4a36-a715-f2039f2f4d91',
         subCategoryName: 'Clothes'
       },
       {
-        avg: -14.27833333333333,
-        inputValue: -14.27833333333333,
-        subCategoryId: '741c512c-9139-4bcd-9084-921098fc3532',
-        subCategoryName: 'Entertainment'
-      },
-      {
-        avg: -9.079166666666667,
-        inputValue: -9.079166666666667,
+        currentMonth: 0,
+        lastMonth: -2.99,
+        lastYearCurrentMonth: -73.16,
+        lastYearLastMonth: -63.25,
+        avg: -14.350000000000001,
+        inputValue: 0,
         subCategoryId: '53221bd0-cd92-4991-ac3d-9165f1a77c7c',
         subCategoryName: 'Essentials'
       },
       {
-        avg: -1.8708333333333333,
-        inputValue: -1.8708333333333333,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -30.19,
+        avg: -4.386666666666667,
+        inputValue: 0,
         subCategoryId: '4d8a382c-80e2-42d7-bf01-b6fced10e53b',
         subCategoryName: 'Shopping'
+      },
+      {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
+        avg: 0.7216666666666676,
+        inputValue: 0,
+        subCategoryId: '741c512c-9139-4bcd-9084-921098fc3532',
+        subCategoryName: 'Entertainment'
       },
       [length]: 4
     ]
@@ -113,32 +169,52 @@
     subCategoryLength: 5,
     subCategories: [
       {
-        avg: -1081.8191666666664,
-        inputValue: -1081.8191666666664,
+        currentMonth: 0,
+        lastMonth: -1364.89,
+        lastYearCurrentMonth: -1306.46,
+        lastYearLastMonth: -1183.6100000000001,
+        avg: -1276.5558333333336,
+        inputValue: -1000,
         subCategoryId: '2ac66625-3651-437a-933b-16a6c52681b7',
         subCategoryName: 'Groceries'
       },
       {
-        avg: -231.6975000000001,
-        inputValue: -231.6975000000001,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -263.12,
+        lastYearLastMonth: -261.6,
+        avg: -287.5608333333334,
+        inputValue: -50,
         subCategoryId: 'ab1cfa7a-5094-47f5-b92a-1e8a4e866ebd',
         subCategoryName: 'Restaurants'
       },
       {
-        avg: -175.82416666666666,
-        inputValue: -175.82416666666666,
+        currentMonth: -25.03,
+        lastMonth: -121.55000000000001,
+        lastYearCurrentMonth: -127.73999999999998,
+        lastYearLastMonth: -226.26999999999995,
+        avg: -205.74249999999992,
+        inputValue: -50,
         subCategoryId: '985f3c5d-939c-432f-af7c-3bce08aff348',
         subCategoryName: 'Fast food'
       },
       {
-        avg: -92.29916666666666,
-        inputValue: -92.29916666666666,
+        currentMonth: -47.5,
+        lastMonth: -348.91999999999996,
+        lastYearCurrentMonth: -97.80000000000001,
+        lastYearLastMonth: 0,
+        avg: -114.79916666666666,
+        inputValue: -25,
         subCategoryId: '93cdb324-8c4f-4ea7-83f0-96e5f2bf3dca',
         subCategoryName: 'Booze'
       },
       {
-        avg: -41.0225,
-        inputValue: -41.0225,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -29.05,
+        lastYearLastMonth: -20.31,
+        avg: -45.13583333333333,
+        inputValue: -25,
         subCategoryId: '64600538-0a34-4173-9a4e-10cd41c0c9ab',
         subCategoryName: 'Treats'
       },
@@ -151,20 +227,32 @@
     subCategoryLength: 3,
     subCategories: [
       {
-        avg: -198.16666666666666,
-        inputValue: -198.16666666666666,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -200,
+        lastYearLastMonth: -36,
+        avg: -217.83333333333334,
+        inputValue: -150,
         subCategoryId: '20a7bc00-e413-4157-b10c-c6e90a26e3c9',
         subCategoryName: 'Family'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -8.593333333333332,
-        inputValue: -8.593333333333332,
+        inputValue: 0,
         subCategoryId: '3e7f92a6-e0e5-41d0-8656-fe438f3657fc',
         subCategoryName: 'Meghan'
       },
       {
-        avg: 46.25,
-        inputValue: 46.25,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 80,
+        lastYearLastMonth: 65,
+        avg: 51.666666666666664,
+        inputValue: 0,
         subCategoryId: 'c363c6ae-24dc-478f-b8b1-86fbc92b910a',
         subCategoryName: 'John'
       },
@@ -174,63 +262,109 @@
   {
     categoryId: '5d10e395-5893-4a70-81c5-8d72d0f6409c',
     categoryName: 'Home',
-    subCategoryLength: 9,
+    subCategoryLength: 10,
     subCategories: [
       {
-        avg: -1831.8733333333328,
-        inputValue: -1831.8733333333328,
+        currentMonth: -845.48,
+        lastMonth: -1690.96,
+        lastYearCurrentMonth: -1690.96,
+        lastYearLastMonth: -1690.96,
+        avg: -2113.6999999999994,
+        inputValue: -1831.87,
         subCategoryId: 'de8892e8-6230-4ab7-8541-253df56fbb6d',
         subCategoryName: 'Mortgage'
       },
       {
-        avg: -220.66166666666666,
-        inputValue: -220.66166666666666,
+        currentMonth: 0,
+        lastMonth: -254.4,
+        lastYearCurrentMonth: -211.44,
+        lastYearLastMonth: -268.71,
+        avg: -267.24666666666667,
+        inputValue: -220.66,
         subCategoryId: '1a73fccb-2280-467d-96e1-e5746c2d5612',
         subCategoryName: 'Electricity'
       },
       {
-        avg: -168.51083333333335,
-        inputValue: -168.51083333333335,
+        currentMonth: 0,
+        lastMonth: -441.2,
+        lastYearCurrentMonth: -134.7,
+        lastYearLastMonth: -147.7,
+        avg: -192.04416666666668,
+        inputValue: -168.51,
         subCategoryId: 'f04b12aa-5493-49d0-8142-c1cad3a2a9bb',
         subCategoryName: 'Water'
       },
       {
-        avg: -129.98250000000004,
-        inputValue: -129.98250000000004,
-        subCategoryId: '1542717e-46e0-41c6-8514-1d6245938d67',
-        subCategoryName: 'Insurance'
-      },
-      {
-        avg: -97.8925,
-        inputValue: -97.8925,
+        currentMonth: 0,
+        lastMonth: -336.68,
+        lastYearCurrentMonth: -424.1,
+        lastYearLastMonth: -432.79,
+        avg: -172.59250000000006,
+        inputValue: -97.89,
         subCategoryId: 'eb4b9e3e-3b88-42d0-bd8b-c1f174f0cc08',
         subCategoryName: 'Pool/Hot tub'
       },
       {
-        avg: -92.41000000000001,
-        inputValue: -92.41000000000001,
+        currentMonth: 0,
+        lastMonth: -131.13,
+        lastYearCurrentMonth: -117.32,
+        lastYearLastMonth: -117.32,
+        avg: -139.7591666666667,
+        inputValue: -129.98,
+        subCategoryId: '1542717e-46e0-41c6-8514-1d6245938d67',
+        subCategoryName: 'Insurance'
+      },
+      {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -226.51999999999998,
+        lastYearLastMonth: -9.61,
+        avg: -112.08749999999998,
+        inputValue: -92.41,
         subCategoryId: '62820e87-fc30-411a-97e4-b974df9f58d3',
         subCategoryName: 'Maintenance'
       },
       {
-        avg: -90.23083333333335,
-        inputValue: -90.23083333333335,
+        currentMonth: 0,
+        lastMonth: -106.21,
+        lastYearCurrentMonth: -85.87,
+        lastYearLastMonth: -85.87,
+        avg: -104.54250000000002,
+        inputValue: -90.23,
         subCategoryId: 'a0fe87ea-7c17-489c-b682-aa10a1765422',
         subCategoryName: 'Cable'
       },
       {
-        avg: -77.03083333333335,
-        inputValue: -77.03083333333335,
+        currentMonth: 0,
+        lastMonth: -55.11,
+        lastYearCurrentMonth: -55.06,
+        lastYearLastMonth: -76.24,
+        avg: -87.97250000000001,
+        inputValue: -77.03,
         subCategoryId: '39e5176c-246f-49b8-a846-e73f36396059',
         subCategoryName: 'Gas'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -100,
+        lastYearLastMonth: -200,
+        avg: -25,
+        inputValue: -25,
+        subCategoryId: '616b544b-bccf-4dea-aa86-f39cec9b388f',
+        subCategoryName: 'Cleaning'
+      },
+      {
+        currentMonth: 0,
+        lastMonth: -42.94,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -3.578333333333333,
-        inputValue: -3.578333333333333,
+        inputValue: -3.58,
         subCategoryId: '5f0b2e5a-9e83-44f1-9e61-31ae99c8f52e',
         subCategoryName: 'uncategorized'
       },
-      [length]: 9
+      [length]: 10
     ]
   },
   {
@@ -239,32 +373,52 @@
     subCategoryLength: 5,
     subCategories: [
       {
-        avg: 0.3316666666666666,
-        inputValue: 0.3316666666666666,
+        currentMonth: 0,
+        lastMonth: 0.46,
+        lastYearCurrentMonth: 0.33999999999999997,
+        lastYearLastMonth: 0.45999999999999996,
+        avg: 0.38833333333333336,
+        inputValue: 0.33,
         subCategoryId: '3ddaa349-c229-4fc7-965a-6158e08c719b',
         subCategoryName: 'Interest'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: 39.166666666666664,
-        inputValue: 39.166666666666664,
+        inputValue: 39.17,
         subCategoryId: 'f00b50b7-80cf-49bd-9ea8-82912bfda48a',
         subCategoryName: 'uncategorized'
       },
       {
-        avg: 849.5124999999998,
-        inputValue: 849.5124999999998,
+        currentMonth: 0,
+        lastMonth: 4570.16,
+        lastYearCurrentMonth: 430.38,
+        lastYearLastMonth: 430.38,
+        avg: 1122.6208333333327,
+        inputValue: 400,
         subCategoryId: 'b745b6b5-c693-430e-82d9-ec37de328d9f',
         subCategoryName: 'Government'
       },
       {
-        avg: 3625.4266666666667,
-        inputValue: 3625.4266666666667,
+        currentMonth: 1719.98,
+        lastMonth: 3439.94,
+        lastYearCurrentMonth: 3296.63,
+        lastYearLastMonth: 3296.64,
+        avg: 4179.2908333333335,
+        inputValue: 3625.43,
         subCategoryId: '67bd5f07-37ee-4ee4-b557-c16b805172ab',
         subCategoryName: 'Meghan'
       },
       {
-        avg: 4448.233333333334,
-        inputValue: 4448.233333333334,
+        currentMonth: 2510.42,
+        lastMonth: 9335.14,
+        lastYearCurrentMonth: 7041.4400000000005,
+        lastYearLastMonth: 15703.67,
+        avg: 6134.219166666666,
+        inputValue: 1600,
         subCategoryId: '2bd019cc-7bd0-43e4-98a6-6c3447db033b',
         subCategoryName: 'John'
       },
@@ -277,20 +431,32 @@
     subCategoryLength: 3,
     subCategories: [
       {
-        avg: -105.46750000000002,
-        inputValue: -105.46750000000002,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -44.910000000000004,
+        lastYearLastMonth: -53.11,
+        avg: -109.89333333333333,
+        inputValue: 0,
         subCategoryId: 'eabf8ad3-885b-4f34-9487-72e80a90fc08',
         subCategoryName: 'Away Food'
       },
       {
-        avg: -94.795,
-        inputValue: -94.795,
+        currentMonth: 0,
+        lastMonth: -79.78,
+        lastYearCurrentMonth: -73.45,
+        lastYearLastMonth: -87.01,
+        avg: -108.16666666666667,
+        inputValue: -94.79,
         subCategoryId: '8ba15f01-b510-448a-b790-19a34502cdad',
         subCategoryName: 'Cell Phone'
       },
       {
-        avg: -43.093333333333334,
-        inputValue: -43.093333333333334,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -336.28,
+        avg: -71.11666666666666,
+        inputValue: 0,
         subCategoryId: '4b5f5fb9-63a7-4f70-a8f7-7ff1c15b1bda',
         subCategoryName: 'Employement Expenses'
       },
@@ -303,26 +469,42 @@
     subCategoryLength: 4,
     subCategories: [
       {
-        avg: -481.6666666666667,
-        inputValue: -481.6666666666667,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -2180,
+        lastYearLastMonth: -2495,
+        avg: -845,
+        inputValue: 0,
         subCategoryId: 'a6de0678-faa2-4027-b209-647dea41a507',
         subCategoryName: 'Daycare'
       },
       {
-        avg: -77.11333333333333,
-        inputValue: -77.11333333333333,
+        currentMonth: -85,
+        lastMonth: 0,
+        lastYearCurrentMonth: -135.7,
+        lastYearLastMonth: -283.92,
+        avg: -103.315,
+        inputValue: 0,
         subCategoryId: '01f29b2b-25d0-40c3-84db-acee8a478fa3',
         subCategoryName: 'Entertainement'
       },
       {
-        avg: -16.8,
-        inputValue: -16.8,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
+        avg: -27.75333333333333,
+        inputValue: 0,
         subCategoryId: '2000a9e5-71e5-4cbe-924b-1d2a616417aa',
         subCategoryName: 'Clothes'
       },
       {
-        avg: -15.3525,
-        inputValue: -15.3525,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -33.98,
+        lastYearLastMonth: -73.75999999999999,
+        avg: -24.33083333333333,
+        inputValue: 0,
         subCategoryId: '0022e3ef-568f-47ff-82af-889d04328672',
         subCategoryName: 'School'
       },
@@ -335,14 +517,22 @@
     subCategoryLength: 2,
     subCategories: [
       {
-        avg: -93.17583333333333,
-        inputValue: -93.17583333333333,
+        currentMonth: 0,
+        lastMonth: -89.28,
+        lastYearCurrentMonth: -75.15,
+        lastYearLastMonth: -92.1,
+        avg: -107.11333333333333,
+        inputValue: -93.18,
         subCategoryId: 'df478ede-14ee-4fbc-a441-8914d5db1a02',
         subCategoryName: 'Cell Phone'
       },
       {
-        avg: -26.198333333333327,
-        inputValue: -26.198333333333327,
+        currentMonth: 0,
+        lastMonth: -90.08999999999999,
+        lastYearCurrentMonth: -98.96,
+        lastYearLastMonth: -87.19,
+        avg: -40.73000000000001,
+        inputValue: -26.2,
         subCategoryId: '15beb66b-22d2-48d8-aff1-914f833b1e2f',
         subCategoryName: 'Employement Expenses'
       },
@@ -355,38 +545,62 @@
     subCategoryLength: 6,
     subCategories: [
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -129.16666666666666,
-        inputValue: -129.16666666666666,
+        inputValue: 0,
         subCategoryId: '00929de4-6321-4942-a402-64b5a8e330cf',
         subCategoryName: 'Transfer to Savings'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -70.83333333333333,
-        inputValue: -70.83333333333333,
+        inputValue: 0,
         subCategoryId: '0a65c4ed-b296-4ae2-ab36-0588f582d72d',
         subCategoryName: 'Pension Payments'
       },
       {
-        avg: -5.416666666666667,
-        inputValue: -5.416666666666667,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -90,
+        lastYearLastMonth: 0,
+        avg: -7.5,
+        inputValue: 0,
         subCategoryId: '4236c1f5-7d7c-4576-a5d3-ff4bfc8e810f',
         subCategoryName: 'Donations'
       },
       {
-        avg: -1.0416666666666667,
-        inputValue: -1.0416666666666667,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -1.5,
+        lastYearLastMonth: -11.5,
+        avg: -2.125,
+        inputValue: 0,
         subCategoryId: '88932c41-c4cc-4401-ac60-7ad046ca1b74',
         subCategoryName: 'Banking Charges'
       },
       {
-        avg: -0.08833333333333333,
-        inputValue: -0.08833333333333333,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -0.03,
+        lastYearLastMonth: -1.7,
+        avg: -0.22999999999999998,
+        inputValue: 0,
         subCategoryId: 'd9e5c6ce-8268-4e79-a6d4-de995738d42f',
         subCategoryName: 'Creditcard Interest'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: 8.333333333333334,
-        inputValue: 8.333333333333334,
+        inputValue: 0,
         subCategoryId: 'fd1702d3-329b-4e8f-b240-44503eebdba9',
         subCategoryName: 'RESP transfers'
       },
@@ -399,20 +613,32 @@
     subCategoryLength: 3,
     subCategories: [
       {
-        avg: -43.53416666666667,
-        inputValue: -43.53416666666667,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -84.74,
+        lastYearLastMonth: 0,
+        avg: -50.59583333333334,
+        inputValue: -43.53,
         subCategoryId: 'b73be573-efdf-462f-b62d-37ec337c7cc4',
         subCategoryName: 'Food/Treats'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -38.574999999999996,
-        inputValue: -38.574999999999996,
+        inputValue: -38.57,
         subCategoryId: '00d3062e-e476-48fd-8e61-ebdd217723f1',
         subCategoryName: 'Vet bill'
       },
       {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: 0,
         avg: -14.125,
-        inputValue: -14.125,
+        inputValue: 0,
         subCategoryId: 'f443e285-4758-4ca8-96d5-d3fedacd38a9',
         subCategoryName: 'Grooming'
       },
@@ -425,32 +651,52 @@
     subCategoryLength: 5,
     subCategories: [
       {
-        avg: -966.7516666666671,
-        inputValue: -966.7516666666671,
+        currentMonth: -94.25999999999999,
+        lastMonth: -391.63,
+        lastYearCurrentMonth: -248.32,
+        lastYearLastMonth: -240.89,
+        avg: -1020.3258333333339,
+        inputValue: 0,
         subCategoryId: '0e5b9df9-da6f-4a92-b280-bad222d3da2c',
         subCategoryName: 'Meghan'
       },
       {
-        avg: -195.74666666666656,
-        inputValue: -195.74666666666656,
+        currentMonth: 0,
+        lastMonth: -329.97,
+        lastYearCurrentMonth: -69.35000000000001,
+        lastYearLastMonth: -82.75000000000001,
+        avg: -207.8266666666665,
+        inputValue: 0,
         subCategoryId: 'f45a3b03-568f-4a54-a31f-4317d9bf31a9',
         subCategoryName: 'Online'
       },
       {
-        avg: -97.02916666666668,
-        inputValue: -97.02916666666668,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -44.06,
+        avg: -100.70083333333336,
+        inputValue: 0,
         subCategoryId: '1fa8e181-b49a-4f2f-8c00-4cc2dffc6bcd',
         subCategoryName: 'Gifts'
       },
       {
-        avg: -89.83166666666666,
-        inputValue: -89.83166666666666,
+        currentMonth: 0,
+        lastMonth: -7.3,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -29.37,
+        avg: -92.27916666666665,
+        inputValue: 0,
         subCategoryId: '16643925-dc2e-416b-a6ac-f8cf84e67e80',
         subCategoryName: 'John'
       },
       {
-        avg: -76.71916666666665,
-        inputValue: -76.71916666666665,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -54.12,
+        lastYearLastMonth: -25.57,
+        avg: -83.36,
+        inputValue: -76.72,
         subCategoryId: '1ba30998-51c3-4703-a66e-ace21c1751d5',
         subCategoryName: 'Essentials'
       },
@@ -460,15 +706,39 @@
   {
     categoryId: 'd3ccff59-ef0a-4337-8511-2db61c31611f',
     categoryName: 'Travel',
-    subCategoryLength: 1,
+    subCategoryLength: 3,
     subCategories: [
       {
-        avg: -4.704166666666667,
-        inputValue: -4.704166666666667,
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: -283.32,
+        lastYearLastMonth: 0,
+        avg: -58.28916666666667,
+        inputValue: 0,
         subCategoryId: 'b7708acf-957f-48dd-a768-eb06bdbb1670',
         subCategoryName: 'Hotel'
       },
-      [length]: 1
+      {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -85.33,
+        avg: -7.110833333333333,
+        inputValue: -7.110833333333333,
+        subCategoryId: 'd5045d8d-2723-45df-be4b-05ae0ead8fbc',
+        subCategoryName: 'Airline'
+      },
+      {
+        currentMonth: 0,
+        lastMonth: 0,
+        lastYearCurrentMonth: 0,
+        lastYearLastMonth: -25.79,
+        avg: -2.1491666666666664,
+        inputValue: -2.1491666666666664,
+        subCategoryId: '1f40adc4-495c-4c85-9ac0-a393295fa765',
+        subCategoryName: 'Tax/Uber'
+      },
+      [length]: 3
     ]
   },
   {
@@ -477,8 +747,12 @@
     subCategoryLength: 1,
     subCategories: [
       {
-        avg: -128.51166666666668,
-        inputValue: -128.51166666666668,
+        currentMonth: 0,
+        lastMonth: 204.21,
+        lastYearCurrentMonth: -462.13,
+        lastYearLastMonth: -177.11,
+        avg: -181.78166666666664,
+        inputValue: -128.51,
         subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
         subCategoryName: 'uncategorized'
       },

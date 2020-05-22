@@ -704,7 +704,7 @@ export class TransactionsResolver extends BaseEntity {
     }
     try {
       let startDate = parseInt(
-        moment().subtract(selectedTimeFrame, "months").format("YYYYMMDD")
+        moment().subtract(14, "months").format("YYYYMMDD")
       );
 
       let zzignoreCat = await CategoryEntity.findOne({
@@ -720,6 +720,17 @@ export class TransactionsResolver extends BaseEntity {
         },
         relations: ["category", "subCategory"],
       });
+
+      let currentMonthTransactions = getMonthTransactions(
+        transactions,
+        "May",
+        2020
+      );
+      let lastMonthTransactions = getMonthTransactions(
+        transactions,
+        "Apr",
+        2020
+      );
 
       let budget: BudgetsEntity | undefined;
       if (selectedBudget !== "Default Budget") {
@@ -740,6 +751,8 @@ export class TransactionsResolver extends BaseEntity {
         let parsedData = parseTransactionsForBudget(
           transactions,
           selectedTimeFrame,
+          currentMonthTransactions,
+          lastMonthTransactions,
           parsedBudget
         );
         // fs.writeFileSync(
@@ -747,8 +760,9 @@ export class TransactionsResolver extends BaseEntity {
         //   util.inspect(parsedData, { showHidden: true, depth: null })
         // );
         return parsedData;
+        // return true;
       }
-      //return displayData;
+      // return displayData;
 
       return false;
     } catch (err) {
@@ -840,4 +854,24 @@ export class TransactionsResolver extends BaseEntity {
       return false;
     }
   }
+}
+
+function getMonthTransactions(
+  transactions: TransactionEntity[],
+  month: string,
+  year: number
+): TransactionEntity[] {
+  let dateFilteredTransactions = transactions.filter((transaction: any) => {
+    const date = transaction.datePosted;
+    const yearTest =
+      moment(date, "YYYYMMDD").format("YYYY") === year.toString();
+    const monthTest = moment(date, "YYYYMMDD").format("MMM") === month;
+    if (yearTest && monthTest) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  return dateFilteredTransactions;
 }
