@@ -1,763 +1,3280 @@
 [
-  {
-    categoryId: '87c3e9db-1cad-4467-896f-a9bbbe84629f',
-    categoryName: 'Auto',
-    subCategoryLength: 6,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: -111.03,
-        lastYearCurrentMonth: -549.3699999999999,
-        lastYearLastMonth: -400.37,
-        avg: -423.4966666666669,
-        inputValue: -300,
-        subCategoryId: 'bc443a06-5ebe-4694-afd4-d0edfb621671',
-        subCategoryName: 'Gas'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -274.94,
-        lastYearCurrentMonth: -237.71,
-        lastYearLastMonth: -237.71,
-        avg: -266.8333333333333,
-        inputValue: -227.21,
-        subCategoryId: 'bd19f7f5-4df7-44f0-bf80-e9f9455adfa2',
-        subCategoryName: 'Insurance'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -10,
-        lastYearCurrentMonth: -5,
-        lastYearLastMonth: -268.59000000000003,
-        avg: -231.04000000000005,
-        inputValue: -150,
-        subCategoryId: 'a8e27802-e38f-4019-b547-1ef5c5cc0b81',
-        subCategoryName: 'Maintenance'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -47.5,
-        inputValue: -47.5,
-        subCategoryId: '17a23500-fab9-44e0-a915-ce13c5d50c12',
-        subCategoryName: 'Licensing'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -48.75,
-        avg: -9.323333333333332,
-        inputValue: -5.26,
-        subCategoryId: '218a13b5-5cc4-469a-bb11-841d7eaccf31',
-        subCategoryName: 'Parking'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -14.21,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -14.38,
-        avg: -8.46,
-        inputValue: 0,
-        subCategoryId: '3149083a-b8ec-4691-8684-fbb7c34409f1',
-        subCategoryName: '407'
-      },
-      [length]: 6
-    ]
-  },
-  {
-    categoryId: '7095ae2d-672d-4293-9271-0ccab279d9c2',
-    categoryName: 'Entertainement',
-    subCategoryLength: 4,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: -40.23,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -148.03,
-        avg: -157.3716666666667,
-        inputValue: 0,
-        subCategoryId: '13049d6d-da84-4213-9b09-6373c49be1ab',
-        subCategoryName: 'Meghan'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -104.86333333333333,
-        inputValue: 0,
-        subCategoryId: '01d63787-e5b4-43c8-ae6d-c7cb67ac3d37',
-        subCategoryName: 'Kids'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -14.99,
-        lastYearCurrentMonth: -63.97,
-        lastYearLastMonth: 0,
-        avg: -93.06500000000001,
-        inputValue: 0,
-        subCategoryId: '8d641af7-b3e8-47db-aceb-5d0b54c731b7',
-        subCategoryName: 'Family'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -6.51,
-        lastYearLastMonth: -263.21,
-        avg: -49.990833333333335,
-        inputValue: 0,
-        subCategoryId: '5b9c49bd-269d-48f9-9f22-a3f469b420bb',
-        subCategoryName: 'John'
-      },
-      [length]: 4
-    ]
-  },
-  {
-    categoryId: 'f1d1a6e9-c90f-4859-bd5f-d20f4f0185c8',
-    categoryName: 'Family',
-    subCategoryLength: 4,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: -175.35,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -14.612499999999999,
-        inputValue: 0,
-        subCategoryId: '43c187fb-e9c8-4a36-a715-f2039f2f4d91',
-        subCategoryName: 'Clothes'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -2.99,
-        lastYearCurrentMonth: -73.16,
-        lastYearLastMonth: -63.25,
-        avg: -14.350000000000001,
-        inputValue: 0,
-        subCategoryId: '53221bd0-cd92-4991-ac3d-9165f1a77c7c',
-        subCategoryName: 'Essentials'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -30.19,
-        avg: -4.386666666666667,
-        inputValue: 0,
-        subCategoryId: '4d8a382c-80e2-42d7-bf01-b6fced10e53b',
-        subCategoryName: 'Shopping'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: 0.7216666666666676,
-        inputValue: 0,
-        subCategoryId: '741c512c-9139-4bcd-9084-921098fc3532',
-        subCategoryName: 'Entertainment'
-      },
-      [length]: 4
-    ]
-  },
-  {
-    categoryId: '6e70430b-55e7-48c9-ab7c-039f233831e2',
-    categoryName: 'Food',
-    subCategoryLength: 5,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: -1364.89,
-        lastYearCurrentMonth: -1306.46,
-        lastYearLastMonth: -1183.6100000000001,
-        avg: -1276.5558333333336,
-        inputValue: -1000,
-        subCategoryId: '2ac66625-3651-437a-933b-16a6c52681b7',
-        subCategoryName: 'Groceries'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -263.12,
-        lastYearLastMonth: -261.6,
-        avg: -287.5608333333334,
-        inputValue: -50,
-        subCategoryId: 'ab1cfa7a-5094-47f5-b92a-1e8a4e866ebd',
-        subCategoryName: 'Restaurants'
-      },
-      {
-        currentMonth: -25.03,
-        lastMonth: -121.55000000000001,
-        lastYearCurrentMonth: -127.73999999999998,
-        lastYearLastMonth: -226.26999999999995,
-        avg: -205.74249999999992,
-        inputValue: -50,
-        subCategoryId: '985f3c5d-939c-432f-af7c-3bce08aff348',
-        subCategoryName: 'Fast food'
-      },
-      {
-        currentMonth: -47.5,
-        lastMonth: -348.91999999999996,
-        lastYearCurrentMonth: -97.80000000000001,
-        lastYearLastMonth: 0,
-        avg: -114.79916666666666,
-        inputValue: -25,
-        subCategoryId: '93cdb324-8c4f-4ea7-83f0-96e5f2bf3dca',
-        subCategoryName: 'Booze'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -29.05,
-        lastYearLastMonth: -20.31,
-        avg: -45.13583333333333,
-        inputValue: -25,
-        subCategoryId: '64600538-0a34-4173-9a4e-10cd41c0c9ab',
-        subCategoryName: 'Treats'
-      },
-      [length]: 5
-    ]
-  },
-  {
-    categoryId: 'ee2b0686-6e06-44f2-bbd6-ed3d12bdc8e9',
-    categoryName: 'Healthcare',
-    subCategoryLength: 3,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -200,
-        lastYearLastMonth: -36,
-        avg: -217.83333333333334,
-        inputValue: -150,
-        subCategoryId: '20a7bc00-e413-4157-b10c-c6e90a26e3c9',
-        subCategoryName: 'Family'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -8.593333333333332,
-        inputValue: 0,
-        subCategoryId: '3e7f92a6-e0e5-41d0-8656-fe438f3657fc',
-        subCategoryName: 'Meghan'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 80,
-        lastYearLastMonth: 65,
-        avg: 51.666666666666664,
-        inputValue: 0,
-        subCategoryId: 'c363c6ae-24dc-478f-b8b1-86fbc92b910a',
-        subCategoryName: 'John'
-      },
-      [length]: 3
-    ]
-  },
-  {
-    categoryId: '5d10e395-5893-4a70-81c5-8d72d0f6409c',
-    categoryName: 'Home',
-    subCategoryLength: 10,
-    subCategories: [
-      {
-        currentMonth: -845.48,
-        lastMonth: -1690.96,
-        lastYearCurrentMonth: -1690.96,
-        lastYearLastMonth: -1690.96,
-        avg: -2113.6999999999994,
-        inputValue: -1831.87,
-        subCategoryId: 'de8892e8-6230-4ab7-8541-253df56fbb6d',
-        subCategoryName: 'Mortgage'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -254.4,
-        lastYearCurrentMonth: -211.44,
-        lastYearLastMonth: -268.71,
-        avg: -267.24666666666667,
-        inputValue: -220.66,
-        subCategoryId: '1a73fccb-2280-467d-96e1-e5746c2d5612',
-        subCategoryName: 'Electricity'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -441.2,
-        lastYearCurrentMonth: -134.7,
-        lastYearLastMonth: -147.7,
-        avg: -192.04416666666668,
-        inputValue: -168.51,
-        subCategoryId: 'f04b12aa-5493-49d0-8142-c1cad3a2a9bb',
-        subCategoryName: 'Water'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -336.68,
-        lastYearCurrentMonth: -424.1,
-        lastYearLastMonth: -432.79,
-        avg: -172.59250000000006,
-        inputValue: -97.89,
-        subCategoryId: 'eb4b9e3e-3b88-42d0-bd8b-c1f174f0cc08',
-        subCategoryName: 'Pool/Hot tub'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -131.13,
-        lastYearCurrentMonth: -117.32,
-        lastYearLastMonth: -117.32,
-        avg: -139.7591666666667,
-        inputValue: -129.98,
-        subCategoryId: '1542717e-46e0-41c6-8514-1d6245938d67',
-        subCategoryName: 'Insurance'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -226.51999999999998,
-        lastYearLastMonth: -9.61,
-        avg: -112.08749999999998,
-        inputValue: -92.41,
-        subCategoryId: '62820e87-fc30-411a-97e4-b974df9f58d3',
-        subCategoryName: 'Maintenance'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -106.21,
-        lastYearCurrentMonth: -85.87,
-        lastYearLastMonth: -85.87,
-        avg: -104.54250000000002,
-        inputValue: -90.23,
-        subCategoryId: 'a0fe87ea-7c17-489c-b682-aa10a1765422',
-        subCategoryName: 'Cable'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -55.11,
-        lastYearCurrentMonth: -55.06,
-        lastYearLastMonth: -76.24,
-        avg: -87.97250000000001,
-        inputValue: -77.03,
-        subCategoryId: '39e5176c-246f-49b8-a846-e73f36396059',
-        subCategoryName: 'Gas'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -100,
-        lastYearLastMonth: -200,
-        avg: -25,
-        inputValue: -25,
-        subCategoryId: '616b544b-bccf-4dea-aa86-f39cec9b388f',
-        subCategoryName: 'Cleaning'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -42.94,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -3.578333333333333,
-        inputValue: -3.58,
-        subCategoryId: '5f0b2e5a-9e83-44f1-9e61-31ae99c8f52e',
-        subCategoryName: 'uncategorized'
-      },
-      [length]: 10
-    ]
-  },
-  {
-    categoryId: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
-    categoryName: 'Income',
-    subCategoryLength: 5,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: 0.46,
-        lastYearCurrentMonth: 0.33999999999999997,
-        lastYearLastMonth: 0.45999999999999996,
-        avg: 0.38833333333333336,
-        inputValue: 0.33,
-        subCategoryId: '3ddaa349-c229-4fc7-965a-6158e08c719b',
-        subCategoryName: 'Interest'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: 39.166666666666664,
-        inputValue: 39.17,
-        subCategoryId: 'f00b50b7-80cf-49bd-9ea8-82912bfda48a',
-        subCategoryName: 'uncategorized'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 4570.16,
-        lastYearCurrentMonth: 430.38,
-        lastYearLastMonth: 430.38,
-        avg: 1122.6208333333327,
-        inputValue: 400,
-        subCategoryId: 'b745b6b5-c693-430e-82d9-ec37de328d9f',
-        subCategoryName: 'Government'
-      },
-      {
-        currentMonth: 1719.98,
-        lastMonth: 3439.94,
-        lastYearCurrentMonth: 3296.63,
-        lastYearLastMonth: 3296.64,
-        avg: 4179.2908333333335,
-        inputValue: 3625.43,
-        subCategoryId: '67bd5f07-37ee-4ee4-b557-c16b805172ab',
-        subCategoryName: 'Meghan'
-      },
-      {
-        currentMonth: 2510.42,
-        lastMonth: 9335.14,
-        lastYearCurrentMonth: 7041.4400000000005,
-        lastYearLastMonth: 15703.67,
-        avg: 6134.219166666666,
-        inputValue: 1600,
-        subCategoryId: '2bd019cc-7bd0-43e4-98a6-6c3447db033b',
-        subCategoryName: 'John'
-      },
-      [length]: 5
-    ]
-  },
-  {
-    categoryId: 'b3bbda80-8074-45b2-9326-fb0b5e35b859',
-    categoryName: 'John',
-    subCategoryLength: 3,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -44.910000000000004,
-        lastYearLastMonth: -53.11,
-        avg: -109.89333333333333,
-        inputValue: 0,
-        subCategoryId: 'eabf8ad3-885b-4f34-9487-72e80a90fc08',
-        subCategoryName: 'Away Food'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -79.78,
-        lastYearCurrentMonth: -73.45,
-        lastYearLastMonth: -87.01,
-        avg: -108.16666666666667,
-        inputValue: -94.79,
-        subCategoryId: '8ba15f01-b510-448a-b790-19a34502cdad',
-        subCategoryName: 'Cell Phone'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -336.28,
-        avg: -71.11666666666666,
-        inputValue: 0,
-        subCategoryId: '4b5f5fb9-63a7-4f70-a8f7-7ff1c15b1bda',
-        subCategoryName: 'Employement Expenses'
-      },
-      [length]: 3
-    ]
-  },
-  {
-    categoryId: 'dc4d9f8a-9dfa-4981-8ba7-22e281555a18',
-    categoryName: 'Kids',
-    subCategoryLength: 4,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -2180,
-        lastYearLastMonth: -2495,
-        avg: -845,
-        inputValue: 0,
-        subCategoryId: 'a6de0678-faa2-4027-b209-647dea41a507',
-        subCategoryName: 'Daycare'
-      },
-      {
-        currentMonth: -85,
-        lastMonth: 0,
-        lastYearCurrentMonth: -135.7,
-        lastYearLastMonth: -283.92,
-        avg: -103.315,
-        inputValue: 0,
-        subCategoryId: '01f29b2b-25d0-40c3-84db-acee8a478fa3',
-        subCategoryName: 'Entertainement'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -27.75333333333333,
-        inputValue: 0,
-        subCategoryId: '2000a9e5-71e5-4cbe-924b-1d2a616417aa',
-        subCategoryName: 'Clothes'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -33.98,
-        lastYearLastMonth: -73.75999999999999,
-        avg: -24.33083333333333,
-        inputValue: 0,
-        subCategoryId: '0022e3ef-568f-47ff-82af-889d04328672',
-        subCategoryName: 'School'
-      },
-      [length]: 4
-    ]
-  },
-  {
-    categoryId: '88bae796-7e48-4a5f-87cf-7674180e69a4',
-    categoryName: 'Meghan',
-    subCategoryLength: 2,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: -89.28,
-        lastYearCurrentMonth: -75.15,
-        lastYearLastMonth: -92.1,
-        avg: -107.11333333333333,
-        inputValue: -93.18,
-        subCategoryId: 'df478ede-14ee-4fbc-a441-8914d5db1a02',
-        subCategoryName: 'Cell Phone'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -90.08999999999999,
-        lastYearCurrentMonth: -98.96,
-        lastYearLastMonth: -87.19,
-        avg: -40.73000000000001,
-        inputValue: -26.2,
-        subCategoryId: '15beb66b-22d2-48d8-aff1-914f833b1e2f',
-        subCategoryName: 'Employement Expenses'
-      },
-      [length]: 2
-    ]
-  },
-  {
-    categoryId: 'e94049e5-b09f-43c0-9efb-56f704da28ab',
-    categoryName: 'Money Transfers',
-    subCategoryLength: 6,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -129.16666666666666,
-        inputValue: 0,
-        subCategoryId: '00929de4-6321-4942-a402-64b5a8e330cf',
-        subCategoryName: 'Transfer to Savings'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -70.83333333333333,
-        inputValue: 0,
-        subCategoryId: '0a65c4ed-b296-4ae2-ab36-0588f582d72d',
-        subCategoryName: 'Pension Payments'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -90,
-        lastYearLastMonth: 0,
-        avg: -7.5,
-        inputValue: 0,
-        subCategoryId: '4236c1f5-7d7c-4576-a5d3-ff4bfc8e810f',
-        subCategoryName: 'Donations'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -1.5,
-        lastYearLastMonth: -11.5,
-        avg: -2.125,
-        inputValue: 0,
-        subCategoryId: '88932c41-c4cc-4401-ac60-7ad046ca1b74',
-        subCategoryName: 'Banking Charges'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -0.03,
-        lastYearLastMonth: -1.7,
-        avg: -0.22999999999999998,
-        inputValue: 0,
-        subCategoryId: 'd9e5c6ce-8268-4e79-a6d4-de995738d42f',
-        subCategoryName: 'Creditcard Interest'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: 8.333333333333334,
-        inputValue: 0,
-        subCategoryId: 'fd1702d3-329b-4e8f-b240-44503eebdba9',
-        subCategoryName: 'RESP transfers'
-      },
-      [length]: 6
-    ]
-  },
-  {
-    categoryId: '34479992-63a9-4c8c-af6b-fbf5e0b20883',
-    categoryName: 'Pets',
-    subCategoryLength: 3,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -84.74,
-        lastYearLastMonth: 0,
-        avg: -50.59583333333334,
-        inputValue: -43.53,
-        subCategoryId: 'b73be573-efdf-462f-b62d-37ec337c7cc4',
-        subCategoryName: 'Food/Treats'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -38.574999999999996,
-        inputValue: -38.57,
-        subCategoryId: '00d3062e-e476-48fd-8e61-ebdd217723f1',
-        subCategoryName: 'Vet bill'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: 0,
-        avg: -14.125,
-        inputValue: 0,
-        subCategoryId: 'f443e285-4758-4ca8-96d5-d3fedacd38a9',
-        subCategoryName: 'Grooming'
-      },
-      [length]: 3
-    ]
-  },
-  {
-    categoryId: '9f1e0cc2-f8b0-4167-bcd1-0037c320f043',
-    categoryName: 'Shopping',
-    subCategoryLength: 5,
-    subCategories: [
-      {
-        currentMonth: -94.25999999999999,
-        lastMonth: -391.63,
-        lastYearCurrentMonth: -248.32,
-        lastYearLastMonth: -240.89,
-        avg: -1020.3258333333339,
-        inputValue: 0,
-        subCategoryId: '0e5b9df9-da6f-4a92-b280-bad222d3da2c',
-        subCategoryName: 'Meghan'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -329.97,
-        lastYearCurrentMonth: -69.35000000000001,
-        lastYearLastMonth: -82.75000000000001,
-        avg: -207.8266666666665,
-        inputValue: 0,
-        subCategoryId: 'f45a3b03-568f-4a54-a31f-4317d9bf31a9',
-        subCategoryName: 'Online'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -44.06,
-        avg: -100.70083333333336,
-        inputValue: 0,
-        subCategoryId: '1fa8e181-b49a-4f2f-8c00-4cc2dffc6bcd',
-        subCategoryName: 'Gifts'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: -7.3,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -29.37,
-        avg: -92.27916666666665,
-        inputValue: 0,
-        subCategoryId: '16643925-dc2e-416b-a6ac-f8cf84e67e80',
-        subCategoryName: 'John'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -54.12,
-        lastYearLastMonth: -25.57,
-        avg: -83.36,
-        inputValue: -76.72,
-        subCategoryId: '1ba30998-51c3-4703-a66e-ace21c1751d5',
-        subCategoryName: 'Essentials'
-      },
-      [length]: 5
-    ]
-  },
-  {
-    categoryId: 'd3ccff59-ef0a-4337-8511-2db61c31611f',
-    categoryName: 'Travel',
-    subCategoryLength: 3,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: -283.32,
-        lastYearLastMonth: 0,
-        avg: -58.28916666666667,
-        inputValue: 0,
-        subCategoryId: 'b7708acf-957f-48dd-a768-eb06bdbb1670',
-        subCategoryName: 'Hotel'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -85.33,
-        avg: -7.110833333333333,
-        inputValue: -7.110833333333333,
-        subCategoryId: 'd5045d8d-2723-45df-be4b-05ae0ead8fbc',
-        subCategoryName: 'Airline'
-      },
-      {
-        currentMonth: 0,
-        lastMonth: 0,
-        lastYearCurrentMonth: 0,
-        lastYearLastMonth: -25.79,
-        avg: -2.1491666666666664,
-        inputValue: -2.1491666666666664,
-        subCategoryId: '1f40adc4-495c-4c85-9ac0-a393295fa765',
-        subCategoryName: 'Tax/Uber'
-      },
-      [length]: 3
-    ]
-  },
-  {
+  TransactionEntity {
+    id: '0000676689622019010400004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190104',
+    name: 'ABM INTERAC WITHDRAWAL',
+    memo: 'EF1C;ABM INTERAC WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -243,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
     categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
-    categoryName: 'uncategorized',
-    subCategoryLength: 1,
-    subCategories: [
-      {
-        currentMonth: 0,
-        lastMonth: 204.21,
-        lastYearCurrentMonth: -462.13,
-        lastYearLastMonth: -177.11,
-        avg: -181.78166666666664,
-        inputValue: -128.51,
-        subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
-        subCategoryName: 'uncategorized'
-      },
-      [length]: 1
-    ]
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
   },
-  [length]: 15
+  TransactionEntity {
+    id: '0000676689622019010700001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190107',
+    name: 'ABM INTERAC WITHDRAWAL',
+    memo: 'EF1C;ABM INTERAC WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -43,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019010700003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'POS',
+    datePosted: '20190107',
+    name: 'SIFTON PROPERTI',
+    memo: 'EF9C;SIFTON PROPERTI',
+    note: null,
+    savedCategoryId: null,
+    amount: -5,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019010700005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190107',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -80,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019011000001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190110',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -200,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019011800004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190118',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -700,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019011800006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190118',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -2000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019010400006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190104',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -250,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019020100006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190201',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1300,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019021100002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190211',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -300,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019021500005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190215',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019020100007',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190201',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -235.47,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019030100006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190301',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1750,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019031100004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190311',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019030100008',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190301',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -500,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019031100005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190311',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -250,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019031400002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: '377 Hyde Park Rd.',
+    account: 'Bank',
+    type: 'SRVCHG',
+    datePosted: '20190314',
+    name: 'DISHONOURED CHQ DEPOSIT S/C #1',
+    memo: '145N;DISHONOURED CHQ DEPOSIT S/C #1',
+    note: null,
+    savedCategoryId: null,
+    amount: -7.5,
+    subCategoryId: '5ae933db-2792-430c-a0a0-9ce492d33d16',
+    categoryId: '3ff8643e-5ea9-409d-9667-e2a34eb1722c',
+    category: CategoryEntity {
+      id: '3ff8643e-5ea9-409d-9667-e2a34eb1722c',
+      name: '377 Hyde Park Rd.',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: '5ae933db-2792-430c-a0a0-9ce492d33d16',
+      name: 'uncategorized',
+      categoryId: '3ff8643e-5ea9-409d-9667-e2a34eb1722c',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019030100009',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190301',
+    name: 'TRANSFER IN',
+    memo: 'EC20;TRANSFER IN',
+    note: null,
+    savedCategoryId: '22f1d4a9-8329-419d-a6bc-26d92b39e4cd',
+    amount: 1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '22f1d4a9-8329-419d-a6bc-26d92b39e4cd',
+      name: 'TRANSFER IN',
+      memo: 'EC20;TRANSFER IN',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019031500004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190315',
+    name: 'ABM INTERAC WITHDRAWAL',
+    memo: 'EF1C;ABM INTERAC WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -63,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019040100004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190401',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -2300,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019040100008',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190401',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -60,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019040100007',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190401',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -200,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019040100010',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190401',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -200,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019041500007',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190415',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -2150,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019041700003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190417',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -800,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019041500006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190415',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -6700,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019042600006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190426',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -875.71,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019042900002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190429',
+    name: 'ABM INTERAC WITHDRAWAL',
+    memo: 'EF1C;ABM INTERAC WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -41.75,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019050200004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190502',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -2600,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019050300001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190503',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -250,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019051300002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190513',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1310,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019051300007',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190513',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -80,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019051300008',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190513',
+    name: 'ABM INTERAC WITHDRAWAL',
+    memo: 'EF1C;ABM INTERAC WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -81.5,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019051700004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190517',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -600,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019050200002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190502',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -2643.13,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019051600005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190516',
+    name: 'TRANSFER IN',
+    memo: 'EC20;TRANSFER IN',
+    note: null,
+    savedCategoryId: '22f1d4a9-8329-419d-a6bc-26d92b39e4cd',
+    amount: 2000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '22f1d4a9-8329-419d-a6bc-26d92b39e4cd',
+      name: 'TRANSFER IN',
+      memo: 'EC20;TRANSFER IN',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019052400004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190524',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1450,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019060300002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190603',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -800,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019061700003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190617',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1500,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019062400001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190624',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1800,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019062500002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190625',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -200,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019010400007',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190104',
+    name: "MASTERCARD, PRESIDENT'S C",
+    memo: "ENDG;MASTERCARD, PRESIDENT'S C",
+    note: null,
+    savedCategoryId: 'd2682e6f-78b6-4031-aeac-7575aabc1dc5',
+    amount: -700,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'd2682e6f-78b6-4031-aeac-7575aabc1dc5',
+      name: "MASTERCARD, PRESIDENT'S C",
+      memo: "ENDG;MASTERCARD, PRESIDENT'S C",
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019040100006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190401',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019070300002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190703',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -100,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019070800003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190708',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -2000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019070800004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20190708',
+    name: 'TRANSFER IN',
+    memo: 'EC20;TRANSFER IN',
+    note: null,
+    savedCategoryId: '22f1d4a9-8329-419d-a6bc-26d92b39e4cd',
+    amount: 1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '22f1d4a9-8329-419d-a6bc-26d92b39e4cd',
+      name: 'TRANSFER IN',
+      memo: 'EC20;TRANSFER IN',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019071500002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190715',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -2000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019072400001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190724',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -40,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019073100001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190731',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -3000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019081600005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190816',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -3000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019081900002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190819',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -200,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019082800002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190828',
+    name: 'ABM INTERAC WITHDRAWAL',
+    memo: 'EF1C;ABM INTERAC WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -203,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019090300002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190903',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -2000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019090600002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190906',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -60,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019090900001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190909',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019091600002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190916',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -60,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019091600005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190916',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1400,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019092700004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20190927',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1600,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019093000001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20190930',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -100,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019100100007',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20191001',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -800,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019100100008',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191001',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -100,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019101500003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20191015',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019101700006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191017',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -900,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019102500004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20191025',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1100,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019102800001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20191028',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -200,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019102800002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20191028',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -40,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019110100003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20191101',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -500,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019110100004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191101',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -175,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019110400001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20191104',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -200,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019101700004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'CREDIT',
+    datePosted: '20191017',
+    name: 'CHEQUE IMAGE DEPOSIT',
+    memo: 'MBTR;CHEQUE IMAGE DEPOSIT',
+    note: null,
+    savedCategoryId: null,
+    amount: 320,
+    subCategoryId: 'f00b50b7-80cf-49bd-9ea8-82912bfda48a',
+    categoryId: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
+    category: CategoryEntity {
+      id: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
+      name: 'Income',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'f00b50b7-80cf-49bd-9ea8-82912bfda48a',
+      name: 'uncategorized',
+      categoryId: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019111200002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20191112',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -2000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019111200004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191112',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -100,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019111800004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20191118',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019111800005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191118',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -200,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019111800006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20191118',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -140,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019112900002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'POS',
+    datePosted: '20191129',
+    name: 'CPC / SCP 39259',
+    memo: 'EF9C;CPC / SCP 39259',
+    note: null,
+    savedCategoryId: null,
+    amount: -20.37,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622019120300002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20191203',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -3000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019120300003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191203',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -200,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019120900004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191209',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -200,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019121600003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191216',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -200,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019121700005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20191217',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -1000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622019122700002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'CREDIT',
+    datePosted: '20191227',
+    name: 'CHEQUE IMAGE DEPOSIT',
+    memo: 'MBTR;CHEQUE IMAGE DEPOSIT',
+    note: null,
+    savedCategoryId: null,
+    amount: 150,
+    subCategoryId: 'f00b50b7-80cf-49bd-9ea8-82912bfda48a',
+    categoryId: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
+    category: CategoryEntity {
+      id: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
+      name: 'Income',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'f00b50b7-80cf-49bd-9ea8-82912bfda48a',
+      name: 'uncategorized',
+      categoryId: 'f76a9949-c7ab-45ac-b4ee-ec3956493639',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020010200002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20200102',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -2000,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020010600002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20200106',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -400,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020011300002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'POS',
+    datePosted: '20200113',
+    name: 'CPC / SCP 39259',
+    memo: 'EF9C;CPC / SCP 39259',
+    note: null,
+    savedCategoryId: null,
+    amount: -4.17,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020012000004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20200120',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -1559,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020012000007',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'POS',
+    datePosted: '20200120',
+    name: 'FEDEX-YXU',
+    memo: 'EF9C;FEDEX-YXU',
+    note: null,
+    savedCategoryId: null,
+    amount: -11.97,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020012800002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'CREDIT',
+    datePosted: '20200128',
+    name: 'CHEQUE IMAGE DEPOSIT',
+    memo: 'MBTR;CHEQUE IMAGE DEPOSIT',
+    note: null,
+    savedCategoryId: null,
+    amount: 56.86,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020013100004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20200131',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1700,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020013100006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20200131',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -500,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020021100004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20200211',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -100,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020021400005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20200214',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -2200,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020021400006',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20200214',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -200,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020022600001',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20200226',
+    name: 'E-TRANSFER STOP PAYMENT',
+    memo: 'EMTP;E-TRANSFER STOP PAYMENT',
+    note: null,
+    savedCategoryId: null,
+    amount: 55,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020022600002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'SRVCHG',
+    datePosted: '20200226',
+    name: 'E-TRANSFER STOP PAYMENT S/C',
+    memo: 'EMPC;E-TRANSFER STOP PAYMENT S/C',
+    note: null,
+    savedCategoryId: null,
+    amount: -3.5,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020022600003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20200226',
+    name: 'ABM DEPOSIT',
+    memo: 'EF1N;ABM DEPOSIT',
+    note: null,
+    savedCategoryId: null,
+    amount: 75,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020022600004',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20200226',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -300,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020022800005',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'PAYMENT',
+    datePosted: '20200228',
+    name: 'MASTERCARD, PC FINANCIAL',
+    memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+    note: null,
+    savedCategoryId: '4cc472f6-43e4-4073-abdd-4531361c904c',
+    amount: -1600,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: '4cc472f6-43e4-4073-abdd-4531361c904c',
+      name: 'MASTERCARD, PC FINANCIAL',
+      memo: 'ENDG;MASTERCARD, PC FINANCIAL',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  TransactionEntity {
+    id: '0000676689622020030200002',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'ATM',
+    datePosted: '20200302',
+    name: 'ABM WITHDRAWAL',
+    memo: 'EF1A;ABM WITHDRAWAL',
+    note: null,
+    savedCategoryId: null,
+    amount: -40,
+    subCategoryId: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+    categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+    category: CategoryEntity {
+      id: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      name: 'uncategorized',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'c3ae2cf9-a4bb-43e8-a13e-3c813b7216ea',
+      name: 'uncategorized',
+      categoryId: '80fb5172-1049-43cd-8129-c23fefd25dc6',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: null
+  },
+  TransactionEntity {
+    id: '0000676689622020030200003',
+    userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+    book: 'Home',
+    account: 'Bank',
+    type: 'XFER',
+    datePosted: '20200302',
+    name: 'TRANSFER OUT',
+    memo: 'ENDD;TRANSFER OUT',
+    note: null,
+    savedCategoryId: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+    amount: -700,
+    subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+    categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+    category: CategoryEntity {
+      id: '526683bf-f988-4aec-9261-17dab5367e9f',
+      name: 'zzIgnore',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    subCategory: SubCategoryEntity {
+      id: 'b38fad63-405e-4411-b6a4-7bb3050b1e22',
+      name: 'uncategorized',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff'
+    },
+    savedCategory: SavedCategoriesEntity {
+      id: 'e2709121-fa11-4373-b7a7-19b2b01deb78',
+      name: 'TRANSFER OUT',
+      memo: 'ENDD;TRANSFER OUT',
+      book: 'Home',
+      amounts: [ [length]: 0 ],
+      userId: 'd31f89d2-ee85-449c-80b6-1e206a86e9ff',
+      categoryId: '526683bf-f988-4aec-9261-17dab5367e9f',
+      subCategoryId: 'b38fad63-405e-4411-b6a4-7bb3050b1e22'
+    }
+  },
+  ... 2343 more items,
+  [length]: 2443
 ]

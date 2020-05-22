@@ -30,6 +30,8 @@ import {
 import { CategoryEntity } from "../../entity/Category";
 import { BudgetsEntity } from "../../entity/Budgets";
 
+type OrderBy = keyof TransactionEntity;
+
 @InputType()
 export class updateCategoriesInTransactionsInput {
   @Field()
@@ -476,10 +478,10 @@ export class TransactionsResolver extends BaseEntity {
                 });
 
                 //write this should only find n/m/b transactions!
-                fs.writeFileSync(
-                  "./test2.txt",
-                  util.inspect(transactions, { showHidden: true, depth: null })
-                );
+                // fs.writeFileSync(
+                //   "./test2.txt",
+                //   util.inspect(transactions, { showHidden: true, depth: null })
+                // );
 
                 console.log("update all transactions");
                 //reset all transactions with the same n/m/b (newly selected book) to the
@@ -779,7 +781,8 @@ export class TransactionsResolver extends BaseEntity {
     @Arg("filter") filter: string,
     //Add arguments for selected columns
     //@Arg("datePosted") datePosted: boolean,
-    @Arg("order") order: string,
+    @Arg("order") order: boolean,
+    @Arg("orderBy") orderBy: string,
     @Arg("month", { nullable: true }) month?: string,
     @Arg("year", () => Int, { nullable: true }) year?: number
   ): Promise<TransPageReturn | Boolean> {
@@ -790,7 +793,7 @@ export class TransactionsResolver extends BaseEntity {
     if (!userId) {
       return false;
     }
-    type Order = keyof TransactionEntity;
+
     // let selectedFields: Order[] = ["name"];
     // if (datePosted) selectedFields.push("datePosted");
 
@@ -833,19 +836,35 @@ export class TransactionsResolver extends BaseEntity {
       let length = filteredTransactions.length;
       //console.log("TR791 ", filteredTransactions);
       let sortedTransactions = filteredTransactions.sort((a, b) => {
-        if (!a[order as Order] || !b[order as Order]) return 0;
-        if (a[order as Order]! > b[order as Order]!) return 1;
-        if (a[order as Order]! < b[order as Order]!) return -1;
-        return 0;
+        if (orderBy === "category") {
+          if (a.category.name > b.category.name) return order ? 1 : -1;
+          if (a.category.name < b.category.name) return order ? -1 : 1;
+          else return 0;
+        } else if (orderBy === "subCategory") {
+          if (a.subCategory.name > b.subCategory.name) return order ? 1 : -1;
+          if (a.subCategory.name < b.subCategory.name) return order ? -1 : 1;
+          else return 0;
+        } else {
+          if (!a[orderBy as OrderBy] || !b[orderBy as OrderBy]) return 0;
+          if (a[orderBy as OrderBy]! > b[orderBy as OrderBy]!)
+            return order ? 1 : -1;
+          if (a[orderBy as OrderBy]! < b[orderBy as OrderBy]!)
+            return order ? -1 : 1;
+          return 0;
+        }
       });
 
       console.log("tr792", sortedTransactions);
+      fs.writeFileSync(
+        "./test.txt",
+        util.inspect(sortedTransactions, { showHidden: true, depth: null })
+      );
 
       let slicedTransactions = sortedTransactions.slice(
         skip * take,
         skip * take + take
       );
-      console.log("tr796", slicedTransactions);
+      //console.log("tr796", slicedTransactions);
 
       return { length, transactions: slicedTransactions };
       return false;
